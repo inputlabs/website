@@ -6,8 +6,9 @@ on:
       - main
 
 jobs:
-  build_and_preview:
+  deploy_staging:
     runs-on: ubuntu-latest
+    environment: staging
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
@@ -22,5 +23,5 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
           expires: 7d
           projectId: inputlabs
-          channelId: 'staging_QRXwehk3hDTcN4ps'
+          channelId: 'staging'
           # channelId: 'live'
