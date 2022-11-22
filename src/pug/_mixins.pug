@@ -10,6 +10,13 @@
 
   const db = YAML.parse(FS.readFileSync('src/pug/db/_data.yaml', 'utf8'))
 
+  const org = {
+    repos: 'https://github.com/orgs/inputlabs/repositories',
+    roadmap: 'https://github.com/orgs/inputlabs/projects/2',
+    forum: 'https://github.com/orgs/inputlabs/discussions',
+    discord: 'https://discord.gg/s8Yb4pfusT',
+  }
+
   const loadMathJax = [
     'dual_gyro',
     'placeholder'
