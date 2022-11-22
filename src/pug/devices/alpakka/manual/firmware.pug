@@ -1,0 +1,28 @@
+extends _manual.pug
+
+block append title
+  | Firmware
+
+block content
+  h2 Firmware
+  hr
+
+  h3 Get latest firmware
+  p The software embedded in the controller can be easily updated to get new features and fixes. Latest builds of the firmware #[em .uf2 files] are located in the #[+a('TODO') Firmware Repository].
+
+  h3 Install / Update the firmware
+  ul
+    li Connect the controller to a PC with a cable, and let it start normally.
+    li Hold #[em Home #[+home]] button.
+    li Hold #[em Select #[+select]] button (central area, top left button).
+    li
+      div After LEDs are turned off, release all buttons.
+      img(src='/static/manual/led_off.png' width='50px')
+    li Notice how the controller is now in #[em Boot mode], and will show up as #[em RPI-RP2] drive in your computer.
+    li In your computer, drag the #[em .uf2] file into the RPI-RP2 drive.
+    li Notice how the controller restarted itself, and the new firmware is already installed.
+    li If necessary, #[+a('calibrate') Calibrate] the controller.
+  hr
+
+  h3 Modify the firmware
+  p Check the #[+a('dev') Developer] section.

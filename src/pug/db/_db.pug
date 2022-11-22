@@ -1,0 +1,35 @@
+extends ../_template.pug
+
+block title
+  block subtitle
+    | Accessibility DB -
+    |
+
+block page
+  h1 Videogame accessibility database
+
+  div.boxes.wiki
+    div
+      div.box.index
+        h2 Accessibility database
+
+        h3 Misc
+        div
+          +wikilink('glossary') Glossary
+          +wikilink('improve') Help improving this list
+
+        h3 Games
+        div
+          +wikilink('days_gone') Days Gone
+          +wikilink('deep_rock_galactic') Deep Rock Galactic
+          +wikilink('doom_2016') Doom 2016
+          +wikilink('ghostrunner') Ghostrunner
+          +wikilink('half_life_2') Half-Life 2
+          +wikilink('insurgency_sandstorm') Insurgency: Sandstorm
+          +wikilink('noita') Noita
+          +wikilink('prodeus') Prodeus
+          +wikilink('pubg') PUBG: Battlegrounds
+          +wikilink('the_witcher_3') The Witcher 3
+
+    div.box.entry
+      block content

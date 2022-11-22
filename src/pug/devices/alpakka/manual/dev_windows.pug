@@ -1,0 +1,84 @@
+extends _manual.pug
+
+block append title
+  | Development in Windows
+
+block content
+  h2 Development in Windows
+  hr
+
+  p: i "Friends do not let friends code in Windows"
+  p The Alpakka controller is better developed in GNU/Linux. So before going into the extra trouble of setting up Windows for development please, consider installing Linux in a partition of your computer, or just using a Linux #[+ax('https://ubuntu.com/tutorials/create-a-usb-stick-on-ubuntu') live-USB].
+  p But if you still want (or must) continue in Windows, we have you covered. Since most PC gamers are on Windows, we went the extra mile to be sure that Windows is also a viable development environment.
+  p The trick is that even in Windows we will also be using Linux, thanks to #[+ax('https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux') WSL (Windows Subsystem for Linux)] which allows us to virtualize a Linux distribution inside Windows, officially supported by Microsoft, and with a very nice integration. That way we will use the same tooling that we would be using in Linux, though it still requires a bit of extra work.
+  hr
+
+  h3 Setup WSL
+  p For using WSL is required an updated version of Windows 10 or 11.
+  p Open the new Windows #[em Terminal] app as an administrator, and do:
+  pre: code.
+    <span class='dim'># In Windows terminal</span>
+    wsl --install -d ubuntu
+  p After everything is installed, an Ubuntu command line window will open, in which you will setup the #[em username and password] of the Linux image. Then close that window, and instead use Windows' terminal app directly to access Linux instances:
+  pre: code.
+    <span class='dim'># In Windows terminal</span>
+    wsl
+  p Now you are in Linux (is easy to know if you are in Windows or Linux depending on the prompt colors).
+  p Also at this point your Windows drives as #[em C:] or #[em D:] should be accessible in Linux as #[em /mnt/c], #[em /mnt/d], etc...
+  hr
+
+  h3 Ready for the basics
+  p Now you are ready to start using the basic developer commands, as compiling the firmware and loading it into the controller. Which is an acceptable subset of the whole #[+a('dev_unix') Linux development] cycle.
+  p This may be enough if you just want to tweak the built-in profiles.
+  p But with this setup you will #[em NOT be able to use the TTL/UART serial interface] yet, so you won't have detailed logs if something fails.
+  p If you want to be able to do #[em make session], you have to continue tweaking WSL as follows.
+  hr
+
+  h3 Setup WSL for USB sharing
+  p When connecting the USB-to-TTL cable, we have to share it with the Linux instance so it takes control of it, for that we need to install a couple of things, both in Windows and in Linux:
+  pre: code.
+    <span class='dim'># In Windows terminal</span>
+    winget install --interactive --exact dorssel.usbipd-win
+  pre: code.
+    <span class='dim'># In Linux terminal</span>
+    sudo apt install linux-tools-5.4.0-77-generic hwdata
+    sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/linux-tools/5.4.0-77-generic/usbip 20
+  p Now you can manually share USB devices (the USB-to-TTL cable) with the Linux instance, replace #[em busid] with the actual id of the USB, eg: 1-4.
+  pre: code.
+    <span class='dim'># In Windows terminal</span>
+    usbipd wsl list
+    usbipd wsl attach --busid busid
+  p Check that the USB device is available in the Linux instance:
+  pre: code.
+    <span class='dim'># In Linux terminal</span>
+    lsusb
+  hr
+
+  h3 Setup WSL for TTL serial
+  p Because Linux instances for virtual (usually cloud) environments do not ship with much hardware support, we need to use a custom WSL core with Linux #[em usbserial] module enabled, and all the available USB-to-TTL drivers, so they are automatically assigned to #[em /dev/ttyUSB0] on Linux.
+  p You can get a pre-compiled WSL kernel from us at #[+ax('https://github.com/inputlabs/alpakka_firmware/releases') Releases] (wsl_kernel_dev), or #[+ax('https://github.com/inputlabs/alpakka_firmware/wsl.md') compile it yourself].
+  p Copy the kernel to your Windows user folder, eg: #[em C:\Users\youruser\wsl_kernel_dev], then create a WSL config file:
+  pre: code.
+    <span class='dim'># At C:\Users\youruser\.wslconfig</span>
+    [wsl2]
+    kernel=C:\\Users\\youruser\\wsl_kernel_dev
+  p Shutdown WSL:
+  pre: code.
+    <span class='dim'># In Windows terminal</span>
+    wsl --shutdown
+  p Restart WSL and share the USB again (with usbipd as explained above). Linux now should have the USB serial device available at #[em /dev/ttyUSB0].
+  hr
+
+  h3 Fix GNU Screen permissions
+  p And finally before being able to use #[em make session], we have to fix some permissions for GNU Screen to work properly:
+  pre: code.
+    <span class='dim'># In Linux terminal</span>
+    sudo mkdir /run/screen
+    sudo chmod 777 /run/screen
+    sudo chmod 777 /dev/ttyUSB0
+  hr
+
+  h3 Done with the boilerplate
+  p Now you can develop following the same instructions than for #[+a('dev_unix') Linux development]
+
+

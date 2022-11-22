@@ -1,0 +1,37 @@
+extends _manual.pug
+
+block append title
+  | Order a PCB
+
+block content
+  h2 Order a Printed Circuit Board
+  hr
+
+  h3 Order from a PCB prototyping company
+  p The PCB schematics and layout are available at #[+ax('TODO') Alpakka PCB] repository, along with the consolidated order files for the reference design.
+  p We recommend to use a PCB prototyping service such as #[+ax('TODO') JLCPCB], which manufacture cheap PCBs in low quantities, with the option to solder a good assortment of SMD (Surface Mount Devices) onto the board. Though is possible to use any other service of your preference.
+  p The steps to order a PCB from #[em JLCPCB] are:
+  ol.spaced
+    li Get the consolidated order files (#[em .csv] and #[em .zip]) from #[+ax('TODO') Releases].
+    ul
+      li Or alternatively create the files yourself after you modified the schematics.
+    li Go to #[+ax('TODO') JLCPCB] → #[em Order now]
+    li Upload gerber files: #[em jlcpcb_gerber.zip]
+    li Wait until gerber files are processed.
+    li Change #[em Remove Order Number] to #[em Specify a location]
+    li Enable #[em PCB assembly] section.
+    li Change #[em PCBA Qty] to desired number of PCBs with assembled components (minimum is 2).
+    li Change #[em Tooling holes] to #[em Added by Customer]
+    li Go to next page.
+    li Upload BOM and CPL files: #[em jlcpcb_bom.csv] and #[em jlcpcb_cpl.csv]
+    li Validate components (it could happen that some are sold out, and you may want to cancel the order).
+    li Continue to checkout.
+  p The minimum order in JLCPCB is 5 PCBs with 2 of them having front SMD components soldered on it. Which is a bit of a waste, but the 3 extra raw PCBs can be used to practice soldering if needed.
+  img.hm.mt.mr(src='/static/manual/order_jlcpcb_quote.jpg')
+  img.hm.mt.mr(src='/static/manual/order_jlcpcb_smt.jpg')
+  img.hm.mt.mr(src='/static/manual/order_pcbs.jpg')
+
+  hr
+  h3 Next
+  ul
+    li: +a('diy_solder') Solder the PCB

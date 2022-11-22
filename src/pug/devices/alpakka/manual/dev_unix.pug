@@ -1,0 +1,93 @@
+extends _manual.pug
+
+block append title
+  | Development in Linux (and MacOS)
+
+block content
+  h2 Development in Linux (and MacOS)
+  hr
+
+  h3 Install system dependencies
+  p With #[em apt], #[em pacman], #[em brew], or the equivalent package manager of your system, we have to install:
+  ul
+    li gcc
+    li git
+    li cmake
+  hr
+
+  h3 Downloading the firmware source code
+  pre: code.
+    git clone https://github.com/inputlabs/alpakka_firmware
+  hr
+
+  h3 Install additional libraries
+  p This script will install the Pico C SDK, and the ARM architecture toolchain. It may take a while since the ARM toolchain download is big and slow.
+  pre: code.
+    cd alpakka_firmware
+    make install  <span class='dim'># It may take several minutes.</span>
+  hr
+
+  h3 Compile
+  p To setup the build environment and to compile for first time:
+  pre: code.
+    make
+  p If the build was successful then the firmware file is created at #[em build/alpakka.uf2]. After this point we can use reuse the compiling environment and cache to compile faster (even if we change the source code):
+  pre: code.
+    make rebuild
+  hr
+
+  h3 Load the firmware into the controller
+  p With the controller in #[em Bootsel mode] or having an active #[em Session], we can now flash the firmware into the controller memory with:
+  pre: code.
+    make load
+  hr
+
+  h3 Connect via session
+  p For development purposes or just to troubleshot problems, it is possible to establish a bidirectional communication with the controller via the #[em Developer Port] (the JST port above the USB) using a TTL serial cable (see #[+a('dev') Developer Kit]), so then the controller can output data into your terminal, and the controller listen to commands sent from the terminal.
+
+  p Using #[em make session] will create a GNU Screen session, with a log similar to this:
+  pre: code.
+    make session
+
+    ╔════════════════════════════╗
+    ║ Input Labs Oy.             ║
+    ║ Alpakka - firmware 0.82.10 ║
+    ╚════════════════════════════╝
+    Config NVM:
+      config_version=6
+      os_mode=0
+      profile=1
+      sensitivity=0
+      deadzone=0
+    Config I2C:
+      I2C bus
+      I2C_IO_0 ack=1
+      I2C_IO_1 ack=1
+    Config SPI
+    Config thumbstick
+    Config touch
+    Config rotary
+    Config profiles
+    Config IMU:
+      IMU_0: CTRL2_G=0x10100000
+      IMU_1: CTRL2_G=0x10100000
+    Profile: 1
+    USB: tud_ready TRUE
+  p Now in another terminal we can also use #[em make restart] or #[em make bootsel] instead of using the Developer Kit reset button (as long as the controller program did not crash). And also some other tooling will automatically use this communication channel if active.
+  hr
+
+  h3 Developer quality of life
+  p Additionally, for faster development cycles we can use #[em make reload], which will automatically rebuild the firmware, put the controller into bootsel mode, and flash the controller. Now that's convenient!
+  p: em make reload = make rebuild + make bootsel + make load
+  pre: code.
+    make reload
+
+    [ 16%] Completed 'ELF2UF2Build'
+    [ 64%] Built target ELF2UF2Build
+    [100%] Built target alpakka
+    Expecting drive at: /media/RPI-RP2
+    Requesting controller to go into Bootsel
+    Waiting for RPI-RP2 drive
+    UF2 loaded into Pico
+
+  p To check all other developer commands, check the Firmware repository #[+ax() Readme].

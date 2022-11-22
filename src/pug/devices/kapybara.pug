@@ -1,0 +1,38 @@
+extends ../_template.pug
+
+block title
+  | Kapybara controller
+
+block page
+  h1 Kapybara
+
+  div.boxes.grid
+    div.box
+      h2 All the control in your hand
+      p The Kapybara controller is Input Labs' second reference design, to be used with a #[em single hand], and more focused in disability use-cases, yet it still have the same advanced gyro controls than the Alpakka.
+      p This controller is still in the conceptual phase, actual development will start later.
+      p If you are interested in the Kapybara controller, remember you can #[+a('/contribute') Contribute] to Input Labs research with ideas, early feedback and more.
+
+    div.box
+      h2 Use-cases
+      p The Kapybara controller could be for you if:
+      ul
+        li Is difficult for you to use controllers designed for 2 hands.
+        li You still want to use mouse, but is difficult for you to use a keyboard.
+        li You still want to use mouse, but your prefer a thumbstick over WASD keys.
+
+    div.box.image
+      img(src='/static/img/kapybara.png')
+
+    div.box
+      mixin done(state)
+        span(style='font-family:monospace') [#{state ? '✔' : ' '}]
+      h2 Overview of development
+      div #[+done(1)] Concept.
+      div #[+done(0)] Breadboard prototypes.
+      div #[+done(0)] Firmware.
+      div #[+done(0)] Printed Circuit Board.
+      div #[+done(0)] 3D-printed prototypes.
+      div #[+done(0)] Early public testing.
+      div #[+done(0)] Reference designs.
+

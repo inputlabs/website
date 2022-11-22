@@ -1,0 +1,79 @@
+extends _manual.pug
+
+block append title
+  | Mouse emulation
+
+block content
+  h2 Mouse emulation
+  hr
+
+  h3 Engage and disengage the mouse
+  p The mouse emulation is always ready to be used, but is only engaged when the hexagonal surface on the right of the controller is touched:
+  table.manual.vdiv
+    tr
+      th Move cursor
+      th Re-center
+      th Click
+    tr
+      td
+        p Move the controller #[em.wrap while touching the hexagonal surface] (with your thumb) to move the mouse.
+        p Turn the controller up and down, and left and right, around its centre, as if a laser was being projected from the front of the controller.
+        p Moving the controller laterally or vertically (instead of turning it) does nothing. Tilting the controller also does nothing.
+        p For better results, sit comfortably in a chair or sofa, and hold the controller while resting your forearms onto your thighs. That will provide extra stability while getting familiar with it. But do not hold the controller too tight either.
+      td
+        p When you cannot twist your wrists anymore in some direction, #[em lift the finger] from the hexagonal surface and recenter the controller to a comfortable position.
+        p The mouse will not move while recentering the controller because the hexagonal surface is not being touched.
+        p Imagine this method is the equivalent to lifting a real mouse from the mat, and moving it to the centre of the mat again.
+        p This action will become more and more natural the more you do it. And eventually you will do it faster than lifting a real mouse.
+      td
+        p Use the triggers (L2/R2) as buttons to click the mouse.
+        p #[em R2 (right trigger)] is the primary click.
+        p #[em L2 (left trigger)] is the secondary click.
+    tr
+      td: img.wide(src='/static/manual/gyro_move.svg')
+      td: img.wide(src='/static/manual/gyro_recenter.svg')
+      td
+  hr
+
+  h3 Mouse sensitivity
+  p First, it is recommended to #[+a('setup') Setup] your operative system mouse sensitivity to its default, and disable acceleration.
+  p Additionally, the controller have #[em 3 built-in sensitivity presets] made to match the resolution of your monitor.
+  p The options are #[em 1080p] (low/default), #[em 1440p] (mid), or #[em 4K] (high). These can be changed in #[+a('tune') Tune options].
+  p Gyro input has a more limited range of usable sensitivities than a real mouse (due to the limited range of rotation of your wrists). So it is highly recommended to use the sensitivity adjustments in this table, since they are the perfect balance between accuracy and range:
+  table.manual.vdiv
+    tr
+      th For desktop or in-game cursor
+      th For in-game camera
+    tr
+      td
+        h4 Recommended sensitivity
+        p 45º of horizontal controller rotation (in real life) moves the cursor all the way from the left edge to right edge of the screen.
+        hr
+      td
+        b Recommended sensitivity
+        p 45º of horizontal controller rotation (in real life) should rotate the camera 180º (in-game)
+        hr
+    tr
+      td
+        h4 How to adjust it
+        p Set the controller sensitivity preset to match your monitor resolution (1080p/1440p/4K) in the Tune Options
+        p Be sure to follow the recommendations above:
+        ul
+          li Set default OS sensitivity.
+          li Disable OS mouse acceleration.
+      td
+        h4 How to adjust it
+        p Change the in-game settings for mouse sensitivity (It is different in each game), find the correct sensitivity value by turning the camera and using some elements of the virtual world as reference.
+        p Also if the game has the option:
+        ul
+          li Enable game raw mouse input.
+          li Disable game mouse smoothing.
+    tr
+      td
+        img(src='/static/manual/turn_45.svg' width='50%' display='inline')
+        img(src='/static/manual/turn_2d.svg' width='50%' display='inline')
+      td
+        img(src='/static/manual/turn_45.svg' width='50%' display='inline')
+        img(src='/static/manual/turn_3d.svg' width='50%' display='inline')
+
+  p Alternatively you can check each game recommended in-game sensitivity for the games we already evaluated in the #[a(href=defaultPage('/db')) Accessibility Database].

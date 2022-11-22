@@ -1,0 +1,127 @@
+mixin feature(value)
+  -
+    function formatValue(value) {
+      if (Array.isArray(value)) value = value[1]
+      if (value === 1) return 'Yes'
+      else if (value === 0) return 'No'
+      else if (value === null) return '-'
+      else if (value === undefined) throw `undefined ${name}`
+      else return value
+    }
+  tr
+    td.separator
+      block
+    if value
+      td #{formatValue(value)}
+    else
+      td.dim #{formatValue(value)}
+
+mixin feature_profile(name)
+  -
+    if (name === 'FPS Fusion') url = '/devices/alpakka/manual/profile_fps_fusion'
+    if (name === 'FPS WASD') url = '/devices/alpakka/manual/profile_fps_wasd'
+    if (name === 'Console') url = '/devices/alpakka/manual/profile_console'
+  tr
+    td.separator
+      block
+    td: a(href=url) #{name}
+
+h2 #{game['title']}
+hr
+div.mosaic
+  div.group
+    h3 Input
+    table.data
+      +feature(game.fusionInput) Fusion input (mouse + gamepad)
+      +feature(game.mouseRaw) Mouse raw input
+      +feature(game.mouseAnyValue) Mouse sensitivity any value
+      +feature(game.remapKeyboard) Remap keyboard
+      +feature(game.remapMouse) Remap mouse
+      +feature(game.remapGamepad) Remap controller
+      +feature(game.menuNavMouse) Menu navigation with mouse
+
+  div.group
+    h3 Monetization & addictions
+    table.data
+      +feature(game.paidExpansions) Paid additional playable content
+      +feature(game.paidCosmetics) Paid cosmetics
+      +feature(game.payToWin) Pay to win / Pay for convenience
+      +feature(game.fomoSales) FOMO sales
+      +feature(game.paidGambling) Gambling with real money
+
+  div.group
+    h3 Visual
+    table.data
+      +feature(game.fov) FOV adjustment
+      +feature(game.colorBlind) Color blind options
+      +feature(game.uiScale) UI scale options
+      +feature(game.uiLockPlatform) UI lock platform
+      +feature(game.framerateLimiter) Framerate limiter
+
+  div.group
+    h3 Audio
+    table.data
+      +feature(game.subtitlesDialog) Subtitles (dialog)
+      +feature(game.subtitlesCaption) Subtitles (captions)
+      +feature(game.subtitlesOptions) Subtitles display options
+
+  div.group
+    h3 Sensitive content
+    table.data
+      -
+        const violence_fmt = {
+          _18: 'Violence with gore or torture',
+          _15: 'Violence with injury or blood',
+          _12: 'Violence with no visible injury',
+          _7: 'Implied or abstract violence',
+          0: 0
+        }
+        const drugs_fmt = {
+          _18: 'Illegal drugs use',
+          _15: 'Alcohol or tobacco use',
+          _12: 'Medication',
+          0: 0
+        }
+        const sex_fmt = {
+          _18: 'Explicit sexual intercourse',
+          _15: 'Sexual intercourse',
+          _12: 'Implied or abstract sex',
+          0: 0
+        }
+      +feature(violence_fmt[game.violence]) Violence
+      +feature(drugs_fmt[game.drugs]) Drugs
+      +feature(sex_fmt[game.sex]) Sex
+      +feature(game.arachnophobic) Arachnophobic
+      +feature(game.trypophobic) Trypophobic
+
+  div.group
+    h3 Other
+    table.data
+      +feature(game.testArea) Playable test area
+      +feature(game.pauseCinematics) Pause cinematics
+      +feature(game.settingsAnytime) Allow settings anytime
+      +feature(game.reviewDate) Review date
+
+  div.group
+    h3 Recommended Alpakka settings
+    table.data
+      +feature_profile(game.alpakkaProfile) Recommended profile
+      +feature(game.alpakkaSensLow) In-game sensitivity (low preset)
+      +feature(game.alpakkaSensMid) In-game sensitivity (mid preset)
+      +feature(game.alpakkaSensHigh) In-game sensitivity (high preset)
+
+  if game.fps_tps
+    - const fps = game.fps_tps
+    div.group
+      h3 FPS / TPS
+      table.data
+        +feature(fps.crosshairOptions) Crosshair display options
+        +feature(fps.adsSensitivity) ADS independent sensitivity
+        +feature(fps.adsHold) ADS hold
+        +feature(fps.adsToggle) ADS toggle
+        +feature(fps.sprintHold) Sprint hold
+        +feature(fps.sprintToggle) Sprint toggle
+        +feature(fps.crouchHold) Crouch hold
+        +feature(fps.crouchToggle) Crouch toggle
+        +feature(fps.walkRunHold) Walk/run hold
+        +feature(fps.walkRunToggle) Walk/run toggle

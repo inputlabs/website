@@ -1,0 +1,70 @@
+extends ../../../_template.pug
+
+block title
+  block subtitle
+    | Alpakka manual -
+    |
+
+block page
+  include ../../_alpakka_header.pug
+
+  mixin home
+    img(src='/static/manual/button_home.svg' height='14px')
+  mixin select
+    img(src='/static/manual/button_select.svg' height='14px')
+  mixin hat
+    img(src='/static/manual/button_hat.svg' height='14px')
+  mixin dpad_up
+    img(src='/static/manual/button_dpad.svg' height='14px')
+  mixin dpad_right
+    img(src='/static/manual/button_dpad.svg' height='14px' style='transform:rotate(90deg)')
+  mixin dpad_down
+    img(src='/static/manual/button_dpad.svg' height='14px' style='transform:rotate(180deg)')
+  mixin dpad_left
+    img(src='/static/manual/button_dpad.svg' height='14px' style='transform:rotate(270deg)')
+
+  div.boxes.wiki
+    div
+      div.box.index
+        h2 Alpakka manual
+
+        h3 DIY & Hardware
+        div
+          +wikilink('diy_pcb') Order PCB
+          +wikilink('diy_solder') Solder PCB
+          +wikilink('diy_case') 3D print case & buttons
+          +wikilink('diy_assembly') Assembly
+
+        h3 Config
+        div
+          +wikilink('firmware') Firmware
+          +wikilink('setup') OS setup
+          +wikilink('mouse') Mouse
+          +wikilink('tune') Tune options
+          +wikilink('calibrate') Calibrate
+
+        h3 Profiles
+        div
+          +wikilink('profiles') About profiles
+          +wikilink('profile_home') Home
+          +wikilink('profile_fps_fusion') FPS Fusion
+          +wikilink('profile_fps_wasd') FPS WASD
+          +wikilink('profile_console') Console
+          +wikilink('profile_desktop') Desktop
+
+        h3 Developer
+        div
+          +wikilink('dev') Firmware development
+          +wikilink('dev_unix') Setup in Linux
+          +wikilink('dev_windows') Setup in Windows
+          +wikilink('dev_profiles') Modify profiles
+          div.inactive PCB development #[i (pending)]
+          div.inactive Case mods #[i (pending)]
+
+        h3 Other
+        div
+          +wikilink('faq') Frequently Asked Questions
+          +wikilink('specs') Specs
+
+    div.box.entry
+      block content

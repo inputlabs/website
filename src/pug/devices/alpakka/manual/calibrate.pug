@@ -1,0 +1,32 @@
+extends _manual.pug
+
+block append title
+  | Calibrate
+
+block content
+  h2 Calibrate
+  hr
+
+  h3 What is calibration
+  p The thumbstick X/Y axis potentiometers, and the angular rate sensor (gyro), are components that require calibration at least once to be #[em perfectly centered and accurate]. Otherwise its analog electrical signal could be misinterpreted and assigned wrong values.
+  hr
+
+  h3 When to calibrate
+  ul
+    li The very first time the controller is used.
+    li If the firmware is updated.
+    li If the thumbstick output is not centered (eg: your character keeps moving when you are not touching the thumbstick).
+    li If the gyro output is not centered (eg: mouse cursor keeps moving in a particular direction when the controller is held still).
+    li Approximately each 1000 hours of use.
+  hr
+
+  h3 To start the calibration procedure
+  ul
+    li Leave the thumbstick in its most natural centered position.
+    li Put the controller resting on a flat surface.
+    li Hold #[em Home #[+home]] button.
+    li Hold #[em Start 2 #[+select]] button (central area, bottom right button).
+    li Notice how the LEDs blink in a horizontal line (metaphor of a flat surface). #[br] #[img(src='/static/manual/led_calibrate.apng' width='50px')]
+    li Release all buttons and #[em do not touch the controller anymore].
+    li After a few seconds the actual calibration will start (the LEDs will move in a circular pattern). #[br] #[img(src='/static/manual/led_cycle.apng' width='50px')]
+    li Wait until the calibration is done (the LEDs do not blink anymore).

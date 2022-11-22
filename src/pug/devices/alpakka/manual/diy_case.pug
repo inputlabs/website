@@ -1,0 +1,126 @@
+extends _manual.pug
+
+block append title
+  | 3D print case & buttons
+
+block content
+  h2 3D-printed case & buttons
+  hr
+
+  h3 3D printer
+  p Any modern FDM (Fused Deposition Modeling) printer should be able to print Alpakka case and buttons, the parts are designed so they do not require any additional supports, but the printer must be able do generate at least 10 millimeter bridges.
+  p Resin 3D printers should be an option too, but we did not test these yet.
+  p If you do not own a 3D printer, check if your local library have some for booking. Alternatively if you are interested in buying a 3D printer, some of the most popular ones are #[+ax('https://www.prusa3d.com') Prusa] and #[+ax('https://www.creality.com') Creality] printers.
+  p Another option is too use online 3D-printing services, but these are expensive and results may be mixed, so we do not really recommend them.
+  hr
+
+  h3 Materials and tools
+  p: b Required:
+  ul
+    li 3D models #[+ax('TODO') STL] or #[+ax('TODO') 3MF] files.
+    li 3D printer.
+    li Normal filament (PLA recommended) in one or more colors.
+    li Electrically conductive filament.
+  p Check #[+a('/devices/alpakka/components') Components] for more details.
+  hr
+
+  h3 Printing front
+  p The front part of the case, it does not require supports.
+  img.hm.mt.mr(src='/static/manual/print_A.png')
+  table.data
+    tr
+      td Recommended layer height
+      td 0.15 mm
+    tr
+      td Recommended filament
+      td Standard PLA 1.75 mm
+    tr
+      td Used filament
+      td ~60 grams
+    tr
+      td Printing time
+      td ~8 hours
+  hr
+
+  h3 Printing back
+  p The back part of the case, it does not require supports. The first layer must be printed very slowly due to the small pillars circles. If printing slow does not help with the first layer adhesion, a brim may also be used.
+  img.hm.mt.mr(src='/static/manual/print_B.png')
+  table.data
+    tr
+      td Recommended layer height
+      td 0.15 mm
+    tr
+      td Recommended filament
+      td Standard PLA 1.75 mm
+    tr
+      td Used filament
+      td ~50 grams
+    tr
+      td Printing time
+      td ~7 hours
+  hr
+
+  h3 Printing triggers (and more)
+  p A bundle with L1/R1 triggers, L2/R2 triggers, L4/R4 triggers, scroll wheel, scroll wheel support, 8-directional hat, assembly anchors, and rear cover. None of them need support.
+  p You may want to split the bundle and print these in 2 different colors.
+  img.hm.mt.mr(src='/static/manual/print_C.png')
+  table.data
+    tr
+      td Recommended layer height
+      td 0.15 mm
+    tr
+      td Recommended filament
+      td Standard PLA 1.75 mm
+    tr
+      td Used filament
+      td ~25 grams
+    tr
+      td Printing time
+      td ~3.5 hours
+  hr
+
+  h3 Printing buttons (and more)
+  p A bundle with ABXY buttons, dpad buttons, select buttons, home button (requires support), thumbstick cap (requires support), and scroll wheel shaft.
+  p You may want to split the bundle and print these in 2 different colors.
+  p These must be printed in a much higher resolution (lower layer height) because:
+  ul
+    li Buttons: So they are smooth while being pressed (otherwise they may grind against the walls).
+    li Thumbstick: So the spherical shape is smooth.
+    li Scroll wheel shaft: So the small hexagonal shaft is accurate.
+  img.hm.mt.mr(src='/static/manual/print_D.png')
+  table.data
+    tr
+      td Recommended layer height
+      td 0.07 mm
+    tr
+      td Recommended filament
+      td Standard PLA 1.75 mm
+    tr
+      td Used filament
+      td ~14 grams
+    tr
+      td Printing time
+      td ~7 hours
+  hr
+
+  h3 Printing conductive hexagon
+  p The hexagonal touch surface, must be printed with an electrically conductive material so the piece becomes capacitative.
+  img.hm.mt.mr(src='/static/manual/print_E.png')
+  table.data
+    tr
+      td Recommended layer height
+      td 0.15 mm
+    tr
+      td Recommended filament
+      td Conductive PLA 1.75 mm
+    tr
+      td Used filament
+      td ~4 grams
+    tr
+      td Printing time
+      td ~0.5 hours
+
+  hr
+  h3 Next
+  ul
+    li: +a('diy_assembly') Assembly

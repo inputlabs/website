@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 178 178" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="hat">
+        <path d="M153.543,43.348C153.543,32.461 144.705,23.622 133.818,23.622L43.348,23.622C32.461,23.622 23.622,32.461 23.622,43.348L23.622,133.818C23.622,144.705 32.461,153.543 43.348,153.543L133.818,153.543C144.705,153.543 153.543,144.705 153.543,133.818L153.543,43.348Z" style="fill:none;stroke:white;stroke-width:12.5px;"/>
+        <rect x="59.055" y="59.055" width="59.055" height="59.055" style="fill:white;stroke:white;stroke-width:12.5px;"/>
+    </g>
+</svg>

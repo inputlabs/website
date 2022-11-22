@@ -1,0 +1,86 @@
+extends _manual.pug
+
+block append title
+  | Profiles
+
+block content
+  h2 Profiles
+  hr
+
+  h3 What is a profile
+  p The active profile in the controller determines how the controller reacts to your input, and which actions will be sent to the computer.
+  p The firmware comes with a few #[em built-in profiles] that are carefully crafted for different game genres or activities (eg:  FPS, or Racing). So hundreds of games of similar genre do work perfectly with the same profile.
+  //- p You can also imagine profiles as a translation layer between actions and results, for example:
+  //- ul.smallfont
+  //-   li Alpakka #[em X button] -> Console profile -> Gamepad #[em.nowrap X button]
+  //-   li Alpakka #[em X button] -> FPS profile -> Keyboard #[em.nowrap R key]
+  //- hr
+
+  h3 Select the active profile
+  p The active profile is changed by holding the #[em Home #[+home]] button and pressing a #[em Directional pad #[+dpad_left] #[+dpad_up] #[+dpad_down] #[+dpad_right]].
+  p Notice how the #[em LEDs] on the controller indicate which profile is active, and the direction of the LED matches the direction of the D-pad.
+  p After selecting the most fitting profile for a game, the buttons will never match 100% with your preferences, instead go to the in-game settings and change the key binds as you like, just as you would do when using a keyboard and mouse.
+  p These are the built-in profiles:
+
+
+  div.card.center.pad(style='margin-bottom:20px')
+    div: img(src='/static/manual/led_on.png' width='50px' )
+    +a('profile_home') Home
+    div Active while holding Home button
+
+  div.flex.inner.basisgap
+    div.card.inner.center.basis4
+      div Hold #[em Home #[+home]] +#[br] #[em.nowrap D-pad up #[+dpad_up]]
+      hr
+      img.mt.centered(src='/static/manual/led_up.png' width='50px' )
+      +a('profile_fps_fusion') FPS Fusion
+      div &nbsp;
+      hr
+      img.mt.centered(src='/static/manual/led_triangle_up.png' width='50px')
+      +a('profile_fps_wasd') FPS WASD
+      div.dim (Hold D-pad)
+
+    div.card.inner.center.basis4
+      div Hold #[em Home #[+home]] +#[br] #[em.nowrap D-pad right #[+dpad_right]]
+      hr
+      img.mt.centered(src='/static/manual/led_right.png' width='50px')
+      em Racing
+      div.dim: i Not available yet
+      hr
+      img.mt.centered(src='/static/manual/led_triangle_right.png' width='50px')
+      em Flight
+      div.dim (Hold D-pad)
+      i.dim Not available yet
+
+    div.card.inner.center.basis4
+      div Hold #[em Home #[+home]] +#[br] #[em.nowrap D-pad down #[+dpad_down]]
+      hr
+      img.mt.centered(src='/static/manual/led_down.png' width='50px')
+      +a('profile_console') Console
+      div &nbsp;
+      hr
+      img.mt.centered(src='/static/manual/led_triangle_down.png' width='50px')
+      em Console legacy
+      div.dim (Hold D-pad)
+      i.dim Not available yet
+
+    div.card.inner.center.basis4
+      div Hold #[em Home #[+home]] +#[br] #[em.nowrap D-pad left #[+dpad_left]]
+      hr
+      div: img.mt.centered(src='/static/manual/led_left.png' width='50px')
+      +a('profile_desktop') Desktop
+      div &nbsp;
+      hr
+      div: img.mt.centered(src='/static/manual/led_triangle_left.png' width='50px')
+      em RTS
+      div.dim (Hold D-pad)
+      i.dim Not available yet
+
+  p: i (Some of these profiles are still being developed or waiting for more feedback).
+  hr
+
+  h3 Create or edit profiles
+  p While most of people won't need to tinker with profiles, we understand that some players will have to, either because physical constrains or because very specific niche games.
+  p But we are still developing the method to easily create or modify profiles, and load them via USB cable. Meanwhile the only way to tweak profiles is to edit and compile the firmware yourself. See #[+a('dev_profiles') Modify Profiles] page.
+  p Also please remember you can #[+a('/contribute') Contribute] with Input Labs, and help us developing these.
+

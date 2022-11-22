@@ -1,0 +1,66 @@
+extends _manual.pug
+
+block append title
+  | OS setup
+
+block content
+  h2 OS setup
+  hr
+
+  h3 Cable
+  p The current reference design is not wireless yet, so it requires a #[em USB cable (USB Micro-B)] to connect it to the computer.
+  hr
+
+  h3 Operative system
+  p This device is compatible with Windows and Linux, and #[em does not require to install any driver].
+  p The controller can be configured in #[+a('tune') Tune options] to match your operative system, the options are #[em Windows (default) or GNU/Linux].
+  hr
+
+  h3 Mouse sensitivity in the operative system
+  p It is recommended to set the operative system mouse sensitivity to its default value, and to disable mouse acceleration:
+  table.manual.vdiv
+    tr
+      th Windows
+      th GNU/Linux with GTK
+      th GNU/Linux with KDE
+    tr
+      td: ul
+        li Open Settings app.
+        li Go to Devices tab.
+        li Go to Mouse page.
+        li Set #[em Mouse pointer speed] to default (half way).
+      td: ul
+        li Open Settings app.
+        li Go to Mouse and Touchpad tab.
+        li Set #[em Mouse Speed] to default (half way).
+      td: ul
+        li Open Settings app.
+        li Go to Input Devices tab.
+        li Go to Mouse page.
+        li Set #[em Pointer speed] to default (half way).
+    tr
+      td: img(src='/static/manual/sens_win.png' width='100%')
+      td: img(src='/static/manual/sens_gtk.png' width='100%')
+      td: img(src='/static/manual/sens_kde.png' width='100%')
+    tr
+      td
+        hr
+        ul
+          li Go to Additional options.
+          li Go to Pointer options tab.
+          li Disable #[em Enhance pointer precision].
+      td
+        hr
+        ul
+          li Open gnome-tweaks app (install it if necessary).
+          li Go to Keyboard and Mouse tab.
+          li Set #[em Acceleration Profile] to Flat.
+      td
+        hr
+        ul
+          li Set #[em Acceleration profile] to flat.
+    tr
+      td: img(src='/static/manual/sens_win_acc.png' width='100%')
+      td: img(src='/static/manual/sens_gtk_acc.png' width='100%')
+      td: img(src='/static/manual/sens_kde_acc.png' width='100%')
+

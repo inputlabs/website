@@ -1,0 +1,273 @@
+extends _blog.pug
+
+block append subtitle
+  | Finger Sensing
+
+block content
+  h2 Finger Sensing
+  hr
+  p: i November 2022
+  p: i Note: This is a re-formatted version of #[+ax('https://github.com/marcos-diaz/research') Finger sensing surrounding physical buttons] white paper, research conducted even before Input Labs was established, but if you want Input Labs to make research like this in the future, please consider becoming a supporter on #[+ax('TODO') Patreon].
+  hr
+
+  -
+    const refs = [
+      {
+        id: 'capacitative',
+        authors: 'Puers, Robert.',
+        title: "Capacitive sensors: when and how to use them",
+        journal: 'Sensors and Actuators A: Physical 37',
+        year: 1993,
+        url: 'https://doi.org/10.1016/0924-4247(93)80019-D'
+      },
+      {
+        id: 'pressure',
+        authors: 'Lim, Hee C., Brian Schulkin, M. J. Pulickal, Sheng Liu, R. Petrova, G. Thomas, S. Wagner, K. Sidhu, and John F.',
+        title: "Flexible membrane pressure sensor",
+        journal: 'Sensors and Actuators A: Physical 119.2',
+        year: 2005,
+        url: 'https://doi.org/10.1016/j.sna.2004.10.012'
+      },
+      {
+        id: 'piezo_mems',
+        authors: 'Tadigadapa, S. A. K. M., and K. Mateti.',
+        title: "Piezoelectric MEMS sensors: state-of-the-art and perspectives",
+        journal: 'Measurement Science and technology',
+        year: 2009,
+        url: 'https://doi.org/10.1088/0957-0233/20/9/092001'
+      },
+      {
+        id: 'biometrics',
+        authors: 'Mirza-Babaei, P., Nacke, L. E., Gregory, J., Collins, N., Fitzpatrick, G.',
+        title: "How does it play better? exploring user testing and biometric storyboards in games user research",
+        journal: 'Association for Computing Machinery',
+        year: 2013,
+        url: 'https://doi.org/10.1145/2470654.2466200'
+      },
+      {
+        id: 'ultrasonic',
+        authors: 'Canali, C., De Cicco, G., Morten, B., Prudenziati, M., Taroni, A.',
+        title: "A temperature compensated ultrasonic sensor operating in air for distance and proximity measurements",
+        journal: 'IEEE Transactions on Industrial electronics, (4)',
+        year: 1982,
+        url: 'https://doi.org/10.1109/TIE.1982.356688'
+      },
+      {
+        id: 'infrared',
+        authors: 'Johnston, Alan R.',
+        title: "Proximity sensor technology for manipulator end effectors",
+        journal: 'Mechanism and Machine Theory 12.1',
+        year: 1977,
+        url: 'https://doi.org/10.1016/0094-114X(77)90061-1'
+      }
+    ]
+
+  mixin cite(id)
+    - const index = refs.findIndex((ref) => ref.id == id)
+    +a('#'+id) [#{index+1}]
+
+  h3 Abstract
+  p By adding finger sensing capabilities such as touch-sensitive surfaces or proximity sensors surrounding physical buttons (push-down switches), it is possible to improve the functionality of these buttons with minimal increase in complexity of use; without the tradeoffs of virtual buttons, nor requiring the user to move the fingers to different locations nor to use multiple fingers.
+
+  hr
+  h3 Acronyms
+  ul
+    li #[b ABXY:] Face buttons in a standard videogame controller.
+    li #[b FPS:] First Person Shooter.
+    li #[b HID:] Human Interface Device.
+    li #[b USB:] Universal Serial Bus.
+    li #[b VR:] Virtual Reality.
+
+  hr
+  h3 1. Introduction
+  p Complexity in input devices such as computer mouse and videogame controllers (including #[em VR] controllers) have been increasing over the years, featuring many novel input methods such as touch-sensitive surfaces #[+cite('capacitative')], pressure sensors #[+cite('pressure')], motion sensors #[+cite('piezo_mems')], and even biometric sensors #[+cite('biometrics')]. But also getting a significant increase in the number of physical momentary switch buttons and analog input axis.
+
+  table.manual(style='width:420px')
+    tr
+      th(style='width:auto') Year
+      th(style='width:auto') Mouse
+      th(style='width:auto') Buttons
+    tr
+      td 1981
+      td Xerox Star (mouse)
+      td 2
+    tr
+      td 1990
+      td Logitech MouseMan
+      td 3
+    tr
+      td 2005
+      td Logitech G3
+      td 6
+    tr
+      td 2009
+      td Razer Naga
+      td 16
+    tr
+      td 2012
+      td Logitech G600
+      td 20
+  div.caption Table 1: Mouse input complexity over time
+
+  table.manual(style='width:420px')
+    tr
+      th(style='width:auto') Year
+      th(style='width:auto') Gamepad
+      th(style='width:auto') Buttons
+      th(style='width:auto') Analog axis
+    tr
+      td 1983
+      td Nintendo NES
+      td 8
+      td 0
+    tr
+      td 1995
+      td PlayStation 1
+      td 14
+      td 0
+    tr
+      td 2000
+      td PlayStation 2 (DualShock 2)
+      td 16
+      td 4
+    tr
+      td 2001
+      td Nintendo GameCube
+      td 12
+      td 6
+    tr
+      td 2017
+      td Nintendo Switch (Pro)
+      td 18
+      td 10
+    tr
+      td 2022
+      td(style='white-space:nowrap') PlayStation 5 (DualSense Edge)
+      td 17
+      td 14
+  div.caption Table 2: Gamepad input complexity over time
+
+
+  hr
+  h3 2. Problem
+  p With the increase of input complexity, placement of so many buttons/surfaces/sensors on the devices while maintaining usability and accessibility, became very challenging.
+
+  p For example in a videogame gamepad with classic layout (eg. Xbox controller), both the #[em ABXY] face buttons and the right thumbstick are expected to be operated with the same finger (right thumb), this creates a limitation on the actions that can be performed simultaneously, for example in the most common #[em FPS] control layout is not possible to aim (right thumbstick) while jumping (A button).
+
+  p A common solution to pack more controls into a reduced space is to combine several input methods of different nature, for example adding physical momentary buttons underneath other kind of controls, such as in clickable mouse scrollwheel, clickable thumbstick, or clickable trackpad. In the case of trackpad, instead of featuring separate buttons next to it to perform primary and secondary clicks, adding a physical momentary button under the touch-sensitive surface provides feedback to trackpad clicks in a convenient way without forcing the user to move the finger to another location nor to use another finger.
+
+  h4 2.1. Problem with virtual buttons
+
+  p Clickable trackpads became very popular, and they are featured not only in most laptops, but also in videogame controllers such as Sony DualShock 4 (2013), and Steam Controller (2015). But all these share a common issue: when emulating multiple buttons by determining finger location on the trackpad (2 mouse buttons in a laptop trackpad, or ABXY buttons in Steam Controller right trackpad), users do not have physical feedback about which one of the virtual buttons have been pressed, so they do not know if they pressed with the correct finger placement until after the button input has been sent. For example in the case of pressing in-between virtual buttons, the firmware/software governing the devices can decide either to assume both virtual buttons were pressed, or neither of them were pressed, but both of these approaches are problematic.
+
+  p Additionally, virtual buttons have the limitation of not being able to press/release several (virtual) buttons in arbitrary combinations. For example in a trackpad in which single click emulates mouse primary button and 2-finger click emulates secondary mouse button, is not possible to virtually press primary and secondary mouse buttons at the same time. Similarly when the Steam Controller right trackpad emulates ABXY buttons, is not possible for example to press and hold (A) then press (B) with an additional "click" feedback, since the physical button underneath the touch surface is already depressed.
+
+
+  hr
+  h3(id='3') 3. Finger-sensing surrounding physical buttons
+
+  p Instead of trying to make touch-sensitive surfaces clickable, a different approach is to add finger-sensing properties (touch surfaces or proximity sensors) surrounding physical momentary switch buttons as they are.
+
+  p In the case of a videogame controller, the surface between and/or around the ABXY buttons can be touch-sensitive, allowing the user to drag the finger on the touch-sensitive surface while with the same finger (usually right thumb) operating the ABXY buttons when required. This way there are no tradeoffs in button press/release feedback, possible button combinations to be pressed, nor ambiguity about the button location.
+
+  p The adjacent placement of the buttons to the touch-sensitive surface allows both to be operated simultaneously, in the case of (A) and (B) reaching the center (touch surface) with the fingertip and pressing the button with the base of the distal phalanx; or in the case of (X) and (Y) buttons pressing the button with the fingertip and touching the center surface with the base of the distal phalanx.
+
+  p While it would be possible to feature a full operative trackpad (for mouse control) in-between the buttons, arguably the small surface area would be better suited for emulating a vertical and/or horizontal mouse scroll wheel with directional swipes, or just to detect that a finger is resting in-between the ABXY buttons.
+
+  p Figure 1 shows a videogame controller with a touch-sensitive surface embedded in-between the typical (momentary switch) ABXY buttons. The size of the surface could be significantly larger (completely surrounding all the buttons) or significantly smaller, though a small surface would limit the potential functionality. This touch-sensitive surface could determine the finger position by using capacitive sensing #[+cite('capacitative')], or just detect if the finger is resting on it with a simple (single resistor) capacitance measurement.
+  +figure(
+    1,
+    'Touch-sensitive surface surrounding buttons',
+    '/static/blog/finger_sensing/figure_A1.png'
+  )
+  ol
+    li Touch-sensitive surface.
+    li Push-down momentary switches/buttons.
+    li Non-touch-sensitive enclosure of the controller.
+
+  p Figure 2 shows a videogame controller with a proximity sensor underneath the central position in-between the typical (momentary switch) ABXY buttons. The proximity sensor detect if the finger is resting in-between the buttons. Any kind of proximity sensor could be fit for this purpose, including infrared #[+cite('infrared')], ultrasonic #[+cite('ultrasonic')], or even a low resolution camera.
+  +figure(
+    2,
+    'Proximity sensor in-between buttons',
+    '/static/blog/finger_sensing/figure_A2.png'
+  )
+  ol
+    li Proximity sensor aperture.
+    li Push-down momentary switches/buttons.
+
+  hr
+  h3 4. Finger-sensing on physical buttons
+
+  p Alternatively the button themselves could feature finger-sensing capabilities.
+
+  p While this solution is very constrained in available space, and could not feature a functional trackpad, binary touch sensing (touching / not-touching) is enough to increase the functionality of the button. Additionally some proximity sensors are capable of determining distance, and therefore analog values for how close the finger is to the button could be used as input data.
+
+  p Figure 3 shows a momentary switch with an electrically conductive button (or button cap) that allows for simple capacitance measurement. With this solution the button itself goes from 2 possible states (released, pressed) to 3 possible states (released-not-touched, released-touched, pressed).
+  +figure(
+    3,
+    'Touch-sensitive button',
+    '/static/blog/finger_sensing/figure_B1.png',
+    'small'
+  )
+  ol
+    li Electrically conductive button.
+    li Push-down momentary switch.
+    li Device external case.
+    li Connector with bending blade/shrapnel.
+
+  p Figure 4 shows a momentary switch with an electrically conductive button, but the only the button cap and the button base (making contact with the connector) are conductive, while the central part is not conductive, so it is independent from a touch surface surrounding the buttons as defined in section #[+a('#3') 3].
+  +figure(
+    4,
+    'Touch-sensitive button cap',
+    '/static/blog/finger_sensing/figure_B2.png',
+    'small'
+  )
+  ol
+    li Electrically conductive button cap.
+    li Non-conductive button center.
+    li Conductive button base (connected with the cap).
+    li Push-down momentary switch.
+    li Device external case with touch-sensitive surface.
+    li Connector with bending blade/shrapnel.
+
+  p Figure 5 shows a button with an embedded proximity sensor facing upwards, also allowing for 3 possible states (released-not-touched, released-touched, pressed), or additionally providing analog values for how close the finger is to the button.
+  +figure(
+    5,
+    'Button with proximity sensor',
+    '/static/blog/finger_sensing/figure_B3.png',
+    'small'
+  )
+  ol
+    li Aperture on the button cap.
+    li Proximity sensor.
+    li Button hosting the proximity sensor.
+    li Push-down momentary switch.
+    li Device external case.
+    li Proximity sensor cable.
+    li Connector for the proximity sensor cable.
+
+  hr
+  h3 5. Methodology
+
+  p The hypothesis about how to employ touch-sensing capabilities around physical buttons were originally tested with breadboard prototypes using a Raspberry Pi Pico being used as #[em USB] #[em HID] (computer input device), common momentary switches (AlpsAlpine SKHHAJA010), and a metal sheet in-between the buttons acting as a simple touch-sensitive surface by measuring capacitance timing.
+
+  p Later more advanced test devices were created with a 3D printer, buttons with longer travel, and electrically conductive filament for more complex capacitative surfaces.
+
+  hr
+  h3 6. Potential applications
+
+  p While this research is focused in videogame input and ABXY buttons of standard layout gamepad, the same principles can be applied to the other buttons on a gamepad, or any other kind of videogame controller, including VR handheld controllers, or even generalist computer input devices such as computer mouse or keyboard.
+
+  p The implementation for detecting if a finger is resting or close to physical buttons, while simple, can be very effective in engaging/disengaging additional features on a controller, as for example #[em IMU]-based motion and/or rotation, without requiring the user to operate additional buttons nor to dedicate a finger exclusively for it.
+
+  p Alternative applications in which fast and responsive controls are necessary while keeping a simple interface may also be a good fit, as for example medical machinery, music equipment, or drone control.
+
+  hr
+  h3 References
+  ol
+    each ref in refs
+      li(id=ref.id)
+        div #{ref.authors}
+        div: i "#{ref.title}".
+        div #{ref.journal}. (#{ref.year}).
+        +axh(ref.url)

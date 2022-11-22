@@ -1,0 +1,19 @@
+extends _manual.pug
+
+block append title
+  | Profile: FPS Fusion
+
+block content
+  h2 Profile: FPS Fusion
+  hr
+
+  p The default profile, designed for #[em First/Third Person Shooters], but usable in almost every game due to its versatility.
+  p It features a combination of keyboard (for most actions), mouse/gyro (for camera control), and gamepad thumbstick axis (for smooth character movement).
+  //- p Since the mouse buttons are assigned to the triggers, is also quite usable on the OS Desktop while launching games.
+  p The #[em Directional Hat #[+hat]] acts as a #[em physical selection wheel], for fast weapon switch. (Keyboard numbers).
+  img.wide.mt(src='/static/manual/profile_fps_fusion.svg')
+  hr
+
+  h3 Additional links
+  ul
+    li: +a('profiles') How to select the active profile

@@ -1,0 +1,113 @@
+extends ../../_template.pug
+
+block title
+  | Alpakka components
+
+block page
+  include ../_alpakka_header.pug
+
+  div.boxes.grid
+    div.box
+      h2 Firmware
+      p The open source firmware for the controller, for the Raspberry Pi Pico.
+      p Compiled builds with the latest version are also available.
+      table.data
+        tr
+          td Alpakka firmware source code
+          td: +a('TODO') Repository
+        tr
+          td Alpakka firmware latest build
+          td: +a('TODO') Repository
+
+    div.box
+      h2 Printed Circuit Board
+      p The main board where all the buttons, gyro, thumbstick, LEDs and most other electronics are.
+      p Read the documentation about making an order to PCB manufacturer companies.
+      table.data
+        tr
+          td Alpakka PCB KiCad schematics
+          td: +a('TODO') Repository
+        tr
+          td Alpakka PCB ready-to-order files
+          td: +a('TODO') Repository
+
+    div.box
+      h2 Microcontroller
+      p This small device contains the processor, memory, and other important components for the Alpakka controller to work. It is attached to the main PCB.
+      div
+        table.data
+          tr
+            td Raspberry Pi Pico
+            td: +ax('https://www.raspberrypi.com/products/raspberry-pi-pico/') Visit website
+
+    div.box
+      h2 Case and buttons
+      p The front and back part of the case, and all its buttons and triggers. The base models are made in Blender, but is also possible to use the .stl or .m3f files to 3D print it directly.
+      table.data
+        tr
+          td Blender project with source 3D models
+          td: +a('TODO') Repository
+        tr
+          td STL and M3F files ready for 3D printing
+          td: +a('TODO') Repository
+
+    div.box
+      h2 3D printer filament
+      p Selected premium filaments from different manufacturers, that we tried and recommend.
+      p Polylactic acid (PLA) is a biodegradable material usually made from corn waste, popular for 3D printing due to its low melting temperature and strength.
+      table.data
+        tr
+          td Prusament PLA (in many colors)
+          td: +ax('https://www.prusa3d.com/category/prusament-pla') Visit website
+        tr
+          td Protopasta PLA Conductive
+          td: +ax('https://www.proto-pasta.com/collections/conductive/products/conductive-pla') Visit website
+
+    div.box
+      h2 Electronics
+      p Thru-hole components that are not usually soldered by the PCB manufacturer, so you may want to solder them yourself. Also to replace aged components. See #[+a('manual/specs') Specs].
+      table.data
+        tr
+          td Thumbstick (1x)
+          td: +ax('https://tech.alpsalpine.com/e/products/detail/RKJXV122400R/') Visit website
+        tr
+          td Directional hat (1x)
+          td: +ax('https://tech.alpsalpine.com/e/products/detail/RKJXM1015004/') Visit website
+        tr
+          td Rotary encoder (1x)
+          td: +ax('https://tech.alpsalpine.com/e/products/detail/EC10E1220503/') Visit website
+        tr
+          td Forward buttons / shoulders (2x)
+          td: +ax('https://tech.alpsalpine.com/e/products/detail/SKHHLNA010/') Visit website
+        tr
+          td Back buttons / triggers (4x)
+          td: +ax('https://tech.alpsalpine.com/e/products/detail/SKQGAFE010/') Visit website
+
+    div.box
+      h2 Bolts and nuts
+      p M2.5 bolts and nuts to hold the case together, and as pivot point for the triggers.
+      p: i Links for reference, components with the same specs from other shops will also work.
+      table.data
+        tr
+          td M2.5 DIN-912 Hex-socket 12 mm (2x)
+          td: +ax('https://www.mcmaster.com/92290A062/') Visit website
+        tr
+          td M2.5 DIN-912 Hex-socket 25 mm (6x)
+          td: +ax('https://www.mcmaster.com/92290A753/') Visit website
+        tr
+          td M2.5 DIN-934 Hex nut (8x)
+          td: +ax('https://www.mcmaster.com/91828A113/') Visit website
+
+    div.box
+      h2 Developer kit
+      p Basic tools required for hacking the Alpakka. For more details check Alpakka's #[+a('manual/dev') Developer] manual.
+      p: i Links for reference, components with the same specs from other shops will also work.
+      table.data
+        tr
+          td USB to TTL serial cable
+          td: +ax('https://www.adafruit.com/product/954') Visit website
+        tr
+          td JST PH 4-pin cable
+          td: +ax('https://www.adafruit.com/product/3955') Visit website
+
+

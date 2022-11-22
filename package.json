@@ -1,0 +1,24 @@
+{
+  "name": "ilo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e pug,css scripts/dev.js",
+    "dev_strict": "nodemon -e pug,css -i build/ -x 'npm run build && npm run serve'",
+    "build": "rm -rf build && node scripts/build.js",
+    "build_prod": "rm -rf build && node scripts/build.js --prod",
+    "serve": "npx serve -p 8001 build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "glob": "^8.0.3",
+    "nodemon": "^2.0.18",
+    "pug": "^3.0.2",
+    "serve": "^14.0.1",
+    "yaml": "^2.1.1",
+    "yargs": "^17.5.1"
+  }
+}

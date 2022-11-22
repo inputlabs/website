@@ -1,0 +1,18 @@
+extends _manual.pug
+
+block append title
+  | Profile: FPS WASD
+
+block content
+  h2 Profile: FPS WASD
+  hr
+
+  p A copy of the FPS Fusion profile, but the physical thumbstick is assigned to #[em WASD keys] instead. This guarantees 100% compatibility with games that do not support gamepad, or have issues processing Fusion input (gamepad and mouse at the same time).
+  p If the game supports  #[em walk or run modifiers], is possible to use thumbstick #[em inner and outer areas] (assigned to the left and right brackets) to engage them automatically. So movement is a bit more smooth.
+
+  img.wide.mt(src='/static/manual/profile_fps_wasd.svg')
+  hr
+
+  h3 Additional links
+  ul
+    li: +a('profiles') How to select the active profile

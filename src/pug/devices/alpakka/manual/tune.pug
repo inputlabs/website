@@ -1,0 +1,81 @@
+extends _manual.pug
+
+block append title
+  | Tune options
+
+block content
+  h2 Tune options
+  hr
+
+  p Tune options controls how the controller works at a fundamental level, independently from the operative system. The tune options are applied to all profiles, and will be stored in the controller memory even if the controller is powered off.
+  p The tune options are configurable by the user directly on the controller:
+  ul
+    li Hold the #[em Home #[+home]] button.
+    li Hold the #[em Directional Hat #[+hat]] either up, down, left or right. Each direction tune a different option (see below).
+    li Release the #[em Directional Hat #[+hat]], but keep holding the #[em Home #[+home]] button.
+    li Notice how the LEDs are showing which #[em tune option is selected] (represented by a solid light) and its #[em current value] (represented by a flashing light).
+    li Change the value up or down by using the #[em scroll wheel up or down].
+    li Release the #[em Home #[+home]] button.
+
+  table.manual.col4.hdiv
+    tr
+      th
+      th
+        div ← Tune down
+        div (scroll down)
+      th
+      th.right
+        div Tune up →
+        div (scroll up)
+    tr
+      td.middle
+        h3 Operative System
+        div Hold Home #[+home] + hold Hat up #[+hat]↑
+        div: i (Requires controller restart)
+      td
+      td.center
+        img(src='/static/manual/led_up_down.apng' width='50px')
+        div Windows #[i (Default)]
+      td.center
+        img(src='/static/manual/led_up_right.apng' width='50px')
+        div GNU/Linux
+    tr
+      td.middle
+        h3 Thumbstick Deadzone
+        div Hold Home #[+home] + hold Hat left #[+hat]←
+      td.center
+        img(src='/static/manual/led_left_down.apng' width='50px')
+        div 5% #[i (Default)]
+      td.center
+        img(src='/static/manual/led_left_right.apng' width='50px')
+        div 10%
+      td.center
+        img(src='/static/manual/led_left_up.apng' width='50px')
+        div 15%
+    tr
+      td.middle
+        h3 Vibration
+        div Hold Home #[+home] + hold Hat right #[+hat]→
+        div: i (Not implemented yet)
+      td.center
+        img(src='/static/manual/led_right_down.apng' width='50px')
+        div 0%
+      td.center
+        img(src='/static/manual/led_right_left.apng' width='50px')
+        div 50%
+      td.center
+        img(src='/static/manual/led_right_up.apng' width='50px')
+        div 100% #[i (Default)]
+    tr
+      td.middle
+        h3 Mouse sensitivity
+        div Hold Home #[+home] + hold Hat down #[+hat]↓
+      td.center
+        img(src='/static/manual/led_down_left.apng' width='50px')
+        div Low - 1080p #[i (Default)]
+      td.center
+        img(src='/static/manual/led_down_up.apng' width='50px')
+        div Mid - 1440p
+      td.center
+        img(src='/static/manual/led_down_right.apng' width='50px')
+        div High - 4K

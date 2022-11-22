@@ -1,0 +1,76 @@
+-
+  const importances = {
+    fusionInput: 10,
+    mouseRaw: 10,
+    mouseAnyValue: 5,
+    remapKBM: 5,
+    remapGamepad: 5,
+    menuNavMouse: 5,
+    adsSensitivity: 5,
+    adsHold: 1,
+    adsToggle: 1,
+    sprintHold: 1,
+    sprintToggle: 1,
+    crouchHold: 1,
+    crouchToggle: 1,
+    walkRunHold: 1,
+    walkRunToggle: 1,
+    thumbstickDeadzone: 1,
+    thumbstickCurve: 1,
+    fov: 5,
+    colorBlind: 5,
+    uiScale: 5,
+    uiLockPlatform: 1,
+    crosshairOptions: 5,
+    framerateLimiter: 1,
+    subtitlesDialog: 5,
+    subtitlesCaption: 5,
+    subtitlesOptions: 5,
+    testArea: 1,
+    pauseCinematics: 1,
+    settingsAnytime: 1,
+  }
+
+  function score(game) {
+    let maxScore = 0
+    let score = 0
+    function calc(featureName) {
+      let value = game[featureName]
+      let importance = importances[featureName]
+      if (Array.isArray(value)) value = value[0]
+      if (value !== null) {
+        maxScore += importance
+        score += importance * value
+      }
+    }
+    calc('fusionInput')
+    calc('mouseRaw')
+    calc('mouseAnyValue')
+    calc('remapKBM')
+    calc('remapGamepad')
+    calc('menuNavMouse')
+    calc('adsSensitivity')
+    calc('adsHold')
+    calc('adsToggle')
+    calc('sprintHold')
+    calc('sprintToggle')
+    calc('crouchHold')
+    calc('crouchToggle')
+    calc('walkRunHold')
+    calc('walkRunToggle')
+    calc('thumbstickDeadzone')
+    calc('thumbstickCurve')
+    calc('fov')
+    calc('colorBlind')
+    calc('uiScale')
+    calc('uiLockPlatform')
+    calc('crosshairOptions')
+    calc('framerateLimiter')
+    calc('subtitlesDialog')
+    calc('subtitlesCaption')
+    calc('subtitlesOptions')
+    calc('testArea')
+    calc('pauseCinematics')
+    calc('settingsAnytime')
+    return Math.round((score / maxScore) * 100)
+  }

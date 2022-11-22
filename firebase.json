@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "public": "build",
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/devices/alpakka/manual",
+        "destination": "/devices/alpakka/manual/mouse",
+        "type": 301
+      }
+    ]
+  }
+}

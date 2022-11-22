@@ -1,0 +1,159 @@
+extends _manual.pug
+
+block append title
+  | Assembly
+
+block content
+  h2 Assembly
+  hr
+
+  h3 Materials and tools
+  p: b Materials
+  ul
+    li #[+a('diy_pcb') PCB] with all components #[+a('diy_solder') soldered].
+    li All the #[+a('diy_case') 3D printed] parts.
+    li M2.5 DIN-912 Hex-socket 12 mm bolts. (2x)
+    li M2.5 DIN-912 Hex-socket 25 mm bolts. (6x)
+    li M2.5 DIN-934 Hex nuts. (8x)
+  p: b Tools
+  ul
+    li Hex key 2 mm.
+  img.hm.mt.mr(src='/static/manual/assembly_all.jpg')
+  hr
+
+  h3 Fit L2/R2 triggers
+  p The L2 and R2 triggers are kept in place with a bolt (25mm) and nut, and pivot over it.
+  ol
+    li Be sure that the bolt moves without restrictions through the trigger hole, otherwise put the bolt in and out several times until it does.
+    li Put the nut in the slot.
+    li Place the trigger in place (does not matter which side since the trigger is symmetrical).
+    li Put the bolt from the side, through the case and the trigger.
+    li Screw the bolt until it grabs the nut (do not screw it too tight).
+    li Check that the trigger mechanism moves freely when operated.
+    li Repeat in the other side.
+  img.hm.mt.mr(src='/static/manual/assembly_R2_b.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_R2_c.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_R2_d.jpg')
+  hr
+
+  h3 Fit L4/R4 triggers
+  p The L4 and R4 triggers are kept in place with a bolt (25mm) and nut, and pivot over it.
+  ol
+    li Be sure that the bolt moves without restrictions through the trigger piece, otherwise put the bolt in and out several times until it does.
+    li Place the trigger in place by tilting it (left and right pieces are different).
+    li Put the bolt from the bottom, through the case and the trigger.
+    li Put the nut in the slot.
+    li Screw the bolt until it grabs the nut (do not screw it too tight).
+    li Check that the trigger mechanism moves freely when operated.
+    li Repeat in the other side.
+  img.hm.mt.mr(src='/static/manual/assembly_R4_b.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_R4_c.jpg')
+  hr
+
+  h3 Fit PCB
+  p The PCB is kept in place thanks to the multiple mounting holes that the back case pillars are fitting. The first time a PCB is mounted it could be difficult to fit, so apply force carefully.
+  ol
+    li Put PCB on the case, aligning the case columns with the holes.
+    li Apply force carefully until it snaps in.
+    li Check that the surface of PCB sits flat, and at the same height than the case around it.
+  img.hm.mt.mr(src='/static/manual/assembly_pcb.jpg')
+  hr
+
+  h3 Fit Thumbstick cap
+  p The thumbstick cap fits into the thumbstick shaft just by pressure.
+  ol
+    li Put the cap in place.
+    li Press down until it snaps in.
+  img.hm.mt.mr(src='/static/manual/assembly_tscap.jpg')
+  hr
+
+  h3 Assemble and fit scroll wheel
+  p The scroll wheel is composed by the wheel, the shaft, and the support.
+  ol
+    li Fit the shaft piece into the wheel by pressure, be sure that it is perfectly centered.
+    li Introduce the hexagonal shaft (right) into the encoder axis.
+    li Place the support piece on the PCB, so the big cylindrical shaft (left) rest on it.
+  img.hm.mt.mr(src='/static/manual/assembly_wheel_a.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_wheel_b.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_wheel_c.jpg')
+  hr
+
+  h3 Fit 8-directional hat cap
+  p The DHat cap fits into the DHat shaft just by pressure, but it only fits in 1 of the 4 possible orientations.
+  ol
+    li Put the cap in place (the cap has a ledge that must point up).
+    li Press down until it snaps in.
+    li If it does not snap in because it is too tight, apply heat to the metal shaft with a soldering iron and try to push the cap again (Ideally using a secondary and disposable 8-directional switch to avoid temperature damage).
+  img.hm.mt.mr(src='/static/manual/assembly_dhat_a.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_dhat_b.jpg')
+  hr
+
+  h3 Assemble and fit anchors
+  p The anchors serve a double purpose of aligning the front and back cases while assembling them, and hosting the hex nuts internally.
+  ol
+    li Take an anchor piece and put the nut into the nut slot.
+    li Introduce a bolt from the other side so it holds both the anchor and the nut.
+    li Fit the anchor into the front case by pressure, until it sits flat.
+    li Remove the bolt.
+    li Repeat in the other side.
+  img.hm.mt.mr(src='/static/manual/assembly_anchor_a.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_anchor_b.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_anchor_c.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_anchor_d.jpg')
+  hr
+
+  h3 Fit conductive hexagon
+  p The hexagon behaves as a touch sensitive surface and it is held in place by pressure.
+  ol
+    li Align the hexagon over the front case (be aware there are 2 correct and 2 incorrect orientations).
+    li Apply pressure until the piece snaps in.
+    li Check that there is no gap between the hexagon and the case.
+  img.hm.mt.mr(src='/static/manual/assembly_hex_a.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_hex_b.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_hex_c.jpg')
+  hr
+
+  h3 Place buttons
+  p It's time to play shapes and holes, also the cow goes moo.
+  ul
+    li Put the front case upside down.
+    li Place ABXY, Dpad, Select, Home, and shoulder buttons in their slots.
+    li Check that all the buttons move freely when pushed from the other side.
+  img.hm.mt.mr(src='/static/manual/assembly_buttons_a.jpg')
+  hr
+
+  h3 Tactical Sandwich Maneuver
+  p Both front and back cases are now ready to be put together.
+  ol
+    li Take both front and back cases, facing up.
+    li Move them both vertically, do not flip the front case or the buttons will fall.
+    li Align the anchors on the bottom, so they attach first.
+    li Join the cases together, move the thumbstick cap a bit if needed.
+    li Keep holding them for the next step.
+  img.hm.mt.mr(src='/static/manual/assembly_sandwich_a.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_sandwich_b.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_sandwich_c.jpg')
+  hr
+
+  h3 Screw case bolts
+  p Bolts and nuts will hold the cases together, the top bolts are 12mm and the handle bolts are 25mm. The nuts on the handles are already secured inside the anchors.
+  ol
+    li Put 2 hex nuts into the top nut slots.
+    li Screw in the 12mm bolts in the top.
+    li Screw in the 25mm bolts in the handles (do not screw these too tight or will force the anchors out).
+  img.hm.mt.mr(src='/static/manual/assembly_bolts_a.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_bolts_b.jpg')
+  hr
+
+  h3 Fit rear cover
+  p The rear bay cover fits by pressure. Guess what is that slot for! :)
+  ol
+    li Align the rear cover.
+    li Press until it snaps in (it may require plenty of force).
+  img.hm.mt.mr(src='/static/manual/assembly_cover_a.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_cover_b.jpg')
+  hr
+
+  h3 Final adjustments
+  p Check that all the buttons move freely and have a satisfying feedback.
+  p Tight tolerances in 3D printing are hard!, so if some of the buttons are stuck or too tight (specially the triggers), do not discard them away yet! It is possible to use sandpaper on their contact surface (the internal flat part touching the switch) until they are a perfect fit. All the parts are designed with this workaround in mind.

@@ -1,0 +1,16 @@
+extends _manual.pug
+
+block append title
+  | Profile: Desktop
+
+block content
+  h2 Profile: Desktop
+  hr
+
+  p This profile is made for browsing the internet, moving files around, typing in a chat, typing passwords, or any other desktop-oriented activity.
+  img.wide.mt(src='/static/manual/profile_desktop.svg')
+  hr
+
+  h3 Additional links
+  ul
+    li: +a('profiles') How to select the active profile

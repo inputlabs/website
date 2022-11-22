@@ -1,0 +1,166 @@
+extends _db.pug
+
+block append subtitle
+  | Glossary
+
+block content
+  h2 Glossary
+  p The aspects evaluated in each game, and its meaning.
+  hr
+
+  div.mosaic
+    div.group
+      h3 Fusion input
+      p If the game is capable of handling all mouse, keyboard, and gamepad input at the same time. This is normally used for controlling the camera with mouse while controlling the character movement with a gamepad thumbstick.
+      p Since this feature did not have a proper name, we coined the term #[em Fusion input], which everyone is welcome to use, meaning the term is copyleft.
+      p Most game engines support fusion input with no issue, but some other fail because the game must be either in "pc mode" or in "console mode" (awful idea), or because the game UI glitches and makes the game to stutter.
+      hr
+
+      h3 Mouse raw input
+      p The game uses (or has the option to use) the original mouse values provided by the operative system, with no additional scaling, smoothing, nor acceleration.
+      hr
+
+      h3 Mouse sensitivity any value
+      p The settings (in-game) allows the user the define any arbitrary decimal value, not rounded to a limited amount of digits. This may be important if the user needs to define very small values (eg 0.007) to make their setup usable.
+      hr
+
+      h3 Remap keyboard and mouse
+      p The settings (in-game) allows the user to change the default keyboard and mouse actions to any arbitrary keys.
+      hr
+
+      h3 Remap controller
+      p The settings (in-game) allows the user to change the default gamepad actions to any arbitrary buttons (not just presets).
+      hr
+
+      h3 Menu navigation with mouse
+      p Is possible to navigate the menus and all user interface options (eg inventory actions) just with the mouse cursor and mouse clicks.
+      hr
+
+      h3 ADS independent sensitivity
+      p If the game features Aim Down Sight (a modifier using a lower sensitivity for precise aiming), the game allows the user to define a custom sensitivity for it, independent from the main sensitivity.
+      hr
+
+      h3 ADS hold & toggle
+      p If the game features ADS, the game allows the user to enable ADS by holding a momentary button: #[em press ON -> release OFF]
+      p Also is possible to toggle ADS each time the button is pressed: #[em press ON <-> press OFF]
+      hr
+
+      h3 Sprint hold & toggle
+      p If the game features sprint (a faster movement in the forward direction), the game allows the user to enable sprint by holding a momentary button: #[em press ON -> release OFF]
+      p Also is possible to toggle sprint each time the button is pressed: #[em press ON <-> press OFF], though some games may auto-disengage sprint when the movement is over.
+      hr
+
+      h3 Crouch hold & toggle
+      p If the game features crouching (a lower and slower stance), the game allows the user to enable crouching by holding a momentary button: #[em press ON -> release OFF]
+      p Also is possible to toggle crouching each time the button is pressed: #[em press ON <-> press OFF]
+      hr
+
+      h3 Walk/run hold & toggle
+      p If the game features an alternative movement speed, slower than default (walk) or faster than default (run), the game allows the user to enable it by holding a momentary button: #[em press ON -> release OFF]
+      p Also is possible to toggle it each time the button is pressed: #[em press ON <-> press OFF]
+      hr
+
+      h3 Thumbstick deadzone options
+      p The settings (in-game) allows the user the define a custom deadzone for the thumbstick, which is the inner threshold of movement in which the thumbstick input is ignored. This may be useful for aged thumbsticks or custom setups.
+      hr
+
+      h3 Thumbstick curve options
+      p The settings (in-game) allows the user the define a custom acceleration curve for the thumbstick, which is how linear (or non-linear) the response of the thumbstick is. For example, if the game reacts softly or aggressively to small thumbstick movements.
+      hr
+
+      h3 Recommended profile
+      p Which profile is recommended to play that specific game, given its genre and implementation.
+      hr
+
+      h3 Recommended in-game sensitivity
+      p Since all games feature different sensitivity implementations, this is a reference of which in-game values are recommended to obtain the same consistent response across all games.
+      p Note that some games have their sensitivity tied to the FOV or even the framerate, which is not good. In these cases the reference will use FOV=90 or FPS=60 as baseline.
+      hr
+
+      h3 FOV adjustment
+      p The settings (in-game) allows the user to define a custom Field Of View, which is how narrow (tunnel vision) or wide (fisheye lens) the camera perspective is rendered. Some players may experience discomfort if the FOV does not feel right.
+      hr
+
+      h3 Color blind options
+      p If the game UI and/or overlays can be adjusted with different color profiles, to help people with color vision deficiency to identify better these elements.
+
+    div.group
+      h3 UI scale options
+      p The user interface elements can be adjusted in size, independently from the render resolution.
+      hr
+
+      h3 UI lock platform
+      p The UI elements can be locked to an specific platform when displaying button hints (eg KB+M, Xbox or PlayStation), otherwise the game may try to auto-detect which single input was used last, and visually glitch back and forth while using fusion input.
+      hr
+
+      h3 Crosshair accessibility options
+      p The settings (in-game) allows the user to define custom crosshair size, colors and/or shapes. Independent from the render resolution or UI scaling.
+      hr
+
+      h3 Framerate limiter
+      p The settings (in-game) allows the user to define custom limits to the number of rendered frames per second. Independent from the display hardware or v-sync options.
+      p Some players may experience discomfort if the refresh frequency is not stable, but they do not want the input lag introduced by v-sync.
+      hr
+
+      h3 Subtitles (dialog)
+      p If the game have dialogs, the game is able to display dialog transcriptions as text, usually at the bottom of the screen.
+      hr
+
+      h3 Subtitles (captions)
+      p The game is able to display relevant sound cues as text, as for example, when an enemy behind your back is making a sound.
+      hr
+
+      h3 Subtitles visual options
+      p The subtitles can be adjusted in size, color, outline, and typography.
+      hr
+
+      h3 Violence, drugs, and sex
+      p If the game contains sensitive content, we try to give some guidance about what you could find. These are not age ratings, in case of doubt please check external sources.
+      hr
+
+      h3 Arachnophobic
+      p If the game contains spiders or spider-like creatures, which may cause discomfort for people with arachnophobia.
+      hr
+
+      h3 Trypophobic
+      p If the game contains irregular clusters of holes or bumps, which may cause discomfort for people with trypophobia.
+      hr
+
+      h3 Paid additional playable content
+      p The game has the option to purchase additional playable (non-cosmetic) content such as new missions or new maps. Also known as expansions.
+      p This business model is perfectly ok.
+      hr
+
+      h3 Paid cosmetics
+      p The game has the option to purchase purely cosmetic content, such as hats or character skins, which have no impact in any game mechanic.
+      p This business model may be acceptable for free to play games, but never for full-price releases.
+      hr
+
+      h3 Pay to win / Pay for convenience
+      p The game has the option to purchase content with impact in the game mechanics, granting paid users access to features that are otherwise impossible or tedious to obtain; such a new weapons, new characters with better skills, experience boosters, time savers, or more inventory slots.
+      p Or by process of elimination, any purchasable content that is not purely cosmetic or an expansion.
+      p This business model clashes with good game design, because a conflict of interests (more frustrating gameplay -> more profit).
+      hr
+
+      h3 FOMO sales
+      p The game uses Fear-Of-Missing-Out psychological techniques to boost their sales, such as time-limited offers, shop with rotating items, or season pass.
+      p This business model predates on people with impulsive behaviors.
+      hr
+
+      h3 Gambling with real money (lootboxes)
+      p The game allows to use real money (directly or indirectly) to unlock randomized rewards, such as lootboxes or card packs. Independently of the rewards being virtual or not (does not make a difference for the brain's reward system).
+      p This business model predates on people with gambling additions, and is already illegal or very regulated is several countries.
+      hr
+
+      h3 Playable test area
+      p The game features some kind of testing grounds in which the user can test and adjust their setup, before going into the real game. Separate tutorials may be acceptable for this purpose too.
+      hr
+
+      h3 Pause cinematics
+      p If the game contains cinematics, the game allows the user to pause and resume it at any moment. This may be important if the user need to adjust their setup or the settings (eg subtitles).
+      hr
+
+      h3 Allow settings anytime
+      p The game allows the user to access and tweak the settings menu anywhere anytime, independently of which part of the game is loaded, or if there are cinematics being played.
+
+

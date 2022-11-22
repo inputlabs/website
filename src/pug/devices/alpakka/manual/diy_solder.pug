@@ -1,0 +1,131 @@
+extends _manual.pug
+
+block append title
+  | Solder the PCB
+
+block content
+  h2 Solder the Printed Circuit Board
+  hr
+
+  h3 Remaining components
+  p The manufacturing process only soldered the SMD devices on the front side of the PCB, so there are a few extra components to be soldered manually (SMD components on the back, and through-hole components on the front), check which components you need in #[+a('/devices/alpakka/components') Components].
+
+  h3 Tools
+  p: b Required:
+  ul
+    li Soldering iron.
+    li Solder (~0.6mm recommended).
+    li Flux pen.
+    li Safety googles.
+    li Well ventilated room.
+  p: b Optional:
+  ul
+    li 3D-printed PCB stand.
+    li Any kind of tape or stickers (to hold some components in place).
+    li Fan (to blow the smoke away from the face).
+    li Multimeter (for continuity tests).
+
+  p To make the soldering easier is possible to 3D-print a PCB stand, which allows to place the PCB upside-down, keeps the PCB flat, and the through-hole components in their correct positions.
+  img.hm.mt.mr(src='/static/manual/component_stand.jpg')
+  img.hm.mt.mr(src='/static/manual/component_stand_and_pcb.jpg')
+  hr
+
+  h3 Solder back triggers buttons (L2, R2, L4, R4)
+  p A total of 4 #[em Alps Alpine SKQGAFE010] have to be soldered on the back of the PCB, these are SMD devices, but have long legs easy to solder with a normal soldering iron, and can be held in place with a piece of tape.
+  ol
+    li Place the PCB on the stand.
+    li Apply flux pen to PCB pads.
+    li Place the button and hold it with a piece of tape.
+    li Solder first leg.
+    li Remove tape.
+    li Check that the button is correctly aligned and flat, otherwise resolder first leg.
+    li Solder the other 3 legs.
+    li Check continuity test points (TP) with the multimeter (while clicking the button).
+    li Repeat (4x).
+  img.hm.mt.mr(src='/static/manual/component_alps_SKQGAFE010.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_trigger.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_trigger_done.jpg')
+  hr
+
+  h3 Solder Raspberry Pi Pico
+  p The Pico board is attached to the main carrier board by soldering the castellated edge pins. This is the most tricky component to solder, do not worry if the end result is not consistent and pretty, all that matters is that the connections work.
+  ol
+    li Place the PCB on the stand.
+    li Apply flux pen to PCB pads and Pico edges.
+    li Place the Pico (carefully centered) and hold it with a piece of tape.
+    li Solder opposite corner pads.
+    li Remove tape.
+    li Solder all the other 36 pads.
+    li Check continuity test points with the multimeter (eg: Pad 16 <-> TP16).
+  img.hm.mt.mr(src='/static/manual/component_rasp_pico.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_pico.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_pico_done.jpg')
+  hr
+
+  h3 Solder thumbstick
+  p The #[em Alps Alpine RKJXV122400R] is held in place to be soldered thanks to the PCB stand. Be sure that the part is flat and there are no gaps before soldering all the pins.
+  ol
+    li Apply flux pen to PCB holes.
+    li Place the thumbstick on the PCB (front side).
+    li Place the stand on the PCB (front side).
+    li Flip the stand+PCB block.
+    li Check that there is not gap between the thumbstick and the PCB.
+    li Solder just one pin.
+    li Check that the thumbstick position is flat, otherwise resolder first pin.
+    li Solder all the other pins.
+  img.hm.mt.mr(src='/static/manual/component_alps_RKJXV122400R.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_thumbstick.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_thumbstick_done.jpg')
+  hr
+
+  h3 Solder 8-directional switch (D-Hat)
+  p The #[em Alps Alpine RKJXM1015004] is held in place to be soldered thanks to the PCB stand. Be sure that the part is flat and there are no gaps before soldering all the pins.
+  ol
+    li Apply flux pen to PCB holes.
+    li Place the switch on the PCB (front side).
+    li Place the stand on the PCB (front side).
+    li Flip the stand+PCB block.
+    li Check that there is not gap between the switch and the PCB.
+    li Solder just one pin.
+    li Check that the switch position is flat, otherwise resolder first pin.
+    li Solder all the other pins.
+  img.hm.mt.mr(src='/static/manual/component_alps_RKJXM1015004.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_dhat.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_dhat_done.jpg')
+  hr
+
+  h3 Solder rotary encoder (Scrollwheel)
+  p The #[em Alps Alpine EC10E1220503] should stay in place with its own snap-in legs, if that's not the case bend the legs outwards a bit until it does. Be sure that the part is flat and there are no gaps before soldering all the pins.
+  ol
+    li Apply flux pen to PCB holes.
+    li Place the encoder on the PCB (front side), it should snap-in.
+    li Check that there is not gap between the encoder and the PCB.
+    li Place the PCB on the stand.
+    li Solder just one pin.
+    li Check that the encoder position is flat, otherwise resolder first pin.
+    li Solder all the other pins.
+  img.hm.mt.mr(src='/static/manual/component_alps_EC10E1220503.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_encoder.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_encoder_done.jpg')
+  hr
+
+  h3 Solder shoulder trigger buttons (L1, R1)
+  p The #[em Alps Alpine SKHHLNA010] should stay in place with its own snap-in legs, if that's not the case bend the legs outwards a bit until it does. Be sure that the part is flat and there are no gaps before soldering all the pins.
+  ol
+    li Apply flux pen to PCB holes.
+    li Place the button on the PCB (front side), it should snap-in.
+    li Check that there is not gap between the button and the PCB.
+    li Place the PCB on the stand.
+    li Solder just one pin.
+    li Check that the button position is flat, otherwise resolder first pin.
+    li Solder all the other pins.
+    li Repeat (2x).
+  img.hm.mt.mr(src='/static/manual/component_alps_SKHHLNA010.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_shoulder.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_shoulder_done.jpg')
+  img.hm.mt.mr(src='/static/manual/solder_shoulder_done2.jpg')
+
+  hr
+  h3 Next
+  ul
+    li: +a('diy_case') 3D-print the case and buttons

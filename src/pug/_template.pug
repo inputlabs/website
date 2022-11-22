@@ -1,0 +1,76 @@
+block variables
+
+html
+  include _mixins.pug
+
+  head
+    //- Search engines.
+    title
+      | Input Labs -
+      |
+      block title
+    link(rel='canonical' href=('https://inputlabs.io' + (PATH=='/' ? '' : PATH)))
+    if ENV != 'prod'
+      meta(name='robots' content='noindex')
+    //- Style.
+    meta(name='viewport' content='initial-scale=0.68')
+    link(rel='stylesheet' href='/static/style.css')
+    link(
+      rel='icon'
+      type='image/png'
+      href='/static/img/favicon_light.png'
+      media="(prefers-color-scheme: light)"
+    )
+    link(
+      rel='icon'
+      type='image/png'
+      href='/static/img/favicon_dark.png'
+      media="(prefers-color-scheme: dark)"
+    )
+    //- Scripts.
+    script(type='text/javascript' src='/static/init.js')
+    script(
+      defer
+      data-domain=(ENV=='prod' ? 'inputlabs.io' : 'dev.inputlabs.io')
+      src='https://plausible.io/js/plausible.outbound-links.file-downloads.js'
+    )
+    if loadMathJax
+      script(
+        type='text/javascript'
+        id='MathJax-script'
+        async
+        src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js'
+      )
+
+  body
+    header
+      div.logo
+        +a('/')
+          div: img(src='/static/img/logo.apng')
+          span Input Labs
+
+      div.icon
+        +ax('https://discord.gg/s8Yb4pfusT')
+          img(src='/static/img/discord.png')
+
+      div.icon
+        +ax('TODO')
+          img(src='/static/img/patreon.png')
+
+      div.nav(class=((PAGE=='nav') ? '' : 'hide'))
+        +nav
+
+      div.mininav
+        +a('/nav')
+          img(src='/static/img/burger.svg')
+
+    main
+      block page
+
+    footer
+      div Input Labs Oy.
+      div: +a('javascript:rainbowToggle()') Toggle rainbow
+      div: +a('/about') About
+      div: +a('/press') Press
+      div: +ax('https://github.com/inputlabs/website/blob/main/license.md') CC BY-NC-SA
+      //- div #{new Date().getFullYear()}

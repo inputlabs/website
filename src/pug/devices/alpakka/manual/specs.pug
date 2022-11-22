@@ -1,0 +1,213 @@
+extends _manual.pug
+
+block append title
+  | Specs (Reference Design)
+
+block content
+  h2 Specs (Reference Design)
+  hr
+
+  div.mosaic
+    div.group
+      h3 Angular Rate Sensor (Gyro)
+      table.data
+        tr
+          td Units
+          td 2
+        tr
+          td Manufacturer
+          td ST Microelectronics (Switzerland)
+        tr
+          td Model
+          td LSM6DSR
+        tr
+          td Full scale
+          td 4000 dps
+        tr
+          td Zero rate (max drift)
+          td 1 dps
+        tr
+          td Noise (max)
+          td 0.005 dps / √Hz
+        tr
+          td Output Data Rate
+          td 6.66 KHz
+
+      h3 Thumbstick
+      table.data
+        tr
+          td Units
+          td 1
+        tr
+          td Manufacturer
+          td Alps Alpine (Japan)
+        tr
+          td Model
+          td RKJXV122400R
+        tr
+          td Max angle
+          td 46º
+        tr
+          td Center spring deadzone
+          td ~4%
+        tr
+          td Analog to Digital Converter
+          td 12 bits (Raspberry Pico)
+        tr
+          td Expected lifetime (move)
+          td 2,000,000 cycles
+        tr
+          td Expected lifetime (push-in)
+          td 500,000 cycles
+
+      h3 Rotary encoder (Wheel)
+      table.data
+        tr
+          td Units
+          td 1
+        tr
+          td Manufacturer
+          td Alps Alpine (Japan)
+        tr
+          td Model
+          td EC10E1220503
+        tr
+          td Detents
+          td 24 per rotation
+        tr
+          td Push-in click
+          td No
+        tr
+          td Torque
+          td 5 N
+        tr
+          td Expected lifetime
+          td 100,000 cycles
+
+      h3 Directional switch (Hat)
+      table.data
+        tr
+          td Units
+          td 1
+        tr
+          td Manufacturer
+          td Alps Alpine (Japan)
+        tr
+          td Model
+          td RKJXM1015004
+        tr
+          td Directions
+          td 8 directions + push-in
+        tr
+          td Force
+          td 3 N
+        tr
+          td Expected lifetime (move)
+          td 100,000 cycles
+        tr
+          td Expected lifetime (push-in)
+          td 100,000 cycles
+
+
+    div.group
+      h3 Buttons (Front)
+      table.data
+        tr
+          td Units
+          td 13
+        tr
+          td Manufacturer
+          td Alps Alpine (Japan)
+        tr
+          td Model
+          td SKPMAME010
+        tr
+          td Type
+          td Digital, momentary
+        tr
+          td Force
+          td 1.57 N
+        tr
+          td Travel
+          td 1.3 mm
+        tr
+          td Expected lifetime
+          td 100,000 cycles
+
+      h3 Buttons (Shoulders)
+      table.data
+        tr
+          td Units
+          td 2
+        tr
+          td Manufacturer
+          td Alps Alpine (Japan)
+        tr
+          td Model
+          td SKHHLNA010
+        tr
+          td Type
+          td Digital, momentary
+        tr
+          td Force
+          td 1.57 N
+        tr
+          td Travel
+          td 0.25 mm
+        tr
+          td Expected lifetime
+          td 500,000 cycles
+
+      h3 Buttons (Triggers)
+      table.data
+        tr
+          td Units
+          td 4
+        tr
+          td Manufacturer
+          td Alps Alpine (Japan)
+        tr
+          td Model
+          td SKQGAFE010
+        tr
+          td Type
+          td Digital, momentary
+        tr
+          td Force
+          td 0.98 N
+        tr
+          td Travel
+          td 0.25 mm
+        tr
+          td Expected lifetime
+          td 500,000 cycles
+
+      h3 Other
+      table.data
+        tr
+          td Processor
+          td ARM 133 MHz 2-cores (Raspberry Pico)
+        tr
+          td USB port
+          td USB micro-B (Raspberry Pico)
+        tr
+          td Developer port
+          td JST PH 4-pin
+        tr
+          td LEDs color
+          td White
+
+      h3 Dimensions
+      table.data
+        tr
+          td Without buttons
+          td 162mm x 100mm x 58mm
+        tr
+          td With buttons
+          td 162mm x 102mm x 64mm
+        tr
+          td Weight
+          td 187 g
+
+
+

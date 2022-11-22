@@ -1,0 +1,19 @@
+extends _manual.pug
+
+block append title
+  | Profile: Console
+
+block content
+  h2 Profile: Console
+  hr
+
+  p Traditional #[em gamepad] input/output, but with the addition of gyro/mouse.
+  p If the game has a good gamepad support, this profile may be more plug-and-play since there is #[em no need to change in-game key binds] and settings.
+  p But as a tradeoff, you are possibly stuck with the default controller layout implemented in the game. So it is more convenient but less flexible.
+
+  img.wide.mt(src='/static/manual/profile_console.svg')
+  hr
+
+  h3 Additional links
+  ul
+    li: +a('profiles') How to select the active profile

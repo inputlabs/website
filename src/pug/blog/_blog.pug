@@ -1,0 +1,34 @@
+extends ../_template.pug
+
+block title
+  block subtitle
+    | Blog -
+    |
+
+block page
+  h1 News and research
+
+  div.boxes.wiki
+    div
+      div.box.index
+        h2 Blog
+
+        h3 News
+        div
+          +wikilink('live') We are live
+
+        h3 Research
+        div
+          +wikilink('dual_gyro') Dual gyro
+          +wikilink('finger_sensing') Finger sensing
+          div.inactive Early prototypes retrosp. #[i (Soon)]
+          div.inactive Early testers retrospective #[i (Soon)]
+          div.inactive Gyro implementation details #[i (Soon)]
+
+        h3 Other
+        div
+          +wikilink('next') Next blog entries
+          +wikilink('TODO', true) Roadmap
+
+    div.box.entry
+      block content

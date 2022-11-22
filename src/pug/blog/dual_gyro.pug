@@ -1,0 +1,447 @@
+extends _blog.pug
+
+block append subtitle
+  | Dual gyro
+
+block content
+  h2 Dual gyro
+  hr
+  p: i November 2022
+  p: i Note: This is a re-formatted version of #[+ax('https://github.com/marcos-diaz/research') Sensor fusion on redundant angular rate sensors] white paper, research conducted even before Input Labs was established, but if you want Input Labs to make research like this in the future, please consider becoming a supporter on #[+ax('TODO') Patreon].
+  hr
+
+  -
+    const refs = [
+      {
+        id: 'sensor_failure_detection',
+        authors: 'Merrill, Walter C.',
+        title: "Sensor failure detection for jet engines using analytical redundancy",
+        journal: 'Journal of Guidance, Control, and Dynamics',
+        year: 1985,
+        url: 'https://doi.org/10.2514/3.20041'
+      },
+      {
+        id: 'adaptive_kalman',
+        authors: 'Mohamed, A., Schwarz, K.',
+        title: "Adaptive Kalman Filtering for INS/GPS",
+        journal: 'Journal of Geodesy 73',
+        year: 1999,
+        url: 'https://doi.org/10.1007/s001900050236'
+      },
+      {
+        id: 'piezo_mems',
+        authors: 'Tadigadapa, S. A. K. M., and K. Mateti.',
+        title: "Piezoelectric MEMS sensors: state-of-the-art and perspectives",
+        journal: 'Measurement Science and technology',
+        year: 2009,
+        url: 'https://doi.org/10.1088/0957-0233/20/9/092001'
+      },
+      {
+        id: 'dtg',
+        authors: 'Bonfield, D. G.',
+        title: "The dynamically tuned gyroscope-A sensor for low cost attitude reference and navigation system",
+        journal: 'Applications of Modern Gyro Technology',
+        year: 1977,
+        url: 'https://ui.adsabs.harvard.edu/abs/1977amgt.proc.....B'
+      },
+      {
+        id: 'optical_mouse',
+        authors: 'Ng, Tuck Wah.',
+        title: "The optical mouse as a two-dimensional displacement sensor",
+        journal: 'Sensors and Actuators A: Physical 107.1',
+        year: 2003,
+        url: 'https://doi.org/10.1016/S0924-4247(03)00256-5'
+      },
+      {
+        id: 'zero_rate',
+        authors: 'Hiller, Tobias, et al.',
+        title: "Origins and mechanisms of bias instability noise in a three-axis mode-matched MEMS gyroscope",
+        journal: 'Journal of Microelectromechanical Systems 28.4',
+        year: 2019,
+        url: 'https://doi.org/10.1109/JMEMS.2019.2921607'
+      }
+    ]
+
+  mixin cite(id)
+    - const index = refs.findIndex((ref) => ref.id == id)
+    +a('#'+id) [#{index+1}]
+
+  h3 Abstract
+  p It Is possible to improve angular rate sensor performance by combining data from multiple redundant sensors. Noise can be reduced by sampling each sensor in parallel, zero-rate can be reduced by opposing bias cancelling each other, and range can be extended without tradeoffs by configuring each sensor to different scales.
+
+  hr
+  h3 Acronyms
+  ul
+    li #[b ARS:] Angular Rate Sensor.
+    li #[b DPS:] Degrees Per Second.
+    li #[b DTG:] Dynamically Tuned Gyroscope.
+    li #[b GPS:] Global Positioning System.
+    li #[b HID:] Human Interface Device.
+    li #[b IMU:] Inertial Measurement Unit.
+    li #[b PDF:] Probability Density Function.
+
+  hr
+  h3 1. Introduction
+  p Redundant sensors (with equivalent characteristics) used in critical systems (aviation, medical) increase the reliability of the system in case of failure, but the individual characteristics of each sensor remain the same. #[+cite('sensor_failure_detection')]
+
+  p In the other hand, is common to find multiple sensors of different nature used in consumer electronics, complementing each other to obtain better results (sensor fusion). An example of this is a smartphone combining #[em GPS] data and motion sensor data to reduce the uncertainty of location. #[+cite('adaptive_kalman')]
+
+  p We will evaluate the possibility of using sensor fusion with redundant angular rate sensors to improve sensor performance (noise ratio, zero-rate and scale) in the domain of computer input.
+
+  hr
+  h3 2. Problem
+  h4 2.1. Limitations of Angular Rate Sensors
+  p As for today, most angular rate sensors available belong into two groups:
+
+  p Consumer electronics #[em IMU]s, sometimes with both accelerometer and #[em ARS] in a single chip, used in devices such as smartphones and videogame peripherals. These are based on the piezoelectric effect, are small, relatively inexpensive, and are energy efficient. Due to their small size, its performance characteristics (noise, zero-rate, scale) are limited, but enough for its intended uses such as smartphone tilt detection, step-counter, and mobile videogame input. #[+cite('piezo_mems')]
+
+  p The next tier of motion sensor devices are industrial-grade or aerospace-grade, such as ring laser gyroscopes (Sagnac effect) and #[em DTG] rotor gimbals #[+cite('dtg')]. These achieve very precise readings but are expensive and big, not suited for consumer electronics.
+
+  p Smartphone-grade IMUs prioritize small footprint and low energy consumption in their design, while performance characteristics such as noise ratio and zero-rate (drift) are only secondary. The miniaturized parts featuring the piezoelectric effect are prone to have high relative noise (compared with other common input methods such as a mouse optoelectronic sensor); and small variations in temperature cause an offset in their readings within a noticeable range.
+
+  p One of these novel application that require higher motion sensing performance than the provided by low-tier IMUs is Virtual Reality in the domain of videogames, in which aiming a (virtual) weapon is usually done by using both hands, each hand having an independent device featuring infrared spacial tracking, so the aim angle can be derived from the position of the hands in 3D space. On the contrary, aiming a pistol with a single hand must rely much more in single device angle detection, with much lower accuracy.
+
+  p Videogame controllers (Sony PlayStation DualShock, Steam Controller, Nintendo Switch Joy-Cons, etc...) have also been featuring motion sensors, but they were never used as a primary method for aiming (or other application that require very precise angular movements detection) due to the limitations of these smartphone-grade IMUs; and instead only using angular rate data as secondary input method to complement thumbstick or trackpad primary input for aiming.
+
+
+  h5(id='2_1_1') 2.1.1. Noise
+  p Noise is the unintended random disturbance on a signal. In commercially available ARSs noise is measured in $ mdps / \sqrt{Hz} $ (milli-degree per second by square root of frequency).
+
+  p Is not trivial to do a fair comparison with other common computer input methods such as mouse optoelectronic sensors, since these are a combination of camera and image processing hardware/software that effectively reduces noise to zero on the resulting output. #[+cite('optical_mouse')]
+
+  p In practical terms, when using a optoelectronic sensor mouse for controlling a computer mouse cursor, noise is a non-factor; but when using a commercially available ARSs (using a reasonable #[b DPS] scale and operative system sensitivity) the noise can cause the mouse cursor to jitter several pixels back and forth at high frequency; making it unfit for the purpose unless applying filtering techniques with significant tradeoffs in latency (smoothing) or linearity (acceleration).
+
+  p Common solutions for reducing noise are:
+  ul
+    li Frequency filtering: Either via hardware or software, to reduce the amplitude of undesired frequencies. Usually removing frequencies that are much higher or much lower than what the user is expected to input as real signal. By definition cannot remove noise in the frequency range of real input, or it would be filtering out such input.
+    li Multisampling: Since noise is a random value within a range, averaging the value of samples over time approximate the result to zero, the more samples the more reduction of noise, but with the tradeoff of increased latency, which is also an undesired attribute for videogame input.
+    li Acceleration: By applying an exponential response curve, the parts of the signal with low amplitude are reduced further, including noise. In applications in which linearity is required to achieve consistent results (as is videogame input), this is a undesired tradeoff.
+    li Sensor fusion: Using a secondary sensor of different nature to discard noise more effectively, each sensor have noise with its own characteristics, but the combination of data from both can help to isolate real input from unintended input.
+
+  h5(id='2_1_2') 2.1.2. Scale
+  p Angular rate sensors have a limit in the turn rate they can report on. These are also measured in maximum DPS until they saturate its data channel. For commercially available ARSs this attribute can be configured, usually in predefined steps from 125 DPS to 4000 DPS, referred as ranges or scales.
+
+  p There are tradeoffs depending in which scale to choose, smaller scales have better granularity (lower DPS per Least Significant Bit), better noise-signal ratio, and smaller zero-rate ratio, but can only report on slower turns. On the contrary, bigger scales have worse granularity, worse noise-signal ratio, an greater zero-rate, but they can report on faster turns.
+
+  p Since noise and zero-rate in ARSs are not negligible, these tradeoffs can be problematic no matter the chosen scale.
+
+  p One potential solution is to change the scale dynamically when the current range is too small or too big. But such request to the IMU is relatively slow and a blocking operation, so no reading from the sensor can be taken while the scale is being adjusted. Therefore this method cannot be employed if the system is expecting continuos readings with a smaller interval than the time it takes to change the scale.
+
+  h5 2.1.3. Zero-rate
+  p Zero-rate (also known as random walk offset or drift) #[+cite('zero_rate')] is a deviation over time of the calibrated zero, doing a pseudo-random walk around the real zero at a much lower frequency than flicker noise (section #[+a('#2_1_1') 2.1.1]). In piezoelectric-based IMUs this can be caused by electrical current instability, interference from other electronic components, or subtle changes in temperature.
+
+  p Zero-rate is measured in maximum DPS of deviation the sensor could reach away from the calibrated zero, and DPS/Cº for changes in temperature. For commercially available ARSs these are in the range of milli-degrees per second, but aggregated over time these can lead to much greater values.
+
+  p For the application of computer input, this is a big shortcoming of ARSs compared with alternative methods such as optical mouse, which similarly to noise (section #[+a('#2_1_1') 2.1.1]), they have inexistent or negligible drift.
+
+  p Common solutions for zero-rate are:
+  ul
+    li Acceleration: By applying an exponential response curve, the parts of the signal with low amplitude are reduced further, including noise. In applications in which linearity is required to achieve consistent results (as is videogame input), this is a undesired tradeoff.
+    li Multisampling: Contrary to the case of flicker noise, averaging multiple samples #[em of the same sensor] over time would NOT reduce zero-rate, since zero-rate is random-walk noise, consecutive values will contain very similar deviation, making multisampling useless.
+    li Self-correction: With software, when a constant angular rate is detected for several consecutive seconds, can be assumed it is not real input and the sensor can be programmatically calibrated.
+
+
+  hr
+  h3 3. Redundant sensor fusion
+  h4 3.1. Noise
+  p By using multiple physically connected sensors, is possible to take samples in parallel and average their values without increasing latency.
+
+  p The following figures show a sinusoidal representing actual input, with added simulated noise (normal distribution loc=0 scale=0.5), being processed with different combinations of multisampling and multisensor. Latency being defined as:
+
+  div.math $$ Latency = \frac{Samples}{Sensors} $$
+  //- img.math(src='/static/blog/dual_gyro/math_noise_0.svg')
+
+  p Figure 1 shows the untreated signal on a single sensor.
+  +figure(
+    1,
+    'Sensors=1, Samples=1, Latency=1',
+    '/static/blog/dual_gyro/figure_noise_1.png'
+  )
+  div.math $$ f_1(x) = sin(x) + N(\mu=0, \sigma=1) $$
+
+  p Figure 2 shows result of multisampling method over 4 samples, significantly reducing the noise, but increasing latency.
+  +figure(
+    2,
+    'Sensors=1, Samples=4, Latency=4',
+    '/static/blog/dual_gyro/figure_noise_2.png'
+  )
+  div.math $$ Avg(x, t) = \frac{ \sum_{x}^{x+t-1}f_1(x) }{t} $$
+  div.math $$ f_2(x) = Avg(x,4) $$
+
+  p Figure 3 shows equivalent noise reduction (using a second sensor signal) but with improved latency. Note that the signal is not just scaled down version of the original noise, but also shows features (relative peaks) of the second sensor averaged signal.
+  +figure(
+    3,
+    'Sensors=2, Samples=4, Latency=2',
+    '/static/blog/dual_gyro/figure_noise_3.png'
+  )
+  div.math $$ f_3(x) = \frac{Avg(x_1,2) + Avg(x_2,2) }{2} $$
+
+  p Figure 4 shows improved noise reduction by using 2 sensors given the same latency as figure 2.
+  +figure(
+    4,
+    'Sensors=2, Samples=8, Latency=4',
+    '/static/blog/dual_gyro/figure_noise_4.png'
+  )
+  div.math $$ f_4(x) = \frac{Avg(x_1,4) + Avg(x_2,4) }{2} $$
+
+  p Figure 5 shows further improvement of noise reduction by using 3 sensors given the same latency as figure 2.
+  +figure(
+    5,
+    'Sensors=3, Samples=12, Latency=4',
+    '/static/blog/dual_gyro/figure_noise_5.png'
+  )
+  div.math $$ f_5(x) = \frac{Avg(x_1,4) + Avg(x_2,4) + Avg(x_3,4) }{3} $$
+
+  p The conclusion is that redundant sensors (of equal or similar characteristics) can be used to either reduce total noise more effectively within the same latency, or to achieve the same level of noise reduction but with less latency.
+
+  p The benefits of parallelism regarding latency does scale linearly with number of redundant sensors as $latency/n$ (there are no diminishing returns of using more than 2 sensors); while benefits regarding noise reduction only increase at a $1/n$ rate, so there are diminishing returns when adding more sensors.
+
+  h4 3.2. Scale
+  p While changing the scale dynamically with a single sensor is problematic (section #[+a('#2_1_2') 2.1.2]), it is possible to obtain the same multi-scale benefits with multiple sensors without these tradeoffs. By using multiple sensors, each one permanently adjusted to a different scale, then using the output of the most suitable sensor (the one with the smaller scale able to fit the input without saturate) a result with lower noise and lower zero-rate is obtained when the input is small, but without limitations in range when the input is greater.
+
+  p Given a system with multiple sensors $ S_n $, each sensor with a range $R_n$, and sorted from greater to smaller range, the final output can be defined as:
+
+  div.math
+    | $$
+    |     Output =
+    |     \cases{
+    |         if(S_1 > R_2) \rightarrow S_1 / R_1 \cr
+    |         else \: if(S_2 > R_3) \rightarrow S_2 / R_2\cr
+    |         ... \cr
+    |         else \: if (S_{n} > R_{n+1}) \rightarrow S_{n} / R_n \cr
+    |         ... \cr
+    |         else(S_n / R_n)
+    |     }
+    | $$
+
+  p In the following figures an increasing $sin(x)$ function is representing actual input, then noise is used to visualize the undesired characteristics which are relative to the used scale (noise, zero-rate) in the values for the sensors $A$ and $B$.
+
+  +figure(
+    6,
+    'Actual input',
+    '/static/blog/dual_gyro/figure_scale_1.png'
+  )
+
+  p Sensor $A$ is able to fit the full amplitude of the input, but noise is greater than in sensor $B$.
+  +figure(
+    7,
+    'Sensor A, scale=250',
+    '/static/blog/dual_gyro/figure_scale_2.png'
+  )
+
+  p Sensor $B$ noise is relatively smaller, but the input signal makes it to saturate after a certain point.
+  +figure(
+    8,
+    'Sensor B, scale=125',
+    '/static/blog/dual_gyro/figure_scale_3.png'
+  )
+
+  p Using the method described above the last figure shows how values of $B$ (with less noise) are used while the signal does not saturate it. But when sensor $B$ starts saturating it switches to the values of sensor $A$, which is able to capture the full amplitude of the real input.
+  +figure(
+    9,
+    'Dynamic switch sensors A and B',
+    '/static/blog/dual_gyro/figure_scale_4.png'
+  )
+
+  p The final result therefore retains the best characteristics of both sensors, range of sensor $A$ with noise-ratio of sensor $B$ (while possible).
+
+  h4 3.3. Zero-rate
+  h5 3.3.1. Basis for calculations
+  ul
+    li The mean value of drift will be calculated by repeatedly integrating the expected drift on multiple axis and with multiple sensors, each of the axis and sensors adding additional variables to be integrated.
+    li To obtain realistic means, normal distribution will be factored in the calculations (section #[+a('#3_3_2') 3.3.2]).
+    li The interval of the definite integrals is -1 to 1, since the negative part is important for making calculations in which opposing values cancel each other.
+    li To normalize the definite integration result from the (-1 to 1) interval to the (0 to 1) interval, the result must be divided by $ 2^N $, in which N is the number of needed integrations going into the negative side.
+    li The calculated zero-rate is a value from 0 to 1. The drift is a vector (in 1D, 2D or 3D) but only its length is relevant and the direction is irrelevant. That way the final integrated mean can be a simple scalar above zero.
+    li It is assumed that the zero-rate is many orders of magnitude smaller than the maximum detection range of the sensor, and therefore it will never reach its limits.
+
+  h5(id='3_3_2') 3.3.2. Weighed probability
+  p Taking ($f_1$) "for any possible value of drift" and multiplying it for the adjusted normal distribution Probability Density Function ($f_2$), the resulting ($f_3$) provides "probability weighted drift" values allowing to perform calculations (and integrations) on it as if they were actual sensor output, but  also being able to obtain a realistic mean drift scalar (as perceived by the user), which will be the foundation for doing comparisons when adding more axis and more sensors.
+
+  p For the following figures, the arbitrary values for PDF sigma=0.3 and scale=0.75 will used to simulate a sensor with real world characteristics, but additionally a table with the final results for different PDF values will be shown too.
+  +figure(
+    10,
+    'Probability-weighted drift',
+    '/static/blog/dual_gyro/figure_drift_1a.png'
+  )
+  div.math $$ f_1(x) = x $$
+  div.math $$ f_2(x) = W(x) = pdf(x, \mu=0, \sigma=0.3) * 0.75 $$
+  div.math $$ f_3(x) = f_1(x)*f_2(x) $$
+
+  h5 3.3.3. One axis
+  p In figure 11, for a single axis and a single sensor, the mean can be integrated by using the absolute drift values.
+  +figure(
+    11,
+    'Axis=1, Sensors=1',
+    '/static/blog/dual_gyro/figure_drift_1b.png'
+  )
+  div.math $$ f(x) = |W(x)| $$
+  div.math $$ Mean = \frac{1}{2^1} \int_{-1}^1 |W(x)| dx = \int_0^1 W(x) dx \approx 0.0894 $$
+
+  p In figure 12, by adding a second sensor (also reporting on a single axis), values of both sensors can be averaged as $ (x_1 + x_2)/2 $, resulting in smaller mean drift.
+
+  p The negative part (interval $-1,1$) is used only until the point in which the goal is to start calculating absolute drift. This way an intermediate absolute() transformation between the 1st and 2nd integrations is not required.
+  +figure(
+    12,
+    'Axis=1, Sensors=2',
+    '/static/blog/dual_gyro/figure_drift_2.png'
+  )
+  div.math $$ f(x) = \left| \int \frac{ W(x_1) + W(x_2) }{2} dx_2 \right| $$
+  div.math.small $$ Mean = \frac{1}{2^1} \int_0^1 \int_{-1}^1 \frac{ W(x_1) + W(x_2) }{2} dx_1 dx_2  \approx 0.0447 $$
+
+  p So for a single axis, averaging the output of 2 sensors reduces the mean zero-rate to exactly half, independently of the values used to model the probability distribution.
+
+  table.manual.right(style='width:420px')
+    tr
+      th.right PDF $\sigma$
+      th.right PDF scale
+      th.right Sens=1
+      th.right Sens=2
+      th.right Reduction
+    tr
+      td 0.2
+      td 1
+      td 0.0798
+      td 0.0399
+      td 0.5
+    tr
+      td: b: i 0.3
+      td: b: i 0.75
+      td: b: i 0.0894
+      td: b: i 0.0447
+      td: b: i 0.5
+    tr
+      td 0.4
+      td 0.5
+      td 0.0763
+      td 0.0381
+      td 0.5
+    tr
+      td 0.5
+      td 1.25
+      td 0.0498
+      td 0.0249
+      td 0.5
+  div.caption Table 1: Drift reduction on 1 axis
+
+  h5 3.3.4. Two axis
+  p In figure 13, when using 2 axis to create a 2-dimensional vector with length $\sqrt{x^2 + y^2}$ and direction $ atan2(x / y) $, and use PDF for both axis as described before.
+  +figure(
+    13,
+    'Axis=2, Sensors=1',
+    '/static/blog/dual_gyro/figure_drift_3.png'
+  )
+  div.math $$ f(x) = \sqrt{W(x)^2 + W(y)^2} $$
+  div.math $$ Mean = \frac{1}{2^2} \iint_{-1}^1 \sqrt{W(x)^2 + W(y)^2} dx dy \approx 0.1408 $$
+
+  p In figure 14, by using an additional sensor the probability-weighted drift is reduced overall, but specially depressed in the quadrants with opposing values (-,+) and (+,-).
+  +figure(
+    14,
+    'Axis=2, Sensors=2',
+    '/static/blog/dual_gyro/figure_drift_4.png'
+  )
+  div.math $$ U(a, b) = \frac{W(a)+W(b)}{2} $$
+  div.math
+    | $$
+    |     f(x) = \iint \sqrt{
+    |         U(x_1, x_2)^2 +
+    |         U(y_1, y_2)^2
+    |     } dx_2 dy_2
+    | $$
+  div.math.small
+    | $$
+    |     Mean = \frac{1}{2^4} \iiiint_{-1}^1 \sqrt{
+    |         U(x_1, x_2)^2 +
+    |         U(y_1, y_2)^2
+    |     } dx_1 dy_1 dx_2 dy_2
+    | $$
+  div.math $$ \approx 0.0982 $$
+
+  p So for 2 axis, used as 2-dimensional vectors, averaging the values of a 2nd sensor, it reduces the zero-drift to approximately $ \sim 2/3 $, varying depending on the characteristics of the sensor (the probability curve).
+
+  p This solution achieves better results when sigma is higher (when the drift is worse more often), while the scale used for the PDF is irrelevant.
+
+  table.manual.right(style='width:420px')
+    tr
+      th.right PDF $\sigma$
+      th.right PDF scale
+      th.right Sens=1
+      th.right Sens=2
+      th.right Reduction
+    tr
+      td 0.2
+      td 1
+      td 0.1366
+      td 0.1033
+      td 0.7560
+    tr
+      td: b: i 0.3
+      td: b: i 0.75
+      td: b: i 0.1407
+      td: b: i 0.0981
+      td: b: i 0.6972
+    tr
+      td 0.4
+      td 0.5
+      td 0.1137
+      td 0.07564
+      td 0.6655
+    tr
+      td 0.5
+      td 1.25
+      td 0.3165
+      td 0.2061
+      td 0.6511
+  div.caption Table 2: Drift reduction on 2 axis
+
+  h5 3.3.5. Conclusion
+  p Redundant sensors can be used effectively to reduce zero-rate in ARS by exploiting the fact that for a set of given random vectors (with signed coordinates) their average is usually closer to the origin or coordinates than any of the individual vectors, or in the worst cases better than at least one of them.
+
+  p There are diminishing returns both when working with more axis (1D, 2D, 3D), and when adding more sensors.
+
+  p The same method could be also used with accelerometers to reduce zero-g, or with any other kind of sensor with similar random-walk bias characteristics.
+
+
+  hr
+  h3 4. Methodology
+  h4 4.1 Calculations
+  p The claims made in the solution section are backed by theoretical math, such calculations are formal explanations for the results obtained with real-life experimentation, and each result has been always cross-checked with other methods and tools.
+
+  p The main tool for calculations was NumPy, while also using Scipy Nquad or custom Montecarlo simulations to verify results.
+
+  h4 4.2. About figures
+  p Figures for noise (1, 2, 3, 4, 5): Created using Numpy #[em np.random.normal] for emulating noise, and #[em np.random.seed] to operate over the same signals repeatedly. With length of $(\pi * 4)$ and resolution of (0.01). Plotted with Matplotlib.
+
+  p Figures for scale (6, 7, 8, 9): Created using Numpy #[em np.random.normal] for emulating noise, and #[em np.random.seed] to operate over the same signals repeatedly. With length of $(\pi * 16)$ and resolution of (0.1). Plotted with Matplotlib.
+
+  p Figures for zero-rate (10, 11, 12, 13, 14): Created using Numpy and SciPy #[em scipy.stats.norm.pdf] to calculate Probability Density Distribution. Used #[em np.meshgrid] and #[em np.sum] for integrations. With Resolution of (0.01). Plotted with Matplotlib and wireframe for 3D.
+
+  h4 4.3. Experimentation
+  p The hypothesis about how to employ redundant sensors were originally tested with breadboard prototypes using a Raspberry Pi Pico and several pairs of IMUs such as 2x #[em ST LSM6DS33], 2x #[em TDK MPU-6050], and 2x #[em Bosch BMX055].
+
+  p Using these handmade devices as a computer #[em HID] input allowed to verify such hypothesis with ease, by emulating a mouse and having a real-time and interactive response to the sensors output.
+
+
+  hr
+  h3 5. Potential applications
+  p In the consumer electronics market, given the increased cost and diminishing returns in performance of using redundant IMUs, its application is possibly relegated to use-cases in which accuracy is a key factor, and enthusiasts are willing to cover the additional costs, such as videogame peripherals for e-sports, or high-performing/racing drones.
+
+  p In the medical field, redundant lower-grade sensors could be employed when industrial-grade sensors are too big or expensive, as for example electronic prosthetics.
+
+  p Even though this research is focused in lower-grade IMUs and computer input, the same methods could be used to combine data from multiple industrial-grade sensors and obtain extremely accurate data for scientific or industrial purposes.
+
+  hr
+  h3 References
+  ol
+    each ref in refs
+      li(id=ref.id)
+        div #{ref.authors}
+        div: i "#{ref.title}".
+        div #{ref.journal}. (#{ref.year}).
+        +axh(ref.url)
+
+  hr
+  h3 Special thanks to
+  ul
+    li Guðni Ólafsson.
+    li Michael Przybilski.
