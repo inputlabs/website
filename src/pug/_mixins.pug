@@ -68,6 +68,10 @@ mixin axh(href)
   //- a(href=(ENV=='prod' ? href : 'DISABLED') target='_blank')
   a(href=href target='_blank') #{href}
 
+mixin dl(href)
+  a(href=href download)
+    block
+
 mixin figure(id, caption, src, cls)
   div.figure(class=cls)
     img(src=src)
