@@ -1,5 +1,15 @@
 # Input Labs website
 
+*Website published at [inputlabs.io](https://inputlabs.io)*
+
+## Contributions
+
+### Accessibility database
+In you want to contribute, the videogame entries for the accessibility database are located at [src/pub/db](./src/pug/db)
+
+### Alpakka manual
+In you want to contribute, the manual files are located at [src/pug/devices/alpakka/manual](./src/pug/devices/alpakka/manual)
+
 ## Dependencies
 
 - [NodeJS](https://nodejs.org)
@@ -12,8 +22,3 @@
 - `npm run build` - To consolidate into HTML and static files.
 - `npm run build_prod` - To consolidate into HTML and static files, for production.
 - `npm run serve` - To serve the consolidated version locally.
-
-## License
-
-- [License](./license.md)
-- [Contributor agreement](./contributor.md)

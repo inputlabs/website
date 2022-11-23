@@ -10,8 +10,10 @@ Unless stated otherwise, content in this repository created by Input Labs Oy. (a
 > **Non Commercial**: You may not use the material for commercial purposes.
 >
 > **Share Alike**: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+>
+> **No additional restrictions**: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
-The above is only a preview of the license, for full details visit [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+This is a human-readable summary of (and not a substitute for) the complete license [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 
 
 ## Trademarks
@@ -41,4 +43,4 @@ The disclaimer of warranties and limitation of liability provided above shall be
 
 
 ## Safety
-Be sure you (and people around you) always use adequate protective equipment and stay safe. Do NOT leave electrical or electronic equipment running without supervision. Do NOT use `Input Labs Oy.` resources for medical, transportation, weaponry, law enforcement, nor military projects.
+Be sure you (and people around you) always use adequate protective equipment and stay safe. Do NOT leave electrical or electronic equipment running without supervision. Do NOT use this project for medical, transportation, weaponry, law enforcement, nor military purposes.
