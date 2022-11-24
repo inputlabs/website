@@ -7,15 +7,16 @@ block content
   h2 Order a Printed Circuit Board
   hr
 
-  h3 Order from a PCB prototyping company
-  p The PCB schematics and layout are available at #[+ax('TODO') Alpakka PCB] repository, along with the consolidated order files for the reference design.
+  h3 PCB sources
+  p The PCB schematics and layout are available at #[+ax('https://github.com/inputlabs/alpakka_pcb') Alpakka PCB] repository, along with the consolidated order files for the reference design.
   p We recommend to use a PCB prototyping service such as #[+ax('https://jlcpcb.com') JLCPCB], which manufacture cheap PCBs in low quantities, with the option to solder a good assortment of SMD (Surface Mount Devices) onto the board. Though is possible to use any other service of your preference.
+
+  hr
+  h3 Order from a PCB prototyping company
   p The steps to order a PCB from #[em JLCPCB] are:
   ol.spaced
-    li Get the consolidated order files (#[em .csv] and #[em .zip]) from #[+ax('TODO') Releases].
-    ul
-      li Or alternatively create the files yourself after you modified the schematics.
-    li Go to #[+ax('https://jlcpcb.com') JLCPCB] → #[em Order now]
+    li Get order files (#[em .csv] and #[em .zip]) from #[+ax('https://github.com/inputlabs/alpakka_pcb/releases/latest') Releases], or by creating them yourself. #[i.dim (TODO PCB development page)]
+    li Go to #[em JLCPCB] → #[em Order now]
     li Upload gerber files: #[em jlcpcb_gerber.zip]
     li Wait until gerber files are processed.
     li Change #[em Remove Order Number] to #[em Specify a location]

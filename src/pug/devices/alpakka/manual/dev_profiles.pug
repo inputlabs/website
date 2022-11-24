@@ -8,12 +8,12 @@ block content
   hr
 
   p We are working in a simple method to create and load profiles via USB, without the need to recompile the firmware, but at the moment the only way to edit profiles is to change the source code.
-  p Meanwhile profiles are just C code located in the #[+a('TODO') profiles/] folder, each profile in a single file containing a #[em Profile] object. And the profile having its buttons defined, a #[em Button] object for each button.
+  p Meanwhile profiles are just C code located in the #[+ax('https://github.com/inputlabs/alpakka_firmware/tree/main/src/profiles') profiles/] folder, each profile in a single file containing a #[em Profile] object. And the profile having its buttons defined, a #[em Button] object for each button.
   p The parameters of the #[em Button] object are:
   ul
-    li The #[+a('TODO') pin identifier] of the physical button.
+    li The #[+ax('https://github.com/inputlabs/alpakka_firmware/blob/main/src/headers/pin.h') pin identifier] of the physical button.
     li The desired #[em behavior] of the button. (See below).
-    li A list of #[+a('TODO') actions] to be performed, grouped with the #[em ACTIONS] macro for convenience.
+    li A list of #[+ax('https://github.com/inputlabs/alpakka_firmware/blob/main/src/headers/hid.h') actions] to be performed, grouped with the #[em ACTIONS] macro for convenience.
 
   p Actions are either keyboard keys, mouse buttons, gamepad buttons, or special functions (procedures).
   hr
