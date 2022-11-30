@@ -21,6 +21,8 @@ This is a human-readable summary of (and not a substitute for) the complete lice
 
 `Discord` and the Discord logo belong to `Discord Inc.`, check details in their website.
 
+`Youtube` and the Youtube logo belong to `Youtube LLC`, check details in their website.
+
 `Input Labs` is a registered trademark of `Input Labs Oy.`; The Input Labs logo is intellectual property of `Input Labs Oy.` (all rights reserved).
 
 
