@@ -4,7 +4,7 @@
 
 ## Contributions
 - **Accessibility database:** If you want to contribute, the videogame entries for the accessibility database are located at [src/pub/db](./src/pug/db).
-- **Alpakka manual:** If you want to contribute, the manual files are located at [src/pug/devices/alpakka/manual](./src/pug/devices/alpakka/manual).
+- **Alpakka manual:** If you want to contribute, the manual files are located at [src/pug/alpakka/manual](./src/pug/alpakka/manual).
 
 ## Dependencies
 

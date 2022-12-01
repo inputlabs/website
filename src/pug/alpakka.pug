@@ -1,10 +1,10 @@
-extends ../_template.pug
+extends ./_template.pug
 
 block title
   | Alpakka controller
 
 block page
-  include _alpakka_header.pug
+  include alpakka/_title.pug
 
   div.boxes.grid
     div.box
@@ -72,7 +72,7 @@ block page
 
     div.box
       h2 Read the manual
-      p Check the #[+a(defaultPage('/devices/alpakka/manual')) Manual] for things like:
+      p Check the #[+a(parent.alpakkaManual) Manual] for things like:
       ul.spaced
         li #[+a('alpakka/manual/mouse') How to use the gyro]
         li #[+a('alpakka/manual/profiles') How to use the profiles]

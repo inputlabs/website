@@ -13,6 +13,11 @@
         "source": "/devices/alpakka/manual",
         "destination": "/devices/alpakka/manual/mouse",
         "type": 301
+      },
+      {
+        "source": "/devices/:sub*",
+        "destination": "/:sub",
+        "type": 301
       }
     ]
   }
