@@ -43,7 +43,9 @@ console.log('Generating sitemap')
 const htmlPaths = glob(`${DEST}/**/*.html`)
 let sitemap = ''
 for(let htmlPath of htmlPaths) {
-  const path = CANONICAL + '/' +  relative_without_ext(DEST, htmlPath)
+  let path = CANONICAL + '/' +  relative_without_ext(DEST, htmlPath)
+  if (path == `${CANONICAL}/index`) path = CANONICAL
+  if (path == `${CANONICAL}/404`) continue
   sitemap += path + '\n'
 }
 fs.writeFileSync(`${DEST}/sitemap.txt`, sitemap)
