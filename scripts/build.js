@@ -13,6 +13,7 @@ const argv = yargs(hideBin(process.argv)).argv
 const PUGDIR = 'src/pug'
 const DEST = 'build'
 const ENV = argv.prod ? 'prod' : 'dev'
+const CANONICAL = 'https://inputlabs.io'
 
 const relative_without_ext = (base, path) => {
   const pathObj = Path.parse(Path.relative(base, path))
@@ -37,3 +38,12 @@ for(let pugPath of pugPaths) {
 console.log('Copying static files')
 sh(`cp -R src/static ${DEST}/static`)
 sh(`du -hd 3 ${DEST}`)
+
+console.log('Generating sitemap')
+const htmlPaths = glob(`${DEST}/**/*.html`)
+let sitemap = ''
+for(let htmlPath of htmlPaths) {
+  const path = CANONICAL + '/' +  relative_without_ext(DEST, htmlPath)
+  sitemap += path + '\n'
+}
+fs.writeFileSync(`${DEST}/sitemap.txt`, sitemap)
