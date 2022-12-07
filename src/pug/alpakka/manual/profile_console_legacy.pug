@@ -1,0 +1,18 @@
+extends _manual.pug
+
+block append title
+  | Profile: Console Legacy
+
+block content
+  h2 Profile: Console Legacy
+  hr
+
+  p Traditional #[em gamepad] input/output, with mouse emulation completely disabled, and #[em right thumbstick emulated] in the 8-direction switch.
+  p This is the last fallback for games that may have issues when mouse movement is detected, that do not support keyboard bindings, or in which a second thumbstick is absolutely mandatory.
+
+  img.wide.mt(src='/static/manual/profile_console_legacy.svg')
+  hr
+
+  h3 Additional links
+  ul
+    li: +a('profiles') How to select the active profile
