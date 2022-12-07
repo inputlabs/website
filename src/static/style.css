@@ -384,6 +384,13 @@ main .boxes.center {
   color: white;
   margin-bottom: 0;
 }
+.wiki .entry h3 a.paragraph {
+  background-color: initial !important;
+  color: hsl(0, 0%, 30%) !important;
+  animation: initial;
+  text-decoration: none;
+  margin-left: 5px;
+}
 .wiki .entry h4 {
   font-size: 18px;
   margin-bottom: 0;

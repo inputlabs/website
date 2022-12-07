@@ -7,21 +7,31 @@ block content
   h2 Frequently Asked Questions
   hr
 
-  h3 How the gyro works?
-  p The mouse emulation works by #[em touching the hexagon] on the right side of the controller, and turning the controller as if it was a VR controller. The gyro is NOT active when not touching the hexagon. For more details see #[+a('mouse') Mouse Emulation] manual page.
+  mixin h3id(id)
+    h3(id=id)
+      block
+      a(href='#'+id class='paragraph') ¶
+
+  +h3id('thumstick') Why it does not have a second thumbstick?
+  p What the second thumbstick is normally used in most games (camera control / aiming) is replaced with a much superior gyro solution (this controller is made from the ground up for gyro controls).
+  p Then the extra thumbstick is not very useful for other tasks. So for example zooming in/out maps, or scrolling inventory, or zooming weapons is much better on a scrollwheel, and emulating a selection wheel is much better on a 8-directional switch with much less travel (faster) and with physical feedback (clicking).
   hr
 
-  h3 It is as good as a mouse?
+  +h3id('gyro') How the gyro works?
+  p The mouse emulation works by #[em touching the hexagon] on the right side of the controller, and turning the controller as if it was a VR controller. The gyro is NOT active when not touching the hexagon. For more details see #[+a('mouse') Mouse Emulation] manual page, or watch the #[+ax('https://www.youtube.com/watch?v=o-CsdLEzD5Y') Gyro guide] video on Youtube.
+  hr
+
+  +h3id('performance') It is as good as a mouse?
   p It depends, in theory the Alpakka gyro is as good as a mouse being used on a medium-size mouse mat (about 25 cm. diagonal). Also as if the mouse mat had zero friction, which is sometimes good and sometimes bad.
   p It can definitely be used in competitive games, and keep a good fight against mouse players, check this #[+ax('https://www.youtube.com/watch?v=bmN4ZRrZH2E') Demo Video].
   hr
 
-  h3 Are you trying to replace mouse and keyboard?
+  +h3id('mouse') Are you trying to replace mouse and keyboard?
   p Absolutely not, mouse is a superb input method, and we love it.
   p Gyro is just an alternative for people not able to use a mouse or keyboard, or playing on a sofa.
   hr
 
-  h3 How long it takes to learn gyro?
+  +h3id('learn') How long it takes to learn gyro?
   p It varies person to person, but in our testing we found that approximately takes:
   ul
     li 1 minute to have better results than with a traditional gamepad (though it still feels weird).
@@ -29,56 +39,60 @@ block content
     li 1 month to master it.
   hr
 
-  h3 In which systems does it work?
+  +h3id('systems') In which systems does it work?
   p The Alpakka has been tested on Windows 10, Windows 11, Ubuntu, Kubuntu, Debian (GTK), and Arch (KDE). Framerates from 30fps to 144fps. And more than 200 games.
   hr
 
-  h3 Which game launchers and games are compatible?
+  +h3id('games') Which game launchers and games are compatible?
   p All game launchers are compatible, since the firmware does all the processing in the controller, and no apps nor drivers are required on the computer.
   p 100% of games are compatible when emulating a mouse and keyboard.
   p Approximately 90% of games are compatible when using #[em Fusion Input], see the #[+a(parent.db) Accessibility DB] for a comprehensive list of games.
   hr
 
-  h3 It is compatible with Steam input configurator?
+  +h3id('steam') It is compatible with Steam input configurator?
   p Yes, the Xinput emulated device shows up in the Steam UI as a normal controller, so remapping is possible that way too.
   p But we recommend instead to use the #[+a('profiles') Built-in profiles], and remap the controls directly in the game if required (like you do with a normal keyboard and mouse), since it is much simpler! (there is no need for that additional layer of translation).
   hr
 
-  h3 Is it wireless?
+  +h3id('wireless') Is it wireless?
   p Not yet, but making the controller wireless is something we want to do as soon as possible. The reference design already have a rear bay for a battery, but there is still work to do.
   hr
 
-  h3 Does it vibrate?
+  +h3id('vibration') Does it vibrate?
   p Not yet, but we also want implement vibration soon. The Xinput protocol supports vibration, but we still have to test different vibration motors.
   hr
 
-  h3 Are the triggers analog?
+  +h3id('triggers') Are the triggers analog?
   p No, this is a design choice, since digital triggers perform better on shooters and most games (that's why mouse buttons are still digital), and trigger's analog input is rarely used in anything else than racing games.
   p Additionally we are working in a Racing Profile which uses Gyro to turn, and thumbstick for gas/break.
   p Of course we may want to reevaluate this later, depends on community feedback; or you could modify the reference design!
   hr
 
-  h3 Can I buy a controller?
+  +h3id('buy') Can I buy a controller?
   p No, but check #[+a('/about') About] page for some ideas about this topic.
   hr
 
-  h3 Can I get a free controller?
+  +h3id('test') Can I get a free controller?
   p There are 2 ways to get a free controller made by us:
   ul
     li If you run or work for a Youtube channel, website, or similar; and you want to review our devices. See #[+a('/press') Press].
     li If you become a tester. See #[+a('/contribute') Contribute].
   hr
 
-  h3 Why is the case so angular?
+  +h3id('cost') How much would it cost to build my own controller?
+  p It may vary a lot depending on different suppliers and manufacturers, but If you already have the required tools (3D printer, solder iron, etc...), and ignoring shipping costs of components, each controller may cost approximately between $15 and $25.
+  hr
+
+  +h3id('angular') Why is the case so angular?
   p Contrary to what most people think, the Alpakka controller low-poly angular shape is not a limitation of 3D-printing, but a deliberate style that is there since the first post-it drawings.
   p Also, do not worry, we had plenty of positive feedback about it being very ergonomic. One of the tricks we used is to make it less angular in the bottom part, so it has a nice shape and a nice grip (without the need of textured surfaces).
   hr
 
-  h3 Why is it called Alpakka?
+  +h3id('naming') Why is it called Alpakka?
   p Because we like fluffy, highly-huggable animals, see #[+a('/about') About] page for more details.
   hr
 
-  h3 Why are you using Blender as a CAD?
+  +h3id('cad') Why are you using Blender as a CAD?
   p Because CAD programs have a very steep learning curve, and we want everyone to be able to make basic modifications to the reference designs (such a longer or wider buttons).
   p Also because nowadays Blender bool operations and non-destructive workflows allows to emulate basic CAD functionality.
   p We will make a blog post with more details about this topic, eventually.
