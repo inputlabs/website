@@ -48,6 +48,106 @@ apex_legends:
     walkRunHold: 0
     walkRunToggle: 0
 
+borderlands_3:
+  title: Borderlands 3
+  stub: borderlands_3
+  reviewDate: 2022-12
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 14
+  alpakkaSensMid: 11
+  alpakkaSensHigh: 7
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue:  [0.5, 'No (100 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  thumbstickDeadzone: 1
+  thumbstickCurve: 0
+  fov: 1
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 1
+  subtitlesDialog: 1
+  subtitlesCaption: 1
+  subtitlesOptions: [1, 'Size and background sliders']
+  testArea: 0
+  pauseCinematics: 0
+  settingsAnytime: 0
+  violence: _15
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 1
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 1
+    adsHold: 1
+    adsToggle: 1
+    sprintHold: 1
+    sprintToggle: 1
+    crouchHold: 1
+    crouchToggle: 1
+    walkRunHold: null
+    walkRunToggle: null
+
+bullets_per_minute:
+  title: Bullets Per Minute
+  stub: bullets_per_minute
+  reviewDate: 2022-12
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 2
+  alpakkaSensMid: 1.5
+  alpakkaSensHigh: '1'
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0.5, 'No (45 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: [0, 'No (6 layouts)']
+  menuNavMouse: 1
+  thumbstickDeadzone: 1
+  thumbstickCurve: 0
+  fov: 1
+  colorBlind: 0
+  uiScale: 1
+  uiLockPlatform: 0
+  framerateLimiter: [0.5, '30, 60, 120, 144, 200']
+  subtitlesDialog: null
+  subtitlesCaption: null
+  subtitlesOptions: null
+  testArea: 0
+  pauseCinematics: null
+  settingsAnytime: 1
+  violence: _12
+  sex: 0
+  drugs: 0
+  arachnophobic: Mild
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: [0.5, '4 presets']
+    adsSensitivity: null
+    adsHold: null
+    adsToggle: null
+    sprintHold: null
+    sprintToggle: null
+    crouchHold: null
+    crouchToggle: null
+    walkRunHold: null
+    walkRunToggle: null
+
 days_gone:
   title: Days Gone
   stub: days_gone
@@ -149,7 +249,7 @@ deep_rock_galactic:
     walkRunToggle: 0
 
 doom_2016:
-  title: Doom 2016
+  title: Doom (2016)
   stub: doom_2016
   reviewDate: 2022-07
   alpakkaProfile: FPS Fusion
@@ -197,6 +297,56 @@ doom_2016:
     crouchToggle: 1
     walkRunHold: 1
     walkRunToggle: 0
+
+fortnite:
+  title: Fortnite
+  stub: fortnite
+  reviewDate: 2022-12
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 18
+  alpakkaSensMid: 13.5
+  alpakkaSensHigh: 9
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0.5, 'No (1000 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  thumbstickDeadzone: 1
+  thumbstickCurve: 1
+  fov: 1
+  colorBlind: [1, '3 modes and strength']
+  uiScale: 1
+  uiLockPlatform: 1
+  framerateLimiter: [0.5, '30, 60, 120, 144, 160, 165, 180, 200, 240, 360']
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: '?'
+  testArea: [0.5, 'Creative mode without combat']
+  pauseCinematics: 0
+  settingsAnytime: [0.5, 'Not during cinematics']
+  violence: _7
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 1
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 1
+    adsHold: 1
+    adsToggle: 0
+    sprintHold: 1
+    sprintToggle: 1
+    crouchHold: 0
+    crouchToggle: 1
+    walkRunHold: null
+    walkRunToggle: null
 
 ghostrunner:
   title: Ghostrunner
@@ -298,6 +448,106 @@ half_life_2:
     walkRunHold: 1
     walkRunToggle: 0
 
+horizon_zero_dawn:
+  title: Horizon Zero Dawn
+  stub: horizon_zero_dawn
+  reviewDate: 2022-12
+  alpakkaProfile: FPS WASD
+  alpakkaSensLow: 16
+  alpakkaSensMid: 12
+  alpakkaSensHigh: 8
+  fusionInput: 0
+  mouseRaw: 0
+  mouseAnyValue: [0.5, 'No (40 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  thumbstickDeadzone: 0
+  thumbstickCurve: 0
+  fov: 1
+  colorBlind: 0
+  uiScale: 1
+  uiLockPlatform: 0
+  framerateLimiter: [0, '30, 40, 50, 60, 70, 80, 90, 100, 110, 120']
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
+  testArea: 0
+  pauseCinematics: 1
+  settingsAnytime: 1
+  violence: _12
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 1
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 0
+    adsHold: 1
+    adsToggle: 0
+    sprintHold: 1
+    sprintToggle: 1
+    crouchHold: 0
+    crouchToggle: 1
+    walkRunHold: 0
+    walkRunToggle: 1
+
+hunt_showdown:
+  title: 'Hunt: Showdown'
+  stub: hunt_showdown
+  reviewDate: 2022-12
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 2.5
+  alpakkaSensMid: 1.87
+  alpakkaSensHigh: 1.25
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue:
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: [0, 'No (4 layouts)']
+  menuNavMouse: 1
+  thumbstickDeadzone: 0
+  thumbstickCurve: 0
+  fov: 1
+  colorBlind: 0
+  uiScale: 1
+  uiLockPlatform: 0
+  framerateLimiter: [0.5, '30, 45, 48, 60, 72, 90, 120, 144, 180']
+  subtitlesDialog: null
+  subtitlesCaption: 0
+  subtitlesOptions: null
+  testArea: 0
+  pauseCinematics: null
+  settingsAnytime: 1
+  violence: _15
+  sex: 0
+  drugs: 0
+  arachnophobic: Strong
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 1
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 1
+    adsHold: 1
+    adsToggle: 1
+    sprintHold: 1
+    sprintToggle: 1
+    crouchHold: 1
+    crouchToggle: 1
+    walkRunHold: null
+    walkRunToggle: null
+
 insurgency_sandstorm:
   title: 'Insurgency: Sandstorm'
   stub: insurgency_sandstorm
@@ -347,6 +597,56 @@ insurgency_sandstorm:
     crouchToggle: 1
     walkRunHold: 1
     walkRunToggle: 1
+
+no_mans_sky:
+  title: "No Man's Sky"
+  stub: no_mans_sky
+  reviewDate: 2022-12
+  alpakkaProfile: FPS WASD
+  alpakkaSensLow: 24
+  alpakkaSensMid: 18
+  alpakkaSensHigh: 12
+  fusionInput: 0
+  mouseRaw: 1
+  mouseAnyValue: [0.5, 'No (100 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 0
+  menuNavMouse: 1
+  thumbstickDeadzone: 0
+  thumbstickCurve: 0
+  fov: 1
+  colorBlind: 0
+  uiScale: 1
+  uiLockPlatform: 0
+  framerateLimiter: 1
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
+  testArea: 0
+  pauseCinematics: null
+  settingsAnytime: 1
+  violence: _12
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 0
+    adsHold: null
+    adsToggle: null
+    sprintHold: 0
+    sprintToggle: 1
+    crouchHold: null
+    crouchToggle: null
+    walkRunHold: null
+    walkRunToggle: null
 
 noita:
   title: Noita
@@ -487,6 +787,56 @@ pubg:
     walkRunHold: 1
     walkRunToggle: 1
 
+rainbow_six_siege:
+  title: Rainbow Six Siege
+  stub: rainbow_six_siege
+  reviewDate: 2022-12
+  alpakkaProfile: FPS WASD
+  alpakkaSensLow: 18
+  alpakkaSensMid: 14
+  alpakkaSensHigh: 9
+  fusionInput: 0
+  mouseRaw: 1
+  mouseAnyValue: [0.5, 'No (100 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: [0, 'No (4 layouts)']
+  menuNavMouse: 1
+  thumbstickDeadzone: 1
+  thumbstickCurve: 0
+  fov: 1
+  colorBlind: [1, 'Yes (3 modes)']
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: [0.5, '30, 60, 75, 90, 120, 144']
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
+  testArea: 1
+  pauseCinematics: 1
+  settingsAnytime: [0.5, 'Not during cinematics']
+  violence: _15
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 0
+  paidGambling: 1
+  fomoSales: 1
+  payToWin: 1
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 1
+    adsHold: 1
+    adsToggle: 1
+    sprintHold: 1
+    sprintToggle: 1
+    crouchHold: 1
+    crouchToggle: 1
+    walkRunHold: 1
+    walkRunToggle: 1
+
 the_witcher_3:
   title: The Witcher 3
   stub: the_witcher_3
@@ -536,3 +886,103 @@ the_witcher_3:
     crouchToggle: null
     walkRunHold: 0
     walkRunToggle: 1
+
+warzone_2:
+  title: 'Call of Duty: Warzone 2'
+  stub: warzone_2
+  reviewDate: 2022-12
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 16
+  alpakkaSensMid: 12
+  alpakkaSensHigh: 8
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0.5, 'No (10000 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  thumbstickDeadzone: 1
+  thumbstickCurve: 0
+  fov: 1
+  colorBlind: 0
+  uiScale: [0.5, 'Text size 3 presets']
+  uiLockPlatform: 0
+  framerateLimiter: 1
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: [0.5, 'Size 3 presets, background opacity slider']
+  testArea: 1
+  pauseCinematics: 0
+  settingsAnytime: [0, 'No during cinematics']
+  violence: _15
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 1
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 1
+    adsHold: 1
+    adsToggle: 1
+    sprintHold: 1
+    sprintToggle: 1
+    crouchHold: 1
+    crouchToggle: 1
+    walkRunHold: null
+    walkRunToggle: null
+
+template:
+  title:
+  stub:
+  reviewDate:
+  alpakkaProfile:
+  alpakkaSensLow:
+  alpakkaSensMid:
+  alpakkaSensHigh:
+  fusionInput:
+  mouseRaw:
+  mouseAnyValue:
+  remapKeyboard:
+  remapMouse:
+  remapGamepad:
+  menuNavMouse:
+  thumbstickDeadzone:
+  thumbstickCurve:
+  fov:
+  colorBlind:
+  uiScale:
+  uiLockPlatform:
+  framerateLimiter:
+  subtitlesDialog:
+  subtitlesCaption:
+  subtitlesOptions:
+  testArea:
+  pauseCinematics:
+  settingsAnytime:
+  violence:
+  sex:
+  drugs:
+  arachnophobic:
+  trypophobic:
+  paidCosmetics:
+  paidExpansions:
+  paidGambling:
+  fomoSales:
+  payToWin:
+  fps_tps:
+    crosshairOptions:
+    adsSensitivity:
+    adsHold:
+    adsToggle:
+    sprintHold:
+    sprintToggle:
+    crouchHold:
+    crouchToggle:
+    walkRunHold:
+    walkRunToggle:
