@@ -1,0 +1,72 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #2
+
+block content
+  h2 Progress report #2
+  hr
+  p: i 10 December 2022
+  hr
+
+  p A new profile #[+a('/alpakka/manual/profile_console_legacy') Console Legacy] is now implemented. It comes with mouse emulation completely disabled, and #[em right thumbstick emulated] in the 8-direction switch.
+
+  p This is the last fallback for games that may have issues when mouse movement is detected, that do not support mouse and keyboard at all, or in which a second thumbstick is absolutely mandatory. This kind of games #[em should be extremely rare], so if you know some please ping us.
+
+  p To support this new profile, some core features of the firmware had to be improved.
+
+  p A new version of the Alpakka reference firmware was published #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/0.86.0') 0.86.0] with all these changes and the new profile.
+
+  pre: code.
+    Changelog 0.86.0:
+
+    - Created Console Legacy profile.
+    - Any gamepad axis (thumbstick and analog triggers) can be assigned to any button.
+    - Gyro as a configurable input in the profiles.
+      - Gyro to mouse mapping can be customized and inverted.
+      - Gyro axis Z is now also available to profiles.
+      - Foundations to assign any action to gyro axis (still not functional).
+    - Gyro modes:
+      - GYRO_MODE_ALWAYS_OFF
+      - GYRO_MODE_ALWAYS_ON
+      - GYRO_MODE_TOUCH_OFF
+      - GYRO_MODE_TOUCH_ON
+    - Calibration and non-volatile memory now include gyro axis Z offset.
+
+  p This means that now profiles can define gyro behavior as for example:
+
+  pre: code.
+    profile.gyro = Gyro_(
+        GYRO_MODE_TOUCH_ON,  // Gyro mode.
+        ACTIONS(MOUSE_X),    // Gyro axis X.
+        ACTIONS(MOUSE_Y),    // Gyro axis Y.
+        ACTIONS(KEY_NONE)    // Gyro axis Z.
+    );
+
+  p And that any digital button can emulate an analog axis as for example:
+
+  pre: code.
+    Button_(
+      PIN_A,                    // Physical button.
+      NORMAL,                   // Button mode.
+      ACTIONS(GAMEPAD_AXIS_LX)  // Actions.
+    );
+
+  p These features also set the foundations to be able to assign any action (or group of actions) to gyro directions, for example #[em turn gyro up => press space] which will be an important accessibility feature, specially later in the #[+a('/kapybara') Kapybara] controller. But the implementation is not complete yet.
+
+  p Additionally our lovely #[+ax(org.patreon) Patrons] voted these 8 games to be added to the accessibility DB:
+
+  ul
+    li: +a('/db/borderlands_3') Borderlands 3
+    li: +a('/db/bullets_per_minute') Bullets Per Minute
+    li: +a('/db/warzone_2') Call of Duty: Warzone 2
+    li: +a('/db/fortnite') Fortnite
+    li: +a('/db/horizon_zero_dawn') Horizon Zero Dawn
+    li: +a('/db/hunt_showdown') Hunt: Showdown
+    li: +a('/db/no_mans_sky') No Man's Sky
+    li: +a('/db/rainbow_six_siege') Rainbow Six Siege
+
+  p Thanks for your support!
+
+  p - Marcos and Michael <3
+
