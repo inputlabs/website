@@ -327,6 +327,9 @@ main .boxes.center {
   vertical-align: bottom;
   padding-bottom: 2px;
 }
+.box pre {
+  white-space: pre-wrap;
+}
 .box code {
   display: block;
   background-color: black;
