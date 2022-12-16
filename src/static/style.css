@@ -409,6 +409,9 @@ main .boxes.center {
   margin-top: 15px;
   margin-bottom: 0px;
 }
+.wiki .entry li {
+  margin-bottom: 3px;
+}
 .wiki .entry .mosaic {
   display: flex;
   flex-wrap: wrap;
