@@ -1,0 +1,51 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #4
+
+block content
+  h2 Progress report #4
+  hr
+  p: i 24 December 2022
+  hr
+
+  h3 Blender individual files
+  p #[+ax('https://github.com/inputlabs/alpakka_case/tree/main/blender') Blender 3D models] are now properly split in smaller files (one file per part) as for example:
+  ul
+    li: em case_front.blend
+    li: em case_back.blend
+    li: em buttons_abxy.blend
+    li: em trigger_r1.blend
+    li: em thumbstick.blend
+    li: em etc...
+
+  p Then all these files are linked from the top level #[em alpakka.blend] file.
+  p So now for example if someone wants to edit the thumbstick to make it taller, it can be done just by opening the #[em thumbstick.blend] file, this lowers the entry barrier for making simple mods, and will simplify the Pull Request review process.
+  img.mt(src='/static/blog/thumbstick_blender.jpg' width='200px')
+  hr
+
+  h3 Le Petit Alpakka
+  p We made several iterations of #[em le petit Alpakka] keyring, which is a reward for supporters on #[+ax(org.patreon) Patreon]. We are testing these in our own pockets for a few days, and they will be ready soon for shipping to patrons.
+  img.mt(src='/static/img/le-petit-alpakka.jpg' width='200px')
+  hr
+
+  h3 We had the Input, now we got the Labs
+  p We are very glad to announce that we are moving our improvised home labs to a proper working space at #[+ax('https://maria.io') Maria 01], which is a #[em startup campus at Helsinki]. While we embrace working from home, having 3D-printers at home making noise 24 hours per day is not very nice.
+  p Moving to Maria 01 will let us to setup dedicated space for our 3D printers, permanent soldering area, storage for materials etc..., and additionally we could set up a testing area for our neighbour videogame developers to try our controllers.
+  p The actual lab space is not very big, but we already love it.
+  hr
+
+  h3 Accessibility database
+  p Patrons voted these new 4 entries for the accessibility DB:
+  ul
+    li: +a('/db/battlefield_4') Battlefield 4
+    li: +a('/db/far_cry_5') Far Cry 5
+    li: +a('/db/risk_of_rain_2') Risk of Rain 2
+    li: +a('/db/superhot_mcd') Superhot: Mind Control Delete
+  p Additionally there is now a #[+a('/db/stats') stats page] with aggregated data from all games.
+  hr
+
+  p Have a nice winter solstice celebrations!
+
+  p - Marcos and Michael <3
+
