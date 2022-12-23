@@ -53,29 +53,29 @@ battlefield_4:
   stub: battlefield_4
   reviewDate: 2022-12
   alpakkaProfile: FPS Fusion
-  alpakkaSensLow:
-  alpakkaSensMid:
-  alpakkaSensHigh:
+  alpakkaSensLow: 28
+  alpakkaSensMid:  21
+  alpakkaSensHigh: 14
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue:
+  mouseAnyValue: [0.5, 'No (100 steps)']
   remapKeyboard: 1
   remapMouse: 1
-  remapGamepad:
+  remapGamepad: 1
   menuNavMouse: 1
-  thumbstickDeadzone:
-  thumbstickCurve:
+  thumbstickDeadzone: 0
+  thumbstickCurve: 0
   fov: 1
-  colorBlind:
+  colorBlind: [1, '3 modes']
   uiScale: 1
   uiLockPlatform: 0
-  framerateLimiter:
-  subtitlesDialog:
-  subtitlesCaption:
-  subtitlesOptions:
+  framerateLimiter: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
   testArea: 1
-  pauseCinematics:
-  settingsAnytime:
+  pauseCinematics: 1
+  settingsAnytime: 1
   violence: _15
   sex: 0
   drugs: 0
@@ -89,14 +89,14 @@ battlefield_4:
   fps_tps:
     crosshairOptions: 1
     adsSensitivity: 1
-    adsHold:
-    adsToggle:
-    sprintHold:
-    sprintToggle:
-    crouchHold:
-    crouchToggle:
-    walkRunHold:
-    walkRunToggle:
+    adsHold: 1
+    adsToggle: 1
+    sprintHold: 1
+    sprintToggle: 1
+    crouchHold: 0
+    crouchToggle: 1
+    walkRunHold: null
+    walkRunToggle: null
 
 borderlands_3:
   title: Borderlands 3
