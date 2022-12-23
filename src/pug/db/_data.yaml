@@ -48,6 +48,56 @@ apex_legends:
     walkRunHold: 0
     walkRunToggle: 0
 
+battlefield_4:
+  title: Battlefield 4
+  stub: battlefield_4
+  reviewDate: 2022-12
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow:
+  alpakkaSensMid:
+  alpakkaSensHigh:
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue:
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad:
+  menuNavMouse: 1
+  thumbstickDeadzone:
+  thumbstickCurve:
+  fov: 1
+  colorBlind:
+  uiScale: 1
+  uiLockPlatform: 0
+  framerateLimiter:
+  subtitlesDialog:
+  subtitlesCaption:
+  subtitlesOptions:
+  testArea: 1
+  pauseCinematics:
+  settingsAnytime:
+  violence: _15
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 1
+  paidGambling: 1
+  fomoSales: 0
+  payToWin: 1
+  fps_tps:
+    crosshairOptions: 1
+    adsSensitivity: 1
+    adsHold:
+    adsToggle:
+    sprintHold:
+    sprintToggle:
+    crouchHold:
+    crouchToggle:
+    walkRunHold:
+    walkRunToggle:
+
 borderlands_3:
   title: Borderlands 3
   stub: borderlands_3
@@ -297,6 +347,56 @@ doom_2016:
     crouchToggle: 1
     walkRunHold: 1
     walkRunToggle: 0
+
+far_cry_5:
+  title: Far Cry 5
+  stub: far_cry_5
+  reviewDate: 2022-12
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 50
+  alpakkaSensMid: 43
+  alpakkaSensHigh: 30
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0.5, 'No (100 exponential steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 0
+  menuNavMouse: 1
+  thumbstickDeadzone: 0
+  thumbstickCurve: 0
+  fov: 1
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 1
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: [0.5, 'Background on/off']
+  testArea: 0
+  pauseCinematics: 0
+  settingsAnytime: [0.5, 'No during cinematics']
+  violence: _18
+  sex: _12
+  drugs: _18
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 1
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 1
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 1
+    adsHold: 1
+    adsToggle: 1
+    sprintHold: 0
+    sprintToggle: 1
+    crouchHold: 1
+    crouchToggle: 1
+    walkRunHold: null
+    walkRunToggle: null
 
 fortnite:
   title: Fortnite
@@ -836,6 +936,106 @@ rainbow_six_siege:
     crouchToggle: 1
     walkRunHold: 1
     walkRunToggle: 1
+
+risk_of_rain_2:
+  title: Risk of Rain 2
+  stub: risk_of_rain_2
+  reviewDate: 2022-12
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 0.20
+  alpakkaSensMid: 0.15
+  alpakkaSensHigh: 0.10
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0.5, 'No (100 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  thumbstickDeadzone: 0
+  thumbstickCurve: 0
+  fov: 0
+  colorBlind: 0
+  uiScale: 1
+  uiLockPlatform: 0
+  framerateLimiter: [0.5, '30, 60, 120, 144']
+  subtitlesDialog: null
+  subtitlesCaption: 0
+  subtitlesOptions: null
+  testArea: 0
+  pauseCinematics: null
+  settingsAnytime: 1
+  violence: _12
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 1
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: null
+    adsHold: null
+    adsToggle: null
+    sprintHold: 0
+    sprintToggle: 1
+    crouchHold: null
+    crouchToggle: null
+    walkRunHold: null
+    walkRunToggle: null
+
+superhot_mcd:
+  title: 'Superhot: Mind Control Delete'
+  stub: superhot_mcd
+  reviewDate: 2022-12
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 2.0
+  alpakkaSensMid: 1.5
+  alpakkaSensHigh: 1.0
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (15 steps)']
+  remapKeyboard: 0
+  remapMouse: 0
+  remapGamepad: 0
+  menuNavMouse: 0
+  thumbstickDeadzone: 0
+  thumbstickCurve: 0
+  fov: 0
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 0
+  subtitlesDialog: null
+  subtitlesCaption: 0
+  subtitlesOptions: null
+  testArea: 0
+  pauseCinematics: null
+  settingsAnytime: 0
+  violence: _15
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: null
+    adsHold: null
+    adsToggle: null
+    sprintHold: null
+    sprintToggle: null
+    crouchHold: null
+    crouchToggle: null
+    walkRunHold: null
+    walkRunToggle: null
 
 the_witcher_3:
   title: The Witcher 3

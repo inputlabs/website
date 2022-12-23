@@ -19,12 +19,16 @@ mixin feature(value)
 mixin feature_profile(name)
   -
     if (name === 'FPS Fusion') url = '/alpakka/manual/profile_fps_fusion'
-    if (name === 'FPS WASD') url = '/alpakka/manual/profile_fps_wasd'
-    if (name === 'Console') url = '/alpakka/manual/profile_console'
+    else if (name === 'FPS WASD') url = '/alpakka/manual/profile_fps_wasd'
+    else if (name === 'Console') url = '/alpakka/manual/profile_console'
+    else name = null
   tr
     td.separator
       block
-    td: a(href=url) #{name}
+    if name
+      td: a(href=url) #{name}
+    else
+      td.dim -
 
 h2 #{game['title']}
 hr
@@ -74,19 +78,22 @@ div.mosaic
           _15: 'Violence with injury or blood',
           _12: 'Violence with no visible injury',
           _7: 'Implied or abstract violence',
-          0: 0
+          null: '-',
+          0: 0,
         }
         const drugs_fmt = {
           _18: 'Illegal drugs use',
           _15: 'Alcohol or tobacco use',
           _12: 'Medication',
-          0: 0
+          null: '-',
+          0: 0,
         }
         const sex_fmt = {
           _18: 'Explicit sexual intercourse',
           _15: 'Sexual intercourse',
           _12: 'Implied or abstract sex',
-          0: 0
+          null: '-',
+          0: 0,
         }
       +feature(violence_fmt[game.violence]) Violence
       +feature(drugs_fmt[game.drugs]) Drugs
