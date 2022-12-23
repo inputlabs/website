@@ -1,0 +1,79 @@
+extends _db.pug
+
+block append subtitle
+  -
+    const percentage = (attr) => {
+      let sum = 0
+      let len = 0
+      for (let key  of Object.keys(db)) {
+        const game = db[key]
+        let value = null
+        if (attr.startsWith('fps_tps')) {
+          if (game.fps_tps === undefined) continue
+          const subattr = attr.replace('fps_tps.', '')
+          value = game.fps_tps[subattr]
+        }
+        else value = game[attr]
+        if (value === null || value === undefined) continue
+        len += 1
+        if (value === 1) sum += 1
+        else if (Array.isArray(value)) sum += value[0]
+      }
+      return `${Math.round(sum / len * 100)}% (${sum}/${len})`
+    }
+
+    let game = {
+      title: 'Stats',
+      stub: 'stats',
+      reviewDate: null,
+      alpakkaProfile: null,
+      alpakkaSensLow: null,
+      alpakkaSensMid: null,
+      alpakkaSensHigh: null,
+      fusionInput: percentage('fusionInput'),
+      mouseRaw: percentage('mouseRaw'),
+      mouseAnyValue: percentage('mouseAnyValue'),
+      remapKeyboard: percentage('remapKeyboard'),
+      remapMouse: percentage('remapMouse'),
+      remapGamepad: percentage('remapGamepad'),
+      menuNavMouse: percentage('menuNavMouse'),
+      thumbstickDeadzone: percentage('thumbstickDeadzone'),
+      thumbstickCurve: percentage('thumbstickCurve'),
+      fov: percentage('fov'),
+      colorBlind: percentage('colorBlind'),
+      uiScale: percentage('uiScale'),
+      uiLockPlatform: percentage('uiLockPlatform'),
+      framerateLimiter: percentage('framerateLimiter'),
+      subtitlesDialog: percentage('subtitlesDialog'),
+      subtitlesCaption: percentage('subtitlesCaption'),
+      subtitlesOptions: percentage('subtitlesOptions'),
+      testArea: percentage('testArea'),
+      pauseCinematics: percentage('pauseCinematics'),
+      settingsAnytime: percentage('settingsAnytime'),
+      violence: null,
+      sex: null,
+      drugs: null,
+      arachnophobic: null,
+      trypophobic: null,
+      paidCosmetics: percentage('paidCosmetics'),
+      paidExpansions: percentage('paidExpansions'),
+      paidGambling: percentage('paidGambling'),
+      fomoSales: percentage('fomoSales'),
+      payToWin: percentage('payToWin'),
+      fps_tps: {
+        crosshairOptions: percentage('fps_tps.crosshairOptions'),
+        adsSensitivity: percentage('fps_tps.adsSensitivity'),
+        adsHold: percentage('fps_tps.adsHold'),
+        adsToggle: percentage('fps_tps.adsToggle'),
+        sprintHold: percentage('fps_tps.sprintHold'),
+        sprintToggle: percentage('fps_tps.sprintToggle'),
+        crouchHold: percentage('fps_tps.crouchHold'),
+        crouchToggle: percentage('fps_tps.crouchToggle'),
+        walkRunHold: percentage('fps_tps.walkRunHold'),
+        walkRunToggle :percentage('fps_tps.walkRunToggle'),
+      }
+    }
+  | Stats
+
+block content
+  include _format.pug
