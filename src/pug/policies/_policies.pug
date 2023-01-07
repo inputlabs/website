@@ -1,0 +1,18 @@
+extends ../_template.pug
+
+block title
+  block subtitle
+    | Policies
+    |
+
+block page
+  h1 Policies
+
+  div.boxes.wiki
+    div
+      div.box.index
+        h2 Policies
+        +wikilink('privacy') Privacy policy
+
+    div.box.entry
+      block content
