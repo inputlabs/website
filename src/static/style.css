@@ -544,6 +544,16 @@ table.manual th {
 table.manual.col4 th {
   width: 25% !important;
 }
+table.manual.col6 th {
+  width: 16.6% !important;
+}
+table.manual.col6 td {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+table.manual.col6 td:first-child {
+  padding: 10px;
+}
 table.manual td {
   padding: 10px;
   vertical-align: top;
