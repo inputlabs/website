@@ -1,0 +1,30 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #6
+
+block content
+  h2 Progress report #6
+  hr
+  p: i 13 January 2023
+  hr
+
+  h3 Sending Alpakka to further reviewers and testers
+  p There has been plenty of printing, soldering, assembling, testing, packaging and shipping.
+  img.mt(src='/static/blog/20230109_074332.jpg' width='425px')
+  p We had many request from various channels, eager to review the Alpakka.
+  p Some of our testers are now also able to order kits, testing our shopify setup as part of the process of providing Alpakka kits.
+  hr
+
+  h3 Fixed infinite calibration issue
+  p Some users alerted us to a #[+ax("https://github.com/inputlabs/organization/issues/48") bug] that resulted in continuous, repeated self-calibration of the Alpakka.
+  p This issue was fixed in #[+ax("https://github.com/inputlabs/alpakka_firmware/releases/tag/0.86.5") the latest firmware release].
+  hr
+
+  h3 Adjustable touch treshold
+  p In order to support the use of different conductive filaments we made the #[+a("/alpakka/manual/tune") touch treshold adjustable]. The default is still 5 ms, which we found works very well with conductive filament from #[+ax("https://www.proto-pasta.com/collections/all/products/conductive-pla") Protopasta].
+  p If you are experimenting with other conductive filaments, you may want to adjust the touch sensitivity.
+  p This is also part of #[+ax("https://github.com/inputlabs/alpakka_firmware/releases/tag/0.86.5") the latest firmware release].
+  hr
+
+  p - M&M <3
