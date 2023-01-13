@@ -56,7 +56,7 @@ block content
 
   h3 Setup WSL for TTL serial
   p Because Linux instances for virtual (usually cloud) environments do not ship with much hardware support, we need to use a custom WSL core with Linux #[em usbserial] module enabled, and all the available USB-to-TTL drivers, so they are automatically assigned to #[em /dev/ttyUSB0] on Linux.
-  p You can get a pre-compiled WSL kernel from us at #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/latest') Releases] (wsl_kernel_dev), or #[+ax('https://github.com/inputlabs/alpakka_firmware/wsl.md') compile it yourself].
+  p You can get a #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/download/0.84.6/wsl_kernel_dev') pre-compiled WSL kernel] from us, or #[+ax('https://github.com/inputlabs/alpakka_firmware/blob/main/wsl.md') compile it yourself].
   p Copy the kernel to your Windows user folder, eg: #[em C:\Users\youruser\wsl_kernel_dev], then create a WSL config file:
   pre: code.
     <span class='dim'># At C:\Users\youruser\.wslconfig</span>
