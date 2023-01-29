@@ -347,6 +347,57 @@ doom_2016:
     crouchToggle: 1
     walkRunHold: 1
     walkRunToggle: 0
+    
+    
+elden_ring:
+  title: Elden Ring
+  stub: elden_ring
+  reviewDate: 2023-01
+  alpakkaProfile: Console
+  alpakkaSensLow: [10, 'camera speed: 5, mouse sensitivity: 10']
+  alpakkaSensMid: [8, 'camera speed: 5, mouse sensitivity: 8']
+  alpakkaSensHigh: [5, 'camera speed: 5, mouse sensitivity: 5']
+  fusionInput: 1
+  mouseRaw: 0
+  mouseAnyValue: [1, 'No (10 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: [1, 'Yes, but cannot click LMB in console mode']
+  thumbstickDeadzone: 0
+  thumbstickCurve: 0
+  fov: 0
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 1
+  framerateLimiter: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
+  testArea: 0
+  pauseCinematics: 0
+  settingsAnytime: [0, 'Not in cinematics']
+  violence: _17
+  sex: 0
+  drugs: 0
+  arachnophobic: Mild
+  trypophobic: Mild
+  paidCosmetics: 0
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 0
+    adsHold: 0
+    adsToggle: 0
+    sprintHold: 1
+    sprintToggle: 0
+    crouchHold: 0
+    crouchToggle: 1
+    walkRunHold: 0
+    walkRunToggle: 0
 
 far_cry_5:
   title: Far Cry 5
