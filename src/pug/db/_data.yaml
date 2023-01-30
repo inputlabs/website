@@ -348,7 +348,6 @@ doom_2016:
     walkRunHold: 1
     walkRunToggle: 0
     
-    
 elden_ring:
   title: Elden Ring
   stub: elden_ring
