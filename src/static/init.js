@@ -15,13 +15,28 @@ const rainbowSet = (value) => {
 }
 
 const rainbowToggle = () => {
+  const colors = [
+    '--purple',
+    '--blue',
+    '--green',
+    '--yellow',
+    '--red',
+    '--pink'
+  ]
+  const nextColor = colors[Math.floor(Math.random() * colors.length)]
   rainbowSet(!rainbowGet())
+  root.style = `--static-color: var(${nextColor})`
   rainbowUpdate()
 }
 
 const rainbowUpdate = () => {
-  root.style.setProperty('--seed', `-${rainbowGet() ? seed : seedFixed}s`)
-  root.style.setProperty('--cycle', `${rainbowGet() ? cycle : cycleFixed}s`)
+  if (! rainbowGet()) {
+    root.classList.add('no-rainbow')
+  } else {
+    root.classList.remove('no-rainbow')
+  }
+  // root.style.setProperty('--seed', `-${rainbowGet() ? seed : seedFixed}s`)
+  // root.style.setProperty('--cycle', `${rainbowGet() ? cycle : cycleFixed}s`)
 }
 
 rainbowUpdate()

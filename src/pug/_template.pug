@@ -51,7 +51,9 @@ html
     header
       div.logo
         +a('/')
-          div: img(src='/static/img/logo.apng')
+          div
+            img.logo-animated(src='/static/img/logo.apng')
+            img.logo-static(src='/static/img/logo.png')
           span Input Labs
 
       div.icon
