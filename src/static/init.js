@@ -1,8 +1,6 @@
 const root = document.querySelector(':root')
 const cycle = 120
-const cycleFixed = 10000
 const seed = (new Date().getTime() / 1000) % cycle
-const seedFixed = 5000
 
 const rainbowGet = () => {
   const value = localStorage.getItem('rainbow')
@@ -15,17 +13,7 @@ const rainbowSet = (value) => {
 }
 
 const rainbowToggle = () => {
-  const colors = [
-    '--purple',
-    '--blue',
-    '--green',
-    '--yellow',
-    '--red',
-    '--pink'
-  ]
-  const nextColor = colors[Math.floor(Math.random() * colors.length)]
   rainbowSet(!rainbowGet())
-  root.style = `--static-color: var(${nextColor})`
   rainbowUpdate()
 }
 
@@ -35,12 +23,21 @@ const rainbowUpdate = () => {
   } else {
     root.classList.remove('no-rainbow')
   }
-  // root.style.setProperty('--seed', `-${rainbowGet() ? seed : seedFixed}s`)
-  // root.style.setProperty('--cycle', `${rainbowGet() ? cycle : cycleFixed}s`)
+  root.style.setProperty('--seed', `-${seed}s`)
 }
 
 rainbowUpdate()
 
+// Bind events
+window.addEventListener('DOMContentLoaded', () => {
+  let toggleBtns = document.querySelectorAll('[data-toggleanimations]')
+  for  (let toggleBtn of toggleBtns) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.preventDefault()
+      rainbowToggle()
+    })
+  }
+});
 
 // Latex formulas.
 MathJax = {
