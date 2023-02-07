@@ -5,6 +5,16 @@ block title
     | Blog -
     |
 
+mixin news_header(date, prev, next)
+  hr
+  p
+    i #{date}
+    if prev
+      span &nbsp; #[+a(prev) <- Previous]
+    if next
+      span &nbsp; #[+a(next) Next ->]
+  hr
+
 block page
   h1 News and research
 
@@ -15,13 +25,11 @@ block page
 
         h3 News
         div
+          +wikilink('report_8') Progress report 8
           +wikilink('report_7') Progress report 7
           +wikilink('report_6') Progress report 6
-          +wikilink('report_5') Progress report 5
-          +wikilink('report_4') Progress report 4
-          +wikilink('report_3') Progress report 3
-          +wikilink('report_2') Progress report 2
-          +wikilink('report_1') Progress report 1
+          //- Keep only last 3 reports.
+          +wikilink('reports_all') Old progress reports
           +wikilink('live') We are live
 
         h3 Research
