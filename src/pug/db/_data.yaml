@@ -8,7 +8,7 @@ apex_legends:
   alpakkaSensHigh: 2.2
   fusionInput: [1, 'Broken in a recent update??? needs investigation']
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (200 steps)']
+  mouseAnyValue: [0, 'No (200 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -37,7 +37,7 @@ apex_legends:
   fomoSales: 1
   payToWin: 1
   fps_tps:
-    crosshairOptions: [0.5, 'RGB sliders']
+    crosshairOptions: [1, 'RGB sliders']
     adsSensitivity: 1
     adsHold: 1
     adsToggle: 1
@@ -58,7 +58,7 @@ battlefield_4:
   alpakkaSensHigh: 14
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (100 steps)']
+  mouseAnyValue: [0, 'No (100 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 1
@@ -108,7 +108,7 @@ borderlands_3:
   alpakkaSensHigh: 7
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue:  [0.5, 'No (100 steps)']
+  mouseAnyValue:  [0, 'No (100 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 1
@@ -158,7 +158,7 @@ bullets_per_minute:
   alpakkaSensHigh: '1'
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (45 steps)']
+  mouseAnyValue: [0, 'No (45 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: [0, 'No (6 layouts)']
@@ -208,7 +208,7 @@ days_gone:
   alpakkaSensHigh: 0.10 at FOV=90
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (100 steps)']
+  mouseAnyValue: [0, 'No (100 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -216,7 +216,7 @@ days_gone:
   thumbstickDeadzone: [0.5, '5 presets']
   thumbstickCurve: 0
   fov: 1
-  colorBlind: [0.5, '1 mode']
+  colorBlind: [1, '1 mode']
   uiScale: 0
   uiLockPlatform: 1
   framerateLimiter: [0.5, '30, 60, 90, 120, 150, 180, 210, 240, 270, 300']
@@ -308,7 +308,7 @@ doom_2016:
   alpakkaSensHigh: 2.2
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (200 steps)']
+  mouseAnyValue: [0, 'No (200 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -347,22 +347,22 @@ doom_2016:
     crouchToggle: 1
     walkRunHold: 1
     walkRunToggle: 0
-    
+
 elden_ring:
   title: Elden Ring
   stub: elden_ring
   reviewDate: 2023-01
   alpakkaProfile: Console
-  alpakkaSensLow: [10, 'camera speed: 5, mouse sensitivity: 10']
-  alpakkaSensMid: [8, 'camera speed: 5, mouse sensitivity: 8']
-  alpakkaSensHigh: [5, 'camera speed: 5, mouse sensitivity: 5']
+  alpakkaSensLow: 10
+  alpakkaSensMid: 8
+  alpakkaSensHigh: 5
   fusionInput: 1
   mouseRaw: 0
-  mouseAnyValue: [1, 'No (10 steps)']
+  mouseAnyValue: [0, 'No (10 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 1
-  menuNavMouse: [1, 'Yes, but cannot click LMB in console mode']
+  menuNavMouse: 1
   thumbstickDeadzone: 0
   thumbstickCurve: 0
   fov: 0
@@ -408,7 +408,7 @@ far_cry_5:
   alpakkaSensHigh: 30
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (100 exponential steps)']
+  mouseAnyValue: [0, 'No (100 exponential steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -425,7 +425,7 @@ far_cry_5:
   subtitlesOptions: [0.5, 'Background on/off']
   testArea: 0
   pauseCinematics: 0
-  settingsAnytime: [0.5, 'No during cinematics']
+  settingsAnytime: [0, 'No during cinematics']
   violence: _18
   sex: _12
   drugs: _18
@@ -458,7 +458,7 @@ fortnite:
   alpakkaSensHigh: 9
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (1000 steps)']
+  mouseAnyValue: [0, 'No (1000 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 1
@@ -472,10 +472,10 @@ fortnite:
   framerateLimiter: [0.5, '30, 60, 120, 144, 160, 165, 180, 200, 240, 360']
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: '?'
+  subtitlesOptions: 0
   testArea: [0.5, 'Creative mode without combat']
   pauseCinematics: 0
-  settingsAnytime: [0.5, 'Not during cinematics']
+  settingsAnytime: [0, 'Not during cinematics']
   violence: _7
   sex: 0
   drugs: 0
@@ -508,7 +508,7 @@ ghostrunner:
   alpakkaSensHigh: 12
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (100 steps)']
+  mouseAnyValue: [0, 'No (100 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -558,7 +558,7 @@ half_life_2:
   alpakkaSensHigh: 2.20
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (600 steps)']
+  mouseAnyValue: [0, 'No (600 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 1
@@ -608,7 +608,7 @@ horizon_zero_dawn:
   alpakkaSensHigh: 8
   fusionInput: 0
   mouseRaw: 0
-  mouseAnyValue: [0.5, 'No (40 steps)']
+  mouseAnyValue: [0, 'No (40 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 1
@@ -748,6 +748,106 @@ insurgency_sandstorm:
     walkRunHold: 1
     walkRunToggle: 1
 
+mirrors_edge:
+  title: Mirror's Edge
+  stub: mirrors_edge
+  reviewDate: 2023-02
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 3
+  alpakkaSensMid: 2
+  alpakkaSensHigh: '1'
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (10 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 0
+  menuNavMouse: 1
+  thumbstickDeadzone: null
+  thumbstickCurve: null
+  fov: 0
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
+  testArea: 0
+  pauseCinematics: 0
+  settingsAnytime: [0, 'No during cinematics']
+  violence: _12
+  sex: 0
+  drugs:  0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: null
+    adsHold: null
+    adsToggle: null
+    sprintHold: null
+    sprintToggle: null
+    crouchHold: 1
+    crouchToggle: 0
+    walkRunHold: 1
+    walkRunToggle: 0
+
+neon_white:
+  title: Neon White
+  stub: neon_white
+  reviewDate: 2023-02
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: '1.0'
+  alpakkaSensMid: 0.75
+  alpakkaSensHigh: 0.5
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (60 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  thumbstickDeadzone: null
+  thumbstickCurve: null
+  fov: 1
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: [0.5, '60, 84, 99, 119, 143, 144']
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
+  testArea: 0
+  pauseCinematics: null
+  settingsAnytime: 1
+  violence: _7
+  sex:  0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: null
+    adsHold: null
+    adsToggle: null
+    sprintHold: null
+    sprintToggle: null
+    crouchHold: null
+    crouchToggle: null
+    walkRunHold: null
+    walkRunToggle: null
+
 no_mans_sky:
   title: "No Man's Sky"
   stub: no_mans_sky
@@ -758,7 +858,7 @@ no_mans_sky:
   alpakkaSensHigh: 12
   fusionInput: 0
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (100 steps)']
+  mouseAnyValue: [0, 'No (100 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -837,6 +937,56 @@ noita:
   fomoSales: 0
   payToWin: 0
 
+portal_2:
+  title: Portal 2
+  stub: portal_2
+  reviewDate: 2023-02
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: null
+  alpakkaSensMid: null
+  alpakkaSensHigh: null
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (slider without numerical values)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 0
+  menuNavMouse: 1
+  thumbstickDeadzone: null
+  thumbstickCurve: null
+  fov: 0
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 1
+  subtitlesOptions: 0
+  testArea: 0
+  pauseCinematics: null
+  settingsAnytime: 1
+  violence: _12
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: null
+    adsHold: null
+    adsToggle: null
+    sprintHold: null
+    sprintToggle: null
+    crouchHold: 1
+    crouchToggle: 0
+    walkRunHold: null
+    walkRunToggle: null
+
 prodeus:
   title: 'Prodeus'
   stub: prodeus
@@ -897,7 +1047,7 @@ pubg:
   alpakkaSensHigh: 49 at FOV=90
   fusionInput: [0, 'No while driving or parachuting']
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (100 exponential steps)']
+  mouseAnyValue: [0, 'No (100 exponential steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -947,7 +1097,7 @@ rainbow_six_siege:
   alpakkaSensHigh: 9
   fusionInput: 0
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (100 steps)']
+  mouseAnyValue: [0, 'No (100 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: [0, 'No (4 layouts)']
@@ -964,7 +1114,7 @@ rainbow_six_siege:
   subtitlesOptions: 0
   testArea: 1
   pauseCinematics: 1
-  settingsAnytime: [0.5, 'Not during cinematics']
+  settingsAnytime: [0, 'Not during cinematics']
   violence: _15
   sex: 0
   drugs: 0
@@ -997,7 +1147,7 @@ risk_of_rain_2:
   alpakkaSensHigh: 0.10
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (100 steps)']
+  mouseAnyValue: [0, 'No (100 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 1
@@ -1095,9 +1245,9 @@ the_witcher_3:
   alpakkaSensLow: 0.30
   alpakkaSensMid: 0.25
   alpakkaSensHigh: 0.15
-  fusionInput: [0.5, 'Yes, but stuttering in tutorial UI']
+  fusionInput: [1, 'Yes, but stuttering in tutorial UI']
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No, very limited (80 steps)']
+  mouseAnyValue: [0, 'No, very limited (80 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -1108,7 +1258,7 @@ the_witcher_3:
   colorBlind: 0
   uiScale: [0.5, '2 sizes']
   uiLockPlatform: 0
-  framerateLimiter: 30, 60
+  framerateLimiter: [0.5, '30, 60']
   subtitlesDialog: 1
   subtitlesCaption: 0
   subtitlesOptions: 0
@@ -1137,6 +1287,56 @@ the_witcher_3:
     walkRunHold: 0
     walkRunToggle: 1
 
+titanfall_2:
+  title: Titanfall 2
+  stub: titanfall_2
+  reviewDate: 2023-02
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 4.4
+  alpakkaSensMid: 3.3
+  alpakkaSensHigh: 2.2
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: 1
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 0
+  menuNavMouse: 1
+  thumbstickDeadzone: null
+  thumbstickCurve: null
+  fov: 1
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
+  testArea: 1
+  pauseCinematics: null
+  settingsAnytime: 1
+  violence: _15
+  sex: 0
+  drugs: 0
+  arachnophobic: 'Mild'
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 1
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 1
+    adsHold: 1
+    adsToggle: 1
+    sprintHold: 1
+    sprintToggle: 0
+    crouchHold: 1
+    crouchToggle: 1
+    walkRunHold: null
+    walkRunToggle: null
+
 warzone_2:
   title: 'Call of Duty: Warzone 2'
   stub: warzone_2
@@ -1147,7 +1347,7 @@ warzone_2:
   alpakkaSensHigh: 8
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0.5, 'No (10000 steps)']
+  mouseAnyValue: [0, 'No (10000 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 1
