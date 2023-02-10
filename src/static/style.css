@@ -28,6 +28,7 @@
   --yellow: hsl( 40, 100%, 50%);
   --red:    hsl(  0, 100%, 50%);
   --pink:   hsl(320, 100%, 50%);
+  --static-color: var(--green);
   --c: "\0062\0061\006C\0074\0075";
   --i: "\0073\0073\0065";
   --m: "\006E\006F\0063";
@@ -89,7 +90,12 @@ header .logo img {
   animation: animation-bg var(--cycle) linear infinite;
   animation-delay: calc(var(--seed) + -0.75s);
   box-shadow: inset 0 0 0 4px black;
+  outline: 2px solid black;
 }
+header .logo img.logo-static {
+  display: none;
+}
+
 header .logo span {
   font-weight: bold;
   line-height: 100px;
@@ -301,7 +307,8 @@ main .boxes.center {
   background-color: initial;
   animation: none;
 }
-.box.image a.corner, .box.image a.img div {
+.box.image a.corner,
+.box.image a.img div {
   padding: 4px 8px;
   position: absolute;
   bottom: 10px;
@@ -590,6 +597,8 @@ footer div:last-child {
 }
 footer a {
   color: white;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* OTHER =================================================================== */
@@ -633,7 +642,8 @@ footer a {
   flex-basis: calc(50% - 10px);
 }
 
-rbp, rbp * {
+rbp,
+rbp * {
   /* Rainbow puke */
   display: inline;
   animation: animation-color var(--cycle) linear infinite;
@@ -673,6 +683,35 @@ table, tr, th, td {
 .lima2::before {
   content: var(--i) var(--s);
 }
+
+/* no-rainbow -bg */
+.no-rainbow header .logo img,
+.no-rainbow header .nav .tab.active a,
+.no-rainbow  h1 a.active,
+.no-rainbow main,
+.no-rainbow .box.image.colored {
+  animation: none;
+  background-color: var(--static-color);
+}
+/* no-rainbow -fg */
+.no-rainbow .logo span,
+.no-rainbow .box a,
+.no-rainbow .box.image a.corner,
+.no-rainbow .box.image a.img div,
+.no-rainbow rbp,
+.no-rainbow rbp *,
+.no-rainbow .lima {
+  animation: none;
+  color: var(--static-color);
+}
+
+.no-rainbow header .logo img.logo-animated {
+  display: none;
+}
+.no-rainbow header .logo img.logo-static {
+  display: block;
+}
+
 
 /* ANIMATIONS ============================================================== */
 @keyframes animation-color {

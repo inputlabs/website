@@ -62,20 +62,20 @@ mixin h3id(id)
     a(href='#'+id class='paragraph') ¶
 
 mixin a(href)
-  a(href=href)
+  a(href=href)&attributes(attributes)
     block
 
 mixin ax(href)
   //- a(href=(ENV=='prod' ? href : 'DISABLED') target='_blank')
-  a(href=href target='_blank')
+  a(href=href target='_blank')&attributes(attributes)
     block
 
 mixin axh(href)
   //- a(href=(ENV=='prod' ? href : 'DISABLED') target='_blank')
-  a(href=href target='_blank') #{href}
+  a(href=href target='_blank')&attributes(attributes) #{href}
 
 mixin dl(href)
-  a(href=href download)
+  a(href=href download)&attributes(attributes)
     block
 
 mixin figure(id, caption, src, cls)
