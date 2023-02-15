@@ -1,0 +1,38 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #8
+
+block content
+  h2 Progress report #8
+  +news_header('10 February 2023', 'report_7', null)
+
+  h3 Generic gamepad mode added to the firmware
+  p We released #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/0.87.0') Firmware 0.87.0], which includes:
+  ul
+    li A new #[em Protocol mode] which behaves as a #[em Generic gamepad], aka #[em DirectInput] on Windows. Check #[+a('/alpakka/manual/tune') Tune] manual page for more info (the LEDs indications have changed).
+    li The controller now restarts automatically when changing protocol mode.
+  p Thanks to the new generic mode is now possible to use #[em fusion input] (mouse + analog thumbstick) on the #[em Steam Deck], as a workaround while we investigate what's wrong with XInput Linux mode on the Steam UI.
+  p Generic gamepad mode also increases compatibility with retro games and simulators.
+  hr
+
+  h3 Minor fix in 3d models for select buttons
+  p Discord user #[em Xenum] noticed there was an accidental asymmetry on the model for the Alpakka select buttons (notice how the bottom edges were not flat). It is now corrected on the #[+ax('https://github.com/inputlabs/alpakka_case/releases/tag/0.86.1') Case 0.86.1] release. Thanks!
+  img.mt(src='/static/blog/fix_select_assymmetry.png' width='200px')
+  hr
+
+  h3 Media reporting about Input Labs
+  p We created a rolling entry on the blog to keep a register of media (websites, videos, podcasts) reporting about Input Labs, we called it #[+a('/blog/talking_about_us') They were talking about us].
+  hr
+
+  h3 New entries on the accessibility database
+  p The supporters on Patreon voted for 4 additional games to be analysed and added to the accessibility database, additionally GitHub user #[em phwoomp] contributed with the entry for Enden Ring.
+  ul
+    li: +a('/db/elden_ring') Elden Ring
+    li: +a('/db/mirrors_edge') Mirror's Edge
+    li: +a('/db/neon_white') Neon White
+    li: +a('/db/portal_2') Portal 2
+    li: +a('/db/titanfall_2') Titanfall 2
+  hr
+
+  p - M&M <3

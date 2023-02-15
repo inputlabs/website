@@ -31,20 +31,21 @@ block content
         div (scroll up)
     tr
       td.middle
-        h3 Operative System
+        h3 Protocol mode
         div Hold Home #[+home]
         div + hold Hat up #[+hat]↑
-        div: i (Requires controller restart)
       td.center
         img(src='/static/manual/led_tune_up_0.png' width='50px')
-        div Windows
+        div XInput Windows
         i (Default)
-      td
-      td
       td
       td.center
         img(src='/static/manual/led_tune_up_1.png' width='50px')
-        div GNU/Linux
+        div XInput Linux / MacOS
+      td
+      td.center
+        img(src='/static/manual/led_tune_up_2.png' width='50px')
+        div Generic / DirectInput
     tr
       td.middle
         h3 Thumbstick deadzone
@@ -103,3 +104,22 @@ block content
         img(src='/static/manual/led_tune_down_2.png' width='50px')
         div High
         div 4K
+
+  hr
+  h3 Protocol mode
+  p Defines how the controller communicates with the computer operating system, XInput for either Windows or Linux are the most recommended, but in some cases the generic gamepad mode can also be useful (eg. Retro games and simulators).
+  hr
+
+  h3 Thumbstick deadzone
+  p Defines how much of the inner movement of the thumbstick will be ignored, increase this according to your thumbstick wear (thumbstick centering spring will get softer over time). Please check #[+a('calibrate') Calibration] instructions before tweaking this parameter.
+  hr
+
+  h3 Touch threshold
+  p Defines how sensitive the touch surface is. Depending on which conductive material was used on the touch surface you may want to tweak this parameter:
+  ul
+    li Lower the threshold if the detection is not registered consistently.
+    li Raise the threshold if the detection is taking too long to be released after the finger is lifted.
+  hr
+
+  h3 Mouse sensitivity
+  p Defines how sensitive the mouse emulation is, using recommended values for different display resolution with the default OS sensitivity. This is similar to changing the DPI on a traditional mouse. Check #[+a('setup') OS setup] and #[+a('mouse') Mouse] for more details.

@@ -1,0 +1,18 @@
+extends _blog.pug
+
+block append subtitle
+  | All progress reports
+
+block content
+  h2 All progress reports
+  hr
+
+  ul
+    li: +a('report_8') Progress report 8
+    li: +a('report_7') Progress report 7
+    li: +a('report_6') Progress report 6
+    li: +a('report_5') Progress report 5
+    li: +a('report_4') Progress report 4
+    li: +a('report_3') Progress report 3
+    li: +a('report_2') Progress report 2
+    li: +a('report_1') Progress report 1
