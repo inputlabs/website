@@ -551,6 +551,9 @@ table.manual th {
 table.manual.col4 th {
   width: 25% !important;
 }
+table.manual.col5 th {
+  width: 20% !important;
+}
 table.manual.col6 th {
   width: 16.6% !important;
 }

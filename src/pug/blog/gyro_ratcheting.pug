@@ -1,0 +1,155 @@
+extends _blog.pug
+
+block append subtitle
+  | Gyro ratcheting and flick stick
+
+block content
+  h2 Gyro ratcheting and flick stick
+  hr
+  p: i 6 March 2023
+  hr
+
+  h3 Introduction and disclaimer
+  p This blog entry is an answer to the #[em frequently asked questions] about using flick stick on the Alpakka. We wrote this as a consolidation of many things we learnt while researching gyroscope-based controls, and it is a mix of data, rationales, and thoughts.
+  p This topic can be sensitive and we do not wish to be confrontational, for that reason the entry is titled #[em ratcheting AND flick stick] and not #[em ratcheting VS flick stick].
+  hr
+
+  h3 History of gyro aiming
+  p Using angular rate sensors (also known as gyroscope, or simply gyro) as a method for camera control in videogames is relatively new. Some commercial controllers included an IMU (Inertial Measurement Unit) sensor, those were never intended as primary input method for camera control, but mostly to enable new alternative "experiences", such as for example, playing golf swinging the controller.
+  p It was up to gyro enthusiasts to start trying new ways to use the gyro on their controllers, sometimes by using custom mapping based on 3rd party PC software, or even by coding custom firmware for their proprietary controllers.
+  p The first approaches, #[em first generation] of gyro aiming , were as simple as using the secondary thumbstick as a standard camera control (relative turn rate) while employing the gyro for fine camera control (for example adjusting the last milli-degrees necessary for landing a headshot in a shooter). These IMU sensors were not very accurate, so they had to be configured with a very low sensitivity, so big movements translated into small in-game camera turns. One of these first implementations was #[em Uncharted: Golden Abyss] (2011) in PlayStation Vita.
+  p Then later, the #[em second generation] of gyro aiming evolved into two parallel solutions: #[em ratcheting] and #[em flick stick], these try to solve the lack of gyro precision in different ways:
+  table.manual.col3
+    tr
+      th
+      th Ratcheting<br>(on generic controllers)
+      th Flick stick
+    tr
+      th Large turns
+      td Gyro tuned with high sensitivity
+      td
+        div Thumbstick perimeter mapping
+        div: em [workaround]
+    tr
+      th Fine turns
+      td
+        div Gyro with lot of filtering
+        div (smoothing and acceleration)
+        div: em [workaround]
+      td Gyro tuned with low sensitivity
+  hr
+
+  h3 Gyro ratcheting
+  p Ratcheting refers to a usage situation, where the gyro is used as the only method of camera control, so the thumbstick is not used for camera control anymore. This approach requires a solution to engage and disengage the gyro, for re-centering purposes, similar to re-centering a mouse (the mouse can be lifted and re-centered while "disengaged").
+
+  p But when people started experimenting with this approach, due to the limitations of current gyros, it was obvious that some tradeoffs had to be made: a low sensitivity allowed for fine aiming, but made doing large turns very difficult; on the contrary a higher sensitivity allowed for big turns, but made fine aiming very noisy and unreliable. This latest approach combined with a lot of post-processing (smoothing and acceleration) was the state-of-the-art solution for gyro ratcheting for some time.
+
+  p: em Advantages
+  ul
+    li Single method of input, shallower learning curve.
+    li Encourages the building of muscle memory for large movements.
+    li Mostly equivalent to using a mouse.
+    li It requires less complex movements on the thumb finger.
+  p: em Disadvantages
+  ul
+    li Full range of motion requires a high sensitivity.
+    li High sensitivity requires a higher gyro performance, as well as significant post-processing.
+    li Requires a higher range of motion in the hands and/or wrists.
+    li Requires setting in-game sensitivity within an acceptable range (1:3 to 1:5).
+  hr
+
+  h3 Flick stick
+  p Flick stick is an evolution of the thumbstick+gyro parallel method, so there is still two parallel methods to control the camera, but now the thumbstick is used in a more clever way. Instead of the classic relative turn-rate control, the thumbstick is used as an absolute 1:1 turn control on the horizontal axis by rotating it around its center. So for example by doing a physical 180° turn on the thumbstick, the in-game camera also turns 180°.
+  p This is a clear improvement in many scenarios, but also comes with some tradeoffs: The much higher 1:1 sensitivity mapping makes the thumbstick more inaccurate, usable only for fast turns.
+
+  p: em Advantages
+  ul
+    li Does not require a high performance gyro sensor.
+    li It allows for fast turns compared with traditional thumbstick-camera controls.
+  p: em Disadvantages
+  ul
+    li Parallel input method, steeper learning curve.
+    li Only suitable for a single axis (X-axis), so not good for general mouse emulation, or 6DOF games.
+    li It requires more complex finger/hands movements to perform the same actions.
+    li Requires a careful manual setup to set the in-game sensitivity to 1:1 ratio.
+    li Due to the super-high sensitivity / low-resolution required on the thumbstick, flick stick method is not very good for long distance flicks based on muscle memory (See table below).
+  hr
+
+  h3 Translation-to-rotation resolution table
+  p Analysis of the theoretical resolution of different devices while performing large movements, as for example, long distance flick shots.
+  p * Assuming perfect mouse optics, perfect gyro sensors, and perfect thumbstick potentiometers.
+  table.manual.col4
+    tr
+      th
+      th Mouse
+      th Ratcheting
+      th Flick stick<br>(thumbstick)
+    tr
+      th Device details
+      td Mouse on Logitech G240 mat<br>(40mm safe zone on the borders)
+      td Alpakka center-to-handle, -60° to 60° turn
+      td DualShock 4 thumbstick 360° perimeter
+    tr
+      th Max travel X-axis
+      td 260 millimeters
+      td
+        div 170 millimeters
+        div (81mm * 2π) * (120°/360°)
+      td
+        div 47 millimeters
+        div (7.5mm * 2π)
+    tr
+      th Resolution<br>X-axis on 360°<br>(lower is better)
+      td 1.386 degrees per millimeter
+      td 2.117 degrees per millimeter
+      td 7.639 degrees per millimeter
+    //- tr
+    //-   th Base comparison
+    //-   td 100%
+    //-   td 65% as good as a mouse
+    //-   td 18% as good as a mouse
+  hr
+
+  h3 Parallel input methods
+  p "Parallel Input" refers to a situation where two different control surfaces are assigned to the same in-game action, this is not very common for games, but most people may be familiar with something similar: connecting a mouse to a laptop, so both the mouse and the laptop trackpad are able to control the mouse in parallel (at the same time).
+
+  p We could argue that the body itself, and the way multiple muscles are used at the same time to perform a single action, could be considered a form of parallel input, and while true, our brains have complex "dedicated hardware" to encode and decode these movements naturally (#[+ax('https://en.wikipedia.org/wiki/Primary_motor_cortex#Movement_coding') Movement coding]). Likewise, when performing fine motion, we tend to isolate smaller groups of muscles to increase dexterity.
+
+  p Based in our experience using thumbstick+gyro aiming and overall research of motion-based controls, we found that when using parallel inputs there are multiple ways to achieve the same output results, which interferes with the ability of building muscle memory, and increases the chances of getting confused while in high-stakes situations.
+  hr
+
+  h3 Focused research on gyro ratcheting
+  p At Input Labs we decided to research and develop solutions to remove the limitations of gyro #[em ratcheting as a generalist input method], compared with the shortcomings of flick stick, for all the reasons mentioned above:
+  ul
+    li Simplicity.
+    li Accessibility.
+    li Shallower learning curve.
+    li More potential applications.
+    li Higher performance on restricted mobility scenarios.
+    li Higher performance on competitive scenarios.
+
+  table.manual.hdiv
+    tr
+      th Limitation
+      th Solution
+    tr
+      td Lack of accuracy, linearity and responsiveness when employing gyro both both large and fine movements
+      td Dual gyro, carefully tuned firmware
+    tr
+      td Engage and disengage gyro while being able to use other buttons
+      td Touch surface embedded within the ABXY buttons
+    tr
+      td Required software configuration
+      td The controller identifies itself as a HID mouse
+  hr
+
+  h3 Conclusion
+  p With the current performance and simplicity of the Alpakka controller reference design, we believe we achieved the goal of making gyro ratcheting not just an enthusiast/experimental solution, but a first-class citizen for generalist input methods. Several #[+a('talking_about_us') independent reviewers] and members of our community agree about its exceptional characteristics, so we consider the Alpakka as the first of a #[em third generation] of gyro controllers.
+  p And as the cherry on top, we made everything open source and Creative Commons, ain't that cool?
+  hr
+
+  p Thanks a lot for the support! <br> - M&M <3
+
+
+
+
