@@ -1,0 +1,54 @@
+extends _blog.pug
+
+block append subtitle
+  | Shop opening
+
+block content
+  h2 Shop opening
+  +news_header('22 February 2023', 'report_8', null)
+
+  h3 Input Labs Distribution
+  p It may not be a grand opening, and it is not really a traditional shop either. We are launching #[+ax('https://inputlabs.squarespace.com') Input Labs Distribution], a portal that we will use to organize better the distribution of:
+  ul
+    li Free kits for testers, as part of our #[+a('hardware_testing') Testers program].
+    li #[+a('hardware_review') Review units] for the media, such as Youtube content creators and websites.
+    li Selected DIY kits, components and materials to everybody. #[em This is the new thing!]
+  hr
+
+  h3 Why are we opening a shop?
+  p First and foremost because we realized that there is a massive amount of people interested in the project without access to 3D-printers, soldering equipment, etc... which is a bit of a #[em duh] moment, but we did not expect so much traction from non-DIY-users at first. The pressure was so high that we created a dedicated room on Discord (#[em diy-share-parts]) so the community members could help each other by sharing spare parts, making group orders, and offering their time and expertize so everyone has access to a controller if they want. But this solution is only a workaround, we cannot rely on community members working for free to make our accessible controllers reach everyone.
+
+  p Logistics and distribution is not an easy task, we have over #[em 30 testers] now, for some of them we create parts for free but they take care of the shipping costs, organizing this through a shop interface with #[em 0 euros] articles simplifies the process a lot.
+
+  p Additionally it is not environmentally friendly (nor cheap) for everyone to place minimum orders for components, for example the minimum amount of PCBs to order in JLCPCB is 5 (2 of them soldered and 3 of them raw), and the minimum amount of Protopasta conductive filament to buy is 50 grams while the Alpakka reference design only needs 4 grams, so quite a waste in general. On the top of that, some of the components are almost impossible to source in some regions, for example getting M2.5 #[em millimeters] bolts in the United States.
+
+  p Offering DIY kits and parts in the smaller quantities will reduce waste.
+
+  p And finally there is the funding reason, one of #[+a('/about') Input Labs principles] is #[em to create a stable environment for research and development], as you may guess, this is not easy when doing open source and Creative Commons, one of our support streams is #[+ax(org.patreon) Patreon], which is doing great, but we need some additional help, as hopefully the "shop" will do, to create such stable environment.
+  hr
+
+  h3 So we are selling controllers now?
+  p Not really, for now we are only offering some selected parts, the more problematic for people to source or build. And even if we offer a bigger variety of DIY kits and parts later, we may never sell assembled controllers.
+  p Our project is different because you can mix and match reference parts and custom parts for building your dream controller, where would be the fun and accessibility if you could just buy a boring standard controller of the shelf?
+  p At some point (assuming people do not need customizations) it may be possible to buy parts and assemble the reference designs Ikea-style, but meatballs won't be included, best we can do is some finnish Salmon soup, which is clearly the superior nordic food ;)
+  hr
+
+  h3 What's the impact for people sourcing their materials from somewhere else?
+  p Absolutely none, people will be still able to grab the designs from the web or GitHub, and build the controllers with components and materials of their choice. The DIY kits available on the Input Labs Distribution portal are just another option on the menu, not meant to replace the freedom of building and modifying your controller in any way you want.
+  hr
+
+  h3 What will be the quality of the parts you offer?
+  p For some components we will be just re-selling parts that we buy in bigger batches, for example the M2.5 bolts or electronic components. We won't post-process these in any way, so the quality is the same you could expected from the original manufacturers.
+
+  p Other parts we will actually 3D-print them, these won't be at the same level of precision you would expect from an industrially manufactured / injection molded product. Since these are for DIY purposes, the final user may need to do some tweaks to fit perfectly in their personal project.
+
+  p We won't test each printed part individually because it won't guarantee it fits every project anyways, but we are so familiar with our printers, our selected filaments, and the parts that we ourselves designed, that we can assess their quality much better than what you would get from a generic 3D-printing online service.
+  hr
+
+  h3 Will be there more parts available later?
+  p We do not know, this is significantly different from just being a random open-source project on the internet, setting up the logistics and legal work required a non-trivial amount of effort and time. And will create additional workload for packaging, shipping, support, etc...
+  p Depending on how successful this is, we may offer more DIY kits and more parts later, or we may just close the shop and keep focusing in the open source development. Only time will tell.
+  p Also we are open to feedback and ideas about what to offer next, so please join #[+ax(org.discord) Discord] and chat with us.
+  hr
+
+  p Thanks a lot for the support! <br> - M&M <3
