@@ -17,6 +17,7 @@
     discord: 'https://discord.gg/s8Yb4pfusT',
     youtube: 'https://www.youtube.com/@inputlabs',
     patreon: 'https://www.patreon.com/inputlabs',
+    shop: 'https://inputlabs.squarespace.com',
   }
 
   const parent = {
@@ -42,6 +43,7 @@ mixin nav
   div.tab(class=active('contribute')): +a('/contribute') Contribute
   div.tab(class=active('db')):         +a(parent.db)     Accessibility DB
   div.tab(class=active('blog')):       +a(parent.blog)   Blog
+  div.tab(class=active('')):           +ax(org.shop)     Shop
 
 mixin wikilink(href, external=false)
   - const active = (href==PAGE)
