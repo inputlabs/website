@@ -43,7 +43,7 @@ mixin nav
   div.tab(class=active('contribute')): +a('/contribute') Contribute
   div.tab(class=active('db')):         +a(parent.db)     Accessibility DB
   div.tab(class=active('blog')):       +a(parent.blog)   Blog
-  div.tab(class=active('')):           +ax(org.shop)     Shop
+  div.tab:                             +ax(org.shop)     Shop
 
 mixin wikilink(href, external=false)
   - const active = (href==PAGE)
