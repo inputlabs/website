@@ -14,42 +14,37 @@ block page
       table.data
         tr
           td Alpakka firmware source code
-          td: +ax('https://github.com/inputlabs/alpakka_firmware') Repository
+          td: +ax('https://github.com/inputlabs/alpakka_firmware') GitHub
         tr
           td Alpakka firmware latest build
-          td: +ax('https://github.com/inputlabs/alpakka_firmware/releases/latest') Repository
+          td: +ax('https://github.com/inputlabs/alpakka_firmware/releases/latest') GitHub
 
     div.box
       h2 Printed Circuit Board
       p The main board where all the buttons, gyro, thumbstick, LEDs and most other electronics are.
-      p Read the documentation about making an order to PCB manufacturer companies.
+      p Read the documentation about #[+a('/alpakka/manual/diy_pcb') making an order] from PCB manufacturer companies.
       table.data
         tr
           td Alpakka PCB KiCad schematics
-          td: +ax('https://github.com/inputlabs/alpakka_pcb') Repository
+          td: +ax('https://github.com/inputlabs/alpakka_pcb') GitHub
         tr
           td Alpakka PCB ready-to-order files
-          td: +ax('https://github.com/inputlabs/alpakka_pcb/releases/latest') Repository
-
-    div.box
-      h2 Microcontroller
-      p This small device contains the processor, memory, and other important components for the Alpakka controller to work. It is attached to the main PCB.
-      div
-        table.data
-          tr
-            td Raspberry Pi Pico
-            td: +ax('https://www.raspberrypi.com/products/raspberry-pi-pico/') Visit website
+          td: +ax('https://github.com/inputlabs/alpakka_pcb/releases/latest') GitHub
 
     div.box
       h2 Case and buttons
-      p The front and back part of the case, and all its buttons and triggers. The base models are made in Blender, but is also possible to use the .stl or .m3f files to 3D print it directly.
+      p The front and back part of the case, buttons, triggers, and everything else.
       table.data
         tr
           td Blender project with source 3D models
-          td: +ax('https://github.com/inputlabs/alpakka_case') Repository
+          td: +ax('https://github.com/inputlabs/alpakka_case') GitHub
         tr
-          td STL and M3F files ready for 3D printing
-          td: +ax('https://github.com/inputlabs/alpakka_case/releases/latest') Repository
+          td STL and M3F files for 3D printing
+          td: +ax('https://github.com/inputlabs/alpakka_case/releases/latest') GitHub
+        tr
+          td Conductive hexagon
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-conductive-hexagon') Input Labs shop
+      table.data
 
     div.box
       h2 3D printer filament
@@ -58,45 +53,51 @@ block page
       table.data
         tr
           td Prusament PLA (in many colors)
-          td: +ax('https://www.prusa3d.com/category/prusament-pla') Visit website
+          td: +ax('https://www.prusa3d.com/category/prusament-pla') Prusa shop
         tr
           td Protopasta PLA Conductive
-          td: +ax('https://www.proto-pasta.com/collections/conductive/products/conductive-pla') Visit website
+          td: +ax('https://www.proto-pasta.com/collections/conductive/products/conductive-pla') Protopasta shop
+
 
     div.box
       h2 Electronics
-      p Thru-hole components that are not usually soldered by the PCB manufacturer, so you may want to solder them yourself. Also to replace aged components. See #[+a('manual/specs') Specs].
+      p This includes the micro-controller, as well as through-hole components. Those are usually not soldered by the PCB manufacturer, so you may want to solder them yourself, and later you may even want to to replace worn components. See #[+a('manual/specs') specs].
       table.data
         tr
+          td Raspberry Pi Pico
+          td: +ax('https://mou.sr/3xHPuDS') Mouser shop
+        tr
           td Thumbstick (1x)
-          td: +ax('https://tech.alpsalpine.com/e/products/detail/RKJXV122400R/') Visit website
+          td: +ax('https://www.lcsc.com/product-detail/Variable-Resistors-Potentiometers_ALPSALPINE-RKJXV122400R_C918854.html') LCSC shop
         tr
           td Directional hat (1x)
-          td: +ax('https://tech.alpsalpine.com/e/products/detail/RKJXM1015004/') Visit website
+          td: +ax('https://www.lcsc.com/product-detail/Multi-Directional-Switches_ALPSALPINE-RKJXM1015004_C97432.html') LCSC shop
         tr
           td Rotary encoder (1x)
-          td: +ax('https://tech.alpsalpine.com/e/products/detail/EC10E1220503/') Visit website
+          td: +ax('https://www.lcsc.com/product-detail/Rotary-Encoders_ALPSALPINE-EC10E1220503_C110291.html') LCSC shop
         tr
           td Forward buttons / shoulders (2x)
-          td: +ax('https://tech.alpsalpine.com/e/products/detail/SKHHLNA010/') Visit website
+          td: +ax('https://www.lcsc.com/product-detail/Tactile-Switches_ALPSALPINE-SKHHLNA010_C125031.html') LCSC shop
         tr
-          td Back buttons / triggers (4x)
-          td: +ax('https://tech.alpsalpine.com/e/products/detail/SKQGAFE010/') Visit website
+          td Trigger buttons (4x)
+          td: +ax('https://www.lcsc.com/product-detail/Tactile-Switches_ALPSALPINE-SKQGAFE010_C202424.html') LCSC shop
 
     div.box
       h2 Bolts and nuts
-      p M2.5 bolts and nuts to hold the case together, and as pivot point for the triggers.
-      p: i Links for reference, components with the same specs from other shops will also work.
+      p M2.5 bolts and nuts to hold the case together, and as pivot points for the triggers.
       table.data
         tr
           td M2.5 DIN-912 Hex-socket 12 mm (2x)
-          td: +ax('https://www.mcmaster.com/92290A062/') Visit website
+          td: +ax('https://www.mcmaster.com/92290A062/') Reference
         tr
           td M2.5 DIN-912 Hex-socket 25 mm (6x)
-          td: +ax('https://www.mcmaster.com/92290A753/') Visit website
+          td: +ax('https://www.mcmaster.com/92290A753/') Reference
         tr
           td M2.5 DIN-934 Hex nut (8x)
-          td: +ax('https://www.mcmaster.com/91828A113/') Visit website
+          td: +ax('https://www.mcmaster.com/91828A113/') Reference
+        tr
+          td Alpakka bolts kit (all included)
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-bolts-kit') Input Labs shop
 
     div.box
       h2 Developer kit
@@ -105,9 +106,12 @@ block page
       table.data
         tr
           td USB to TTL serial cable
-          td: +ax('https://www.adafruit.com/product/954') Visit website
+          td: +ax('https://www.adafruit.com/product/954') Adafruit shop
         tr
           td JST PH 4-pin cable
-          td: +ax('https://www.adafruit.com/product/3955') Visit website
+          td: +ax('https://www.adafruit.com/product/3955') Adafruit shop
 
-
+    div.box
+      h2 About sourcing from Input Labs
+      p By getting some of the components and materials directly from #[+ax('https://inputlabs.squarespace.com') Input Labs Distribution], you help us to continue doing the research we do, and to keep releasing awesome open-source and accessible controllers for everybody.
+      p Also, it increases your charisma by 10 points.
