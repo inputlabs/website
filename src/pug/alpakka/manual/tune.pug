@@ -70,20 +70,20 @@ block content
         div + hold Hat right #[+hat]→
       td.center
         img(src='/static/manual/led_tune_right_0.png' width='50px')
-        div 2 μs
-      td.center
-        img(src='/static/manual/led_tune_right_1.png' width='50px')
-        div 3 μs
-      td.center
-        img(src='/static/manual/led_tune_right_2.png' width='50px')
-        div 5 μs
+        div Automatic
         i (Default)
       td.center
+        img(src='/static/manual/led_tune_right_1.png' width='50px')
+        div 2 μs
+      td.center
+        img(src='/static/manual/led_tune_right_2.png' width='50px')
+        div 3 μs
+      td.center
         img(src='/static/manual/led_tune_right_3.png' width='50px')
-        div 8 μs
+        div 5 μs
       td.center
         img(src='/static/manual/led_tune_right_4.png' width='50px')
-        div 13 μs
+        div 8 μs
     tr
       td.middle
         h3 Mouse sensitivity
@@ -117,8 +117,9 @@ block content
   h3 Touch threshold
   p Defines how sensitive the touch surface is. Depending on which conductive material was used on the touch surface you may want to tweak this parameter:
   ul
-    li Lower the threshold if the detection is not registered consistently.
-    li Raise the threshold if the detection is taking too long to be released after the finger is lifted.
+    li The automatic setting will adjust the threshold dynamically.
+    li Set a low static threshold if the detection is not registered consistently.
+    li Set a high static threshold if the detection is taking too long to be released after the finger is lifted.
   hr
 
   h3 Mouse sensitivity
