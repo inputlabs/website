@@ -1,0 +1,82 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #9
+
+block content
+  h2 Progress report #9
+  +news_header('10 March 2023', 'shop_opening', '')
+
+  h3 Firmware 0.88.0
+  p We released #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/0.88.0') Firmware 0.88.0] for the Alpakka controller, with plenty of improvements and fixes:
+
+  h4 Automatic touch threshold
+  p In previous releases we implemented the option to manually adjust the touch surface sensitivity threshold, this was important to support different electrically materials and different setups. Now we are adding an #[em auto] value which detects and adjusts the threshold automagically. This is now the default value, but manual threshold values are still available through the #[+a('/alpakka/manual/tune') Tune settings].
+
+  h4 Any button to engage gyro
+  p Now is possible to use any button to enable the gyro, this may be important for builds without a conductive touch surface, or for accessibility reasons. For example, if we want to use the #[em R4] to trigger the gyro, we can define the profile as:
+  pre: code.
+    profile.gyro = Gyro_(
+      GYRO_MODE_TOUCH_ON,
+      PIN_R4,               <---
+      ACTIONS(MOUSE_X),
+      ACTIONS(MOUSE_Y),
+      ACTIONS(KEY_NONE)
+    );
+
+  h4 Per-profile deadzone and overlap
+  p Now the thumbstick section for each profile can define the deazone either #[em DEADZONE_FROM_CONFIG] or as a custom value from #[em 0] to #[em 1] that will override the global value from the config.
+  p Additionally each profile thumbstick section can define an overlap value, which is how much the 4 directions overlap with each other, with a range of values from #[em -1] to #[em 1].
+  p: img(src='/static/blog/overlap.gif' width='200px')
+
+  h4 Better axis mapping
+  p Previously the thumbstick axis mapping was only able to handle one-axis-per-axis, so for example:
+  ul
+    li Physical thumbstick input #[em axis X] => Gamepad output #[em axis X].
+  p But now it is possible to assign different axis to each of the physical thumbstick directions, for example:
+  ul
+    li Physical thumbstick input #[em axis X-] (left) => Gamepad output #[em axis X-].
+    li Physical thumbstick input #[em axis X+] (right) => Gamepad output #[em axis X+].
+  p Or being able to use up and down as the analog triggers:
+  ul
+    li Physical thumbstick input #[em axis Y+] (up)=> Gamepad output #[em axis ZR] (RT).
+    li Physical thumbstick input #[em axis Y-] (down) => Gamepad output #[em axis ZL] (LT).
+
+  h4 Macros
+  p A basic implementation of macros (sequence of keystrokes or buttons) is available now. This is an important accessibility feature that we will improve over time, for now the limitations are:
+  ul
+    li Not able to use modifier keys (control, shift, alt).
+    li Not able to set custom interval of the keystrokes (it is fixed to 10 milliseconds).
+    li Not being able to use multiple macros in parallel.
+  p These macros can be defined as a set of actions in the profiles (like when defining any other group of keys or buttons), but including #[em PROC_MACRO] as the first action will make them trigger sequentially, this is how the new #[em quick chat] phrases are defined (see later):
+  pre: code.
+    ACTIONS(PROC_MACRO, KEY_H, KEY_E, KEY_L, KEY_L, KEY_O)),  // Hello.
+
+  h4 Profile changes and additions
+  ul
+    li In #[+a('/alpakka/manual/profile_home') all] profiles:
+      ul
+        li #[em Home] => #[em gamepad-home] (instead of #[em shift-tab]).
+    li In #[+a('/alpakka/manual/profile_console') Console] profile:
+    ul
+      li #[em Select-2] => #[em M].
+      li #[em Start-2] => #[em N].
+    li In #[+a('/alpakka/manual/profile_home') Home] profile:
+      ul
+        li #[em Thumbstick axis X-] => Quick chat macro #[em no].
+        li #[em Thumbstick axis X+] => Quick chat macro #[em yes].
+        li #[em Thumbstick axis Y-] => Quick chat macro #[em thanks].
+        li #[em Thumbstick axis Y-] => Quick chat macro #[em gg].
+
+  h4 Fixes
+  ul
+    li Scrollwheel up and down can be mapped to any button now.
+    li LED was not blinking correctly when the requested profile was the same than the current profile.
+
+  hr
+
+  h3 Research notes about gyro ratcheting and flick stick
+  p We wrote about our experience and learnings about different methods for using gyro in a new blog entry #[+a('gyro_ratcheting') Gyro ratcheting and flick stick].
+  hr
+
+  p Thanks a lot for the support! <br> - M&M <3
