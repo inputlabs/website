@@ -32,15 +32,16 @@ block content
   h4 Better axis mapping
   p Previously the thumbstick axis mapping was only able to handle one-axis-per-axis, so for example:
   ul
-    li Physical thumbstick input #[em axis X] => Gamepad output #[em axis X].
-  p But now it is possible to assign different axis to each of the physical thumbstick directions, for example:
+    li Physical thumbstick input #[em axis LX] => Gamepad output #[em axis LX].
+  p But now it is possible to assign different axis to each of the physical thumbstick directions independently, for example, the same axis but inverted would look like:
   ul
-    li Physical thumbstick input #[em axis X-] (left) => Gamepad output #[em axis X-].
-    li Physical thumbstick input #[em axis X+] (right) => Gamepad output #[em axis X+].
-  p Or being able to use up and down as the analog triggers:
+    li Physical thumbstick input #[em axis LZ-] (left) => Gamepad output #[em axis LY+].
+    li Physical thumbstick input #[em axis LZ+] (right) => Gamepad output #[em axis LY-].
+  p Another example would be using up and down as the analog triggers:
   ul
-    li Physical thumbstick input #[em axis Y+] (up)=> Gamepad output #[em axis ZR] (RT).
-    li Physical thumbstick input #[em axis Y-] (down) => Gamepad output #[em axis ZL] (LT).
+    li Physical thumbstick input #[em axis LY+] (up)=> Gamepad output #[em axis ZR] (RT).
+    li Physical thumbstick input #[em axis LY-] (down) => Gamepad output #[em axis ZL] (LT).
+  p Or any other combination of axis and their inverted variants.
 
   h4 Macros
   p A basic implementation of macros (sequence of keystrokes or buttons) is available now. This is an important accessibility feature that we will improve over time, for now the limitations are:
