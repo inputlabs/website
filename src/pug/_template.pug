@@ -33,7 +33,7 @@ html
       media="(prefers-color-scheme: dark)"
     )
     //- Scripts.
-    script(type='text/javascript' src='/static/init.js')
+    script(type='text/javascript' src='/static/init.js' defer)
     script(
       defer
       data-domain=(ENV=='prod' ? 'inputlabs.io' : 'dev.inputlabs.io')
@@ -52,8 +52,7 @@ html
       div.logo
         +a('/')
           div
-            img.logo-animated(src='/static/img/logo.apng')
-            img.logo-static(src='/static/img/logo.png')
+            img(src='/static/img/logo.apng')
           span Input Labs
 
       div.icon

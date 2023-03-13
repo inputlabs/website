@@ -1,6 +1,8 @@
 const root = document.querySelector(':root')
-const cycle = 120
+const cycle = 90
 const seed = (new Date().getTime() / 1000) % cycle
+const start = new Date().getTime()
+const seedStatic = 45
 
 const rainbowGet = () => {
   const value = localStorage.getItem('rainbow')
@@ -18,12 +20,25 @@ const rainbowToggle = () => {
 }
 
 const rainbowUpdate = () => {
-  if (! rainbowGet()) {
-    root.classList.add('no-rainbow')
+  const animations = document.getAnimations()
+  const logo = document.querySelector('header div.logo img')
+  const apng = '/static/img/logo.apng'
+  const png = '/static/img/logo.png'
+  if (rainbowGet()) {
+    logo.setAttribute('src', apng)
+    root.style.setProperty('--anim-state', 'running')
+    root.style.setProperty('--seed', `-${seed}s`)
+    for (const animation of animations) {
+      animation.currentTime = start
+    }
   } else {
-    root.classList.remove('no-rainbow')
+    logo.setAttribute('src', png)
+    root.style.setProperty('--anim-state', 'paused')
+    root.style.setProperty('--seed', `-${seedStatic}s`)
+    for (const animation of animations) {
+      animation.currentTime = 0
+    }
   }
-  root.style.setProperty('--seed', `-${seed}s`)
 }
 
 rainbowUpdate()
