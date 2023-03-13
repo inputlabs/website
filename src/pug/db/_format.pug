@@ -30,13 +30,15 @@ mixin feature_profile(name)
     else
       td.dim -
 
-h2 #{game['title']}
+h2 #{game.title}
+if game.subtitle
+  p #{game.subtitle}
 hr
 div.mosaic
   div.group
     h3 Input
     table.data
-      +feature(game.fusionInput) Fusion input (mouse + gamepad)
+      +feature(game.fusionInput) Fusion input / Mixed input (mouse + gamepad)
       +feature(game.mouseRaw) Mouse raw input
       +feature(game.mouseAnyValue) Mouse sensitivity any value
       +feature(game.remapKeyboard) Remap keyboard
@@ -59,7 +61,7 @@ div.mosaic
       +feature(game.fov) FOV adjustment
       +feature(game.colorBlind) Color blind options
       +feature(game.uiScale) UI scale options
-      +feature(game.uiLockPlatform) UI lock platform
+      +feature(game.uiLockPlatform) Glyph platform lock
       +feature(game.framerateLimiter) Framerate limiter
 
   div.group
