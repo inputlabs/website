@@ -10,7 +10,7 @@ block content
 
   div.mosaic
     div.group
-      h3 Fusion input
+      h3 Fusion input / Mixed input
       p If the game is capable of handling all mouse, keyboard, and gamepad input at the same time. This is normally used for controlling the camera with mouse while controlling the character movement with a gamepad thumbstick.
       p Since this feature did not have a proper name, we coined the term #[em Fusion input], which everyone is welcome to use, meaning the term is copyleft.
       p Most game engines support fusion input with no issue, but some other fail because the game must be either in "pc mode" or in "console mode" (awful idea), or because the game UI glitches and makes the game to stutter.
@@ -60,13 +60,13 @@ block content
       p Also is possible to toggle it each time the button is pressed: #[em press ON <-> press OFF]
       hr
 
-      h3 Thumbstick deadzone options
-      p The settings (in-game) allows the user the define a custom deadzone for the thumbstick, which is the inner threshold of movement in which the thumbstick input is ignored. This may be useful for aged thumbsticks or custom setups.
-      hr
+      //- h3 Thumbstick deadzone options
+      //- p The settings (in-game) allows the user the define a custom deadzone for the thumbstick, which is the inner threshold of movement in which the thumbstick input is ignored. This may be useful for aged thumbsticks or custom setups.
+      //- hr
 
-      h3 Thumbstick curve options
-      p The settings (in-game) allows the user the define a custom acceleration curve for the thumbstick, which is how linear (or non-linear) the response of the thumbstick is. For example, if the game reacts softly or aggressively to small thumbstick movements.
-      hr
+      //- h3 Thumbstick curve options
+      //- p The settings (in-game) allows the user the define a custom acceleration curve for the thumbstick, which is how linear (or non-linear) the response of the thumbstick is. For example, if the game reacts softly or aggressively to small thumbstick movements.
+      //- hr
 
       h3 Recommended profile
       p Which profile is recommended to play that specific game, given its genre and implementation.
@@ -83,13 +83,13 @@ block content
 
       h3 Color blind options
       p If the game UI and/or overlays can be adjusted with different color profiles, to help people with color vision deficiency to identify better these elements.
-
-    div.group
-      h3 UI scale options
-      p The user interface elements can be adjusted in size, independently from the render resolution.
       hr
 
-      h3 UI lock platform
+      h3 UI scale options
+      p The user interface elements can be adjusted in size, independently from the render resolution.
+
+    div.group
+      h3 Glyph platform lock
       p The UI elements can be locked to an specific platform when displaying button hints (eg KB+M, Xbox or PlayStation), otherwise the game may try to auto-detect which single input was used last, and visually glitch back and forth while using fusion input.
       hr
 
