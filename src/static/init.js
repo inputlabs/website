@@ -3,6 +3,7 @@ const cycle = 90
 const seed = (new Date().getTime() / 1000) % cycle
 const start = new Date().getTime()
 const seedStatic = 45
+let logo_ext = 'apng'
 
 const rainbowGet = () => {
   const value = localStorage.getItem('rainbow')
@@ -25,16 +26,22 @@ const rainbowUpdate = () => {
   const apng = '/static/img/logo.apng'
   const png = '/static/img/logo.png'
   if (rainbowGet()) {
-    logo.setAttribute('src', apng)
     root.style.setProperty('--anim-state', 'running')
     root.style.setProperty('--seed', `-${seed}s`)
-    for (const animation of animations) {
-      animation.currentTime = start
+    if (logo_ext != 'apng') {
+      logo.setAttribute('src', apng)
+      logo_ext = 'apng'
     }
+    // for (const animation of animations) {
+    //   animation.currentTime = start
+    // }
   } else {
-    logo.setAttribute('src', png)
     root.style.setProperty('--anim-state', 'paused')
     root.style.setProperty('--seed', `-${seedStatic}s`)
+    if (logo_ext != 'png') {
+      logo.setAttribute('src', png)
+      logo_ext = 'ang'
+    }
     for (const animation of animations) {
       animation.currentTime = 0
     }
