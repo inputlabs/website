@@ -18,6 +18,16 @@
   font-weight: bold;
   src: url("/static/fonts/Inter-Bold.ttf") format("truetype");
 }
+@font-face {
+  font-family: Atkinson;
+  font-weight: normal;
+  src: url("/static/fonts/AtkinsonHyperlegible-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Atkinson;
+  font-weight: bold;
+  src: url("/static/fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype");
+}
 
 :root {
   --anim-state: running;
@@ -41,7 +51,8 @@
 
 html {
   height: 100%;
-  font-family: Inter;
+  font-family: Atkinson;
+  font-size: 100%;
   color: white;
   background-color: black;
   text-size-adjust: 100%;
@@ -112,7 +123,6 @@ header .icon img {
   opacity: 0.5;
 }
 header .nav .tab a {
-  font-family: Inter;
   font-weight: bold;
   text-decoration: none;
   font-size: 19px;
@@ -140,7 +150,6 @@ header .mininav img {
 }
 .navwidget a {
   display: block;
-  font-family: Inter;
   font-weight: bold;
   text-decoration: none;
   white-space: nowrap;
@@ -157,7 +166,6 @@ h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: Inter;
   font-weight: bold;
   font-size: 40px;
   flex-basis: 100%;
@@ -241,7 +249,6 @@ main .boxes.center {
   width: 468px;
 }
 .box h2 {
-  font-family: Inter;
   font-weight: bold;
   font-size: 22px;
   color: white;
@@ -590,7 +597,6 @@ footer {
   height: 40px;
   background-color: black;
   text-align: right;
-  font-family: Inter;
   font-size: 14px;
   line-height: 40px;
   color: white;
