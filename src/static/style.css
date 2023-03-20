@@ -672,6 +672,10 @@ table, tr, th, td {
   margin: 0;
 }
 
+.mono {
+  font-family: monospace;
+}
+
 .lima {
   background-color: hsl(0, 0%, 0%);
   padding: 0 6px;
