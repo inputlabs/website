@@ -1,20 +1,18 @@
 apex_legends:
   title: Apex Legends
   stub: apex_legends
-  reviewDate: 2022-07
-  alpakkaProfile: FPS FUSION
+  reviewDate: 2023-03
+  alpakkaProfile: FPS WASD
   alpakkaSensLow: 4.4
   alpakkaSensMid: 3.3
   alpakkaSensHigh: 2.2
-  fusionInput: [1, 'Broken in a recent update??? needs investigation']
+  fusionInput: [0, 'Stutter in latest updates']
   mouseRaw: 1
   mouseAnyValue: [0, 'No (200 steps)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
   menuNavMouse: 1
-  thumbstickDeadzone: [0.5, '3 presets']
-  thumbstickCurve: [0.5, '5 presets']
   fov: 1
   colorBlind: [1, '3 modes']
   uiScale: 0
@@ -25,7 +23,7 @@ apex_legends:
   subtitlesOptions: [1, '3 sizes']
   testArea: 1
   pauseCinematics: 0
-  settingsAnytime: 1
+  settingsAnytime: [0, 'Not during cinematics']
   violence: _15
   sex: 0
   drugs: 0
@@ -45,8 +43,8 @@ apex_legends:
     sprintToggle: 1
     crouchHold: 1
     crouchToggle: 1
-    walkRunHold: 0
-    walkRunToggle: 0
+    walkRunHold: null
+    walkRunToggle: null
 
 battlefield_4:
   title: Battlefield 4
@@ -198,6 +196,54 @@ bullets_per_minute:
     walkRunHold: null
     walkRunToggle: null
 
+control:
+  title: Control
+  stub: control
+  reviewDate: 2023-03
+  alpakkaProfile: FPS WASD
+  alpakkaSensLow: 30
+  alpakkaSensMid: 23
+  alpakkaSensHigh: 15
+  fusionInput: 0
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (100 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: 0
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: [1, '3 sizes, background']
+  testArea: 0
+  pauseCinematics: 1
+  settingsAnytime: 1
+  violence: _12
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 1
+    adsHold: 1
+    adsToggle: 1
+    sprintHold: 0
+    sprintToggle: 1
+    crouchHold: null
+    crouchToggle: null
+    walkRunHold: 0
+    walkRunToggle: 1
+
 days_gone:
   title: Days Gone
   stub: days_gone
@@ -297,6 +343,54 @@ deep_rock_galactic:
     crouchToggle: null
     walkRunHold: 0
     walkRunToggle: 0
+
+dishonored_2:
+  title: Dishonored 2
+  stub: dishonored_2
+  reviewDate: 2023-03
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 35
+  alpakkaSensMid: 24
+  alpakkaSensHigh: 18
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (100 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 0
+  menuNavMouse: 1
+  fov: 1
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
+  testArea: 1
+  pauseCinematics: 0
+  settingsAnytime: [0, '(Not during cinematics)']
+  violence: _15
+  sex: 0
+  drugs: 0
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 0
+  paidExpansions: 1
+  paidGambling: 0
+  fomoSales: 1
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: null
+    adsHold: null
+    adsToggle: null
+    sprintHold: 1
+    sprintToggle: 1
+    crouchHold: 0
+    crouchToggle: 1
+    walkRunHold: null
+    walkRunToggle: null
 
 doom_2016:
   title: Doom (2016)
@@ -408,7 +502,7 @@ far_cry_5:
   alpakkaSensHigh: 30
   fusionInput: 1
   mouseRaw: 1
-  mouseAnyValue: [0, 'No (100 exponential steps)']
+  mouseAnyValue: [0, 'No (100 steps, exponential)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -547,6 +641,54 @@ ghostrunner:
     crouchToggle: 1
     walkRunHold: 0
     walkRunToggle: 0
+
+gta_v:
+  title: Grand Theft Auto V
+  stub: gta_v
+  reviewDate: 2023-03
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 9
+  alpakkaSensMid: 7
+  alpakkaSensHigh: 4
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (20 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 0
+  menuNavMouse: 1
+  fov: [0.5, 'Yes (max 90°)']
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesOptions: 0
+  testArea: 0
+  pauseCinematics: 1
+  settingsAnytime: 1
+  violence: _18
+  sex: _18
+  drugs: _18
+  arachnophobic: 0
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 0
+  paidGambling: 1
+  fomoSales: 1
+  payToWin: 1
+  fps_tps:
+    crosshairOptions: [0.5, 'Size slider']
+    adsSensitivity: 0
+    adsHold: 1
+    adsToggle: 1
+    sprintHold: 1
+    sprintToggle: 0
+    crouchHold: 0
+    crouchToggle: 1
+    walkRunHold: null
+    walkRunToggle: null
 
 half_life_2:
   title: Half-Life 2
@@ -775,7 +917,7 @@ mirrors_edge:
   subtitlesOptions: 0
   testArea: 0
   pauseCinematics: 0
-  settingsAnytime: [0, 'No during cinematics']
+  settingsAnytime: [0, 'Not during cinematics']
   violence: _12
   sex: 0
   drugs:  0
@@ -1047,7 +1189,7 @@ pubg:
   alpakkaSensHigh: 49 at FOV=90
   fusionInput: [0, 'No while driving or parachuting']
   mouseRaw: 1
-  mouseAnyValue: [0, 'No (100 exponential steps)']
+  mouseAnyValue: [0, 'No (100 steps, exponential)']
   remapKeyboard: 1
   remapMouse: 1
   remapGamepad: 0
@@ -1186,6 +1328,54 @@ risk_of_rain_2:
     crouchToggle: null
     walkRunHold: null
     walkRunToggle: null
+
+skyrim:
+  title: 'The Elder Scrolls V: Skyrim'
+  stub: skyrim
+  reviewDate: 2023-03
+  alpakkaProfile: FPS Fusion
+  alpakkaSensLow: 9
+  alpakkaSensMid: 5
+  alpakkaSensHigh: 2
+  fusionInput: [0, 'Only DirectInput']
+  mouseRaw: 0
+  mouseAnyValue: [0, 'No (20 steps, exponential)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: 0
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  framerateLimiter: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 1
+  subtitlesOptions: 0
+  testArea: 0
+  pauseCinematics: 0
+  settingsAnytime: 1
+  violence: _15
+  sex: 0
+  drugs: _15
+  arachnophobic: mild
+  trypophobic: 0
+  paidCosmetics: 1
+  paidExpansions: 0
+  paidGambling: 0
+  fomoSales: 0
+  payToWin: 0
+  fps_tps:
+    crosshairOptions: 0
+    adsSensitivity: 0
+    adsHold: 1
+    adsToggle: 0
+    sprintHold: 0
+    sprintToggle: 1
+    crouchHold: 0
+    crouchToggle: 1
+    walkRunHold: 0
+    walkRunToggle: 1
 
 superhot_mcd:
   title: 'Superhot: Mind Control Delete'
@@ -1364,7 +1554,7 @@ warzone_2:
   subtitlesOptions: [0.5, 'Size 3 presets, background opacity slider']
   testArea: 1
   pauseCinematics: 0
-  settingsAnytime: [0, 'No during cinematics']
+  settingsAnytime: [0, 'Not during cinematics']
   violence: _15
   sex: 0
   drugs: 0
@@ -1402,8 +1592,6 @@ template:
   remapMouse:
   remapGamepad:
   menuNavMouse:
-  thumbstickDeadzone:
-  thumbstickCurve:
   fov:
   colorBlind:
   uiScale:
