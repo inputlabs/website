@@ -17,8 +17,16 @@ block content
     li Search box in an internet browser.
     li Login credentials (user and password).
     li Basic chat communication.
-  p These are usually solved by some kind of #[em on-screen keyboard], but these come with their own limitations, they require a tight OS integration (as they do on videogame consoles) or otherwise these virtual keyboards may not be usable on credential screens, or while playing videogames with exclusive fullscreen.
+  p These are usually solved by some kind of #[em on-screen keyboard] #[i (Fig. A)], but these come with their own limitations, they require a tight OS integration (as they do on videogame consoles) or otherwise these virtual keyboards may not be usable on credential screens, or while playing videogames with exclusive fullscreen.
   p At Input Labs, we developed the Alpakka firmware with the design philosophy of not requiring additional software or drivers, other than the standard keyboard, mouse and gamepad drivers already present on your operating system. And we wanted to keep exploring that path for developing a generalist method to type on a controller, such implementation would have some requirements and limitations we will describe next.
+  p
+    +figure(
+      'A',
+      'Windows on-screen keyboard',
+      '/static/blog/win_keyboard.jpg',
+      'small'
+    )
+
   hr
 
   h3 2. Characteristics
@@ -28,18 +36,33 @@ block content
   ul
     li Grouping several characters, for example #[em A], #[em B], #[em C] into the physical button or selectable, then selecting one of these characters by:
     ul
-      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as in the #[em mobile phone's keypad] #[i (fig. A)] used to write SMS in the 2000s.
-      li Using simultaneously a button or control surface to preselect a character group, then using another button or control surface to cycle or select the final character. As for example in the Steam Controller #[em Daisywheel] #[i (fig. B)].
+      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as #[em mobile phone's keypad] #[i (fig. B)] used to write SMS messages in the 2000s.
+      li Using simultaneously a button or control surface to preselect a character group, then using another button or control surface to cycle or select the final character. As for example in the Steam Controller #[em Daisywheel] #[i (fig. C)].
     li Using the analog surfaces to allow input in which each character is clearly distinguishable, as for example character recognition.
+  p
+    +figure(
+      'B',
+      'Nokia 3210 keypad (1999)',
+      '/static/blog/keypad.jpg',
+      'small'
+    )
+  p
+    +figure(
+      'C',
+      'Steam Controller Daisywheel (2015)',
+      '/static/blog/daisywheel.jpg',
+      'small'
+    )
+
 
   h4 2.2. Operating system integration and visual feedback
   p Since we do not want to rely on OS integration (so no #[em on-screen keyboard]), we need a solution that allows the user to input any of the 40+ arbitrary alphanumeric and additional symbols with minimal visual feedback.
-  p One of the potential solutions for having some basic visual feedback we tried is the concept of #[em preview and commit] characters, in which a single button or action is used for cycling between several characters in a way that they are actually sent to the computer as normal input, but then they are automatically deleted if required until the user decides to commit to the final character.
-  p ANIMATION FOR PREVIEW
-  p This kind of preview improves the discoverability of the solution and makes the learning curve swallower, but it is not compatible with 100% of the usecases, as for example it will have issues when a searchbox is autocompleting what is written on it, or if the suggestions rendering is making the system to lag a bit, or of course if the input is obscured as in a password field.
+  p One of the potential solutions we tried for having some basic visual feedback is the concept of #[em preview and commit] characters, in which a single button or action is used for cycling between several characters in a way that they are actually sent to the computer as normal input, but then they are automatically deleted if required until the user decides to commit to the final character.
+  p TODO ANIMATION
+  p This kind of preview improves the discoverability of the solution and makes the learning curve swallower, but it is not compatible with 100% of the usecases, as for example it will have issues when a searchbox is autocompleting what is written on it, or if the suggestions rendering is making the system to lag a bit, or if the input is obscured as in a password field, or if the UI is expecting a simple key press (binding menu).
 
   h4 2.3. Learning cycle
-  p In contrast to a physical or virtual keyboard, in which discovery is as straight forward as looking for the character you want, discovery on a typing method on a controller is not so easy, because the limited number of buttons of a controller and the requirement for a mapping solution explained above. This means that the user will be required to learn and memorize how the mapping works, in a cycle like:
+  p On a physical or virtual keyboard, discovery is as straight forward as looking for the character you want on the keyboard, but discovery on a controller is not so easy. The limited number of buttons on a controller and the requirement for a mapping solution (explained above) means that the user will be required to learn and memorize how the mapping works, in a cycle like:
   pre: code.
       ///
        │
@@ -66,17 +89,17 @@ block content
       ///
 
   p Discovery methods may include using the character preview as defined above, or just trying several buttons and checking their output, or in the worst case looking into the manual or reference.
-  p Ideally when the user does not remember or fails to input the character, the process of recovery and discovery should facilitate the learning, as in the next time the user wants to type the same character there are more chances they remember. Different mapping methods and grouping logics do have an impact on how these are remembered, but the results will vary person by person.
-  p At the same time it is expected that the user is able to recover easily from mistakes, as for example the #[em delete / backspace] key should always be consistently accessible in the same button.
+  p Ideally when the user does not remember or fails to input the character, the process of recovery and discovery should facilitate the learning, as in the next time the user wants to type the same character there are more chances they remember. Different mapping methods and grouping logics do have an impact on how effectively these are remembered, but the results will vary person by person.
+  p At the same time it is expected that the user is able to recover easily from mistakes, as for example the #[em delete / backspace] key should always be consistently accessible on the same button.
 
   h4 2.4. Manipulation complexity
-  p Physical keyboards are designed to have a very small entry barrier, the user can operate them with a single finger if necessary, at any speed the user feel comfortable. So ideally we want to aim for similar requirements, so we have to avoid:
+  p Physical keyboards are designed to have a very small entry barrier, the user can operate them with a single finger if necessary, at any speed the user feel comfortable. So ideally we want to aim for similar requirements:
   ul
     li Avoid using solutions that rely on timing between button presses.
     li Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
     li Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
 
-  h4 2.5. Potential speed
+  h4 2.5. Speed
   p Despite typing speed not being a priority goal for the solution we are looking for, the higher the theoretical words-per-minute an input method could reach, the better it could act as a generalist typing method.
 
   h4 2.6. Cross-device compatibility
@@ -84,6 +107,10 @@ block content
 
   hr
   h3 3. Methods
+  p We came up with a total of #[em 10 potential typing methods] to be evaluated, some of them influenced by previous works.
+  p We created early implementations for 8 of them, from which we rejected 5 and choose #[em 3 methods] (based on the criteria defined above) for further testing as part of our Tester program / next Alpakka #[em firmware beta TODO LINK] release.
+  p All of these were conceived to be integrated as part of the Alpakka #[+a('/alpakka/manual/profile_desktop') Desktop profile].
+
   table.manual.hdiv.col4
     tr
       th Name
@@ -97,8 +124,9 @@ block content
         div: i (Implemented in beta)
         div: em Tester's feedback requested
       td
-        div Primary: Thumbstick direction.
-        div Secondary: ABXY.
+        div #[b Primary:] Thumbstick direction.
+        div &nbsp;
+        div #[b Secondary:] ABXY.
       td
         div ↖ , . ? !
         div ↑ ABCD
@@ -111,13 +139,14 @@ block content
       td
         ul
           li No preview.
+          li Inspired by Steam Controller implementation.
           li Keypad-style grouping.
           li Vowels on cardinal directions.
-          li Optimized for letter frequency.
+          li Optimized for letter frequency (english).
 
     tr
       td
-        div Analog keypad variants
+        div Analog keypad, 3 variants
         div: i (Implemented in alpha, rejected)
       td
         div #[b Primary:] Thumbstick direction.
@@ -141,13 +170,13 @@ block content
           li Preview is optional.
           li Keypad-style grouping.
           li Vowels on cardinal directions.
-          li Optimized for letter frequency.
+          li Optimized for letter frequency (english).
           li Hard to perform due to accurate or simultaneous input required.
           li Thumbstick dialing later evolved into #[em glyph-stick] method.
 
     tr
       td
-        div Clover
+        div Clover keyboard
         div: i (Implemented in alpha, rejected)
       td
         div #[b Primary:] ABXY.
@@ -182,6 +211,7 @@ block content
         div: i (Only concept, never implemented)
       td
         div #[b Primary:] L4 and R4.
+        div &nbsp;
         div #[b Secondary:] Dpad, Select, ABXY.
       td
         div (L4)
@@ -203,6 +233,7 @@ block content
           li No preview.
           li Grouped as querty keyboard rows.
           li Possibly very hard to discover and remember mapping.
+          li It requires using at least 4 fingers.
 
     tr
       td
@@ -211,17 +242,90 @@ block content
         div: em Tester's feedback requested
       td
         div #[b Primary:] Thumbstick (glyph evaluated when stick is back to center).
-        div #[b Secondary:] No.
       td
-        div (See glyph table below)
+        div: i (See glyph table below)
       td
         ul
           li No preview.
           li Glyphs resemble actual character glyphs.
           li Glyphs are optimized so more frequent characters use shorter glyphs if possible.
+          li All glyphs start and end into a cardinal direction.
+
+    tr
+      td
+        div Gyro projected keyboard
+        div: i (Implemented in alpha, rejected)
+      td
+        div #[b Primary:] L1 (Starts projection from the center, commits when released).
+        div &nbsp;
+        div #[b Secondary:] Gyro (Moves the virtual cursor within the projection boundaries).
+      td.mono
+        div QWERTYUIOP
+        div ASDFGHJKL
+        div ZXCVBNM,.
+      td
+        ul
+          li Preview is required.
+          li Like the Playstation 4 on-screen gyro keyboard, but without the on-screen keyboard.
+          li Requires to remember querty keyboard layout quite well.
+          li There is no way to know how close to switch character the virtual cursor is.
+
+    tr
+      td
+        div Gyro radial keypad
+        div: i (Implemented in beta)
+        div: em Tester's feedback requested
+      td
+        div #[b Primary:] L1 (Starts radial keypad from the center, commits when released).
+        div &nbsp;
+        div #[b Secondary:] Gyro (Moves the virtual keypad selection).
+      td
+        div ↖ , . ? !
+        div ↑ ABCD
+        div ↗ EHFG
+        div ← ILKJ
+        div → ONM
+        div ↙ SRPQ
+        div ↓ UTV
+        div ↘ WYXZ
+      td
+        ul
+          li Preview is required.
+          li Keypad-style grouping.
+          li Vowels on cardinal directions.
+          li Optimized for letter frequency (english).
+
+    tr
+      td
+        div Gyro character recognition
+        div: i (Only concept, never implemented)
+      td
+        div #[b Primary:] L1 (Starts character recognition, try to match character on release).
+        div &nbsp;
+        div #[b Secondary:] Gyro (Moves the virtual "pen").
+      td
+        div: i (No grouping)
+      td
+        ul
+          li No preview.
+          li As in writing on the air.
+          li Firmware implementation would be very hard to develop.
+          li Would require to adapt to user's specific way to write characters?.
 
   hr
   h3 4. Beta testing
+
+  h4 4.1. Daisywheel (optimized)
+  p Miau
+
+  h4 4.2. Glyph-stick
+  p Miau
+
+  h4 4.3. Gyro radial keypad
+  p Miau
+
+  hr
+  h3 5. Feedback received and conclusions
   p -
 
 
