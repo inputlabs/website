@@ -36,30 +36,38 @@ block content
   ul
     li Grouping several characters, for example #[em A], #[em B], #[em C] into the physical button or selectable, then selecting one of these characters by:
     ul
-      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as #[em mobile phone's keypad] #[i (fig. B)] used to write SMS messages in the 2000s.
+      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as #[+ax('https://en.wikipedia.org/wiki/Feature_phone') feature phones] #[i (fig. B)] common method for writing SMS messages in the 2000s.
       li Using simultaneously a button or control surface to preselect a character group, then using another button or control surface to cycle or select the final character. As for example in the Steam Controller #[em Daisywheel] #[i (fig. C)].
     li Using the analog surfaces to allow input in which each character is clearly distinguishable, as for example character recognition.
-  p
-    +figure(
-      'B',
-      'Nokia 3210 keypad (1999)',
-      '/static/blog/keypad.jpg',
-      'small'
-    )
-  p
-    +figure(
-      'C',
-      'Steam Controller Daisywheel (2015)',
-      '/static/blog/daisywheel.jpg',
-      'small'
-    )
+  +figure(
+    'B',
+    'Nokia 3210 keypad (1999)',
+    '/static/blog/keypad.jpg',
+    'small inline'
+  )
+  +figure(
+    'C',
+    'Steam Controller Daisywheel (2015)',
+    '/static/blog/daisywheel.jpg',
+    'small inline'
+  )
 
 
   h4 2.2. Operating system integration and visual feedback
   p Since we do not want to rely on OS integration (so no #[em on-screen keyboard]), we need a solution that allows the user to input any of the 40+ arbitrary alphanumeric and additional symbols with minimal visual feedback.
-  p One of the potential solutions we tried for having some basic visual feedback is the concept of #[em preview and commit] characters, in which a single button or action is used for cycling between several characters in a way that they are actually sent to the computer as normal input, but then they are automatically deleted if required until the user decides to commit to the final character.
-  p TODO ANIMATION
-  p This kind of preview improves the discoverability of the solution and makes the learning curve swallower, but it is not compatible with 100% of the usecases, as for example it will have issues when a searchbox is autocompleting what is written on it, or if the suggestions rendering is making the system to lag a bit, or if the input is obscured as in a password field, or if the UI is expecting a simple key press (binding menu).
+  p One of the potential solutions we tried is to apply the same concept of #[em preview and commit] characters that was used in #[em feature phones], in which a single button or action is used for cycling between several characters, and only later the character is "committed".
+  +figure(
+    'D',
+    'Character preview',
+    '/static/blog/sms.gif',
+    'small'
+  )
+  p This same concept can be used in PC by sending (and deleting) characters on demand, improving the discoverability of the mapping, and making the learning curve swallower. Unfortunately it is #[em not compatible with 100% of the usecases], as for example it may be problematic:
+  ul
+    li If a searchbox is auto-completing what is written on it and "auto-committing" characters.
+    li If searchbox suggestions rendering is making the system to lag a bit.
+    li If the input is obscured as in a password field.
+    li If the UI is expecting a simple key press (binding menu).
 
   h4 2.3. Learning cycle
   p On a physical or virtual keyboard, discovery is as straight forward as looking for the character you want on the keyboard, but discovery on a controller is not so easy. The limited number of buttons on a controller and the requirement for a mapping solution (explained above) means that the user will be required to learn and memorize how the mapping works, in a cycle like:
@@ -110,6 +118,7 @@ block content
   p We came up with a total of #[em 10 potential typing methods] to be evaluated, some of them influenced by previous works.
   p We created early implementations for 8 of them, from which we rejected 5 and choose #[em 3 methods] (based on the criteria defined above) for further testing as part of our Tester program / next Alpakka #[em firmware beta TODO LINK] release.
   p All of these were conceived to be integrated as part of the Alpakka #[+a('/alpakka/manual/profile_desktop') Desktop profile].
+  p This is a high level view of the characteristics, advantages and disadvantages we found on each of these methods:
 
   table.manual.hdiv.col4
     tr
@@ -184,17 +193,17 @@ block content
         div #[b Secondary:] Thumbstick direction.
       td
         div.mono
-          div (X)
+          div (X) (left section)
           div ↖Q ↑W ↗E
           div ←A -S →D
           div ↙Z ↓X ↘C
           div &nbsp;
-          div (A)
+          div (A) (mid section)
           div ↖R ↑T ↗Y
           div ←F -G →H
           div ↙V ↓B ↘N
           div &nbsp;
-          div (B)
+          div (B) (right section)
           div ↖U ↑I ↗O
           div ←J -K →L
           div ↙M ↓, ↘.
@@ -214,17 +223,17 @@ block content
         div &nbsp;
         div #[b Secondary:] Dpad, Select, ABXY.
       td
-        div (L4)
+        div (L4) (top row)
         div Dpad: QWER
         div Select: TY
         div ABXY: UIOP
         div &nbsp;
-        div (R4)
+        div (R4) (mid row)
         div Dpad: ASDF
         div Select: G
         div ABXY: HJKL
         div &nbsp;
-        div (L4+R4)
+        div (L4+R4) (bottom row)
         div Dpad: ZXCV
         div Select: , .
         div ABXY: BNM
@@ -314,9 +323,25 @@ block content
 
   hr
   h3 4. Beta testing
+  p As part of #[+ax('TODO') Firmware 0.89.0-beta] we made 3 of these input methods available. The goal is to get feedback about them from testers, and iterate over the implementations, and/or discard the methods completely.
 
   h4 4.1. Daisywheel (optimized)
+  ul
+    li Available on the Desktop profile, by turning the #[em thumbstick] to one direction, and then using #[em ABXY] buttons.
+    li Based on the Steam Controller daisywheel keyboard.
+    li Overall grouping is based on keypad grouping.
+    li Vowels are located in cardinal directions (except #[em E]).
+    li Characters are placed by frequency (in english):
+    ul
+      li All vowels are on #[em A button].
+      li Second most frequent character of the group is on #[em B button], etc.
+    li There are exceptions to these rules so some characters are in "familiar" locations, such as #[em A], #[em B], #[em X] and #[em Y].
   p Miau
+    +figure(
+    null,
+    'Daisywheel optimized',
+    '/static/blog/daisy2.png',
+  )
 
   h4 4.2. Glyph-stick
   p Miau

@@ -83,4 +83,8 @@ mixin dl(href)
 mixin figure(id, caption, src, cls)
   div.figure(class=cls)
     img(src=src)
-    div.caption Figure #{id}: #{caption}
+    if id
+      div.caption Figure #{id}: #{caption}
+    else
+      div.caption #{caption}
+

@@ -480,6 +480,10 @@ main .boxes.center {
 .wiki .figure.small img {
   width: 210px;
 }
+.wiki .figure.inline {
+  display: inline-block;
+  margin-right: 20px;
+}
 .wiki .math {
   width: 420px;
 }
