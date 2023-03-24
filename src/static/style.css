@@ -480,6 +480,9 @@ main .boxes.center {
 .wiki .figure.small img {
   width: 210px;
 }
+.wiki .figure.big img {
+  width: 425px;
+}
 .wiki .figure.inline {
   display: inline-block;
   margin-right: 20px;
@@ -555,6 +558,14 @@ table.manual th {
   border: 0 2px solid hsl(0, 0%, 20%);
   font-size: 17px;
   text-align: left;
+}
+table.manual.hdiv th {
+  vertical-align: top;
+  border-bottom: 1px solid #444;
+}
+table.manual th .subtitle {
+  font-weight: normal;
+  font-size: 13px;
 }
 table.manual.col4 th {
   width: 25% !important;

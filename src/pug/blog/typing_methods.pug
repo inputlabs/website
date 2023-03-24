@@ -18,7 +18,7 @@ block content
     li Login credentials (user and password).
     li Basic chat communication.
   p These are usually solved by some kind of #[em on-screen keyboard] #[i (Fig. A)], but these come with their own limitations, they require a tight OS integration (as they do on videogame consoles) or otherwise these virtual keyboards may not be usable on credential screens, or while playing videogames with exclusive fullscreen.
-  p At Input Labs, we developed the Alpakka firmware with the design philosophy of not requiring additional software or drivers, other than the standard keyboard, mouse and gamepad drivers already present on your operating system. And we wanted to keep exploring that path for developing a generalist method to type on a controller, such implementation would have some requirements and limitations we will describe next.
+  p At Input Labs, we developed the Alpakka firmware with the design philosophy of not requiring additional software or drivers, other than the standard keyboard, mouse and gamepad drivers already present on your operating system. And we want to keep exploring that path for developing a generalist method to type on a controller.
   p
     +figure(
       'A',
@@ -58,7 +58,7 @@ block content
   p One of the potential solutions we tried is to apply the same concept of #[em preview and commit] characters that was used in #[em feature phones], in which a single button or action is used for cycling between several characters, and only later the character is "committed".
   +figure(
     'D',
-    'Character preview',
+    'Character preview and commit',
     '/static/blog/sms.gif',
     'small'
   )
@@ -114,37 +114,31 @@ block content
   p Ideally the solution should be complatible with both #[+a('/alpakka') Alpakka] and #[+a('/kapybara') Kapybara] devices, as well as any other controller with similar characteristics (e.g. Xbox controller or DualShock) so everyone benefits from the research, tester's feedback, and development iterations we achieve.
 
   hr
-  h3 3. Methods
-  p We came up with a total of #[em 10 potential typing methods] to be evaluated, some of them influenced by previous works.
-  p We created early implementations for 8 of them, from which we rejected 5 and choose #[em 3 methods] (based on the criteria defined above) for further testing as part of our Tester program / next Alpakka #[em firmware beta TODO LINK] release.
-  p All of these were conceived to be integrated as part of the Alpakka #[+a('/alpakka/manual/profile_desktop') Desktop profile].
+  h3 3. Input methods (early evaluation)
+  p We evaluated a total of #[em 9 potential typing methods], and we created early implementations for 7.
+  //- p All of these were conceived to be integrated as part of the Alpakka #[+a('/alpakka/manual/profile_desktop') Desktop profile].
   p This is a high level view of the characteristics, advantages and disadvantages we found on each of these methods:
 
   table.manual.hdiv.col4
     tr
-      th Name
-      th Controls
-      th Grouping
+      td
+      th Controls & grouping
       th Notes
 
     tr
-      td
+      th
         div Daisywheel
-        div: i (Implemented in beta)
-        div: em Tester's feedback requested
+        div.subtitle Implemented and ready for beta
       td
         div #[b Primary:] Thumbstick direction.
         div &nbsp;
         div #[b Secondary:] ABXY.
-      td
-        div ↖ , . ? !
-        div ↑ ABCD
-        div ↗ EHFG
-        div ← ILKJ
-        div → ONM
-        div ↙ SRPQ
-        div ↓ UTV
-        div ↘ WYXZ
+        div &nbsp;
+        div #[b Grouping:]
+        div.mono
+          div ----  ABCD  EFGH
+          div IJKL  ----  OMN-
+          div PQRS  TUV-  WXYZ
       td
         ul
           li No preview.
@@ -154,9 +148,9 @@ block content
           li Optimized for letter frequency (english).
 
     tr
-      td
+      th
         div Analog keypad, 3 variants
-        div: i (Implemented in alpha, rejected)
+        div.subtitle Implemented in alpha, rejected
       td
         div #[b Primary:] Thumbstick direction.
         div &nbsp;
@@ -165,15 +159,12 @@ block content
         div #[b Secondary alt:] Mousewheel (cycle next or prev, commit when TS back to center).
         div &nbsp;
         div #[b Secondary alt:] Thumbstick dial cycling (cycle by turning around thumbstick clockwise or anticlockwise, 90° each cycle, commit when back to center).
-      td
-        div ↖ , . ? !
-        div ↑ ABCD
-        div ↗ EHFG
-        div ← ILKJ
-        div → ONM
-        div ↙ SRPQ
-        div ↓ UTV
-        div ↘ WYXZ
+        div &nbsp;
+        div #[b Grouping:]
+        div.mono
+          div ----  ABCD  EFGH
+          div IJKL  ----  OMN-
+          div PQRS  TUV-  WXYZ
       td
         ul
           li Preview is optional.
@@ -184,29 +175,20 @@ block content
           li Thumbstick dialing later evolved into #[em glyph-stick] method.
 
     tr
-      td
+      th
         div Clover keyboard
-        div: i (Implemented in alpha, rejected)
+        div.subtitle Implemented in alpha, rejected
       td
         div #[b Primary:] ABXY.
         div &nbsp;
-        div #[b Secondary:] Thumbstick direction.
-      td
+        div #[b Secondary:] Thumbstick direction (and push).
+        div &nbsp;
+        div #[b Grouping:]
         div.mono
-          div (X) (left section)
-          div ↖Q ↑W ↗E
-          div ←A -S →D
-          div ↙Z ↓X ↘C
-          div &nbsp;
-          div (A) (mid section)
-          div ↖R ↑T ↗Y
-          div ←F -G →H
-          div ↙V ↓B ↘N
-          div &nbsp;
-          div (B) (right section)
-          div ↖U ↑I ↗O
-          div ←J -K →L
-          div ↙M ↓, ↘.
+          div (X)  (A)  (B)  (Y)
+          div QWE  RTY  UIO  P
+          div ASD  FGH  JKL  ;
+          div ZXC  VBN  M,.  /
       td
         ul
           li No preview.
@@ -215,44 +197,35 @@ block content
           li Very hard to discover and remember mapping.
 
     tr
-      td
+      th
         div Qwerty rows
-        div: i (Only concept, never implemented)
+        div.subtitle Only concept, never implemented
       td
         div #[b Primary:] L4 and R4.
         div &nbsp;
         div #[b Secondary:] Dpad, Select, ABXY.
-      td
-        div (L4) (top row)
-        div Dpad: QWER
-        div Select: TY
-        div ABXY: UIOP
         div &nbsp;
-        div (R4) (mid row)
-        div Dpad: ASDF
-        div Select: G
-        div ABXY: HJKL
-        div &nbsp;
-        div (L4+R4) (bottom row)
-        div Dpad: ZXCV
-        div Select: , .
-        div ABXY: BNM
+        div #[b Grouping:]
+        div.mono
+          div (L4): &nbsp;&nbsp; QWERTYUIO
+          div (R4): &nbsp;&nbsp; ASDFGHJKL
+          div (L4+R4): ZXCVBNMP
       td
         ul
           li No preview.
           li Grouped as querty keyboard rows.
           li Possibly very hard to discover and remember mapping.
           li It requires using at least 4 fingers.
+          li Too many buttons required to use in single-hand devices.
 
     tr
-      td
+      th
         div Glyph-stick
-        div: i (Implemented in beta)
-        div: em Tester's feedback requested
+        div.subtitle Implemented and ready for beta
       td
         div #[b Primary:] Thumbstick (glyph evaluated when stick is back to center).
-      td
-        div: i (See glyph table below)
+        div &nbsp;
+        div: i (No grouping, see glyph table below)
       td
         ul
           li No preview.
@@ -261,17 +234,15 @@ block content
           li All glyphs start and end into a cardinal direction.
 
     tr
-      td
+      th
         div Gyro projected keyboard
-        div: i (Implemented in alpha, rejected)
+        div.subtitle Implemented in alpha, rejected
       td
         div #[b Primary:] L1 (Starts projection from the center, commits when released).
         div &nbsp;
         div #[b Secondary:] Gyro (Moves the virtual cursor within the projection boundaries).
-      td.mono
-        div QWERTYUIOP
-        div ASDFGHJKL
-        div ZXCVBNM,.
+        div &nbsp;
+        div: i (No grouping)
       td
         ul
           li Preview is required.
@@ -280,39 +251,14 @@ block content
           li There is no way to know how close to switch character the virtual cursor is.
 
     tr
-      td
-        div Gyro radial keypad
-        div: i (Implemented in beta)
-        div: em Tester's feedback requested
-      td
-        div #[b Primary:] L1 (Starts radial keypad from the center, commits when released).
-        div &nbsp;
-        div #[b Secondary:] Gyro (Moves the virtual keypad selection).
-      td
-        div ↖ , . ? !
-        div ↑ ABCD
-        div ↗ EHFG
-        div ← ILKJ
-        div → ONM
-        div ↙ SRPQ
-        div ↓ UTV
-        div ↘ WYXZ
-      td
-        ul
-          li Preview is required.
-          li Keypad-style grouping.
-          li Vowels on cardinal directions.
-          li Optimized for letter frequency (english).
-
-    tr
-      td
+      th
         div Gyro character recognition
-        div: i (Only concept, never implemented)
+        div.subtitle Only concept, never implemented
       td
         div #[b Primary:] L1 (Starts character recognition, try to match character on release).
         div &nbsp;
         div #[b Secondary:] Gyro (Moves the virtual "pen").
-      td
+        div &nbsp;
         div: i (No grouping)
       td
         ul
@@ -322,31 +268,39 @@ block content
           li Would require to adapt to user's specific way to write characters?.
 
   hr
-  h3 4. Beta testing
-  p As part of #[+ax('TODO') Firmware 0.89.0-beta] we made 3 of these input methods available. The goal is to get feedback about them from testers, and iterate over the implementations, and/or discard the methods completely.
+  h3 4. Input methods (further evaluation)
+  p From all the methods evaluated, we decided to do further testing with 2 of them: #[em Daisywheel] and #[em Glyph-stick]. These will be part of the next Alpakka firmware #[+ax(org.fw_releases) Beta release] (too be announced later), with the goal of getting feedback from testers, iterate over the implementations, and/or discard the methods completely.
 
-  h4 4.1. Daisywheel (optimized)
+  h4 4.1. Daisywheel
   ul
-    li Available on the Desktop profile, by turning the #[em thumbstick] to one direction, and then using #[em ABXY] buttons.
-    li Based on the Steam Controller daisywheel keyboard.
-    li Overall grouping is based on keypad grouping.
-    li Vowels are located in cardinal directions (except #[em E]).
-    li Characters are placed by frequency (in english):
+    li Based on Steam Controller / Steam Input daisywheel method.
+    li Will be available on the #[+a('/alpakka/manual/profile_desktop') Desktop profile].
+    li The #[em thumbstick] direction pre-selects a group of 4 characters, final selection is made with #[em ABXY] buttons.
+    li Classic variant:
     ul
-      li All vowels are on #[em A button].
-      li Second most frequent character of the group is on #[em B button], etc.
-    li There are exceptions to these rules so some characters are in "familiar" locations, such as #[em A], #[em B], #[em X] and #[em Y].
-  p Miau
-    +figure(
+      li Alphabetical grouping, same than the original daisywheel.
+      li Order of face buttons is #[em X], #[em Y], #[em B], #[em A].
+    li Tweaked variant:
+    ul
+      li Keypad-style grouping, but adapted for having no center key.
+      li Order of face buttons is #[em A], #[em B], #[em X], #[em Y].
+      li #[em O] and #[em U] order is tweaked so all vowels are located on the #[em A button].
+      li #[em X] and #[em Y] order is tweaked so they are located on the #[em X button] and #[em Y button].
+
+  +figure(
     null,
-    'Daisywheel optimized',
-    '/static/blog/daisy2.png',
+    'Daisywheel (classic) - Steam Controller variant',
+    '/static/blog/daisywheel_classic.png',
+    'big inline'
+  )
+  +figure(
+    null,
+    'Daisywheel (tweaked) - Input Labs variant',
+    '/static/blog/daisywheel_tweaked.png',
+    'big inline'
   )
 
   h4 4.2. Glyph-stick
-  p Miau
-
-  h4 4.3. Gyro radial keypad
   p Miau
 
   hr
