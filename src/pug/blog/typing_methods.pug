@@ -276,6 +276,7 @@ block content
     li Based on Steam Controller / Steam Input daisywheel method.
     li Will be available on the #[+a('/alpakka/manual/profile_desktop') Desktop profile].
     li The #[em thumbstick] direction pre-selects a group of 4 characters, final selection is made with #[em ABXY] buttons.
+    li Eventually, it should be possible to edit the grouping in the profiles.
     li Classic variant:
     ul
       li Alphabetical grouping, same than the original daisywheel.
@@ -284,27 +285,39 @@ block content
     ul
       li Keypad-style grouping, but adapted for having no center key.
       li Order of face buttons is #[em A], #[em B], #[em X], #[em Y].
-      li #[em O] and #[em U] order is tweaked so all vowels are located on the #[em A button].
-      li #[em X] and #[em Y] order is tweaked so they are located on the #[em X button] and #[em Y button].
+      li #[em O] and #[em U] are relocated so all vowels are on the #[em A button].
+      li #[em X] and #[em Y] are relocated on the #[em X button] and #[em Y button].
 
   +figure(
     null,
-    'Daisywheel (classic) - Steam Controller variant',
+    'Daisywheel classic (Steam Controller)',
     '/static/blog/daisywheel_classic.png',
     'big inline'
   )
   +figure(
     null,
-    'Daisywheel (tweaked) - Input Labs variant',
+    'Daisywheel tweaked (Input Labs)',
     '/static/blog/daisywheel_tweaked.png',
     'big inline'
   )
 
   h4 4.2. Glyph-stick
-  p Miau
+  ul
+    li #[em Thumbstick] is used for basic pattern recognition (glyphs).
+    li Glyph patterns are designed to resemble the characters they represent, so they are easier to remember.
+    li All glyphs start/end from the center into a cardinal direction (left, right, up, down).
+    li Glyph is evaluated when returning to center.
+    li Shorter patterns are used for more frequent characters (in english).
+    li Eventually, it should be possible to edit glyphs in the profiles.
+  +figure(
+    null,
+    '',
+    '/static/blog/glyph-stick.png',
+    'big'
+  )
 
   hr
-  h3 5. Feedback received and conclusions
+  h3 5. Next steps
   p -
 
 
