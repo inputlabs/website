@@ -29,9 +29,32 @@ block content
 
   hr
 
-  h3 2. Characteristics
+  h3 2. Limitations
 
-  h4 2.1. Mapping
+  h4 2.1. Not enough buttons
+
+  p Cross-device compatibility
+  p Ideally the solution should be complatible with both #[+a('/alpakka') Alpakka] and #[+a('/kapybara') Kapybara] devices, as well as any other controller with similar characteristics (e.g. Xbox controller or DualShock) so everyone benefits from the research, tester's feedback, and development iterations we achieve.
+
+  h4 2.2 Visual feedback
+  p TODO
+
+
+  h4 2.4. Manipulation complexity
+  p Physical keyboards are designed to have a very small entry barrier, the user can operate them with a single finger if necessary, at any speed the user feel comfortable. So ideally we want to aim for similar requirements:
+  ul
+    li Avoid using solutions that rely on timing between button presses.
+    li Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
+    li Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
+
+  h4 2.5. Speed
+  p Despite typing speed not being a priority goal for the solution we are looking for, the higher the theoretical words-per-minute an input method could reach, the better it could act as a generalist typing method.
+
+
+  hr
+  h3 3. Solutions
+
+  h4 3.1 Mapping of controls
   p Since a controller has significantly less buttons than a keyboard, we have to find alternative ways to map characters into these limited buttons or analog control surfaces. Methods to do such mapping include:
   ul
     li Grouping several characters, for example #[em A], #[em B], #[em C] into the physical button or selectable, then selecting one of these characters by:
@@ -52,8 +75,7 @@ block content
     'small inline'
   )
 
-
-  h4 2.2. Operating system integration and visual feedback
+  h4 2.3. Preview and commit characters
   p Since we do not want to rely on OS integration (so no #[em on-screen keyboard]), we need a solution that allows the user to input any of the 40+ arbitrary alphanumeric and additional symbols with minimal visual feedback.
   p One of the potential solutions we tried is to apply the same concept of #[em preview and commit] characters that was used in #[em feature phones], in which a single button or action is used for cycling between several characters, and only later the character is "committed".
   +figure(
@@ -69,7 +91,7 @@ block content
     li If the input is obscured as in a password field.
     li If the UI is expecting a simple key press (binding menu).
 
-  h4 2.3. Learning cycle
+  h4 3.2. Learning cycle
   p On a physical or virtual keyboard, discovery is as straight forward as looking for the character you want on the keyboard, but discovery on a controller is not so easy. The limited number of buttons on a controller and the requirement for a mapping solution (explained above) means that the user will be required to learn and memorize how the mapping works, in a cycle like:
   pre: code.
       ///
@@ -100,21 +122,9 @@ block content
   p Ideally when the user does not remember or fails to input the character, the process of recovery and discovery should facilitate the learning, as in the next time the user wants to type the same character there are more chances they remember. Different mapping methods and grouping logics do have an impact on how effectively these are remembered, but the results will vary person by person.
   p At the same time it is expected that the user is able to recover easily from mistakes, as for example the #[em delete / backspace] key should always be consistently accessible on the same button.
 
-  h4 2.4. Manipulation complexity
-  p Physical keyboards are designed to have a very small entry barrier, the user can operate them with a single finger if necessary, at any speed the user feel comfortable. So ideally we want to aim for similar requirements:
-  ul
-    li Avoid using solutions that rely on timing between button presses.
-    li Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
-    li Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
-
-  h4 2.5. Speed
-  p Despite typing speed not being a priority goal for the solution we are looking for, the higher the theoretical words-per-minute an input method could reach, the better it could act as a generalist typing method.
-
-  h4 2.6. Cross-device compatibility
-  p Ideally the solution should be complatible with both #[+a('/alpakka') Alpakka] and #[+a('/kapybara') Kapybara] devices, as well as any other controller with similar characteristics (e.g. Xbox controller or DualShock) so everyone benefits from the research, tester's feedback, and development iterations we achieve.
 
   hr
-  h3 3. Input methods (early evaluation)
+  h3 4. Input methods (early evaluation)
   p We evaluated a total of #[em 9 potential typing methods], and we created early implementations for 7.
   //- p All of these were conceived to be integrated as part of the Alpakka #[+a('/alpakka/manual/profile_desktop') Desktop profile].
   p This is a high level view of the characteristics, advantages and disadvantages we found on each of these methods:
@@ -268,10 +278,10 @@ block content
           li Would require to adapt to user's specific way to write characters?.
 
   hr
-  h3 4. Input methods (further evaluation)
+  h3 5. Input methods (further evaluation)
   p From all the methods evaluated, we decided to do further testing with 2 of them: #[em Daisywheel] and #[em Glyph-stick]. These will be part of the next Alpakka firmware #[+ax(org.fw_releases) Beta release] (too be announced later), with the goal of getting feedback from testers, iterate over the implementations, and/or discard the methods completely.
 
-  h4 4.1. Daisywheel
+  h4 5.1. Daisywheel
   ul
     li Based on Steam Controller / Steam Input daisywheel method.
     li Will be available on the #[+a('/alpakka/manual/profile_desktop') Desktop profile].
@@ -301,7 +311,7 @@ block content
     'big inline'
   )
 
-  h4 4.2. Glyph-stick
+  h4 5.2. Glyph-stick
   ul
     li #[em Thumbstick] is used for basic pattern recognition (glyphs).
     li Glyph patterns are designed to resemble the characters they represent, so they are easier to remember.
@@ -317,7 +327,7 @@ block content
   )
 
   hr
-  h3 5. Next steps
+  h3 6. Next steps
   p -
 
 
