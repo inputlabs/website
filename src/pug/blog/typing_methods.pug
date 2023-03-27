@@ -7,124 +7,122 @@ block content
   h2 Typing methods
   hr
   p
-    i 22 March 2023 <br>
+    i 27 March 2023 <br>
   hr
 
   h3 1. Introduction
-  p When using a videogame controller (or any device which is not a keyboard) on a computer or videogame console, sometimes it is necessary to input alphanumeric characters for different purposes, such as:
-  ul
-    li Search box in a game list.
-    li Search box in an internet browser.
-    li Login credentials (user and password).
-    li Basic chat communication.
-  p These are usually solved by some kind of #[em on-screen keyboard] #[i (Fig. A)], but these come with their own limitations, they require a tight OS integration (as they do on videogame consoles) or otherwise these virtual keyboards may not be usable on credential screens, or while playing videogames with exclusive fullscreen.
-  p At Input Labs, we developed the Alpakka firmware with the design philosophy of not requiring additional software or drivers, other than the standard keyboard, mouse and gamepad drivers already present on your operating system. And we want to keep exploring that path for developing a generalist method to type on a controller.
-  p
-    +figure(
-      'A',
-      'Windows on-screen keyboard',
-      '/static/blog/win_keyboard.jpg',
-      'small'
-    )
-
-  hr
-
-  h3 2. Limitations
-
-  h4 2.1. Not enough buttons
-
-  p Cross-device compatibility
-  p Ideally the solution should be complatible with both #[+a('/alpakka') Alpakka] and #[+a('/kapybara') Kapybara] devices, as well as any other controller with similar characteristics (e.g. Xbox controller or DualShock) so everyone benefits from the research, tester's feedback, and development iterations we achieve.
-
-  h4 2.2 Visual feedback
-  p TODO
-
-
-  h4 2.4. Manipulation complexity
-  p Physical keyboards are designed to have a very small entry barrier, the user can operate them with a single finger if necessary, at any speed the user feel comfortable. So ideally we want to aim for similar requirements:
-  ul
-    li Avoid using solutions that rely on timing between button presses.
-    li Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
-    li Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
-
-  h4 2.5. Speed
-  p Despite typing speed not being a priority goal for the solution we are looking for, the higher the theoretical words-per-minute an input method could reach, the better it could act as a generalist typing method.
-
-
-  hr
-  h3 3. Solutions
-
-  h4 3.1 Mapping of controls
-  p Since a controller has significantly less buttons than a keyboard, we have to find alternative ways to map characters into these limited buttons or analog control surfaces. Methods to do such mapping include:
-  ul
-    li Grouping several characters, for example #[em A], #[em B], #[em C] into the physical button or selectable, then selecting one of these characters by:
-    ul
-      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as #[+ax('https://en.wikipedia.org/wiki/Feature_phone') feature phones] #[i (fig. B)] common method for writing SMS messages in the 2000s.
-      li Using simultaneously a button or control surface to preselect a character group, then using another button or control surface to cycle or select the final character. As for example in the Steam Controller #[em Daisywheel] #[i (fig. C)].
-    li Using the analog surfaces to allow input in which each character is clearly distinguishable, as for example character recognition.
+  p When using device without a physical keyboard (mobile phone, videogame console, smart TV) or when using a keyboard is not possible (disability use cases), it is necessary to find alternative methods for sending alphanumerical input to such devices.
+  p #[+ax('https://en.wikipedia.org/wiki/Feature_phone') Feature phones] used keypad typing #[i (Fig. A)].
+  p While smartphones, videogame consoles, and computers uses on-screen virtual keyboards #[i (Fig. B)].
   +figure(
-    'B',
+    'A',
     'Nokia 3210 keypad (1999)',
     '/static/blog/keypad.jpg',
     'small inline'
   )
   +figure(
+    'B',
+    'Windows 10 on-screen keyboard (2015)',
+    '/static/blog/win_keyboard.jpg',
+    'big inline'
+  )
+
+  p For the use case of a computer dedicated to videogames, or a videogame console, the most common use cases for alphanumaric input are:
+  ul
+    li Search box in a game launcher or game shop.
+    li Search box in an internet browser.
+    li Login credentials (user and password).
+    li Basic chat communication.
+
+  p At Input Labs, we developed the Alpakka firmware with the design philosophy of not requiring additional software or drivers, other than the standard keyboard, mouse and gamepad drivers already present on your operating system. So we want to explore the path for developing a generalist method to type on a controller, analyze the limitations, and evaluate potential solutions.
+
+  hr
+  h3 2. Limitations / considerations
+
+  h4 2.1. Not enough buttons
+  p The most obvious limitation when not having a physical keyboard is that alternatives do not have so many buttons (100+ buttons) available. In a standard layout controller (e.g. Xbox controller) we will have about 14 buttons and 6 axis.
+  p We could also consider motion (gyro) input, but that would drastically limit the potential application of our research. And since we want to develop methods that are not only compatible with standard controllers but also with one-hand controllers (#[+a('/kapybara') Kapybara]), we want to limit ourselves to one thumbstick (2 axis) and only a subset of all available buttons (ideally between 4 and 8 buttons).
+
+  h4 2.2 Visual feedback and discoverability
+  p On-screen keyboard comes with some limitations:
+  ul
+    li May be not available on elevated credential dialogs or screens.
+    li May be not available when playing videogames on exclusive fullscreen.
+  p We want to explore alternatives to the on-screen keyboard that can overcome these limitations, but it is reasonable to assume that no matter how we do the mapping of buttons and visual feedback, the discoverability will be seriously compromised, as it will be impossible for a person to use the solution for first time without checking a video introduction or reading the reference/manual.
+  p Ideally we have to figure out abstractions that facilitate learning and mistake recovery after that initial introduction to the solution.
+
+  //- pre: code.
+  //-     ///
+  //-      │
+  //-      ▼
+  //-   ┌──────────────────────────────────────────┐
+  //-   │User knows how to type the next character?│
+  //-   └──┬─────────────────────────────────┬─────┘
+  //-      │                                 │
+  //-      │YES                              │NO
+  //-      │                                 │
+  //-      ▼                                 ▼
+  //-   ┌────────────────────┐      ┌──────────────────┐
+  //-   │User typed the      │◄─────┤User utilizes a   │
+  //-   │character correctly?│      │discovery resource│
+  //-   └──┬───────┬─────────┘      │to learn how      │
+  //-      │       │     ▲          └──────────────────┘
+  //-      │YES    │NO   │                   :
+  //-      │       │     │                   :
+  //-      │       ▼     │                   ▼
+  //-      │   ┌─────────┴────┐        ┌───────────┐
+  //-      │   │User deletes  │        │Reinforced │
+  //-      │   │last character│ - - - ►│learning   │
+  //-      ▼   └──────────────┘        └───────────┘
+  //-     ///
+
+  h4 2.4. Manipulation complexity
+  p Since neither of the potential solutions would be as straight forward as "one-button-one-character", the solutions we evaluate have to avoid abstractions that are complex to manipulate:
+  ul
+    li Avoid using solutions that rely on timing between button presses.
+    li Avoid requiring the use multiple of fingers, the less fingers required the better.
+    li Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
+    li Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
+
+  h4 2.5. Typing speed
+  p Even though typing speed should not be a priority goal for the solutions we are looking for, we could argue that solutions that are easy to learn and remember could also result in faster characters-per-minute typing speeds, specially during the learning period.
+
+  hr
+  h3 3. Specific solutions
+
+  h4 3.1 Mapping of controls
+  p Since a controller has significantly less buttons than a keyboard, we have to find alternative ways to map characters into these limited buttons or analog control surfaces. Methods to do such mapping include:
+  ul
+    li #[em Grouping] several characters, for example #[em A], #[em B], #[em C] into the a single physical button or selectable, then choosing one of these characters by:
+    ul
+      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as feature phones #[i (fig. A)] was the most common method for writing SMS messages in the 2000s.
+      li Using simultaneously a button or control surface to preselect a character group, then using another button or control surface to cycle or select the final character. As for example in the Steam Controller #[em Daisywheel] #[i (fig. C)].
+    li Using the analog surfaces to allow input in which each character is clearly distinguishable, as for example #[em character recognition].
+
+  +figure(
     'C',
     'Steam Controller Daisywheel (2015)',
     '/static/blog/daisywheel.jpg',
-    'small inline'
+    'big inline'
   )
 
-  h4 2.3. Preview and commit characters
-  p Since we do not want to rely on OS integration (so no #[em on-screen keyboard]), we need a solution that allows the user to input any of the 40+ arbitrary alphanumeric and additional symbols with minimal visual feedback.
-  p One of the potential solutions we tried is to apply the same concept of #[em preview and commit] characters that was used in #[em feature phones], in which a single button or action is used for cycling between several characters, and only later the character is "committed".
+  h4 3.2. Preview and commit characters
+  p Since we do not want to rely on OS integration (so no on-screen keyboard), one of the potential solutions we tried is to apply the concept of #[em preview and commit] characters that was used in #[em feature phones], in which a single button or action is used for cycling between several characters, and only later the character is "committed" when certain conditions are met (other button is pressed, or after a defined period of time).
   +figure(
     'D',
     'Character preview and commit',
     '/static/blog/sms.gif',
     'small'
   )
-  p This same concept can be used in PC by sending (and deleting) characters on demand, improving the discoverability of the mapping, and making the learning curve swallower. Unfortunately it is #[em not compatible with 100% of the usecases], as for example it may be problematic:
+  p This same concept can be used in PC by sending (and deleting) characters on demand. Unfortunately in our tests we found that this solution  it is #[em not compatible with 100%] of the PC use cases, as for example it may be problematic:
   ul
-    li If a searchbox is auto-completing what is written on it and "auto-committing" characters.
-    li If searchbox suggestions rendering is making the system to lag a bit.
+    li If a searchbox is auto-completing what is written on it, and "auto-committing" characters.
+    li If searchbox suggestions rendering is making the system to get unresponsive.
     li If the input is obscured as in a password field.
     li If the UI is expecting a simple key press (binding menu).
 
-  h4 3.2. Learning cycle
-  p On a physical or virtual keyboard, discovery is as straight forward as looking for the character you want on the keyboard, but discovery on a controller is not so easy. The limited number of buttons on a controller and the requirement for a mapping solution (explained above) means that the user will be required to learn and memorize how the mapping works, in a cycle like:
-  pre: code.
-      ///
-       │
-       ▼
-    ┌──────────────────────────────────────────┐
-    │User knows how to type the next character?│
-    └──┬─────────────────────────────────┬─────┘
-       │                                 │
-       │YES                              │NO
-       │                                 │
-       ▼                                 ▼
-    ┌────────────────────┐      ┌──────────────────┐
-    │User typed the      │◄─────┤User utilizes a   │
-    │character correctly?│      │discovery resource│
-    └──┬───────┬─────────┘      │to learn how      │
-       │       │     ▲          └──────────────────┘
-       │YES    │NO   │                   :
-       │       │     │                   :
-       │       ▼     │                   ▼
-       │   ┌─────────┴────┐        ┌───────────┐
-       │   │User deletes  │        │Reinforced │
-       │   │last character│ - - - ►│learning   │
-       ▼   └──────────────┘        └───────────┘
-      ///
-
-  p Discovery methods may include using the character preview as defined above, or just trying several buttons and checking their output, or in the worst case looking into the manual or reference.
-  p Ideally when the user does not remember or fails to input the character, the process of recovery and discovery should facilitate the learning, as in the next time the user wants to type the same character there are more chances they remember. Different mapping methods and grouping logics do have an impact on how effectively these are remembered, but the results will vary person by person.
-  p At the same time it is expected that the user is able to recover easily from mistakes, as for example the #[em delete / backspace] key should always be consistently accessible on the same button.
-
-
   hr
-  h3 4. Input methods (early evaluation)
+  h3 4. General solutions (early evaluation)
   p We evaluated a total of #[em 9 potential typing methods], and we created early implementations for 7.
   //- p All of these were conceived to be integrated as part of the Alpakka #[+a('/alpakka/manual/profile_desktop') Desktop profile].
   p This is a high level view of the characteristics, advantages and disadvantages we found on each of these methods:
@@ -278,8 +276,8 @@ block content
           li Would require to adapt to user's specific way to write characters?.
 
   hr
-  h3 5. Input methods (further evaluation)
-  p From all the methods evaluated, we decided to do further testing with 2 of them: #[em Daisywheel] and #[em Glyph-stick]. These will be part of the next Alpakka firmware #[+ax(org.fw_releases) Beta release] (too be announced later), with the goal of getting feedback from testers, iterate over the implementations, and/or discard the methods completely.
+  h3 5. General solutions (further evaluation)
+  p From all the methods evaluated, we decided to do further testing with 2 of them: #[em Daisywheel] and #[em Glyph-stick], as we found these the most promising solutions, being the easier to understand and learn, not requiring preview-and-commit, and being easier to remember.
 
   h4 5.1. Daisywheel
   ul
@@ -314,6 +312,7 @@ block content
   h4 5.2. Glyph-stick
   ul
     li #[em Thumbstick] is used for basic pattern recognition (glyphs).
+    li It is usable with a single finger, or even no fingers.
     li Glyph patterns are designed to resemble the characters they represent, so they are easier to remember.
     li All glyphs start/end from the center into a cardinal direction (left, right, up, down).
     li Glyph is evaluated when returning to center.
@@ -328,7 +327,8 @@ block content
 
   hr
   h3 6. Next steps
-  p -
+  p The plan is to release these new input methods as part of the Alpakka firmware, possibly within a #[+ax(org.fw_releases) Beta release] #[i (too be announced soon)], with the goal of getting feedback from testers, iterate over the implementations, or even discard the methods completely.
+  p At that point we will decide if we amend this entry, or if we create a new one with the findings and conclusions.
 
 
   hr
