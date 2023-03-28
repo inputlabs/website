@@ -1,10 +1,10 @@
 extends _blog.pug
 
 block append subtitle
-  | Typing methods
+  | Alphanumeric input
 
 block content
-  h2 Typing methods
+  h2 Alphanumeric input
   hr
   p
     i 27 March 2023 <br>
@@ -27,14 +27,13 @@ block content
     'big inline'
   )
 
-  p For the use case of a computer dedicated to videogames, or a videogame console, the most common use cases for alphanumaric input are:
+  p In the context of a computer dedicated to videogames, or a videogame console, the most frequent use cases for alphanumeric input are:
   ul
-    li Search box in a game launcher or game shop.
-    li Search box in an internet browser.
-    li Login credentials (user and password).
+    li Search box input in a game launcher, game shop, or internet browser.
+    li Sign-up forms and/or sign-in with credentials (user and password).
     li Basic chat communication.
 
-  p At Input Labs, we developed the Alpakka firmware with the design philosophy of not requiring additional software or drivers, other than the standard keyboard, mouse and gamepad drivers already present on your operating system. So we want to explore the path for developing a generalist method to type on a controller, analyze the limitations, and evaluate potential solutions.
+  p At Input Labs, we developed the Alpakka firmware with the goal of not requiring additional software or drivers. Following this goal we also want to explore potential input mechanisms for alphanumeric characters that would work in a videogame controller without additional software not operating system support, analyze the limitations, and evaluate potential solutions.
 
   hr
   h3 2. Limitations / considerations
@@ -91,19 +90,25 @@ block content
   h3 3. Specific solutions
 
   h4 3.1 Mapping of controls
-  p Since a controller has significantly less buttons than a keyboard, we have to find alternative ways to map characters into these limited buttons or analog control surfaces. Methods to do such mapping include:
+  p Since a controller has significantly fewer buttons than a keyboard, we have to find alternative ways to map characters to these limited buttons or analog control surfaces.
   ul
     li #[em Grouping] several characters, for example #[em A], #[em B], #[em C] into the a single physical button or selectable, then choosing one of these characters by:
     ul
-      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as feature phones #[i (fig. A)] was the most common method for writing SMS messages in the 2000s.
+      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as was one common solution on feature phones (aka writing SMS messages in the 2000s) #[i (fig. A)].
       li Using simultaneously a button or control surface to preselect a character group, then using another button or control surface to cycle or select the final character. As for example in the Steam Controller #[em Daisywheel] #[i (fig. C)].
     li Using the analog surfaces to allow input in which each character is clearly distinguishable, as for example #[em character recognition].
 
   +figure(
+    'A',
+    'Nokia 3210 keypad (1999)',
+    '/static/blog/keypad.jpg',
+    'small inline'
+  )
+  +figure(
     'C',
     'Steam Controller Daisywheel (2015)',
-    '/static/blog/daisywheel.jpg',
-    'big inline'
+    '/static/blog/daisywheel.png',
+    'small inline'
   )
 
   h4 3.2. Preview and commit characters
@@ -130,13 +135,11 @@ block content
   table.manual.hdiv.col4
     tr
       td
-      th Controls & grouping
+      th Controls / character grouping
       th Notes
 
     tr
-      th
-        div Daisywheel
-        div.subtitle Implemented and ready for beta
+      th Daisywheel
       td
         div #[b Primary:] Thumbstick direction.
         div &nbsp;
@@ -156,9 +159,7 @@ block content
           li Optimized for letter frequency (english).
 
     tr
-      th
-        div Analog keypad, 3 variants
-        div.subtitle Implemented in alpha, rejected
+      th Analog keypad, 3 variants
       td
         div #[b Primary:] Thumbstick direction.
         div &nbsp;
@@ -183,9 +184,7 @@ block content
           li Thumbstick dialing later evolved into #[em glyph-stick] method.
 
     tr
-      th
-        div Clover keyboard
-        div.subtitle Implemented in alpha, rejected
+      th Clover keyboard
       td
         div #[b Primary:] ABXY.
         div &nbsp;
@@ -205,9 +204,7 @@ block content
           li Very hard to discover and remember mapping.
 
     tr
-      th
-        div Qwerty rows
-        div.subtitle Only concept, never implemented
+      th Qwerty rows
       td
         div #[b Primary:] L4 and R4.
         div &nbsp;
@@ -227,9 +224,7 @@ block content
           li Too many buttons required to use in single-hand devices.
 
     tr
-      th
-        div Glyph-stick
-        div.subtitle Implemented and ready for beta
+      th Glyph-stick
       td
         div #[b Primary:] Thumbstick (glyph evaluated when stick is back to center).
         div &nbsp;
@@ -242,9 +237,7 @@ block content
           li All glyphs start and end into a cardinal direction.
 
     tr
-      th
-        div Gyro projected keyboard
-        div.subtitle Implemented in alpha, rejected
+      th Gyro projected keyboard
       td
         div #[b Primary:] L1 (Starts projection from the center, commits when released).
         div &nbsp;
@@ -259,9 +252,7 @@ block content
           li There is no way to know how close to switch character the virtual cursor is.
 
     tr
-      th
-        div Gyro character recognition
-        div.subtitle Only concept, never implemented
+      th Gyro character recognition
       td
         div #[b Primary:] L1 (Starts character recognition, try to match character on release).
         div &nbsp;
@@ -279,10 +270,44 @@ block content
   h3 5. General solutions (further evaluation)
   p From all the methods evaluated, we decided to do further testing with 2 of them: #[em Daisywheel] and #[em Glyph-stick], as we found these the most promising solutions, being the easier to understand and learn, not requiring preview-and-commit, and being easier to remember.
 
+  table.manual.hdiv.col3
+    tr
+      td Method
+      th Implementation
+      th Evaluation status
+    tr
+      th Daisywheel
+      td Beta (soon)
+      td In progress 🟢
+    tr
+      th Analog keypad
+      td Alpha
+      td Discontinued
+    tr
+      th Clover keyboard
+      td Alpha
+      td Discontinued
+    tr
+      th Qwerty rows
+      td None (concept)
+      td Discontinued
+    tr
+      th Glyph-stick
+      td Beta (soon)
+      td In progress 🟢
+    tr
+      th Gyro projected keyboard
+      td Alpha
+      td Discontinued
+    tr
+      th Gyro character recognition
+      td None (concept)
+      td Delayed indefinitely
+
+
   h4 5.1. Daisywheel
   ul
     li Based on Steam Controller / Steam Input daisywheel method.
-    li Will be available on the #[+a('/alpakka/manual/profile_desktop') Desktop profile].
     li The #[em thumbstick] direction pre-selects a group of 4 characters, final selection is made with #[em ABXY] buttons.
     li Eventually, it should be possible to edit the grouping in the profiles.
     li Classic variant:
@@ -295,6 +320,7 @@ block content
       li Order of face buttons is #[em A], #[em B], #[em X], #[em Y].
       li #[em O] and #[em U] are relocated so all vowels are on the #[em A button].
       li #[em X] and #[em Y] are relocated on the #[em X button] and #[em Y button].
+    li Currently under consideration for beta testing, as part of the #[+a('/alpakka/manual/profile_desktop') Desktop profile].
 
   +figure(
     null,
@@ -318,6 +344,7 @@ block content
     li Glyph is evaluated when returning to center.
     li Shorter patterns are used for more frequent characters (in english).
     li Eventually, it should be possible to edit glyphs in the profiles.
+    li Currently under consideration for beta testing, as part of the #[+a('/alpakka/manual/profile_desktop') Desktop profile].
   +figure(
     null,
     '',
@@ -327,8 +354,8 @@ block content
 
   hr
   h3 6. Next steps
-  p The plan is to release these new input methods as part of the Alpakka firmware, possibly within a #[+ax(org.fw_releases) Beta release] #[i (too be announced soon)], with the goal of getting feedback from testers, iterate over the implementations, or even discard the methods completely.
-  p At that point we will decide if we amend this entry, or if we create a new one with the findings and conclusions.
+  p The plan is to gather feedback, and to do beta testing with our testers. Based on the results, some of these mechanisms may become part of future firmware releases. These will then be iterated and improved accordingly.
+  p Another blog article may provide further details on those tests, iterations and their results, as well as the according findings and conclusions.
 
 
   hr
