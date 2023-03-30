@@ -82,11 +82,11 @@ mixin dl(href)
   a(href=href download)&attributes(attributes)
     block
 
-mixin figure(id, caption, src, cls)
+mixin figure(id, caption, src, cls, style)
   div.figure(class=cls)
-    img(src=src)
+    img(src=src style=style)
     if id
-      div.caption Figure #{id}: #{caption}
+      div.caption(style=style) Figure #{id}: #{caption}
     else
-      div.caption #{caption}
+      div.caption(style=style) #{caption}
 

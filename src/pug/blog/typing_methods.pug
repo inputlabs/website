@@ -11,9 +11,10 @@ block content
   hr
 
   h3 1. Introduction
-  p When using device without a physical keyboard (mobile phone, videogame console, smart TV) or when using a keyboard is not possible (disability use cases), it is necessary to find alternative methods for sending alphanumerical input to such devices.
+  p In some scenarios it is necessary to input alphanumeric characters while using a device without a physical keyboard (mobile phone, videogame console, smart TV) or when using a keyboard is not possible (disability use cases). Solutions for these cases have been created in the past:
   p #[+ax('https://en.wikipedia.org/wiki/Feature_phone') Feature phones] used keypad typing #[i (Fig. A)].
-  p While smartphones, videogame consoles, and computers uses on-screen virtual keyboards #[i (Fig. B)].
+  p Smartphones uses touchscreen keyboards #[i (Fig. B)].
+  p Videogame consoles and computers uses on-screen virtual keyboards #[i (Fig. C)].
   +figure(
     'A',
     'Nokia 3210 keypad (1999)',
@@ -22,80 +23,107 @@ block content
   )
   +figure(
     'B',
-    'Windows 10 on-screen keyboard (2015)',
+    'Apple iPhone 3G touchscreen keyboard (2008)',
+    '/static/blog/iphone3g_keyboard.png',
+    'small inline'
+  )
+  //- +figure(
+  //-   'C',
+  //-   'Sony PlayStation 4 keyboard (2013)',
+  //-   '/static/blog/ps4_keyboard.jpg',
+  //-   'small inline'
+  //- )
+  +figure(
+    'C',
+    'Microsoft Windows 10 on-screen keyboard (2015)',
     '/static/blog/win_keyboard.jpg',
     'big inline'
   )
 
   p In the context of a computer dedicated to videogames, or a videogame console, the most frequent use cases for alphanumeric input are:
-  ul
-    li Search box input in a game launcher, game shop, or internet browser.
-    li Sign-up forms and/or sign-in with credentials (user and password).
-    li Basic chat communication.
+  table.manual.hdiv
+    tr
+      th Use-case 1
+      td Search box input in a game launcher, game shop, or internet browser.
+    tr
+      th Use-case 2
+      td Sign-up forms and/or sign-in with credentials (user and password).
+    tr
+      th Use-case 3
+      td Basic chat communication.
 
-  p At Input Labs, we developed the Alpakka firmware with the goal of not requiring additional software or drivers. Following this goal we also want to explore potential input mechanisms for alphanumeric characters that would work in a videogame controller without additional software not operating system support, analyze the limitations, and evaluate potential solutions.
+  p At Input Labs, we developed the Alpakka firmware with the goal of #[em not requiring additional software or drivers], and emulating mouse and keyboard at the lowest level possible (firmware and USB communication).
+  p Following this goal we also want to explore potential input mechanisms for alphanumeric characters, that would work in a videogame controller without additional software not operating system support.
 
   hr
-  h3 2. Limitations / considerations
+  h3 2. Considerations
 
-  h4 2.1. Not enough buttons
-  p The most obvious limitation when not having a physical keyboard is that alternatives do not have so many buttons (100+ buttons) available. In a standard layout controller (e.g. Xbox controller) we will have about 14 buttons and 6 axis.
-  p We could also consider motion (gyro) input, but that would drastically limit the potential application of our research. And since we want to develop methods that are not only compatible with standard controllers but also with one-hand controllers (#[+a('/kapybara') Kapybara]), we want to limit ourselves to one thumbstick (2 axis) and only a subset of all available buttons (ideally between 4 and 8 buttons).
+  h4 2.1. Limited number of buttons
+  p The most obvious limitation when not having a physical keyboard is that alternatives do not have as many buttons. A standard layout controller (e.g. Xbox controller) have "only" about 14 buttons and 6 axis.
+  p We could also consider motion (gyro) input, but that would drastically limit the potential application of our research, since we want to develop methods that are compatible with standard controllers, and as much people as possible can benefit from it.
+  p Additionally we also want the solutions to be compatible with one-hand controllers as the (#[+a('/kapybara') Kapybara]).
+  table.manual
+    tr
+      th Consideration 1
+      td Limit the number of input axis (ideally 2 or less)
+    tr
+      th Consideration 2
+      td Limit the number of input buttons (ideally 8 or less)
 
-  h4 2.2 Visual feedback and discoverability
-  p On-screen keyboard comes with some limitations:
+  h4 2.2 Discoverability
+  p Since gamepads buttons are usually labelled for gamepad usage, they do not have additional labels to help with alphanumeric input. Virtual keyboards circumvent this limitation by showing the characters on-screen, but as discussed above, we want to explore alternatives that do not rely in this kind of operating system integration. Nevertheless, on-screen keyboards also have limitations:
   ul
     li May be not available on elevated credential dialogs or screens.
     li May be not available when playing videogames on exclusive fullscreen.
-  p We want to explore alternatives to the on-screen keyboard that can overcome these limitations, but it is reasonable to assume that no matter how we do the mapping of buttons and visual feedback, the discoverability will be seriously compromised, as it will be impossible for a person to use the solution for first time without checking a video introduction or reading the reference/manual.
-  p Ideally we have to figure out abstractions that facilitate learning and mistake recovery after that initial introduction to the solution.
+  p Therefore we want to avoid these limitations while evaluating alternatives:
+  table.manual
+    tr
+      th Consideration 3
+      td Minimal OS integration (no on-screen keyboard)
+    tr
+      th Consideration 4
+      td Should work on elevated credential dialogs or screens.
+    tr
+      th Consideration 5
+      td Should work while executing application on exclusive fullscreen.
+    tr
+      th Consideration 6
+      td Abstractions for discoverability must facilitate learning and mistake recovery.
 
-  //- pre: code.
-  //-     ///
-  //-      │
-  //-      ▼
-  //-   ┌──────────────────────────────────────────┐
-  //-   │User knows how to type the next character?│
-  //-   └──┬─────────────────────────────────┬─────┘
-  //-      │                                 │
-  //-      │YES                              │NO
-  //-      │                                 │
-  //-      ▼                                 ▼
-  //-   ┌────────────────────┐      ┌──────────────────┐
-  //-   │User typed the      │◄─────┤User utilizes a   │
-  //-   │character correctly?│      │discovery resource│
-  //-   └──┬───────┬─────────┘      │to learn how      │
-  //-      │       │     ▲          └──────────────────┘
-  //-      │YES    │NO   │                   :
-  //-      │       │     │                   :
-  //-      │       ▼     │                   ▼
-  //-      │   ┌─────────┴────┐        ┌───────────┐
-  //-      │   │User deletes  │        │Reinforced │
-  //-      │   │last character│ - - - ►│learning   │
-  //-      ▼   └──────────────┘        └───────────┘
-  //-     ///
 
   h4 2.4. Manipulation complexity
-  p Since neither of the potential solutions would be as straight forward as "one-button-one-character", the solutions we evaluate have to avoid abstractions that are complex to manipulate:
-  ul
-    li Avoid using solutions that rely on timing between button presses.
-    li Avoid requiring the use multiple of fingers, the less fingers required the better.
-    li Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
-    li Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
+  p The solutions we evaluate must avoid abstractions that are complex to manipulate, so they are as accessible as possible:
+  table.manual
+    tr
+      th Consideration 7
+      td Avoid using solutions that rely on timing between button presses.
+    tr
+      th Consideration 8
+      td Avoid requiring the use multiple of fingers, the less fingers required the better.
+    tr
+      th Consideration 9
+      td Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
+    tr
+      th Consideration 10
+      td Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
 
   h4 2.5. Typing speed
   p Even though typing speed should not be a priority goal for the solutions we are looking for, we could argue that solutions that are easy to learn and remember could also result in faster characters-per-minute typing speeds, specially during the learning period.
+  table.manual
+    tr
+      th Consideration 11
+      td Given similar complexity, methods that allow for faster typing will be considered better.
 
   hr
-  h3 3. Specific solutions
+  h3 3. Generic solutions
 
   h4 3.1 Mapping of controls
   p Since a controller has significantly fewer buttons than a keyboard, we have to find alternative ways to map characters to these limited buttons or analog control surfaces.
   ul
     li #[em Grouping] several characters, for example #[em A], #[em B], #[em C] into the a single physical button or selectable, then choosing one of these characters by:
     ul
-      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as was one common solution on feature phones (aka writing SMS messages in the 2000s) #[i (fig. A)].
-      li Using simultaneously a button or control surface to preselect a character group, then using another button or control surface to cycle or select the final character. As for example in the Steam Controller #[em Daisywheel] #[i (fig. C)].
+      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as was one common solution on feature phones (aka writing SMS messages in the 2000s) #[i (fig. A)]. Although this conflicts with #[em consideration 7].
+      li Using simultaneously a button or control surface to preselect a character group, then using another button or control surface to cycle or select the final character. As for example in the Steam Controller #[em Daisywheel] #[i (fig. E)].
     li Using the analog surfaces to allow input in which each character is clearly distinguishable, as for example #[em character recognition].
 
   +figure(
@@ -105,16 +133,16 @@ block content
     'small inline'
   )
   +figure(
-    'C',
+    'E',
     'Steam Controller Daisywheel (2015)',
-    '/static/blog/daisywheel.png',
+    '/static/blog/daisywheel_restoration.png',
     'small inline'
   )
 
-  h4 3.2. Preview and commit characters
-  p Since we do not want to rely on OS integration (so no on-screen keyboard), one of the potential solutions we tried is to apply the concept of #[em preview and commit] characters that was used in #[em feature phones], in which a single button or action is used for cycling between several characters, and only later the character is "committed" when certain conditions are met (other button is pressed, or after a defined period of time).
+  h4 3.2. Characters preview and commit
+  p Since we do not want to rely on OS integration #[em (consideration 3)], one of the potential solutions we tried is to apply the concept of #[em character preview and commit] that was used in #[em feature phones], in which a single button or action is used for cycling between several characters, and only later the character is "committed" when certain conditions are met (other button is pressed, or after a defined period of time).
   +figure(
-    'D',
+    'F',
     'Character preview and commit',
     '/static/blog/sms.gif',
     'small'
@@ -127,201 +155,27 @@ block content
     li If the UI is expecting a simple key press (binding menu).
 
   hr
-  h3 4. General solutions (early evaluation)
+  h3 4. Specific solutions
   p We evaluated a total of #[em 9 potential typing methods], and we created early implementations for 7.
   //- p All of these were conceived to be integrated as part of the Alpakka #[+a('/alpakka/manual/profile_desktop') Desktop profile].
   p This is a high level view of the characteristics, advantages and disadvantages we found on each of these methods:
 
-  table.manual.hdiv.col4
-    tr
-      td
-      th Controls / character grouping
-      th Notes
-
-    tr
-      th Daisywheel
-      td
-        div #[b Primary:] Thumbstick direction.
-        div &nbsp;
-        div #[b Secondary:] ABXY.
-        div &nbsp;
-        div #[b Grouping:]
-        div.mono
-          div ----  ABCD  EFGH
-          div IJKL  ----  OMN-
-          div PQRS  TUV-  WXYZ
-      td
-        ul
-          li No preview.
-          li Inspired by Steam Controller implementation.
-          li Keypad-style grouping.
-          li Vowels on cardinal directions.
-          li Optimized for letter frequency (english).
-
-    tr
-      th Analog keypad, 3 variants
-      td
-        div #[b Primary:] Thumbstick direction.
-        div &nbsp;
-        div #[b Secondary:] Thumbstick radius (cycle next on outer ring, commit when back to center).
-        div &nbsp;
-        div #[b Secondary alt:] Mousewheel (cycle next or prev, commit when TS back to center).
-        div &nbsp;
-        div #[b Secondary alt:] Thumbstick dial cycling (cycle by turning around thumbstick clockwise or anticlockwise, 90° each cycle, commit when back to center).
-        div &nbsp;
-        div #[b Grouping:]
-        div.mono
-          div ----  ABCD  EFGH
-          div IJKL  ----  OMN-
-          div PQRS  TUV-  WXYZ
-      td
-        ul
-          li Preview is optional.
-          li Keypad-style grouping.
-          li Vowels on cardinal directions.
-          li Optimized for letter frequency (english).
-          li Hard to perform due to accurate or simultaneous input required.
-          li Thumbstick dialing later evolved into #[em glyph-stick] method.
-
-    tr
-      th Clover keyboard
-      td
-        div #[b Primary:] ABXY.
-        div &nbsp;
-        div #[b Secondary:] Thumbstick direction (and push).
-        div &nbsp;
-        div #[b Grouping:]
-        div.mono
-          div (X)  (A)  (B)  (Y)
-          div QWE  RTY  UIO  P
-          div ASD  FGH  JKL  ;
-          div ZXC  VBN  M,.  /
-      td
-        ul
-          li No preview.
-          li Grouped as querty keyboard sections.
-          li Named as tribute to Daisywheel.
-          li Very hard to discover and remember mapping.
-
-    tr
-      th Qwerty rows
-      td
-        div #[b Primary:] L4 and R4.
-        div &nbsp;
-        div #[b Secondary:] Dpad, Select, ABXY.
-        div &nbsp;
-        div #[b Grouping:]
-        div.mono
-          div (L4): &nbsp;&nbsp; QWERTYUIO
-          div (R4): &nbsp;&nbsp; ASDFGHJKL
-          div (L4+R4): ZXCVBNMP
-      td
-        ul
-          li No preview.
-          li Grouped as querty keyboard rows.
-          li Possibly very hard to discover and remember mapping.
-          li It requires using at least 4 fingers.
-          li Too many buttons required to use in single-hand devices.
-
-    tr
-      th Glyph-stick
-      td
-        div #[b Primary:] Thumbstick (glyph evaluated when stick is back to center).
-        div &nbsp;
-        div: i (No grouping, see glyph table below)
-      td
-        ul
-          li No preview.
-          li Glyphs resemble actual character glyphs.
-          li Glyphs are optimized so more frequent characters use shorter glyphs if possible.
-          li All glyphs start and end into a cardinal direction.
-
-    tr
-      th Gyro projected keyboard
-      td
-        div #[b Primary:] L1 (Starts projection from the center, commits when released).
-        div &nbsp;
-        div #[b Secondary:] Gyro (Moves the virtual cursor within the projection boundaries).
-        div &nbsp;
-        div: i (No grouping)
-      td
-        ul
-          li Preview is required.
-          li Like the Playstation 4 on-screen gyro keyboard, but without the on-screen keyboard.
-          li Requires to remember querty keyboard layout quite well.
-          li There is no way to know how close to switch character the virtual cursor is.
-
-    tr
-      th Gyro character recognition
-      td
-        div #[b Primary:] L1 (Starts character recognition, try to match character on release).
-        div &nbsp;
-        div #[b Secondary:] Gyro (Moves the virtual "pen").
-        div &nbsp;
-        div: i (No grouping)
-      td
-        ul
-          li No preview.
-          li As in writing on the air.
-          li Firmware implementation would be very hard to develop.
-          li Would require to adapt to user's specific way to write characters?.
-
-  hr
-  h3 5. General solutions (further evaluation)
-  p From all the methods evaluated, we decided to do further testing with 2 of them: #[em Daisywheel] and #[em Glyph-stick], as we found these the most promising solutions, being the easier to understand and learn, not requiring preview-and-commit, and being easier to remember.
-
-  table.manual.hdiv.col3
-    tr
-      td Method
-      th Implementation
-      th Evaluation status
-    tr
-      th Daisywheel
-      td Beta (soon)
-      td In progress 🟢
-    tr
-      th Analog keypad
-      td Alpha
-      td Discontinued
-    tr
-      th Clover keyboard
-      td Alpha
-      td Discontinued
-    tr
-      th Qwerty rows
-      td None (concept)
-      td Discontinued
-    tr
-      th Glyph-stick
-      td Beta (soon)
-      td In progress 🟢
-    tr
-      th Gyro projected keyboard
-      td Alpha
-      td Discontinued
-    tr
-      th Gyro character recognition
-      td None (concept)
-      td Delayed indefinitely
-
-
-  h4 5.1. Daisywheel
+  h4 4.1. Daisywheel
   ul
     li Based on Steam Controller / Steam Input daisywheel method.
-    li The #[em thumbstick] direction pre-selects a group of 4 characters, final selection is made with #[em ABXY] buttons.
-    li Eventually, it should be possible to edit the grouping in the profiles.
+    li #[em Thumbstick] direction pre-selects a group of 4 characters, final selection is made with #[em ABXY] buttons.
+    li Grouping of characters could be exposed in the profiles, so it becomes user customizable.
+    li Does not require character preview.
     li Classic variant:
     ul
       li Alphabetical grouping, same than the original daisywheel.
       li Order of face buttons is #[em X], #[em Y], #[em B], #[em A].
     li Tweaked variant:
     ul
-      li Keypad-style grouping, but adapted for having no center key.
+      li Keypad-style character grouping, but adapted for having no center key.
       li Order of face buttons is #[em A], #[em B], #[em X], #[em Y].
       li #[em O] and #[em U] are relocated so all vowels are on the #[em A button].
       li #[em X] and #[em Y] are relocated on the #[em X button] and #[em Y button].
-    li Currently under consideration for beta testing, as part of the #[+a('/alpakka/manual/profile_desktop') Desktop profile].
-
   +figure(
     null,
     'Daisywheel classic (Steam Controller)',
@@ -334,23 +188,229 @@ block content
     '/static/blog/daisywheel_tweaked.png',
     'big inline'
   )
+  +figure(
+    null,
+    'Daisywheel example',
+    '/static/blog/daisywheel.gif',
+    '',
+    'width:365px'
+  )
 
-  h4 5.2. Glyph-stick
+  div: br
+  h4 4.2. Analog keypad (3 variants)
+  ul
+    li #[em Thumbstick] direction pre-selects a group of 4 characters.
+    li #[em Thumbstick] radius (reaching the border) cycles over these characters using character preview.
+    li The character is committed when the #[em thumbstick] goes back to the center.
+    li Keypad-style character grouping, but adapted for having no center key.
+    li Variants:
+    ul
+      li Variant 1: #[em Scroll wheel] is used to cycle the characters (cycle next or prev).
+      li Variant 2: Cycle characters by turning around #[em thumbstick] clockwise or anticlockwise, 90° each cycle, similar to an old rotary phone.
+    li All variants require character preview.
+    li Note: All variants are relatively hard to perform due to accurate input required. Conflicting with #[em consideration 9].
+    li Note: Thumbstick-dialing later evolved into the #[em glyph-stick] method.
+  +figure(
+    null,
+    'Analog keypad example',
+    '/static/blog/analog_keypad.gif',
+    'small'
+  )
+
+  div: br
+  h4 4.3. Clover keyboard
+  ul
+    li #[em ABXY] buttons pre-selects a group of 9 characters.
+    li Then #[em thumbstick] is used to select the final character.
+    li These 9 characters are grouped by segmenting a querty keyboard:
+    table.inline.mono
+      tr
+        th
+        th (X) Left section
+        th (A) Mid section
+        th (B) Right section
+      tr
+        th Thumbstick top
+        td ↖Q ↑W ↗E
+        td ↖R ↑T ↗Y
+        td ↖U ↑I ↗O
+      tr
+        th Thumbstick mid
+        td ←A -S →D
+        td ←F -G →H
+        td ←J -K →L
+      tr
+        th Thumbstick low
+        td ↙Z ↓X ↘C
+        td ↙V ↓B ↘N
+        td ↙M (P)
+    li No character preview is required.
+    li Note: Very hard to discover and remember mapping. Conflicting with #[em considerations 6 and 9].
+    li Note: Named as a tribute to Daisywheel (daisy 8 leafs / clover 4 leafs).
+
+  div: br
+  h4 4.4. Querty rows
+  ul
+    li #[em L4] and #[em R4] buttons pre-selects groups of 10 characters.
+    li Then #[em Dpad], #[em Select] and #[em ABXY] buttons are used to select the final character.
+    li These 10 characters are grouped by segmenting a querty keyboard in rows:
+    table.inline.mono
+      tr
+        th
+        th Dpad
+        th Select
+        th ABXY
+      tr
+        th L4
+        td QWER
+        td TY
+        td UIOP
+      tr
+        th R4
+        td ASDF
+        td G
+        td HJKL
+      tr
+        th L4+R4
+        td ZXCV
+        td
+        td BNM
+    li No character preview is required.
+    li Too many buttons required to use in single-hand devices, very high manipulation complexity. Conflicting with #[em consideration 8].
+    li Very hard to discover and remember mapping. Conflicting with #[em consideration 6].
+
+  div: br
+  h4 4.5. Glyph-stick
   ul
     li #[em Thumbstick] is used for basic pattern recognition (glyphs).
-    li It is usable with a single finger, or even no fingers.
-    li Glyph patterns are designed to resemble the characters they represent, so they are easier to remember.
-    li All glyphs start/end from the center into a cardinal direction (left, right, up, down).
     li Glyph is evaluated when returning to center.
+    li Glyph patterns are designed to resemble the characters they represent, so they are easier to remember. To avoid conflicting with #[em consideration 6].
+    li To decrease manipulation complexity all glyphs start/end from the center into a cardinal direction (left, right, up, down). To avoid conflicting with #[em consideration 9].
     li Shorter patterns are used for more frequent characters (in english).
-    li Eventually, it should be possible to edit glyphs in the profiles.
-    li Currently under consideration for beta testing, as part of the #[+a('/alpakka/manual/profile_desktop') Desktop profile].
+    li Note: It is usable with a single finger, or even no fingers.
+    li Note: Glyph shapes could exposed in the profiles, so it becomes user customizable.
   +figure(
     null,
     '',
     '/static/blog/glyph-stick.png',
     'big'
   )
+  +figure(
+    null,
+    'Glyph-stick example',
+    '/static/blog/glyph-stick.gif',
+    'small'
+  )
+
+  div: br
+  h4 4.6. Gyro projected keyboard
+  ul
+    li Basically like the Playstation 4 on-screen gyro keyboard, but #[em without the on-screen keyboard].
+    li #[em L1] button starts projection from the center (G key).
+    li #[em Gyro] moves the virtual cursor within the projection boundaries.
+    li Releasing #[em L1] commits the character currently on the cursor.
+    table.inline.mono
+      tr
+        td Q
+        td W
+        td E
+        td R
+        td T
+        td Y
+        td U
+        td I
+        td O
+        td P
+      tr
+        td A
+        td S
+        td D
+        td F
+        td(style='background:black') G
+        td H
+        td J
+        td K
+        td L
+        td
+      tr
+        td Z
+        td X
+        td C
+        td V
+        td B
+        td N
+        td M
+        td
+        td
+        td
+    li Character preview is required to know where the virtual pointer is located.
+    li Note: There is no way to know how close to the next character the virtual cursor is.
+    li Note: It allows to build muscle memory.
+    li Note: It requires to be very mentally focused to use effectively. Conflicting with #[em considerations 6 and 9].
+
+  div: br
+  h4 4.7. Gyro character recognition
+  ul
+    li #[em L1] button starts the character recognition process.
+    li #[em Gyro] allows to "draw characters on the air" like if it was a virtual pen.
+    li Releasing #[em L1] ends the character recognition process and sends the character to the host if there is a match.
+    li No character preview is required.
+    li Note: Firmware implementation would be very hard to develop, but not impossible.
+    li Note: It may require to adapt to user's specific way to write characters.
+
+  hr
+  h3 5. Evaluation (so far)
+  p From all the methods evaluated, we decided to do further testing with 2 of them: #[em Daisywheel] and #[em Glyph-stick], as we found these the most promising solutions: being the easier to learn, most accessible, most compatible, and being easier to remember.
+
+  table.manual.hdiv.col5
+    tr
+      td
+      th Concept
+      th Alpha tested
+      th Beta tested
+      th Evaluation status
+    tr
+      th Daisywheel
+      td Yes
+      td Yes
+      td Soon
+      td In progress 🟢
+    tr
+      th Analog keypad
+      td Yes
+      td Yes
+      td
+      td Discontinued
+    tr
+      th Clover keyboard
+      td Yes
+      td Yes
+      td
+      td Discontinued
+    tr
+      th Qwerty rows
+      td Yes
+      td
+      td
+      td Discontinued
+    tr
+      th Glyph-stick
+      td Yes
+      td Yes
+      td Soon
+      td In progress 🟢
+    tr
+      th Gyro projected keyboard
+      td Yes
+      td Yes
+      td
+      td Discontinued
+    tr
+      th Gyro character recognition
+      td Yes
+      td
+      td
+      td Delayed indefinitely
 
   hr
   h3 6. Next steps
