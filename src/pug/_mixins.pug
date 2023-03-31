@@ -89,4 +89,8 @@ mixin figure(id, caption, src, cls, style)
       div.caption(style=style) Figure #{id}: #{caption}
     else
       div.caption(style=style) #{caption}
+    div.caption
+      block
+
+
 

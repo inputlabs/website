@@ -5,12 +5,18 @@ block append subtitle
 
 block content
   h2 Progress report #10
-  +news_header('30 March 2023', 'report_9', '')
+  +news_header('31 March 2023', 'report_9', '')
 
   h3 Alphanumeric input research and testing
   p We conducted research on typing methods on devices with limited inputs, and done a first round on internal alpha testing. We wrote the blog entry #[+a('alphanumeric_input') Alphanumeric input] with our preliminary findings.
-  p In the upcoming days we will release an Alpakka #[em Beta] firmware, with the purpose of gathering more feedback about some of these input methods.
-  p Other additions to the Beta will be a #[em shortcut for toggling the on-screen keyboard] both in Windows and Linux (including Steam Deck). And 4 additional predefined phrases for the quick chat functionality (for a total of 8).
+  p In the upcoming days we will release an Alpakka #[em Beta] firmware with these input methods integrated on the #[+a('/alpakka/manual/profile_desktop') Desktop profile], with the purpose of gathering more feedback from the testers.
+
+  p Other additions on the Beta #[+a('/alpakka/manual/profile_home') Home profile] will be:
+  ul
+    li Shortcut for #[em toggling the on-screen keyboard] both in Windows and Linux (including Steam Deck).
+    li Shortcut to enable or disable fullscreen (#[em Alt+enter]).
+    li 4 additional predefined phrases slots for the quick chat functionality (for a total of 8).
+
   p Expressing yourself with a controller was never so easy, stay tuned to #[+ax(org.discord) Discord] #[em #testing] channel!
 
   hr
@@ -32,7 +38,7 @@ block content
     'Shorter thumbstick by @Dennis The Menace',
     '/static/blog/mods_dennis.jpg',
     'small inline'
-  )
+  ) #[+ax('https://thangs.com/search/alpakka?scope=thangs&domains=Thangs') Thangs]
   +figure(
     '',
     'Octogonal thumbstick snap by @ThePhxRises',
