@@ -1,0 +1,65 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #10
+
+block content
+  h2 Progress report #10
+  +news_header('31 March 2023', 'report_9', '')
+
+  h3 Alphanumeric input research and testing
+  p We conducted research on typing methods on devices with limited inputs, and done a first round on internal alpha testing. We wrote the blog entry #[+a('alphanumeric_input') Alphanumeric input] with our preliminary findings.
+  p In the upcoming days we will release an Alpakka #[em Beta] firmware with these input methods integrated on the #[+a('/alpakka/manual/profile_desktop') Desktop profile], with the purpose of gathering more feedback from the testers.
+
+  p Other additions on the Beta #[+a('/alpakka/manual/profile_home') Home profile] will be:
+  ul
+    li Shortcut for #[em toggling the on-screen keyboard] both in Windows and Linux (including Steam Deck).
+    li Shortcut to enable or disable fullscreen (#[em Alt+enter]).
+    li 4 additional predefined phrases slots for the quick chat functionality (for a total of 8).
+
+  p Expressing yourself with a controller was never so easy, stay tuned to #[+ax(org.discord) Discord] #[em #testing] channel!
+
+  hr
+  h3 Accessibility DB new entries
+  p Our lovely supporters in #[+ax(org.patreon) Patreon] voted for these games to be reviewed and included in the accessibility database:
+  ul
+    li: +a('/db/apex_legends') Apex Legends
+    li: +a('/db/control') Control
+    li: +a('/db/dishonored_2') Dishonored 2
+    li: +a('/db/gta_v') Grand Theft Auto V
+    li: +a('/db/skyrim') The Elder Scrolls V: Skyrim
+
+  hr
+  h3 Community mods taking off
+  p There was a significant amount of new contributions in the #[em #community-mods] channel on #[+ax(org.discord) Discord], and we cannot be happier, this is what Input Labs is about, infinite modding possibilities! These are just some cool examples:
+
+  +figure(
+    '',
+    'Shorter thumbstick by @Dennis The Menace',
+    '/static/blog/mods_dennis.jpg',
+    'small inline'
+  ) #[+ax('https://thangs.com/search/alpakka?scope=thangs&domains=Thangs') Thangs]
+  +figure(
+    '',
+    'Octogonal thumbstick snap by @ThePhxRises',
+    '/static/blog/mods_thephxrises_2.jpg',
+    'small inline'
+  )
+  +figure(
+    '',
+    'Smooth case by @ThePhxRises',
+    '/static/blog/mods_thephxrises_1.jpg',
+    'small inline'
+  )
+  +figure(
+    '',
+    'Color LEDs matching the controller by @fabiofw',
+    '/static/blog/mods_fabiofw.jpg',
+    'small inline'
+  )
+
+  p We are still figuring out how to organize these better so they are not buried by the scroll. If you have some ideas please let us know.
+
+
+  hr
+  p Thanks a lot for the support! <br> - M&M <3
