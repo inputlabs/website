@@ -480,6 +480,13 @@ main .boxes.center {
 .wiki .figure.small img {
   width: 210px;
 }
+.wiki .figure.big img {
+  width: 425px;
+}
+.wiki .figure.inline {
+  display: inline-block;
+  margin-right: 20px;
+}
 .wiki .math {
   width: 420px;
 }
@@ -552,6 +559,14 @@ table.manual th {
   font-size: 17px;
   text-align: left;
 }
+table.manual.hdiv th {
+  vertical-align: top;
+  border-bottom: 1px solid #444;
+}
+table.manual th .subtitle {
+  font-weight: normal;
+  font-size: 13px;
+}
 table.manual.col4 th {
   width: 25% !important;
 }
@@ -582,6 +597,16 @@ table.manual.hdiv td {
 }
 table.manual .right {
   text-align: right;
+}
+
+table.inline td,
+table.inline th {
+  padding: 10px;
+  border-right: 1px solid hsl(0, 0%, 30%);
+  border-bottom: 1px solid hsl(0, 0%, 30%);
+}
+table.inline th {
+  background: hsl(0, 0%, 20%);
 }
 
 /* FOOTER ================================================================== */
@@ -670,6 +695,10 @@ rbp * {
 table, tr, th, td {
   padding: 0;
   margin: 0;
+}
+
+.mono {
+  font-family: monospace;
 }
 
 .lima {

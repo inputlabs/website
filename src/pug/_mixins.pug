@@ -12,6 +12,8 @@
 
   const org = {
     repos: 'https://github.com/orgs/inputlabs/repositories?sort=name',
+    fw_releases: 'https://github.com/inputlabs/alpakka_firmware/releases/',
+    fw_release: 'https://github.com/inputlabs/alpakka_firmware/releases/tag/',
     roadmap: 'https://github.com/orgs/inputlabs/projects/2',
     forum: 'https://github.com/orgs/inputlabs/discussions',
     discord: 'https://discord.gg/s8Yb4pfusT',
@@ -80,7 +82,11 @@ mixin dl(href)
   a(href=href download)&attributes(attributes)
     block
 
-mixin figure(id, caption, src, cls)
+mixin figure(id, caption, src, cls, style)
   div.figure(class=cls)
-    img(src=src)
-    div.caption Figure #{id}: #{caption}
+    img(src=src style=style)
+    if id
+      div.caption(style=style) Figure #{id}: #{caption}
+    else
+      div.caption(style=style) #{caption}
+

@@ -1,0 +1,399 @@
+extends _blog.pug
+
+block append subtitle
+  | Alphanumeric input
+
+block content
+  h2 Alphanumeric input
+  hr
+  p
+    i 27 March 2023 <br>
+  hr
+
+  h3 1. Introduction
+  p In some scenarios it is necessary to input alphanumeric characters while using a device without a physical keyboard (e.g. mobile phones, videogame consoles, smart TV) or when using a keyboard is not possible (for example due to a disability). Solutions for these cases have been created in the past:
+  ul
+    li #[+ax('https://en.wikipedia.org/wiki/Feature_phone') Feature phones] used keypad typing #[i (Fig. A)].
+    li Smartphones uses touchscreen keyboards #[i (Fig. B)].
+    li Videogame consoles and computers uses on-screen virtual keyboards #[i (Fig. C)].
+  +figure(
+    'A',
+    'Nokia 3210 keypad (1999)',
+    '/static/blog/keypad.jpg',
+    'small inline'
+  )
+  +figure(
+    'B',
+    'Apple iPhone 3G touchscreen keyboard (2008)',
+    '/static/blog/iphone3g_keyboard.png',
+    'small inline'
+  )
+  //- +figure(
+  //-   'C',
+  //-   'Sony PlayStation 4 keyboard (2013)',
+  //-   '/static/blog/ps4_keyboard.jpg',
+  //-   'small inline'
+  //- )
+  +figure(
+    'C',
+    'Microsoft Windows 10 on-screen keyboard (2015)',
+    '/static/blog/win_keyboard.jpg',
+    'big inline'
+  )
+
+  p In the context of a computer dedicated to videogames, or a videogame console, the most frequent use cases for alphanumeric input are:
+  ul
+    li #[em Use-case 1]: Search box: input in a game launcher, game shop, or internet browser.
+    li #[em Use-case 2]: Fields: Sign-up forms and/or sign-in with credentials (user and password).
+    li #[em Use-case 3]: Chat: Basic chat communication.
+
+  p At Input Labs, we developed the Alpakka firmware with the goal of #[em not requiring additional software or drivers], and emulating mouse and keyboard at the lowest level possible (firmware and USB communication).
+  p Following this goal we also want to explore potential input mechanisms for alphanumeric characters, that would work in a videogame controller without additional software not operating system support.
+
+  hr
+  h3 2. Considerations
+
+  h4 2.1. Limited number of buttons
+  p The most obvious limitation when not having a physical keyboard is that alternatives do not have as many buttons. A standard layout controller (e.g. Xbox controller) have "only" about 14 buttons and 6 axis.
+  p We could also consider motion (gyro) input, but that would drastically limit the potential application of our research, since we want to develop methods that are compatible with standard controllers, so as much people as possible can benefit from it.
+  p Additionally we also want the solutions to be compatible with one-hand controllers such as the (#[+a('/kapybara') Kapybara]).
+  ul
+    li #[em Consideration 1]: Limit the number of input axis (ideally 2 or less).
+    li #[em Consideration 2]: Limit the number of input buttons (ideally 8 or less).
+
+  h4 2.2 Discoverability
+  p Since gamepads buttons are usually labelled for gamepad usage, they do not have additional labels to help with alphanumeric input. Virtual keyboards circumvent this limitation by showing the characters on-screen, but as discussed above, we want to explore alternatives that do not rely in this kind of operating system integration. Nevertheless, on-screen keyboards also have limitations:
+  ul
+    li May be not available on elevated credential dialogs or screens.
+    li May be not available when playing videogames on exclusive fullscreen.
+  p Therefore we want to avoid these limitations while evaluating alternatives:
+  ul
+    li #[em Consideration 3]: Minimal OS integration (no on-screen keyboard).
+    li #[em Consideration 4]: Should work on elevated credential dialogs or screens.
+    li #[em Consideration 5]: Should work while executing applications on exclusive fullscreen.
+    li #[em Consideration 6]: Abstractions for discoverability must facilitate learning and mistake recovery.
+
+
+  h4 2.4. Manipulation complexity
+  p The solutions we evaluate must avoid abstractions that are complex to manipulate, so they are as accessible as possible:
+  table.manual
+  ul
+    li #[em Consideration 7]: Avoid using solutions that rely on timing between button presses.
+    li #[em Consideration 8]: Avoid requiring the use multiple of fingers, the less fingers required the better.
+    li #[em Consideration 9]: Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
+    li #[em Consideration 10]: Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
+
+  h4 2.5. Typing speed
+  p Even though typing speed should not be a priority goal for the solutions we are looking for, we could argue that solutions that are easy to learn and remember could also result in faster characters-per-minute typing speeds, specially during the learning period.
+  ul
+    li #[em Consideration 11]: Given similar complexity, methods that allow for faster typing will be considered better.
+
+  hr
+  h3 3. Generic solutions
+
+  h4 3.1 Mapping of controls
+  p Since a controller has significantly fewer buttons than a keyboard, we have to find alternative ways to map characters to these limited buttons or analog control surfaces.
+  ul
+    li #[em Grouping] several characters, for example #[em A], #[em B], #[em C] into the a single physical button or selectable, then choosing one of these characters by:
+    ul
+      li Pressing the button repeatedly during a fixed amount of time to cycle through the characters, as was one common solution on feature phones (aka writing SMS messages in the 2000s) #[i (fig. A)]. Although this conflicts with #[em consideration 7].
+      li Using simultaneously a button or control surface to preselect a character group, then using another button or control surface to cycle or select the final character. As for example in the Steam Controller #[em Daisywheel] #[i (fig. E)].
+    li Using the analog surfaces to allow input in which each character is clearly distinguishable, as for example #[em character recognition].
+
+  +figure(
+    'A',
+    'Nokia 3210 keypad (1999)',
+    '/static/blog/keypad.jpg',
+    'small inline'
+  )
+  +figure(
+    'E',
+    'Steam Controller Daisywheel (2015)',
+    '/static/blog/daisywheel_restoration.png',
+    'small inline'
+  )
+
+  h4 3.2. Characters preview and commit
+  p Since we do not want to rely on OS integration (#[em (consideration 3]), one of the potential solutions we tried is to apply the concept of #[em character preview and commit] that was used in #[em feature phones], in which a single button or action is used for cycling between several characters, and only later the character is "committed" when certain conditions are met (other button is pressed, or after a defined period of time).
+  +figure(
+    'F',
+    'Character preview and commit',
+    '/static/blog/sms.gif',
+    'small'
+  )
+  p This same concept can be used in PC by sending (and deleting) characters on demand. Unfortunately in our tests we found that this solution is #[em not 100% compatible] with common PC use-cases, as for example it may be problematic:
+  ul
+    li If a searchbox is auto-completing what is written on it, and "auto-committing" characters.
+    li If searchbox suggestions rendering is making the system to get unresponsive.
+    li If the input is obscured as in a password field.
+    li If the UI is expecting a simple key press (binding menu).
+
+  hr
+  h3 4. Specific solutions
+  p We evaluated a total of #[em 10 potential typing methods] (7 methods with 3 additional variants), and we created early implementations for many of them.
+  //- p All of these were conceived to be integrated as part of the Alpakka #[+a('/alpakka/manual/profile_desktop') Desktop profile].
+  p This is a high-level view of the characteristics:
+
+  h4 4.1. Daisywheel
+  ul
+    li Based on Steam Controller / Steam Input daisywheel method.
+    li #[em Thumbstick] direction pre-selects a group of 4 characters, final selection is made with #[em ABXY] buttons.
+    li Grouping of characters could be exposed in the profiles, so it becomes user customizable.
+    li Does not require character preview.
+    li Classic variant:
+    ul
+      li Alphabetical grouping, same than the original daisywheel.
+      li Order of face buttons is #[em X], #[em Y], #[em B], #[em A].
+    li Tweaked variant:
+    ul
+      li Keypad-style character grouping, but adapted for having no center key.
+      li Order of face buttons is #[em A], #[em B], #[em X], #[em Y].
+      li #[em O] and #[em U] are relocated so all vowels are on the #[em A button].
+      li #[em X] and #[em Y] are relocated on the #[em X button] and #[em Y button].
+  +figure(
+    null,
+    'Daisywheel classic (Steam Controller)',
+    '/static/blog/daisywheel_classic.png',
+    'big inline'
+  )
+  +figure(
+    null,
+    'Daisywheel tweaked (Input Labs)',
+    '/static/blog/daisywheel_tweaked.png',
+    'big inline'
+  )
+  +figure(
+    null,
+    'Daisywheel example',
+    '/static/blog/daisywheel.gif',
+    '',
+    'width:365px'
+  )
+
+  div: br
+  h4 4.2. Character cycling (3 variants)
+  ul
+    li #[em Thumbstick] direction pre-selects a group of 4 characters.
+    li The character is committed when the #[em thumbstick] goes back to the center.
+    li Keypad-style character grouping, but adapted for having no center key.
+    li Variants:
+    ul
+      li Variant 1: #[em Thumbstick] radius (reaching the border) cycles over these characters using character preview.
+      li Variant 2: #[em Scroll wheel] is used to cycle the characters (cycle next or prev).
+      li Variant 3: Cycle characters by turning around #[em thumbstick] clockwise or anticlockwise, 90° each cycle, similar to an old rotary phone.
+    li All variants require character preview.
+    li Note: Variants 1 and 3 are relatively hard to perform due to accurate input required. Conflicting with #[em consideration 9].
+    li Note: Thumbstick-dialing later evolved into the #[em glyph-stick] method.
+  +figure(
+    null,
+    'Analog keypad example',
+    '/static/blog/analog_keypad.gif',
+    'small'
+  )
+
+  div: br
+  h4 4.3. Clover keyboard
+  ul
+    li #[em ABXY] buttons pre-selects a group of 9 characters.
+    li Then #[em thumbstick] is used to select the final character.
+    li These 9 characters are grouped by segmenting a querty keyboard:
+    table.inline.mono
+      tr
+        th
+        th (X) Left section
+        th (A) Mid section
+        th (B) Right section
+      tr
+        th Thumbstick top
+        td ↖Q ↑W ↗E
+        td ↖R ↑T ↗Y
+        td ↖U ↑I ↗O
+      tr
+        th Thumbstick mid
+        td ←A -S →D
+        td ←F -G →H
+        td ←J -K →L
+      tr
+        th Thumbstick low
+        td ↙Z ↓X ↘C
+        td ↙V ↓B ↘N
+        td ↙M (P)
+    li No character preview is required.
+    li Note: Very hard to discover and remember mapping. Conflicting with #[em considerations 6 and 9].
+    li Note: Named as a tribute to Daisywheel (daisy 8 leafs / clover 4 leafs).
+
+  div: br
+  h4 4.4. Keyboard rows
+  ul
+    li #[em L4] and #[em R4] buttons pre-selects groups of 10 characters.
+    li Then #[em Dpad], #[em Select] and #[em ABXY] buttons are used to select the final character.
+    li These 10 characters are grouped by segmenting a querty keyboard in rows:
+    table.inline.mono
+      tr
+        th
+        th Dpad
+        th Select
+        th ABXY
+      tr
+        th L4
+        td QWER
+        td TY
+        td UIOP
+      tr
+        th R4
+        td ASDF
+        td G
+        td HJKL
+      tr
+        th L4+R4
+        td ZXCV
+        td
+        td BNM
+    li No character preview is required.
+    li Too many buttons required to use in single-hand devices, very high manipulation complexity. Conflicting with #[em consideration 8].
+    li Very hard to discover and remember mapping. Conflicting with #[em consideration 6].
+
+  div: br
+  h4 4.5. Glyph-stick
+  ul
+    li #[em Thumbstick] is used for basic pattern matching (glyphs).
+    li Glyph is evaluated when returning to center.
+    li Glyph patterns are designed to resemble the characters they represent, so they are easier to remember. (#[em consideration 6]).
+    li All glyphs start/end from the center into a cardinal direction (left, right, up, down). So do not use diagonals, reducing manipulation complexity (#[em consideration 9]).
+    li Shorter patterns are used for more frequent characters (in english).
+    li Note: It is usable with a single finger, or even no fingers.
+    li Note: Glyph shapes could exposed in the profiles, so it becomes user customizable.
+  +figure(
+    null,
+    '',
+    '/static/blog/glyph-stick.png',
+    'big'
+  )
+  +figure(
+    null,
+    'Glyph-stick example',
+    '/static/blog/glyph-stick.gif',
+    'small'
+  )
+
+  div: br
+  h4 4.6. Gyro projected keyboard
+  ul
+    li Basically like the Playstation 4 on-screen gyro keyboard, but #[em without the on-screen keyboard].
+    li #[em L1] button starts projection from the center (G key).
+    li #[em Gyro] moves the virtual cursor within the projection boundaries.
+    li Releasing #[em L1] commits the character currently on the cursor.
+    table.inline.mono
+      tr
+        td Q
+        td W
+        td E
+        td R
+        td T
+        td Y
+        td U
+        td I
+        td O
+        td P
+      tr
+        td A
+        td S
+        td D
+        td F
+        td(style='background:black') G
+        td H
+        td J
+        td K
+        td L
+        td
+      tr
+        td Z
+        td X
+        td C
+        td V
+        td B
+        td N
+        td M
+        td
+        td
+        td
+    li Character preview is required to know where the virtual pointer is located.
+    li Note: There is no way to know how close to the next character the virtual cursor is.
+    li Note: It allows to build muscle memory.
+    li Note: It requires to be very mentally focused to use effectively. Conflicting with #[em considerations 6 and 9].
+
+  div: br
+  h4 4.7. Gyro character recognition
+  ul
+    li #[em L1] button starts the character recognition process.
+    li #[em Gyro] allows to "draw characters on the air" like if it was a virtual pen.
+    li Releasing #[em L1] ends the character recognition process and sends the character to the host if there is a match.
+    li No character preview is required.
+    li Note: Firmware implementation would be very hard to develop, but not impossible.
+    li Note: It may require to adapt to user's specific way to write characters.
+
+  hr
+  h3 5. Evaluation (so far)
+  p From all the methods evaluated, we decided to do further testing with 2 of them: #[em Daisywheel] and #[em Glyph-stick], as we found these the most promising solutions: being the easier to learn, most accessible, most compatible, and being easier to remember.
+
+  table.manual.hdiv.col5
+    tr
+      td
+      th Concept
+      th Alpha tested
+      th Beta tested
+      th Evaluation status
+    tr
+      th Daisywheel
+      td Yes
+      td Yes
+      td Soon
+      td In progress 🟢
+    tr
+      th Character cycling
+      td Yes
+      td Yes
+      td
+      td Discontinued
+    tr
+      th Clover keyboard
+      td Yes
+      td Yes
+      td
+      td Discontinued
+    tr
+      th Keyboard rows
+      td Yes
+      td
+      td
+      td Discontinued
+    tr
+      th Glyph-stick
+      td Yes
+      td Yes
+      td Soon
+      td In progress 🟢
+    tr
+      th Gyro projected keyboard
+      td Yes
+      td Yes
+      td
+      td Discontinued
+    tr
+      th Gyro character recognition
+      td Yes
+      td
+      td
+      td Delayed indefinitely
+
+  hr
+  h3 6. Next steps
+  p The plan is to gather feedback, and to do beta testing with our testers. Based on the results, some of these mechanisms may become part of future firmware releases. These will then be iterated and improved accordingly.
+  p Another blog article may provide further details on those tests, iterations and their results, as well as the findings and conclusions.
+
+
+  hr
+  p Thanks a lot for the support! <br> - M&M <3
+
+
+
