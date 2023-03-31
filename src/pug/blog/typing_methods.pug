@@ -11,7 +11,7 @@ block content
   hr
 
   h3 1. Introduction
-  p In some scenarios it is necessary to input alphanumeric characters while using a device without a physical keyboard (mobile phone, videogame console, smart TV) or when using a keyboard is not possible (disability use cases). Solutions for these cases have been created in the past:
+  p In some scenarios it is necessary to input alphanumeric characters while using a device without a physical keyboard (e.g. mobile phones, videogame consoles, smart TV) or when using a keyboard is not possible (for example due to a disability). Solutions for these cases have been created in the past:
   p #[+ax('https://en.wikipedia.org/wiki/Feature_phone') Feature phones] used keypad typing #[i (Fig. A)].
   p Smartphones uses touchscreen keyboards #[i (Fig. B)].
   p Videogame consoles and computers uses on-screen virtual keyboards #[i (Fig. C)].
@@ -41,16 +41,10 @@ block content
   )
 
   p In the context of a computer dedicated to videogames, or a videogame console, the most frequent use cases for alphanumeric input are:
-  table.manual.hdiv
-    tr
-      th Use-case 1
-      td Search box input in a game launcher, game shop, or internet browser.
-    tr
-      th Use-case 2
-      td Sign-up forms and/or sign-in with credentials (user and password).
-    tr
-      th Use-case 3
-      td Basic chat communication.
+  ul
+    li #[em Use-case 1]: Search box: input in a game launcher, game shop, or internet browser.
+    li #[em Use-case 2]: Fields: Sign-up forms and/or sign-in with credentials (user and password).
+    li #[em Use-case 3]: Chat: Basic chat communication.
 
   p At Input Labs, we developed the Alpakka firmware with the goal of #[em not requiring additional software or drivers], and emulating mouse and keyboard at the lowest level possible (firmware and USB communication).
   p Following this goal we also want to explore potential input mechanisms for alphanumeric characters, that would work in a videogame controller without additional software not operating system support.
@@ -60,15 +54,11 @@ block content
 
   h4 2.1. Limited number of buttons
   p The most obvious limitation when not having a physical keyboard is that alternatives do not have as many buttons. A standard layout controller (e.g. Xbox controller) have "only" about 14 buttons and 6 axis.
-  p We could also consider motion (gyro) input, but that would drastically limit the potential application of our research, since we want to develop methods that are compatible with standard controllers, and as much people as possible can benefit from it.
-  p Additionally we also want the solutions to be compatible with one-hand controllers as the (#[+a('/kapybara') Kapybara]).
-  table.manual
-    tr
-      th Consideration 1
-      td Limit the number of input axis (ideally 2 or less)
-    tr
-      th Consideration 2
-      td Limit the number of input buttons (ideally 8 or less)
+  p We could also consider motion (gyro) input, but that would drastically limit the potential application of our research, since we want to develop methods that are compatible with standard controllers, so as much people as possible can benefit from it.
+  p Additionally we also want the solutions to be compatible with one-hand controllers such as the (#[+a('/kapybara') Kapybara]).
+  ul
+    li #[em Consideration 1]: Limit the number of input axis (ideally 2 or less).
+    li #[em Consideration 2]: Limit the number of input buttons (ideally 8 or less).
 
   h4 2.2 Discoverability
   p Since gamepads buttons are usually labelled for gamepad usage, they do not have additional labels to help with alphanumeric input. Virtual keyboards circumvent this limitation by showing the characters on-screen, but as discussed above, we want to explore alternatives that do not rely in this kind of operating system integration. Nevertheless, on-screen keyboards also have limitations:
@@ -76,43 +66,26 @@ block content
     li May be not available on elevated credential dialogs or screens.
     li May be not available when playing videogames on exclusive fullscreen.
   p Therefore we want to avoid these limitations while evaluating alternatives:
-  table.manual
-    tr
-      th Consideration 3
-      td Minimal OS integration (no on-screen keyboard)
-    tr
-      th Consideration 4
-      td Should work on elevated credential dialogs or screens.
-    tr
-      th Consideration 5
-      td Should work while executing application on exclusive fullscreen.
-    tr
-      th Consideration 6
-      td Abstractions for discoverability must facilitate learning and mistake recovery.
+  ul
+    li #[em Consideration 3]: Minimal OS integration (no on-screen keyboard).
+    li #[em Consideration 4]: Should work on elevated credential dialogs or screens.
+    li #[em Consideration 5]: Should work while executing applications on exclusive fullscreen.
+    li #[em Consideration 6]: Abstractions for discoverability must facilitate learning and mistake recovery.
 
 
   h4 2.4. Manipulation complexity
   p The solutions we evaluate must avoid abstractions that are complex to manipulate, so they are as accessible as possible:
   table.manual
-    tr
-      th Consideration 7
-      td Avoid using solutions that rely on timing between button presses.
-    tr
-      th Consideration 8
-      td Avoid requiring the use multiple of fingers, the less fingers required the better.
-    tr
-      th Consideration 9
-      td Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
-    tr
-      th Consideration 10
-      td Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
+  ul
+    li #[em Consideration 7]: Avoid using solutions that rely on timing between button presses.
+    li #[em Consideration 8]: Avoid requiring the use multiple of fingers, the less fingers required the better.
+    li #[em Consideration 9]: Avoid requiring very accurate movement in analog controls (thumbstick, gyro).
+    li #[em Consideration 10]: Avoid simultaneous input in which the user is required do perform actions with multiple fingers at once, specially if one or more of the actions involve analog input.
 
   h4 2.5. Typing speed
   p Even though typing speed should not be a priority goal for the solutions we are looking for, we could argue that solutions that are easy to learn and remember could also result in faster characters-per-minute typing speeds, specially during the learning period.
-  table.manual
-    tr
-      th Consideration 11
-      td Given similar complexity, methods that allow for faster typing will be considered better.
+  ul
+    li #[em Consideration 11]: Given similar complexity, methods that allow for faster typing will be considered better.
 
   hr
   h3 3. Generic solutions
@@ -147,7 +120,7 @@ block content
     '/static/blog/sms.gif',
     'small'
   )
-  p This same concept can be used in PC by sending (and deleting) characters on demand. Unfortunately in our tests we found that this solution  it is #[em not compatible with 100%] of the PC use cases, as for example it may be problematic:
+  p This same concept can be used in PC by sending (and deleting) characters on demand. Unfortunately in our tests we found that this solution is #[em not 100% compatible] with common PC use-cases, as for example it may be problematic:
   ul
     li If a searchbox is auto-completing what is written on it, and "auto-committing" characters.
     li If searchbox suggestions rendering is making the system to get unresponsive.
@@ -156,9 +129,9 @@ block content
 
   hr
   h3 4. Specific solutions
-  p We evaluated a total of #[em 9 potential typing methods], and we created early implementations for 7.
+  p We evaluated a total of #[em 10 potential typing methods] (7 methods with 3 additional variants), and we created early implementations for many of them.
   //- p All of these were conceived to be integrated as part of the Alpakka #[+a('/alpakka/manual/profile_desktop') Desktop profile].
-  p This is a high level view of the characteristics, advantages and disadvantages we found on each of these methods:
+  p This is a high-level view of the characteristics:
 
   h4 4.1. Daisywheel
   ul
@@ -197,18 +170,18 @@ block content
   )
 
   div: br
-  h4 4.2. Analog keypad (3 variants)
+  h4 4.2. Character cycling (3 variants)
   ul
     li #[em Thumbstick] direction pre-selects a group of 4 characters.
-    li #[em Thumbstick] radius (reaching the border) cycles over these characters using character preview.
     li The character is committed when the #[em thumbstick] goes back to the center.
     li Keypad-style character grouping, but adapted for having no center key.
     li Variants:
     ul
-      li Variant 1: #[em Scroll wheel] is used to cycle the characters (cycle next or prev).
-      li Variant 2: Cycle characters by turning around #[em thumbstick] clockwise or anticlockwise, 90° each cycle, similar to an old rotary phone.
+      li Variant 1: #[em Thumbstick] radius (reaching the border) cycles over these characters using character preview.
+      li Variant 2: #[em Scroll wheel] is used to cycle the characters (cycle next or prev).
+      li Variant 3: Cycle characters by turning around #[em thumbstick] clockwise or anticlockwise, 90° each cycle, similar to an old rotary phone.
     li All variants require character preview.
-    li Note: All variants are relatively hard to perform due to accurate input required. Conflicting with #[em consideration 9].
+    li Note: Variants 1 and 3 are relatively hard to perform due to accurate input required. Conflicting with #[em consideration 9].
     li Note: Thumbstick-dialing later evolved into the #[em glyph-stick] method.
   +figure(
     null,
@@ -282,7 +255,7 @@ block content
   div: br
   h4 4.5. Glyph-stick
   ul
-    li #[em Thumbstick] is used for basic pattern recognition (glyphs).
+    li #[em Thumbstick] is used for basic pattern matching (glyphs).
     li Glyph is evaluated when returning to center.
     li Glyph patterns are designed to resemble the characters they represent, so they are easier to remember. (#[em consideration 6]).
     li All glyphs start/end from the center into a cardinal direction (left, right, up, down). So do not use diagonals, reducing manipulation complexity (#[em consideration 9]).
