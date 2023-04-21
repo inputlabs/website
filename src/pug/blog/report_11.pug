@@ -7,14 +7,16 @@ block content
   h2 Progress report #11
   +news_header('21 April 2023', 'report_10', '')
 
-  h3 Firmware beta with alphanumeric input methods
-  p As a continuation of the research documented on Alphanumeric input #[+a('alphanumeric_input') blog entry], we now implemented an early version of some input methods (Glyph-stick, Daisywheel, 8-slot quick chat macros, and on-screen keyboard shortcut) and released it as #[+ax(org.fw_release+'0.89.0-beta') Firmware 0.89.0-beta], we hope to get plenty of feedback from the community to iterate over these.
+  h3 Beta version with alphanumeric input methods
+  p As a continuation of the research on #[+a('alphanumeric_input') alphanumeric input], we now implemented an early version of some input methods (Glyph-stick, Daisywheel, 8-slot quick chat macros, and on-screen keyboard shortcut) and released it as #[+ax(org.fw_release+'0.89.0-beta') Firmware 0.89.0-beta].
   p We also published a #[+ax('https://www.youtube.com/watch?v=sVtkRMTe34o') demo video] showing how to use these.
+  p We hope to get plenty of feedback from the community to iterate over these.
   hr
 
   h3 Automated firmware build with GitHub actions
-  p GitHub is now #[em automatically building] changes on the main branch and creating the final #[em .uf2] firmware file. Also we are able to build any branch or tag, triggering it from the UI, which is useful for releasing beta versions like the one above.
-  p In before we did it manually, which required additional testing just to be sure there was no human error.
+  p GitHub is now #[em automatically building] changes on the main branch and creating the final #[em .uf2] firmware file as part of our #[em CI/CD], which will integrate automated testing later.
+  p We are also able to build any branch or tag, triggering it from the GitHub web UI, which is useful for releasing beta versions like the one above.
+  p Previously we did it locally, which required additional testing just to be sure there was no human error.
   p Additionally now everyone can verify the #[em metadata.txt] file in the build artifacts, and check the hash and job URL:
   pre: code.
     =================================
@@ -35,21 +37,20 @@ block content
     https://github.com/inputlabs/alpakka_firmware/actions/runs/4745704629
   hr
 
-  h3 Rolled out first feedback questionary for testers
-  p We are getting feedback from official #[+a('hardware_testing') Testers] regarding the experience of figuring out how to build an Alpakka controller, sourcing the components, and the DIY process in general. We are organizing this feedback in a bit more structured way thanks to Google Forms, than the feedback we are usually collecting on Discord.
-  p This will help us streamlining the process, and focus on the improvements that matter the most.
+  h3 Rolled out first feedback questionnaire for testers
+  p We are getting feedback from official #[+a('hardware_testing') Testers] regarding the process of building an Alpakka controller, sourcing the components, and the DIY experience in general.
+  p The questionnaire enables us to gather feedback in a more structured manner and work on improvements accordingly.
   hr
 
   h3 New kits in the shop
-  p We introduced new articles available on the #[+ax(org.shop) Input Labs shop], including 3D-printed parts, so people without access to 3D-printers have now a fallback to get those, directly from the people with the most experience on printing these parts ;)
-  p These are available multiple colors already, but we will introduce more colors later.
-  p The new articles are:
+  p We introduced new articles in the #[+ax(org.shop) Input Labs shop]. The new articles are:
   ul
     li 3D-printed front case.
     li 3D-printed back case.
     li 3D-printed buttons.
     li Soldering stand in recycled PLA.
     li Electronics components set.
-
+  p Offering 3D-printed parts gives people without access to 3D-printers a fallback to obtain those parts, directly from the people with the most experience in printing these ;)
+  p The parts are available in multiple colors, and we may introduce additional colors later.
   hr
   p Thanks a lot for the support! <br> - M&M <3
