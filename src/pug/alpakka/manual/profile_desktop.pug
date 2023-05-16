@@ -8,7 +8,33 @@ block content
   hr
 
   p This profile is made for browsing the internet, moving files around, typing in a chat, typing passwords, or any other desktop-oriented activity.
+  p It also features 2 additional methods for alphanumeric input (typing arbitrary text as in a keyboard), see below.
   img.wide.mt(src='/static/manual/profile_desktop.svg')
+  hr
+
+  h3 Glyph-stick
+  p Keyboard emulation based on pattern matching.
+  ul
+    li Moving the thumbstick away from the center, then performing one of the glyphs, and then returning the thumbstick to the center.
+    li All glyphs start and end in a cardinal direction (left, right, up, down).
+    li Glyphs are designed to resemble the shape of the corresponding letter or symbol, so they are easier to remember.
+    li Shorter patterns are used for more frequent characters (in english / indo-european languages).
+    li Glyphs are editable in the profile, so they can be customized for preferences or needs.
+    li Space, delete, enter and escape are still available on the ABXY buttons when using this method.
+  img.wm.mt(src='/static/manual/glyph-stick.png')
+  hr
+
+  h3 Daisywheel (SMS variant)
+  p Keyboard emulation based on Steam Controller original daisywheel, but remade with mobile phone keypad-style grouping.
+  ul
+    li Thumbstick direction (8 possible directions) pre-selects a group of 4 characters.
+    li Final selection is made with ABXY buttons.
+    li Most vowels are located in a cardinal direction (left, right, up, down), and always on the A button.
+    li A, B, X, Y are located in their familiar spots within their group.
+    li Groupings are editable in the profile, so they can be customized for preferences or needs.
+    li Space, delete, enter and escape are still available on the ABXY buttons when the thumbstick is centered.
+
+  img.wm.mt(src='/static/manual/daisywheel.png')
   hr
 
   h3 Additional links
