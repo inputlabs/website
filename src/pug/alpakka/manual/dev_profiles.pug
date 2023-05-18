@@ -24,91 +24,71 @@ block content
   table.manual.hdiv.col3
     tr
       td: b NORMAL
-      th Primary actions
-      th Secondary actions
-    tr
       th Actions triggered
-      td When the button is pressed
-      td -
-    tr
-      th Actions held
-      td Yes
-      td -
-    tr
       th Actions released
+    tr
+      th Primary actions
+      td When the button is pressed
       td When the button is released
+    tr
+      th Secondary actions
+      td -
       td -
 
   table.manual.hdiv.col3
     tr
       td: b HOLD_EXCLUSIVE #[br] HOLD_EXCLUSIVE_LONG
-      th Primary actions
-      th Secondary actions
-    tr
       th Actions triggered
-      td When the button is released before the time threshold
-      td When the button is pressed for longer than the time threshold
-    tr
-      th Actions held
-      td No
-      td Yes
-    tr
       th Actions released
+    tr
+      th Primary actions
+      td When the button is released before the time threshold
       td Immediately
+    tr
+      th Secondary actions
+      td When the button is pressed for longer than the time threshold
       td When the button is released
 
   table.manual.hdiv.col3
     tr
       td: b HOLD_OVERLAP
-      th Primary actions
-      th Secondary actions
-    tr
       th Actions triggered
-      td When the button is pressed
-      td When the button is pressed for longer than the time threshold
-    tr
-      th Actions held
-      td Yes
-      td Yes
-    tr
       th Actions released
+    tr
+      th Primary actions
+      td When the button is pressed
       td When the button is released
+    tr
+      th Secondary actions
+      td When the button is pressed for longer than the time threshold
       td When the button is released
 
   table.manual.hdiv.col3
     tr
       td: b HOLD_DOUBLE_PRESS #[br] (eg: Home button)
-      th Primary actions
-      th Secondary actions
-    tr
       th Actions triggered
-      td When the button is pressed only once within the time threshold
-      td When the button is pressed twice within the time threshold
-    tr
-      th Actions held
-      td Yes
-      td Yes
-    tr
       th Actions released
+    tr
+      th Primary actions
+      td When the button is pressed only once within the time threshold
       td When the button is released
+    tr
+      th Secondary actions
+      td When the button is pressed twice within the time threshold
       td When the button is released
 
   table.manual.hdiv.col3
     tr
       td: b STICKY #[br] (eg: Alt-tabbing)
-      th Primary actions
-      th Secondary actions
-    tr
       th Actions triggered
-      td When the button is pressed
-      td When the button is pressed
-    tr
-      th Actions held
-      td Yes
-      td Yes
-    tr
       th Actions released
+    tr
+      th Primary actions
+      td When the button is pressed
       td When the profile is changed
+    tr
+      th Secondary actions
+      td When the button is pressed
       td When the button is released
 
   hr
