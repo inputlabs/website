@@ -1,0 +1,38 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #13
+
+block content
+  h2 Progress report #13
+  +news_header('26 May 2023', 'report_12', '')
+
+  h3 New PCB version
+  p We released Alpakka PCB version #[+ax('https://github.com/inputlabs/alpakka_pcb/releases/tag/0.90.0') b0.90.0] (#[em b] for board):
+  ul
+    li The most important change is the improvement of the touch sensing solution by increasing the granularity of the capacitance (a bigger resitor).
+    li Many other improvements and fixes (#[+ax('https://github.com/inputlabs/alpakka_pcb/releases/tag/0.90.0') release notes]).
+  br
+  img(src='/static/blog/pcb_0_90_0.jpg').wm
+  hr
+
+  h3 New firmware version(s)
+  p We released two Alpakka firmware versions during the last weeks.
+  p Firmware version #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/0.89.0') f0.89.0]:
+  ul
+    li Two new alphanumeric input methods: #[em Glyph-stick] and #[em Daisywheel], with support of key combination and modifier keys (control, shift, alt). Those are now part of the #[+a('/alpakka/manual/profile_desktop') Desktop profile].
+    li Introduced #[em quick-chat macros].
+    li Introduced a shortcut to bring the #[em on-screen keyboard] (default Windows shortcut).
+    li Emulation of a native gamepad home button when double-pressing the physical #[em Home button], which allows the use of Steam Deck shortcuts.
+    li Many other improvements and fixes (#[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/0.89.0') release notes]).
+
+  p Firmware version #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/0.90.0') f0.90.0]:
+  ul
+    li Support for PCB version #[em b0.90.0].
+    li Rework of the #[em automatic] touch sensitivity algorithm, and more robust touch sensing.
+    li A new manual guided test procedure, to identify potential issues with the buttons or axis. (Contribution of GitHub user #[em @tomas-pecserke]).
+    li Many other improvements and fixes (#[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/0.90.0') release notes]).
+  hr
+
+  p Thanks a lot for the support! <br> - M&M <3
+
