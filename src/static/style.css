@@ -291,6 +291,9 @@ main .boxes.center {
   padding: 0;
   min-height: 300px;
 }
+.box.translucent {
+  opacity: 0.95;
+}
 .box.image.colored {
   background-color: initial;
   animation: animation-bg var(--cycle) linear infinite;

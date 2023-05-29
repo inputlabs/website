@@ -1,0 +1,51 @@
+extends ../_template.pug
+
+block title
+  | community Alpakka from the community
+
+block page
+  include _title.pug
+
+  mixin imglink(src)
+    div.box.image
+      a.img(href=src target='_blank')
+        img(src=src)
+
+  mixin imglinkurl(img, url, text, blank)
+    - target = blank ? '_blank' : ''
+    div.box.image
+      a.img(href=url target=target)
+        img(src=img)
+        if text
+          div #{text} ->
+
+  div.boxes.grid
+      +imglink('/static/community/community_purple_pair.jpg')
+      +imglink('/static/community/community_tux_deck.jpg')
+      +imglink('/static/community/community_black_turq.jpg')
+      +imglink('/static/community/community_silver_green.jpg')
+      +imglink('/static/community/community_blue_lime.jpg')
+      +imglink('/static/community/community_lime_pair.jpg')
+      +imglink('/static/community/community_black_purple.jpg')
+      +imglink('/static/community/community_silver_pair.jpg')
+      +imglink('/static/community/community_black_orange.jpg')
+      +imglink('/static/community/community_black_copper.jpg')
+      +imglink('/static/community/community_trans.jpg')
+      +imglink('/static/community/community_black_yellow.jpg')
+      +imglink('/static/community/community_white.jpg')
+      +imglink('/static/community/community_purple.jpg')
+      +imglink('/static/community/community_black_red.jpg')
+      +imglink('/static/community/community_black_turq2.jpg')
+      +imglink('/static/community/community_turq.jpg')
+      +imglink('/static/community/community_white2.jpg')
+      +imglink('/static/community/community_green_pair.jpg')
+      +imglink('/static/community/community_white3.jpg')
+      +imglink('/static/community/community_wood.jpg')
+      +imglink('/static/community/community_turq2.jpg')
+      +imglink('/static/community/community_black_lime.jpg')
+      +imglink('/static/community/community_black_blue.jpg')
+      +imglinkurl(
+        '/static/img/alpakka_black_silver_top.jpg',
+        '/alpakka/gallery',
+        'Alpakka reference design gallery'
+      )
