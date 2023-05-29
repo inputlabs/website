@@ -1,0 +1,25 @@
+extends ../_template.pug
+
+block title
+  | Contribute to Input Labs
+
+block page
+  include _title.pug
+
+  div.boxes.grid
+    div.box
+      h2 Become a patron
+      p Input Labs is possible thanks to the combined effort and #[em thousands of hours of work] made by passionate engineers, designers, testers, and contributors.
+      p Please consider supporting Input Labs research by #[+ax(org.patreon) becoming a member in Patreon], so we can keep doing what we love to do.
+      p Our next goal is to acquire laboratory materials and tools, such as different models of 3D printers, oscilloscope, thermal camera, ultra-high framerate monitors, and other hardware and software.
+
+    div.box
+      h2 Benefits
+      p #[em Private channel and voting]: Input Labs patrons can use the #[+ax(org.discord) Discord] channel to suggest games for the next video demo and the accessibility DB, as well as research topics for the blog. About once a month we will then enable voting for entries in those lists.
+      p #[em Display your name]: Tier 2+ patrons name or nickname will be included in an firmware easter-egg.
+      p #[em Le Petit Alpakka keyring] Tier 3+ patrons will receive a mini Alpakka keyring as a special token of our appreciation.
+
+    div.box.image.translucent
+      a.img(href=org.patreon, target='_blank')
+        img(src='/static/img/le_petit_alpakka.png')
+        div Le Petit Alpakka for our patrons
