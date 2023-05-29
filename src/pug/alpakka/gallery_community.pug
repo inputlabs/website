@@ -1,0 +1,38 @@
+extends ../_template.pug
+
+block title
+  | Wild Alpakka from the community
+
+block page
+  include _title.pug
+
+  mixin imglink(src)
+    div.box.image
+      a.img(href=src target='_blank')
+        img(src=src)
+
+  div.boxes.grid
+      +imglink('/static/wild/wild_purple_pair.jpg')
+      +imglink('/static/wild/wild_tux_deck.jpg')
+      +imglink('/static/wild/wild_black_turq.jpg')
+      +imglink('/static/wild/wild_silver_green.jpg')
+      +imglink('/static/wild/wild_blue_lime.jpg')
+      +imglink('/static/wild/wild_lime_pair.jpg')
+      +imglink('/static/wild/wild_black_purple.jpg')
+      +imglink('/static/wild/wild_silver_pair.jpg')
+      +imglink('/static/wild/wild_black_orange.jpg')
+      +imglink('/static/wild/wild_black_copper.jpg')
+      +imglink('/static/wild/wild_trans.jpg')
+      +imglink('/static/wild/wild_black_yellow.jpg')
+      +imglink('/static/wild/wild_white.jpg')
+      +imglink('/static/wild/wild_purple.jpg')
+      +imglink('/static/wild/wild_black_red.jpg')
+      +imglink('/static/wild/wild_black_turq2.jpg')
+      +imglink('/static/wild/wild_turq.jpg')
+      +imglink('/static/wild/wild_white2.jpg')
+      +imglink('/static/wild/wild_green_pair.jpg')
+      +imglink('/static/wild/wild_white3.jpg')
+      +imglink('/static/wild/wild_wood.jpg')
+      +imglink('/static/wild/wild_turq2.jpg')
+      +imglink('/static/wild/wild_black_lime.jpg')
+      +imglink('/static/wild/wild_black_blue.jpg')
