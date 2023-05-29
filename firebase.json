@@ -18,6 +18,16 @@
         "source": "/devices/:sub*",
         "destination": "/:sub",
         "type": 301
+      },
+      {
+        "source": "/contribute",
+        "destination": "/contribute/open_source",
+        "type": 301
+      },
+      {
+        "source": "/db",
+        "destination": "/db/stats",
+        "type": 301
       }
     ]
   }
