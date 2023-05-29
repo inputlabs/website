@@ -22,7 +22,7 @@
     shop: 'https://inputlabs.squarespace.com',
   }
 
-  const default = {
+  const redirect = {
     db:            '/db/stats',
     contribute:    '/contribute/open_source',
     blog:          '/blog/half_anniversary',
@@ -42,11 +42,11 @@ mixin nav
       if (name=='devices' && devices.includes(SECTION)) return 'active'
       return ''
     }
-  div.tab(class=active('devices')):    +a('/devices')         Devices
-  div.tab(class=active('contribute')): +a(default.contribute) Contribute
-  div.tab(class=active('db')):         +a(default.db)         Accessibility DB
-  div.tab(class=active('blog')):       +a(default.blog)       Blog
-  div.tab:                             +ax(org.shop)          Shop
+  div.tab(class=active('devices')):    +a('/devices')          Devices
+  div.tab(class=active('contribute')): +a(redirect.contribute) Contribute
+  div.tab(class=active('db')):         +a(redirect.db)         Accessibility DB
+  div.tab(class=active('blog')):       +a(redirect.blog)       Blog
+  div.tab:                             +ax(org.shop)           Shop
 
 mixin wikilink(href, external=false)
   - const active = (href==PAGE)
