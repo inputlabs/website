@@ -8,15 +8,38 @@ block page
 
   div.boxes.grid
     div.box
-      h2 Feedback
-      p Input Labs is a #[em community-driven] effort, so you make us all better by simply using our stuff, and sharing your feedback and ideas with the other members.
-      p Join our #[+ax(org.discord) Discord] for some casual talk.
-      p Check #[+ax(org.forum) GitHub Discussions] for more organized forum-like posts and support.
-
-    div.box
       h2 Open source
       p #[em Explore, modify, and re-share!] This is all about our open source projects, so feel free to play with them, propose features, report bugs, and submit pull requests with improvements.
       p Browse our #[+ax(org.repos) GitHub Repositories] for the source code and hardware designs.
+
+    +boximglink(
+      '/static/community/repo_case.jpg',
+      org.repo+'alpakka_case',
+      'Alpakka 3D models',
+      true,
+      true
+    )
+
+    +boximglink(
+      '/static/community/repo_firmware.jpg',
+      org.repo+'alpakka_firmware',
+      'Alpakka firmware',
+      true,
+      true
+    )
+
+    +boximglink(
+      '/static/community/repo_pcb.jpg',
+      org.repo+'alpakka_pcb',
+      'Alpakka Printed Circuit Board',
+      true,
+      true
+    )
+
+    div.box
+      h2 Feedback
+      p Input Labs is a #[em community-driven] effort, so you make us all better by simply using our stuff, and sharing your feedback and ideas with the other members.
+      p Join our #[+ax(org.discord) Discord] server and take part in technical or casual discussions.
 
     div.box
       h2 Become a tester

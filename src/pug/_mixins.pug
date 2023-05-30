@@ -11,6 +11,7 @@
   const db = YAML.parse(FS.readFileSync('src/pug/db/_data.yaml', 'utf8'))
 
   const org = {
+    repo: 'https://github.com/inputlabs/',
     repos: 'https://github.com/orgs/inputlabs/repositories?sort=name',
     fw_releases: 'https://github.com/inputlabs/alpakka_firmware/releases/',
     fw_release: 'https://github.com/inputlabs/alpakka_firmware/releases/tag/',
@@ -92,6 +93,14 @@ mixin figure(id, caption, src, cls, style)
       div.caption(style=style) #{caption}
     div.caption
       block
+
+mixin boximglink(img, url, text, blank, blend)
+  - target = blank ? '_blank' : ''
+  div.box.image(class=blend?'colored blend':'')
+    a.img(href=url target=target)
+      img(src=img)
+      if text
+        div #{text} ->
 
 
 
