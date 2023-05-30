@@ -6,42 +6,34 @@ block title
 block page
   include _title.pug
 
-  mixin imglink(src)
+  mixin boximg(src)
     div.box.image
       a.img(href=src target='_blank')
         img(src=src)
 
-  mixin imglinkurl(img, url, text, blank)
-    - target = blank ? '_blank' : ''
-    div.box.image
-      a.img(href=url target=target)
-        img(src=img)
-        if text
-          div #{text} ->
-
   div.boxes.grid
-      +imglink('/static/img/alpakka_black_silver_stand.jpg')
-      +imglink('/static/img/alpakka_black_silver_top.jpg')
-      +imglink('/static/img/alpakka_black_silver_back.jpg')
-      +imglink('/static/img/alpakka_black_silver_bottom.jpg')
-      +imglinkurl(
+      +boximg('/static/img/alpakka_black_silver_stand.jpg')
+      +boximg('/static/img/alpakka_black_silver_top.jpg')
+      +boximg('/static/img/alpakka_black_silver_back.jpg')
+      +boximg('/static/img/alpakka_black_silver_bottom.jpg')
+      +boximglink(
         '/static/img/youtube.jpg',
         org.youtube,
         'Gameplay and DIY videos',
         true
       )
-      +imglink('/static/img/alpakka_brief.jpg')
-      +imglink('/static/img/alpakka_black_purple_stand.jpg')
-      +imglink('/static/img/alpakka_black_blue_stand.jpg')
-      +imglink('/static/img/alpakka_black_teal_stand.jpg')
-      +imglink('/static/img/alpakka_black_lime_stand.jpg')
-      +imglink('/static/img/alpakka_black_yellow_stand.jpg')
-      +imglink('/static/img/alpakka_black_orange_stand.jpg')
-      +imglink('/static/img/alpakka_black_red_stand.jpg')
-      +imglink('/static/img/alpakka_black_pink_stand.jpg')
-      +imglink('/static/img/alpakka_rainbow.jpg')
-      +imglink('/static/img/alpakka_black_silver_info.jpg')
-      +imglinkurl(
+      +boximg('/static/img/alpakka_brief.jpg')
+      +boximg('/static/img/alpakka_black_purple_stand.jpg')
+      +boximg('/static/img/alpakka_black_blue_stand.jpg')
+      +boximg('/static/img/alpakka_black_teal_stand.jpg')
+      +boximg('/static/img/alpakka_black_lime_stand.jpg')
+      +boximg('/static/img/alpakka_black_yellow_stand.jpg')
+      +boximg('/static/img/alpakka_black_orange_stand.jpg')
+      +boximg('/static/img/alpakka_black_red_stand.jpg')
+      +boximg('/static/img/alpakka_black_pink_stand.jpg')
+      +boximg('/static/img/alpakka_rainbow.jpg')
+      +boximg('/static/img/alpakka_black_silver_info.jpg')
+      +boximglink(
         '/static/community/community_lime_pair.jpg',
         '/contribute/gallery_community',
         'Wild Alpakkas from the community'
