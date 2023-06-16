@@ -8,35 +8,40 @@ block content
   hr
 
   h3 3D models
-  p The source designs for the case and buttons are available at #[+ax('https://github.com/inputlabs/alpakka_case') Alpakka 3D-print] repository, along with the pre-built #[+ax('https://github.com/inputlabs/alpakka_case/releases/latest') STL and 3MF] files for the reference designs.
+  p The source designs are available from the #[+ax('https://github.com/inputlabs/alpakka_case') Alpakka 3D-print] repository, along with the #[+ax('https://github.com/inputlabs/alpakka_case/releases/latest') rendered models for each release] of the reference design.
+  p The models are optimized for modern FDM (Fused Deposition Modeling) printers, which should easily be able to print all parts of the Alpakka. 
 
   h3 3D printer
-  p Any modern FDM (Fused Deposition Modeling) printer should be able to print Alpakka case and buttons, the parts are designed so they do not require any additional supports, but the printer must be able do generate at least 10 millimeter bridges.
-  p Resin 3D printers should be an option too, but we did not test these yet.
-  p If you do not own a 3D printer, check if your local library have some for booking. Alternatively if you are interested in buying a 3D printer, some of the most popular ones are #[+ax('https://www.prusa3d.com') Prusa] and #[+ax('https://www.creality.com') Creality] printers.
-  p Another option is too use online 3D-printing services, but these are expensive and results may be mixed, so we do not really recommend them.
+  p The parts are designed to not require any additional supports, even though for specific parts, such as the thumbstick and the home button, some supports are recommended for optimal performance (see below). Printers are expected to print at least 10 millimeter long bridges with reasonable accuracy.
+  p Our best experience is with FDM printer from #[+ax('https://www.prusa3d.com') Prusa].
+  p SLA / MSLA (Masked Stereolithography Apparatus, a.k.a. Resin) printers should also be an option, even though we have not yet tested this technology.
+
+  p While private ownership of a 3D printer becomes increasingly common, you should alternatively check if such printers are available in your local library, university, or tinkerer workshop. Another option is the use of local or online 3D-printing services.
+  p We also have a #[em #diy-share-parts] channel on our #[+ax(org.discord) Discord] server, with a very active and helpful community. There you may be able to get advice wrt. 3D printing, printing the Alpakka, 3D printers in general, or 3D printing services. You may also be able to find people in your vicinity, who are willing to help with your printing needs, or to share cost.
   hr
 
-  h3 Materials and tools
-  p: b Required:
-  ul
-    li 3D models (see above).
-    li 3D printer.
-    li Normal filament (PLA recommended) in one or more colors.
-    li Electrically conductive filament.
-  p Check #[+a('/alpakka/components') Components] for more details.
+  h3 Materials
+  p There are no specific requirements wrt. the selection of materials. For FDM printers, any suitable material should work well. Some, especially silk-PLA appear to be more brittle and thus less suitable for some components, such as the thumbstick.
+  p Our best experience is with PLA from #[+ax('https://prusament.com/') Prusa].
+  p One requirement for the hexagon is conductive PLA. We have tested a number of different materials from various providers, but so far the #[+ax('https://www.proto-pasta.com/collections/all/products/conductive-pla') conductive PLA from Protopasta] was the only one that could reliable provide good results.
   hr
 
-  h3 Printing front
-  p The front part of the case, it does not require supports.
-  img.hm.mt.mr(src='/static/manual/print_A.png')
+  h3 Sets of 3D printed components
+  p In the following we distinguish components, based on the recommended printing material, as well as the recommended settings for FDM printing.
+  p The the #[+ax('https://github.com/inputlabs/alpakka_case/releases/latest') models] are independent of the actually used printer.
+
+  h4 Set A
+  p The top / front part of the case.
+
+  img.hm.mt.mr(src='/static/manual/SetA.png')
+
   table.data
     tr
-      td Recommended layer height
-      td 0.15 mm
+      td Recommended material
+      td PLA (1.75 mm), primary color
     tr
-      td Recommended filament
-      td Standard PLA 1.75 mm
+      td Recommended layer height / setting
+      td 0.15 mm / quality
     tr
       td Recommended perimeters
       td 2
@@ -49,18 +54,22 @@ block content
     tr
       td Printing time
       td ~8 hours
+
+  p No supports, or any other special settings are required.
   hr
 
-  h3 Printing back
-  p The back part of the case, it does not require supports. The first layer must be printed very slowly due to the small pillars circles. If printing slow does not help with the first layer adhesion, a brim may also be used.
-  img.hm.mt.mr(src='/static/manual/print_B.png')
+  h4 Set B
+  p The bottom / back part of the case.
+
+  img.hm.mt.mr(src='/static/manual/SetB.png')
+
   table.data
     tr
-      td Recommended layer height
-      td 0.15 mm
+      td Recommended material
+      td PLA (1.75 mm), secondary color
     tr
-      td Recommended filament
-      td Standard PLA 1.75 mm
+      td Recommended layer height
+      td 0.15 mm / quality
     tr
       td Recommended perimeters
       td 2
@@ -69,23 +78,28 @@ block content
       td Gyroid 10%
     tr
       td Used filament
-      td ~50 grams
+      td ~56 grams
     tr
       td Printing time
-      td ~7 hours
+      td ~7.5 hours
+  
+  p The first layer should be printed very slowly (we recommend a max. First layer speed of 10 mm / s) to ensure that the small support pillars that are part of the model remain well attached to the print bed. If this proves to be insufficient, additional brims may be necessary for your printer.
+  p No additional supports should be required, as long as the printer is able to print ca. 10 mm long bridges in reasonable quality.
   hr
 
-  h3 Printing triggers (and more)
-  p A bundle with L1/R1 triggers, L2/R2 triggers, L4/R4 triggers, scroll wheel, scroll wheel support, 8-directional hat, assembly anchors, and rear cover. None of them need support.
-  p You may want to split the bundle and print these in 2 different colors.
-  img.hm.mt.mr(src='/static/manual/print_C.png')
+  h4 Set C
+  p This bundle contains the L1/R1 triggers, L2/R2 triggers, L4/R4 triggers, and the 8-directional hat, as well as the internal anchors, and the wheel-holder.
+  p We include the internal components (anchors and the wheel-holder) here for simplicity, even though, as they are not externally visible, we usually print them in recycled PLA to be more environmentally friendly.
+  
+  img.hm.mt.mr(src='/static/manual/SetC.png')
+
   table.data
     tr
-      td Recommended layer height
-      td 0.15 mm
+      td Recommended material
+      td PLA (1.75 mm), primary color
     tr
-      td Recommended filament
-      td Standard PLA 1.75 mm
+      td Recommended layer height
+      td 0.15 mm / quality
     tr
       td Recommended perimeters
       td 2
@@ -94,28 +108,54 @@ block content
       td Gyroid 15%
     tr
       td Used filament
-      td ~25 grams
+      td ~17 grams
+    tr
+      td Printing time
+      td ~3 hours
+
+  p No supports, or any other special settings are required.
+  hr
+
+  h4 Set D
+  p This bundle contains the ABXY buttons, the directional buttons, as well as the scrollwheel-shaft.
+
+  img.hm.mt.mr(src='/static/manual/SetD.png')
+
+  table.data
+    tr
+      td Recommended material
+      td PLA (1.75 mm), secondary color
+    tr
+      td Recommended layer height
+      td 0.07 mm / ultradetail
+    tr
+      td Recommended perimeters
+      td 2
+    tr
+      td Recommended infill
+      td Gyroid 15%
+    tr
+      td Used filament
+      td ~9 grams
     tr
       td Printing time
       td ~3.5 hours
+  
+  p These should be printed with a lower layer height in order to reduce grinding between the buttons and the case, and to ensure a proper, central fit of the scrollwheel-shaft in the scrollwheel itself.
   hr
 
-  h3 Printing buttons (and more)
-  p A bundle with ABXY buttons, dpad buttons, select buttons, home button (requires support), thumbstick cap (requires support), and scroll wheel shaft.
-  p You may want to split the bundle and print these in 2 different colors.
-  p These must be printed in a much higher resolution (lower layer height) because:
-  ul
-    li Buttons: So they are smooth while being pressed (otherwise they may grind against the walls).
-    li Thumbstick: So the spherical shape is smooth.
-    li Scroll wheel shaft: So the small hexagonal shaft is accurate.
-  img.hm.mt.mr(src='/static/manual/print_D.png')
+  h4 Set E
+  p This bundle contains the central select buttons.
+
+  img.hm.mt.mr(src='/static/manual/SetE.png')
+
   table.data
     tr
-      td Recommended layer height
-      td 0.07 mm
+      td Recommended material
+      td PLA (1.75 mm), primary color
     tr
-      td Recommended filament
-      td Standard PLA 1.75 mm
+      td Recommended layer height
+      td 0.07 mm / ultradetail
     tr
       td Recommended perimeters
       td 2
@@ -124,22 +164,87 @@ block content
       td Gyroid 15%
     tr
       td Used filament
-      td ~14 grams
+      td ~3.5 grams
     tr
       td Printing time
-      td ~7 hours
+      td ~1.5 hours
+  
+  p These should be printed with a lower layer height in order to reduce grinding between the buttons and the case.
   hr
 
-  h3 Printing conductive hexagon
-  p The hexagonal touch surface, must be printed with an electrically conductive material so the piece becomes capacitative.
-  img.hm.mt.mr(src='/static/manual/print_E.png')
+  h4 Set F
+  p This bundle contains the thumbstick, as well as the home button.
+
+  img.hm.mt.mr(src='/static/manual/SetF.png')
+
   table.data
     tr
-      td Recommended layer height
-      td 0.15 mm
+      td Recommended material
+      td PLA (1.75 mm), secondary color
     tr
-      td Recommended filament
-      td Conductive PLA 1.75 mm
+      td Recommended layer height
+      td 0.07 mm / ultradetail (see notes below for thumbstick)
+    tr
+      td Recommended perimeters
+      td 2
+    tr
+      td Recommended infill
+      td Gyroid 15%
+    tr
+      td Used filament
+      td ~2.5 grams
+    tr
+      td Printing time
+      td ~1 hour
+  
+  p These should be printed with a lower layer height in order to reduce grinding between the buttons and the case.
+  p To ensure a good quality, it is recommended that the overhanging part of the thumbstick (from 13 - 16 mm) are printed with a layer hight of 0.15 mm and at a slower speed.
+  img.hm.mt.mr(src='/static/manual/settings.png')
+  p The thumbstick will also require support enforcers on areas indicated here in blue. (For completeness the areas indicated in red do not require supports, and should not have any supports for easier post-processing).
+  img.hm.mt.mr(src='/static/manual/thumbstick.png')
+  p Please note also that for esthetic reasons the home button is at an 8.4 degree angle, which will also require appropriate supports. While not strictly necessary, it makes for a more pleasing, level top surface.
+  hr
+
+  h4 Set G
+  p This bundle contains the battery cover, as well as the main part of the wheel.
+
+  img.hm.mt.mr(src='/static/manual/SetG.png')
+
+  table.data
+    tr
+      td Recommended material
+      td PLA (1.75 mm), secondary color
+    tr
+      td Recommended layer height
+      td 0.15 mm / quality
+    tr
+      td Recommended perimeters
+      td 2
+    tr
+      td Recommended infill
+      td Gyroid 15%
+    tr
+      td Used filament
+      td ~8.5 grams
+    tr
+      td Printing time
+      td ~1 hour
+  
+  p No supports, or any other special settings are required.
+  hr
+
+  h4 Set H
+
+  p The hexagonal touch surface must be printed with an electrically conductive material in order to detect the user's touch.
+
+  img.hm.mt.mr(src='/static/manual/SetH.png')
+  table.data
+    tr
+      td Material
+      td Conductive PLA (1.75 mm)
+    tr
+      td Recommended layer height
+      td 0.15 mm / quality
     tr
       td Recommended perimeters
       td 3
@@ -148,12 +253,44 @@ block content
       td Solid 100%
     tr
       td Used filament
-      td ~4 grams
+      td ~3.5 grams
     tr
       td Printing time
       td ~0.5 hours
 
+  p The hexagonal touch surface, must be printed with an electrically conductive material so the piece becomes capacitative.  
   hr
+
+  h4 Set I
+  p The soldering helpers
+  img.hm.mt.mr(src='/static/manual/SetI.png')
+
+  table.data
+    tr
+      td Recommended material
+      td PLA (1.75 mm), primary color
+    tr
+      td Recommended layer height
+      td 0.2 mm / speed
+    tr
+      td Recommended perimeters
+      td 2
+    tr
+      td Recommended infill
+      td Gyroid 20%
+    tr
+      td Used filament
+      td ~15 grams
+    tr
+      td Printing time
+      td ~1.5 hours
+  
+  p No supports, or any other special settings are required.
+  p To be more environmentally friendly we usually print these in recycled PLA.
+  hr
+
+  p We may at a later stage also provide these settings in the form of 3MF files. We have, however, experienced significant differences between printer models (and even printers as printing environments), which would necessitate separate 3MF files for each printer model.
+
   h3 Next
   ul
     li: +a('diy_assembly') Assembly
