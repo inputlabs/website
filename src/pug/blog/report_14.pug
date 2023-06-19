@@ -1,0 +1,28 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #14
+
+block content
+  h2 Progress report #14
+  +news_header('19 June 2023', 'half_anniversary', '')
+
+  h3 Testing Alpha version of firmware with racing profile
+  p One of the upcoming features for the Alpakka is the support of racing profiles. The new firmware now takes data from the accelerometer into account to determine the direction of "down", in order to simulate a steering wheel-like behavior.
+  p This firmware version is currently being tested internally.
+  hr
+
+  h3 PCB in distribution channel
+  p The last component of the Alpakka that was still missing from our distribution channel was the PCB. Those who responded to our questionnaire indicated that the need to purchase the PCB separately, the minimum number of PCBs to order, as well the associated cost were some of the biggest issues so far.
+  p Now we have remedied this situation and you can now find the PCB #[+ax('https://inputlabs.squarespace.com/everyone/p/alpakka-pcb') in our normal distribution channel]), together with all the other components, necessary to assemble your very own Alpakka.
+  hr
+  
+  h3 Restructured models and instructions
+  p We have received many questions regarding the 3D printing of the Alpakka, which we wanted to address. We have now separated the models (in the STL files) from the settings for printing them. This allows us to make modifications to the models independently. You can find the new, detailed settings and instructions #[+a('/alpakka/manual/diy_case') in the manual].
+  p We tried to find a way of providing suitable settings in the form of 3MF files, while still keeping those settings separate from the models. Unfortunately we found that certain settings, such as the supports for specific parts like the thumbstick require the model to be part of the 3MF file.
+  img(src='/static/manual/thumbstick.png').
+  p 3MF file and the settings for 3D printing parts are also very dependent on the used slicing program, and vary significantly between different printer models, or even individual printers and environments. As a result, for now we focus on providing the models in the form of STL files, while providing comprehensive settings for their printing in the manual.
+  hr
+
+  p Thanks a lot for the support! <br> - M&M <3
+
