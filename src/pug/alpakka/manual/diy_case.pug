@@ -8,152 +8,230 @@ block content
   hr
 
   h3 3D models
-  p The source designs for the case and buttons are available at #[+ax('https://github.com/inputlabs/alpakka_case') Alpakka 3D-print] repository, along with the pre-built #[+ax('https://github.com/inputlabs/alpakka_case/releases/latest') STL and 3MF] files for the reference designs.
+  p The source designs are available from the #[+ax('https://github.com/inputlabs/alpakka_case') Alpakka 3D-print] repository, along with the #[+ax('https://github.com/inputlabs/alpakka_case/releases/latest') rendered models for each release] of the reference design.
+  p The models are optimized for modern FDM (Fused Deposition Modeling) printers, which should easily be able to print all parts of the Alpakka.
+  hr
 
   h3 3D printer
-  p Any modern FDM (Fused Deposition Modeling) printer should be able to print Alpakka case and buttons, the parts are designed so they do not require any additional supports, but the printer must be able do generate at least 10 millimeter bridges.
-  p Resin 3D printers should be an option too, but we did not test these yet.
-  p If you do not own a 3D printer, check if your local library have some for booking. Alternatively if you are interested in buying a 3D printer, some of the most popular ones are #[+ax('https://www.prusa3d.com') Prusa] and #[+ax('https://www.creality.com') Creality] printers.
-  p Another option is too use online 3D-printing services, but these are expensive and results may be mixed, so we do not really recommend them.
+  p The parts are designed to not require any additional supports, even though for specific parts, such as the thumbstick and the home button, some supports are recommended for optimal performance (see below). Printers are expected to print at least 10 millimeter long bridges with reasonable accuracy.
+  p Our best experience is with FDM printer from #[+ax('https://www.prusa3d.com') Prusa].
+  p SLA / MSLA (Masked Stereolithography Apparatus, a.k.a. Resin) printers should also be an option, even though we have not yet tested this technology.
+
+  p While private ownership of a 3D printer becomes increasingly common, you should alternatively check if such printers are available in your local library, university, or tinkerer workshop. Another option is the use of local or online 3D-printing services.
+  p We also have a #[em #diy-share-parts] channel on our #[+ax(org.discord) Discord] server, with a very active and helpful community. There you may be able to get advice wrt. 3D printing, printing the Alpakka, 3D printers in general, or 3D printing services. You may also be able to find people in your vicinity, who are willing to help with your printing needs, or to share cost.
   hr
 
-  h3 Materials and tools
-  p: b Required:
+  h3 Materials
+  p There are no specific requirements wrt. the selection of materials. For FDM printers, any suitable material should work well. Some, especially silk-PLA appear to be more brittle and thus less suitable for some components, such as the thumbstick.
+  p Our best experience is with PLA from #[+ax('https://prusament.com/') Prusa].
+  p One requirement for the hexagon is conductive PLA. We have tested a number of different materials from various providers, but so far the #[+ax('https://www.proto-pasta.com/collections/all/products/conductive-pla') conductive PLA from Protopasta] was the only one that could reliable provide good results.
+  hr
+
+  h3 List of 3D parts
+  p The following is a list of all the models and their recommended settings for FDM printing.
+  h4 Primary color / material
+  mixin preview(src)
+    img(width='80px' src=src)
+  table.manual.col3.hdiv
+    tr
+      th(style='width:25% !important') Preview
+      th(style='width:25% !important') Name
+      th(style='width:50% !important') Recommendations
+    tr
+      td: +preview('/static/manual/print_front.png')
+      td Front case
+      td
+        div 0.15mm layer height.
+        div Primary color.
+        div 10% gyroid infill.
+        div 2 perimeters.
+        div Very slow first layer.
+    tr
+      td: +preview('/static/manual/print_r1.png')
+      td L1/R1 triggers
+      td
+        div 0.15mm layer height.
+        div Primary color.
+        div 15% gyroid infill.
+        div Tight and loose variants available.
+        div 2x units, mirrored.
+    tr
+      td: +preview('/static/manual/print_r2.png')
+      td L2/R2 triggers
+      td
+        div 0.15mm layer height.
+        div Primary color.
+        div 15% gyroid infill.
+        div 2x units.
+    tr
+      td: +preview('/static/manual/print_r4.png')
+      td L4/R4 triggers
+      td
+        div 0.15mm layer height.
+        div Primary color.
+        div 15% gyroid infill.
+        div Tight and loose variants available.
+        div 2x units, mirrored.
+    tr
+      td: +preview('/static/manual/print_dhat.png')
+      td 8-directional hat
+      td
+        div 0.15mm layer height.
+        div Primary color.
+        div Consider using brim.
+    tr
+      td: +preview('/static/manual/print_select.png')
+      td Select buttons
+      td
+        div: em 0.07mm layer height.
+        div Primary color.
+        div 15% gyroid infill.
+        div 4x units.
+
+  h4 Secondary color / material
+  table.manual.col3.hdiv
+    tr
+      th(style='width:25% !important') Preview
+      th(style='width:25% !important') Name
+      th(style='width:50% !important') Recommendations
+    tr
+      td: +preview('/static/manual/print_back.png')
+      td Back case
+      td
+        div 0.15mm layer height.
+        div Secondary color.
+        div 10% gyroid infill.
+        div 2 perimeters.
+        div Very slow first layer.
+    tr
+      td: +preview('/static/manual/print_cover.png')
+      td Back bay cover
+      td
+        div 0.15mm layer height.
+        div Secondary color.
+    tr
+      td: +preview('/static/manual/print_wheel.png')
+      td Wheel
+      td
+        div 0.15mm layer height.
+        div Secondary color.
+    tr
+      td: +preview('/static/manual/print_abxy.png')
+      td ABXY buttons
+      td
+        div: em 0.07mm layer height.
+        div Secondary color.
+        div 15% gyroid infill.
+        div 4x units.
+    tr
+      td: +preview('/static/manual/print_dpad.png')
+      td Dpad buttons
+      td
+        div: em 0.07mm layer height.
+        div Secondary color.
+        div 15% gyroid infill.
+        div 4x units.
+    tr
+      td: +preview('/static/manual/print_thumbstick.png')
+      td Thumbstick cap
+      td
+        div: em 0.07mm layer height.
+        div Secondary color.
+        div 15% gyroid infill.
+        div Custom supports.
+        div See #[+a('#thumbstick') additional notes].
+    tr
+      td: +preview('/static/manual/print_home.png')
+      td Home button
+      td
+        div: em 0.07mm layer height.
+        div Secondary color.
+        div 15% gyroid infill.
+        div Custom supports.
+        div See #[+a('#home_button') additional notes].
+    tr
+      td: +preview('/static/manual/print_wheel_shaft.png')
+      td Wheel shaft
+      td
+        div: em 0.07mm layer height.
+        div Secondary color.
+        div Consider using brim.
+
+  h4 Electrically conductive material
+  table.manual.col3.hdiv
+    tr
+      th(style='width:25% !important') Preview
+      th(style='width:25% !important') Name
+      th(style='width:50% !important') Recommendations
+    tr
+      td: +preview('/static/manual/print_hex.png')
+      td Touch-sensitive hexagon
+      td
+        div 0.15mm layer height.
+        div Electrically conductive material.
+        div If using Protopasta: 245°C.
+        div 3 perimeters.
+        div Tight and loose variants available.
+
+  h4 Any color / recycled material
+  table.manual.col3.hdiv
+    tr
+      th(style='width:25% !important') Preview
+      th(style='width:25% !important') Name
+      th(style='width:50% !important') Recommendations
+    tr
+      td: +preview('/static/manual/print_anchor.png')
+      td Anchors
+      td
+        div 0.15mm layer height.
+        div Any material / recycled.
+        div Internal part.
+        div Consider using brim.
+        div 2x units.
+    tr
+      td: +preview('/static/manual/print_wheel_holder.png')
+      td Wheel holder
+      td
+        div 0.15mm layer height.
+        div Any material / recycled.
+        div Internal part.
+        div Consider using brim.
+    tr
+      td: +preview('/static/manual/print_stand.png')
+      td Soldering stand
+      td
+        div: em 0.20mm layer height.
+        div Any material / recycled.
+        div Optional tool.
+  hr
+
+  h3(id='thumbstick') Additional notes (Thumbstick)
+  p The thumbstick require custom supports:
   ul
-    li 3D models (see above).
-    li 3D printer.
-    li Normal filament (PLA recommended) in one or more colors.
-    li Electrically conductive filament.
-  p Check #[+a('/alpakka/components') Components] for more details.
-  hr
-
-  h3 Printing front
-  p The front part of the case, it does not require supports.
-  img.hm.mt.mr(src='/static/manual/print_A.png')
-  table.data
-    tr
-      td Recommended layer height
-      td 0.15 mm
-    tr
-      td Recommended filament
-      td Standard PLA 1.75 mm
-    tr
-      td Recommended perimeters
-      td 2
-    tr
-      td Recommended infill
-      td Gyroid 10%
-    tr
-      td Used filament
-      td ~60 grams
-    tr
-      td Printing time
-      td ~8 hours
-  hr
-
-  h3 Printing back
-  p The back part of the case, it does not require supports. The first layer must be printed very slowly due to the small pillars circles. If printing slow does not help with the first layer adhesion, a brim may also be used.
-  img.hm.mt.mr(src='/static/manual/print_B.png')
-  table.data
-    tr
-      td Recommended layer height
-      td 0.15 mm
-    tr
-      td Recommended filament
-      td Standard PLA 1.75 mm
-    tr
-      td Recommended perimeters
-      td 2
-    tr
-      td Recommended infill
-      td Gyroid 10%
-    tr
-      td Used filament
-      td ~50 grams
-    tr
-      td Printing time
-      td ~7 hours
-  hr
-
-  h3 Printing triggers (and more)
-  p A bundle with L1/R1 triggers, L2/R2 triggers, L4/R4 triggers, scroll wheel, scroll wheel support, 8-directional hat, assembly anchors, and rear cover. None of them need support.
-  p You may want to split the bundle and print these in 2 different colors.
-  img.hm.mt.mr(src='/static/manual/print_C.png')
-  table.data
-    tr
-      td Recommended layer height
-      td 0.15 mm
-    tr
-      td Recommended filament
-      td Standard PLA 1.75 mm
-    tr
-      td Recommended perimeters
-      td 2
-    tr
-      td Recommended infill
-      td Gyroid 15%
-    tr
-      td Used filament
-      td ~25 grams
-    tr
-      td Printing time
-      td ~3.5 hours
-  hr
-
-  h3 Printing buttons (and more)
-  p A bundle with ABXY buttons, dpad buttons, select buttons, home button (requires support), thumbstick cap (requires support), and scroll wheel shaft.
-  p You may want to split the bundle and print these in 2 different colors.
-  p These must be printed in a much higher resolution (lower layer height) because:
+    li Force custom supports on areas indicated in blue.
+    li Avoid custom supports on the areas indicated in red.
+    li Disable automatic overhang supports in the slicer options.
+    li Consider using a brim around the perimeter for better bed adhesion.
+  img.hm.mt.mr(src='/static/manual/print_thumbstick_support.png')
+  img.hm.mt.mr(src='/static/manual/print_thumbstick.gif')
+  p If you are having quality issues with the 45° overhang under the cap, try using these additional settings:
   ul
-    li Buttons: So they are smooth while being pressed (otherwise they may grind against the walls).
-    li Thumbstick: So the spherical shape is smooth.
-    li Scroll wheel shaft: So the small hexagonal shaft is accurate.
-  img.hm.mt.mr(src='/static/manual/print_D.png')
-  table.data
-    tr
-      td Recommended layer height
-      td 0.07 mm
-    tr
-      td Recommended filament
-      td Standard PLA 1.75 mm
-    tr
-      td Recommended perimeters
-      td 2
-    tr
-      td Recommended infill
-      td Gyroid 15%
-    tr
-      td Used filament
-      td ~14 grams
-    tr
-      td Printing time
-      td ~7 hours
+    li For the range between #[em 13mm and 16mm]:
+    ul
+      li Layer height of 0.15mm.
+      li Lower speed.
+  img.hm.mt.mr(src='/static/manual/print_thumbstick_settings.png')
   hr
 
-  h3 Printing conductive hexagon
-  p The hexagonal touch surface, must be printed with an electrically conductive material so the piece becomes capacitative.
-  img.hm.mt.mr(src='/static/manual/print_E.png')
-  table.data
-    tr
-      td Recommended layer height
-      td 0.15 mm
-    tr
-      td Recommended filament
-      td Conductive PLA 1.75 mm
-    tr
-      td Recommended perimeters
-      td 3
-    tr
-      td Recommended infill
-      td Solid 100%
-    tr
-      td Used filament
-      td ~4 grams
-    tr
-      td Printing time
-      td ~0.5 hours
-
+  h3(id='home_button') Additional notes (Home button)
+  p For better result the home button is recommended to be printed at an angle, so the top face is "flat". This require custom settings:
+  ul
+    li Tilt of 8.4 degrees (STL already exported like that).
+    li Custom support on the bottom face only.
+    li Raft with 5 layers and 1.5mm expansion.
+  img.hm.mt.mr(src='/static/manual/print_home.gif')
   hr
+
   h3 Next
   ul
     li: +a('diy_assembly') Assembly
