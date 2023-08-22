@@ -1,0 +1,17 @@
+extends _manual.pug
+
+block append title
+  | Profile: Racing
+
+block content
+  h2 Profile: Racing
+  hr
+
+  p Made for racing (or driving) games as a replacement of a real steering wheel, so it is very recommended for simulation and simcade games such Assetto Corsa, Formula 1, Dirt Rally, Forza, Eurotruck Simulator, etc.
+  p Depending on the game it might be better to switch to the #[+a('tune') Generic / DirectInput] mode, so the game takes the controller input as a generic steering wheel. As well as disabling in-game deadzone and any other kind of input filtering or assist.
+  img.wide.mt(src='/static/manual/profile_racing.svg')
+  hr
+
+  h3 Additional links
+  ul
+    li: +a('profiles') How to select the active profile
