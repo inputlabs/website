@@ -35,7 +35,6 @@ block content
       hr
       img.mt.centered(src='/static/manual/led_up.png' width='50px' )
       +a('profile_fps_fusion') FPS Fusion
-      div &nbsp;
       hr
       img.mt.centered(src='/static/manual/led_triangle_up.png' width='50px')
       +a('profile_fps_wasd') FPS WASD
@@ -45,8 +44,7 @@ block content
       div Hold #[em Home #[+home]] +#[br] #[em.nowrap D-pad right #[+dpad_right]]
       hr
       img.mt.centered(src='/static/manual/led_right.png' width='50px')
-      em Racing
-      div.dim: i Not available yet
+      +a('profile_racing') Racing
       hr
       img.mt.centered(src='/static/manual/led_triangle_right.png' width='50px')
       em Flight
@@ -58,7 +56,6 @@ block content
       hr
       img.mt.centered(src='/static/manual/led_down.png' width='50px')
       +a('profile_console') Console
-      div &nbsp;
       hr
       img.mt.centered(src='/static/manual/led_triangle_down.png' width='50px')
       +a('profile_console_legacy') Console Legacy
@@ -69,7 +66,6 @@ block content
       hr
       div: img.mt.centered(src='/static/manual/led_left.png' width='50px')
       +a('profile_desktop') Desktop
-      div &nbsp;
       hr
       div: img.mt.centered(src='/static/manual/led_triangle_left.png' width='50px')
       em RTS
