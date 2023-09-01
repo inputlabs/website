@@ -5,16 +5,23 @@ block append subtitle
 
 block content
   h2 Progress report #16
-  +news_header('31 August 2023', 'report-15', '')
+  +news_header('31 August 2023', 'report_15', '')
 
   h3 New firmware version with racing profile
-  p In order to better support racing games, #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/0.91.0') release f0.91.0 of the Alpakka firmware]  now supports a new racing profile. This can be activated by pressing the Home-button, in combination with the #[+a('/alpakka/manual/profiles') right-button of the directional pad].
+  p The racing profile is finally here in the firmware release #[+ax(org.fw_release+'0.91.0') f0.91.0] of the Alpakka firmware, the details about mappings and its features are in the #[+a('/alpakka/manual/profile_racing') Racing profile] section of the manual.
+  p We collected plenty of feedback during the beta period, which was not only good per-se, but also a good exercise about the process of developing in parallel to the main branch with the community during a longer period. So we can also apply that knowledge in future betas.
+  +ac('/alpakka/manual/profile_racing')
+    img.wm.mt(src='/static/manual/profile_racing.svg')
   hr
 
-  h3 New racing video
-  p We released a #[+ax('https://www.youtube.com/watch?v=2oiIcfsC1XE') new video], demonstrating the new racing profile of the #[em Alpakka with Forza Horizon 5].
-  p The previous video, showing an earlier beta-version with #[+ax('https://www.youtube.com/watch?v=ENlxAJThBBk') Assetto Corsa] is also still available.
+  h3 Racing gameplay videos
+  p A new video voted by the supporters in Patreon is out, playing #[+ax('https://www.youtube.com/watch?v=2oiIcfsC1XE') Forza Horizon 5] with the new racing profile.
+  p You may also want to check the previous racing profile video we did during the beta, playing #[+ax('https://www.youtube.com/watch?v=ENlxAJThBBk') Assetto Corsa Competizione], in which the Patreon supporters voted #[em Brands Hatch] track as the location for the race.
   p Check them out!
+  +axc('https://www.youtube.com/watch?v=2oiIcfsC1XE')
+    img.ws.mt(src='/static/blog/youtube_thumbnail_forza.jpg')
+  +axc('https://www.youtube.com/watch?v=ENlxAJThBBk')
+    img.ws.mt(src='/static/blog/youtube_thumbnail_assetto.jpg')
   hr
 
   h3 Reminder: New questionnaire
