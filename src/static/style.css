@@ -676,6 +676,9 @@ footer a {
 .basis4 {
   flex-basis: calc(50% - 10px);
 }
+.nobg {
+  background-color: initial !important;
+}
 
 rbp,
 rbp * {

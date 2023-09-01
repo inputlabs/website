@@ -69,19 +69,33 @@ mixin h3id(id)
     block
     a(href='#'+id class='paragraph') ¶
 
+//- Anchor
 mixin a(href)
   a(href=href)&attributes(attributes)
     block
 
+//- Anchor external
 mixin ax(href)
   //- a(href=(ENV=='prod' ? href : 'DISABLED') target='_blank')
   a(href=href target='_blank')&attributes(attributes)
     block
 
+//- Anchor external hashed
 mixin axh(href)
   //- a(href=(ENV=='prod' ? href : 'DISABLED') target='_blank')
   a(href=href target='_blank')&attributes(attributes) #{href}
 
+//- Anchor container
+mixin ac(href)
+  a(href=href)&attributes(attributes).nobg
+    block
+
+//- Anchor external container
+mixin axc(href)
+  a(href=href target='_blank')&attributes(attributes).nobg
+    block
+
+//- Download
 mixin dl(href)
   a(href=href download)&attributes(attributes)
     block
