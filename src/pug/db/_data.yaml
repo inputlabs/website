@@ -1,7 +1,7 @@
 apex_legends:
   title: Apex Legends
   stub: apex_legends
-  reviewDate: 2023-03
+  reviewDate: March 2023
   alpakkaProfile: FPS WASD
   alpakkaSensLow: 4.4
   alpakkaSensMid: 3.3
@@ -20,7 +20,8 @@ apex_legends:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: [1, '3 sizes']
+  subtitlesSize: 1
+  subtitlesBackground: 0
   testArea: 1
   pauseCinematics: 0
   settingsAnytime: [0, 'Not during cinematics']
@@ -49,7 +50,7 @@ apex_legends:
 battlefield_4:
   title: Battlefield 4
   stub: battlefield_4
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 28
   alpakkaSensMid:  21
@@ -70,7 +71,8 @@ battlefield_4:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 1
   pauseCinematics: 1
   settingsAnytime: 1
@@ -99,7 +101,7 @@ battlefield_4:
 borderlands_3:
   title: Borderlands 3
   stub: borderlands_3
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 14
   alpakkaSensMid: 11
@@ -120,7 +122,8 @@ borderlands_3:
   framerateLimiter: 1
   subtitlesDialog: 1
   subtitlesCaption: 1
-  subtitlesOptions: [1, 'Size and background sliders']
+  subtitlesSize: 1
+  subtitlesBackground: 1
   testArea: 0
   pauseCinematics: 0
   settingsAnytime: 0
@@ -149,7 +152,7 @@ borderlands_3:
 bullets_per_minute:
   title: Bullets Per Minute
   stub: bullets_per_minute
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 2
   alpakkaSensMid: 1.5
@@ -170,7 +173,8 @@ bullets_per_minute:
   framerateLimiter: [0.5, '30, 60, 120, 144, 200']
   subtitlesDialog: null
   subtitlesCaption: null
-  subtitlesOptions: null
+  subtitlesSize: null
+  subtitlesBackground: null
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 1
@@ -199,7 +203,7 @@ bullets_per_minute:
 control:
   title: Control
   stub: control
-  reviewDate: 2023-03
+  reviewDate: March 2023
   alpakkaProfile: FPS WASD
   alpakkaSensLow: 30
   alpakkaSensMid: 23
@@ -218,7 +222,8 @@ control:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: [1, '3 sizes, background']
+  subtitlesSize: 1
+  subtitlesBackground: 1
   testArea: 0
   pauseCinematics: 1
   settingsAnytime: 1
@@ -247,7 +252,7 @@ control:
 days_gone:
   title: Days Gone
   stub: days_gone
-  reviewDate: 2022-09
+  reviewDate: September 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 0.20 at FOV=90
   alpakkaSensMid: 0.15 at FOV=90
@@ -268,7 +273,8 @@ days_gone:
   framerateLimiter: [0.5, '30, 60, 90, 120, 150, 180, 210, 240, 270, 300']
   subtitlesDialog: 1
   subtitlesCaption: 1
-  subtitlesOptions: [1, '3 sizes, 1 background']
+  subtitlesSize: 1
+  subtitlesBackground: 1
   testArea: 0
   pauseCinematics: 1
   settingsAnytime: 1
@@ -297,7 +303,7 @@ days_gone:
 deep_rock_galactic:
   title: Deep Rock Galactic
   stub: deep_rock_galactic
-  reviewDate: 2022-07
+  reviewDate: July 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 8.0 at FOV=90
   alpakkaSensMid: 6.0 at FOV=90
@@ -318,7 +324,8 @@ deep_rock_galactic:
   framerateLimiter: 1
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: [0.5, 'Hub without combat']
   pauseCinematics: null
   settingsAnytime: 1
@@ -347,7 +354,7 @@ deep_rock_galactic:
 dishonored_2:
   title: Dishonored 2
   stub: dishonored_2
-  reviewDate: 2023-03
+  reviewDate: March 2023
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 35
   alpakkaSensMid: 24
@@ -366,7 +373,8 @@ dishonored_2:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 1
   pauseCinematics: 0
   settingsAnytime: [0, '(Not during cinematics)']
@@ -395,7 +403,7 @@ dishonored_2:
 doom_2016:
   title: Doom (2016)
   stub: doom_2016
-  reviewDate: 2022-07
+  reviewDate: July 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 4.4
   alpakkaSensMid: 3.3
@@ -416,7 +424,8 @@ doom_2016:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: 0
   settingsAnytime: [0, 'Not in cinematics']
@@ -445,7 +454,7 @@ doom_2016:
 elden_ring:
   title: Elden Ring
   stub: elden_ring
-  reviewDate: 2023-01
+  reviewDate: January 2023
   alpakkaProfile: Console
   alpakkaSensLow: 10
   alpakkaSensMid: 8
@@ -466,7 +475,8 @@ elden_ring:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: 0
   settingsAnytime: [0, 'Not in cinematics']
@@ -495,7 +505,7 @@ elden_ring:
 far_cry_5:
   title: Far Cry 5
   stub: far_cry_5
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 50
   alpakkaSensMid: 43
@@ -516,7 +526,8 @@ far_cry_5:
   framerateLimiter: 1
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: [0.5, 'Background on/off']
+  subtitlesSize: 0
+  subtitlesBackground: 1
   testArea: 0
   pauseCinematics: 0
   settingsAnytime: [0, 'No during cinematics']
@@ -545,7 +556,7 @@ far_cry_5:
 fortnite:
   title: Fortnite
   stub: fortnite
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 18
   alpakkaSensMid: 13.5
@@ -566,7 +577,8 @@ fortnite:
   framerateLimiter: [0.5, '30, 60, 120, 144, 160, 165, 180, 200, 240, 360']
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: [0.5, 'Creative mode without combat']
   pauseCinematics: 0
   settingsAnytime: [0, 'Not during cinematics']
@@ -595,7 +607,7 @@ fortnite:
 ghostrunner:
   title: Ghostrunner
   stub: ghostrunner
-  reviewDate: 2022-07
+  reviewDate: July 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 25
   alpakkaSensMid: 18
@@ -616,7 +628,8 @@ ghostrunner:
   framerateLimiter: 30, 60, 120, 144, 240
   subtitlesDialog: 1
   subtitlesCaption: 1
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: 0
   settingsAnytime: [0, 'Not during cinematics']
@@ -645,7 +658,7 @@ ghostrunner:
 gta_v:
   title: Grand Theft Auto V
   stub: gta_v
-  reviewDate: 2023-03
+  reviewDate: March 2023
   alpakkaProfile: Console
   alpakkaSensLow: 9
   alpakkaSensMid: 7
@@ -664,7 +677,8 @@ gta_v:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: 1
   settingsAnytime: 1
@@ -693,7 +707,7 @@ gta_v:
 half_life_2:
   title: Half-Life 2
   stub: half_life_2
-  reviewDate: 2022-07
+  reviewDate: July 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 4.40
   alpakkaSensMid: 3.30
@@ -714,7 +728,8 @@ half_life_2:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 1
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 1
@@ -743,7 +758,7 @@ half_life_2:
 horizon_zero_dawn:
   title: Horizon Zero Dawn
   stub: horizon_zero_dawn
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS WASD
   alpakkaSensLow: 16
   alpakkaSensMid: 12
@@ -764,7 +779,8 @@ horizon_zero_dawn:
   framerateLimiter: [0, '30, 40, 50, 60, 70, 80, 90, 100, 110, 120']
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: 1
   settingsAnytime: 1
@@ -793,7 +809,7 @@ horizon_zero_dawn:
 hunt_showdown:
   title: 'Hunt: Showdown'
   stub: hunt_showdown
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 2.5
   alpakkaSensMid: 1.87
@@ -814,7 +830,8 @@ hunt_showdown:
   framerateLimiter: [0.5, '30, 45, 48, 60, 72, 90, 120, 144, 180']
   subtitlesDialog: null
   subtitlesCaption: 0
-  subtitlesOptions: null
+  subtitlesSize: null
+  subtitlesBackground: null
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 1
@@ -843,7 +860,7 @@ hunt_showdown:
 insurgency_sandstorm:
   title: 'Insurgency: Sandstorm'
   stub: insurgency_sandstorm
-  reviewDate: 2022-07
+  reviewDate: July 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: '0.700'
   alpakkaSensMid: '0.525'
@@ -864,7 +881,8 @@ insurgency_sandstorm:
   framerateLimiter: [0.5, '30, 45, 60, 90, 120, 144']
   subtitlesDialog: 0
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 1
   pauseCinematics: null
   settingsAnytime: 1
@@ -893,7 +911,7 @@ insurgency_sandstorm:
 mirrors_edge:
   title: Mirror's Edge
   stub: mirrors_edge
-  reviewDate: 2023-02
+  reviewDate: February 2023
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 3
   alpakkaSensMid: 2
@@ -914,7 +932,8 @@ mirrors_edge:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: 0
   settingsAnytime: [0, 'Not during cinematics']
@@ -943,7 +962,7 @@ mirrors_edge:
 neon_white:
   title: Neon White
   stub: neon_white
-  reviewDate: 2023-02
+  reviewDate: February 2023
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: '1.0'
   alpakkaSensMid: 0.75
@@ -964,7 +983,8 @@ neon_white:
   framerateLimiter: [0.5, '60, 84, 99, 119, 143, 144']
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 1
@@ -993,7 +1013,7 @@ neon_white:
 no_mans_sky:
   title: "No Man's Sky"
   stub: no_mans_sky
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS WASD
   alpakkaSensLow: 24
   alpakkaSensMid: 18
@@ -1014,7 +1034,8 @@ no_mans_sky:
   framerateLimiter: 1
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 1
@@ -1043,7 +1064,7 @@ no_mans_sky:
 noita:
   title: Noita
   stub: noita
-  reviewDate: 2022-07
+  reviewDate: July 2022
   alpakkaProfile: FPS WASD
   alpakkaSensLow: null
   alpakkaSensMid: null
@@ -1064,7 +1085,8 @@ noita:
   framerateLimiter: 0
   subtitlesDialog: null
   subtitlesCaption: null
-  subtitlesOptions: null
+  subtitlesSize: null
+  subtitlesBackground: null
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 1
@@ -1082,7 +1104,7 @@ noita:
 portal_2:
   title: Portal 2
   stub: portal_2
-  reviewDate: 2023-02
+  reviewDate: February 2023
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: null
   alpakkaSensMid: null
@@ -1103,7 +1125,8 @@ portal_2:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 1
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 1
@@ -1132,7 +1155,7 @@ portal_2:
 prodeus:
   title: 'Prodeus'
   stub: prodeus
-  reviewDate: 2022-10
+  reviewDate: October 2022
   alpakkaProfile: FPS WASD
   alpakkaSensLow: '1.0'
   alpakkaSensMid: 0.75
@@ -1153,7 +1176,8 @@ prodeus:
   framerateLimiter: 1
   subtitlesDialog: null
   subtitlesCaption: 0
-  subtitlesOptions: null
+  subtitlesSize: null
+  subtitlesBackground: null
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 1
@@ -1182,7 +1206,7 @@ prodeus:
 pubg:
   title: 'PUBG: Battlegrounds'
   stub: pubg
-  reviewDate: 2022-07
+  reviewDate: July 2022
   alpakkaProfile: FPS WASD
   alpakkaSensLow: 64 at FOV=90
   alpakkaSensMid: 58 at FOV=90
@@ -1203,7 +1227,8 @@ pubg:
   framerateLimiter: 1
   subtitlesDialog: 1
   subtitlesCaption: 1
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 1
   pauseCinematics: null
   settingsAnytime: 1
@@ -1232,7 +1257,7 @@ pubg:
 rainbow_six_siege:
   title: Rainbow Six Siege
   stub: rainbow_six_siege
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS WASD
   alpakkaSensLow: 18
   alpakkaSensMid: 14
@@ -1253,7 +1278,8 @@ rainbow_six_siege:
   framerateLimiter: [0.5, '30, 60, 75, 90, 120, 144']
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 1
   pauseCinematics: 1
   settingsAnytime: [0, 'Not during cinematics']
@@ -1282,7 +1308,7 @@ rainbow_six_siege:
 risk_of_rain_2:
   title: Risk of Rain 2
   stub: risk_of_rain_2
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 0.20
   alpakkaSensMid: 0.15
@@ -1303,7 +1329,8 @@ risk_of_rain_2:
   framerateLimiter: [0.5, '30, 60, 120, 144']
   subtitlesDialog: null
   subtitlesCaption: 0
-  subtitlesOptions: null
+  subtitlesSize: null
+  subtitlesBackground: null
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 1
@@ -1332,7 +1359,7 @@ risk_of_rain_2:
 skyrim:
   title: 'The Elder Scrolls V: Skyrim'
   stub: skyrim
-  reviewDate: 2023-03
+  reviewDate: March 2023
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 9
   alpakkaSensMid: 5
@@ -1351,7 +1378,8 @@ skyrim:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 1
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: 0
   settingsAnytime: 1
@@ -1380,7 +1408,7 @@ skyrim:
 superhot_mcd:
   title: 'Superhot: Mind Control Delete'
   stub: superhot_mcd
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 2.0
   alpakkaSensMid: 1.5
@@ -1401,7 +1429,8 @@ superhot_mcd:
   framerateLimiter: 0
   subtitlesDialog: null
   subtitlesCaption: 0
-  subtitlesOptions: null
+  subtitlesSize: null
+  subtitlesBackground: null
   testArea: 0
   pauseCinematics: null
   settingsAnytime: 0
@@ -1430,7 +1459,7 @@ superhot_mcd:
 the_witcher_3:
   title: The Witcher 3
   stub: the_witcher_3
-  reviewDate: 2022-07
+  reviewDate: July 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 0.30
   alpakkaSensMid: 0.25
@@ -1451,7 +1480,8 @@ the_witcher_3:
   framerateLimiter: [0.5, '30, 60']
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 0
   pauseCinematics: 0
   settingsAnytime: [0, 'Not in cinematics']
@@ -1480,7 +1510,7 @@ the_witcher_3:
 titanfall_2:
   title: Titanfall 2
   stub: titanfall_2
-  reviewDate: 2023-02
+  reviewDate: February 2023
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 4.4
   alpakkaSensMid: 3.3
@@ -1501,7 +1531,8 @@ titanfall_2:
   framerateLimiter: 0
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
   testArea: 1
   pauseCinematics: null
   settingsAnytime: 1
@@ -1530,7 +1561,7 @@ titanfall_2:
 warzone_2:
   title: 'Call of Duty: Warzone 2'
   stub: warzone_2
-  reviewDate: 2022-12
+  reviewDate: December 2022
   alpakkaProfile: FPS Fusion
   alpakkaSensLow: 16
   alpakkaSensMid: 12
@@ -1551,7 +1582,8 @@ warzone_2:
   framerateLimiter: 1
   subtitlesDialog: 1
   subtitlesCaption: 0
-  subtitlesOptions: [0.5, 'Size 3 presets, background opacity slider']
+  subtitlesSize: 1
+  subtitlesBackground: 1
   testArea: 1
   pauseCinematics: 0
   settingsAnytime: [0, 'Not during cinematics']
@@ -1582,9 +1614,6 @@ template:
   stub:
   reviewDate:
   alpakkaProfile:
-  alpakkaSensLow:
-  alpakkaSensMid:
-  alpakkaSensHigh:
   fusionInput:
   mouseRaw:
   mouseAnyValue:
@@ -1596,31 +1625,10 @@ template:
   colorBlind:
   uiScale:
   uiLockPlatform:
-  framerateLimiter:
   subtitlesDialog:
   subtitlesCaption:
-  subtitlesOptions:
+  subtitlesSize:
+  subtitlesBackground:
   testArea:
   pauseCinematics:
-  settingsAnytime:
-  violence:
-  sex:
-  drugs:
-  arachnophobic:
-  trypophobic:
-  paidCosmetics:
-  paidExpansions:
-  paidGambling:
-  fomoSales:
-  payToWin:
-  fps_tps:
-    crosshairOptions:
-    adsSensitivity:
-    adsHold:
-    adsToggle:
-    sprintHold:
-    sprintToggle:
-    crouchHold:
-    crouchToggle:
-    walkRunHold:
-    walkRunToggle:
+
