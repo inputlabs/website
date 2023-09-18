@@ -1,4 +1,4 @@
-mixin feature(value)
+mixin feature(key, value)
   -
     function formatValue(value) {
       if (Array.isArray(value)) value = value[1]
@@ -11,6 +11,9 @@ mixin feature(value)
   tr
     td.separator
       block
+      span &nbsp;
+      if key
+        a(href='glossary#' + key, target='_blank') ?
     if value
       td #{formatValue(value)}
     else
@@ -34,103 +37,109 @@ h2 #{game.title}
 if game.subtitle
   p #{game.subtitle}
 hr
+
 div.mosaic
   div.group
     h3 Input
     table.data
-      +feature(game.fusionInput) Fusion input / Mixed input (mouse + gamepad)
-      +feature(game.mouseRaw) Mouse raw input
-      +feature(game.mouseAnyValue) Mouse sensitivity any value
-      +feature(game.remapKeyboard) Remap keyboard
-      +feature(game.remapMouse) Remap mouse
-      +feature(game.remapGamepad) Remap controller
-      +feature(game.menuNavMouse) Menu navigation with mouse
+      +feature('mixed_input', game.fusionInput) Mixed input (mouse + gamepad)
+      +feature('raw_input', game.mouseRaw) Mouse raw input
+      +feature('mouse_any_value', game.mouseAnyValue) Mouse sensitivity any value
+      +feature('remap_keyboard', game.remapKeyboard) Remap keyboard
+      +feature('remap_keyboard', game.remapMouse) Remap mouse
+      +feature('remap_controller', game.remapGamepad) Remap controller
+      +feature('menu_mouse', game.menuNavMouse) Menu navigation with mouse
 
-  div.group
-    h3 Monetization & addictions
-    table.data
-      +feature(game.paidExpansions) Paid additional playable content
-      +feature(game.paidCosmetics) Paid cosmetics
-      +feature(game.payToWin) Pay to win / Pay for convenience
-      +feature(game.fomoSales) FOMO sales
-      +feature(game.paidGambling) Gambling with real money
+  //- div.group
+  //-   h3 Monetization & addictions
+  //-   table.data
+  //-     +feature('', game.paidExpansions) Paid additional playable content
+  //-     +feature('', game.paidCosmetics) Paid cosmetics
+  //-     +feature('', game.payToWin) Pay to win / Pay for convenience
+  //-     +feature('', game.fomoSales) FOMO sales
+  //-     +feature('', game.paidGambling) Gambling with real money
 
   div.group
     h3 Visual
     table.data
-      +feature(game.fov) FOV adjustment
-      +feature(game.colorBlind) Color blind options
-      +feature(game.uiScale) UI scale options
-      +feature(game.uiLockPlatform) Glyph platform lock
-      +feature(game.framerateLimiter) Framerate limiter
+      +feature('color_blind', game.colorBlind) Color blind options
+      +feature('ui_scale', game.uiScale) UI scale options
+      +feature('fov', game.fov) FOV adjustment
+      +feature('glyph_lock', game.uiLockPlatform) Glyph (button icons) platform lock
+      //- +feature('', game.framerateLimiter) Framerate limiter
 
   div.group
     h3 Audio
     table.data
-      +feature(game.subtitlesDialog) Subtitles (dialog)
-      +feature(game.subtitlesCaption) Subtitles (captions)
-      +feature(game.subtitlesOptions) Subtitles display options
+      +feature('subtitles', game.subtitlesDialog) Subtitles (dialog)
+      +feature('captions', game.subtitlesCaption) Subtitles (captions)
+      +feature('subtitles_size', game.subtitlesSize) Subtitles adjustable font size
+      +feature('subtitles_background', game.subtitlesBackground) Subtitles adjsutable background
 
-  div.group
-    h3 Sensitive content
-    table.data
-      -
-        const violence_fmt = {
-          _18: 'Violence with gore or torture',
-          _15: 'Violence with injury or blood',
-          _12: 'Violence with no visible injury',
-          _7: 'Implied or abstract violence',
-          null: '-',
-          0: 0,
-        }
-        const drugs_fmt = {
-          _18: 'Illegal drugs use',
-          _15: 'Alcohol or tobacco use',
-          _12: 'Medication',
-          null: '-',
-          0: 0,
-        }
-        const sex_fmt = {
-          _18: 'Explicit sexual intercourse',
-          _15: 'Sexual intercourse',
-          _12: 'Implied or abstract sex',
-          null: '-',
-          0: 0,
-        }
-      +feature(violence_fmt[game.violence]) Violence
-      +feature(drugs_fmt[game.drugs]) Drugs
-      +feature(sex_fmt[game.sex]) Sex
-      +feature(game.arachnophobic) Arachnophobic
-      +feature(game.trypophobic) Trypophobic
+  //- div.group
+  //-   h3 Sensitive content
+  //-   table.data
+  //-     -
+  //-       const violence_fmt = {
+  //-         _18: 'Violence with gore or torture',
+  //-         _15: 'Violence with injury or blood',
+  //-         _12: 'Violence with no visible injury',
+  //-         _7: 'Implied or abstract violence',
+  //-         null: '-',
+  //-         0: 0,
+  //-       }
+  //-       const drugs_fmt = {
+  //-         _18: 'Illegal drugs use',
+  //-         _15: 'Alcohol or tobacco use',
+  //-         _12: 'Medication',
+  //-         null: '-',
+  //-         0: 0,
+  //-       }
+  //-       const sex_fmt = {
+  //-         _18: 'Explicit sexual intercourse',
+  //-         _15: 'Sexual intercourse',
+  //-         _12: 'Implied or abstract sex',
+  //-         null: '-',
+  //-         0: 0,
+  //-       }
+  //-     +feature('', violence_fmt[game.violence]) Violence
+  //-     +feature('', drugs_fmt[game.drugs]) Drugs
+  //-     +feature('', sex_fmt[game.sex]) Sex
+  //-     +feature('', game.arachnophobic) Arachnophobic
+  //-     +feature('', game.trypophobic) Trypophobic
+
+  //- div.group
+  //-   h3 Recommended Alpakka settings
+  //-   table.data
+  //-     +feature_profile(game.alpakkaProfile) Recommended profile
+  //-     +feature('', game.alpakkaSensLow) In-game sensitivity (low preset)
+  //-     +feature('', game.alpakkaSensMid) In-game sensitivity (mid preset)
+  //-     +feature('', game.alpakkaSensHigh) In-game sensitivity (high preset)
 
   div.group
     h3 Other
     table.data
-      +feature(game.testArea) Playable test area
-      +feature(game.pauseCinematics) Pause cinematics
-      +feature(game.settingsAnytime) Allow settings anytime
-      +feature(game.reviewDate) Review date
-
-  div.group
-    h3 Recommended Alpakka settings
-    table.data
       +feature_profile(game.alpakkaProfile) Recommended profile
-      +feature(game.alpakkaSensLow) In-game sensitivity (low preset)
-      +feature(game.alpakkaSensMid) In-game sensitivity (mid preset)
-      +feature(game.alpakkaSensHigh) In-game sensitivity (high preset)
+      +feature('test_area', game.testArea) Playable test area
+      +feature('pause_cinematics', game.pauseCinematics) Pause cinematics
+      //- +feature('', game.settingsAnytime) Allow settings anytime
+      +feature('', game.reviewDate) Review date
 
-  if game.fps_tps
-    - const fps = game.fps_tps
-    div.group
-      h3 FPS / TPS
-      table.data
-        +feature(fps.crosshairOptions) Crosshair display options
-        +feature(fps.adsSensitivity) ADS independent sensitivity
-        +feature(fps.adsHold) ADS hold
-        +feature(fps.adsToggle) ADS toggle
-        +feature(fps.sprintHold) Sprint hold
-        +feature(fps.sprintToggle) Sprint toggle
-        +feature(fps.crouchHold) Crouch hold
-        +feature(fps.crouchToggle) Crouch toggle
-        +feature(fps.walkRunHold) Walk/run hold
-        +feature(fps.walkRunToggle) Walk/run toggle
+  //- if game.fps_tps
+  //-   - const fps = game.fps_tps
+  //-   div.group
+  //-     h3 FPS / TPS
+  //-     table.data
+  //-       +feature('', fps.crosshairOptions) Crosshair display options
+  //-       +feature('', fps.adsSensitivity) ADS independent sensitivity
+  //-       +feature('', fps.adsHold) ADS hold
+  //-       +feature('', fps.adsToggle) ADS toggle
+  //-       +feature('', fps.sprintHold) Sprint hold
+  //-       +feature('', fps.sprintToggle) Sprint toggle
+  //-       +feature('', fps.crouchHold) Crouch hold
+  //-       +feature('', fps.crouchToggle) Crouch toggle
+  //-       +feature('', fps.walkRunHold) Walk/run hold
+  //-       +feature('', fps.walkRunToggle) Walk/run toggle
+
+hr
+p You can make additions to the list of games with this #[+ax('https://forms.gle/SSUUPPLCkB4PC82B8') Google form], or by doing a pull requests directly into Input Labs #[+ax('https://github.com/inputlabs/website') Website Repo].
