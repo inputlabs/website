@@ -1,0 +1,17 @@
+extends _manual.pug
+
+block append title
+  | Ctrl app
+
+block content
+  h2 Ctrl app
+  hr
+  p An #[em optional] app for Input Labs devices, able to run diagnostics, configure the controller settings, and modify profile mappings.
+  p The app is hosted at #[+ax('http://ctrl.inputlabs.io') ctrl.inputlabs.io] and it is compatible with Windows, Linux and the Steam Deck; without the need to install any additional software in your computer.
+  p Some features are missing since the application is still under active development.
+  p &nbsp;
+
+  img.wm.mr(src='/static/manual/ctrl_app_screenshot_1.png')
+  img.wm.mr(src='/static/manual/ctrl_app_screenshot_2.png')
+
+
