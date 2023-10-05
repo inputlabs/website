@@ -1609,6 +1609,236 @@ warzone_2:
     walkRunHold: null
     walkRunToggle: null
 
+necromunda:
+  title: 'Necromunda: Hired Gun'
+  stub: necromunda_hired_gun
+  reviewDate: October 2023
+  alpakkaProfile: FPS Fusion
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (200 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: [0, 'minimum 78 vertical (110 horizontal)']
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
+  testArea: 0
+  pauseCinematics: 0
+
+everspace_2:
+  title: Everspace 2
+  stub: everspace_2
+  reviewDate: October 2023
+  alpakkaProfile: FPS Fusion
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (20 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: 1
+  colorBlind: [1, '3 presets']
+  uiScale: 0
+  uiLockPlatform: 1
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
+  testArea: 1
+  pauseCinematics: 1
+
+warframe:
+  title: Warframe
+  stub: warframe
+  reviewDate: October 2023
+  alpakkaProfile: FPS Fusion
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (100 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: 1
+  colorBlind: [1, 'Yes (3 modes)']
+  uiScale: 1
+  uiLockPlatform: [0, 'Only for console glyphs']
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
+  testArea: 0
+  pauseCinematics: 0
+
+counter_strike_2:
+  title: Counter-Strike 2
+  stub: counter_strike_2
+  reviewDate: October 2023
+  alpakkaProfile: FPS WASD
+  fusionInput: 0
+  mouseRaw: 1
+  mouseAnyValue: 1
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: [0, 'No controller support']
+  menuNavMouse: 1
+  fov: 0
+  colorBlind: 0
+  uiScale: 1
+  uiLockPlatform: null
+  subtitlesDialog: null
+  subtitlesCaption: 0
+  subtitlesSize: null
+  subtitlesBackground: null
+  testArea: 0
+  pauseCinematics: null
+
+ion_fury:
+  title: Ion Fury
+  stub: ion_fury
+  reviewDate: October 2023
+  alpakkaProfile: FPS Fusion
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: 1
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: 1
+  colorBlind: 0
+  uiScale: 1
+  uiLockPlatform: 0
+  subtitlesDialog: 0
+  subtitlesCaption: 0
+  subtitlesSize: 0
+  subtitlesBackground: 0
+  testArea: 0
+  pauseCinematics: 0
+
+minecraft_bedrock:
+  title: Minecraft (Bedrock edition)
+  stub: minecraft_bedrock
+  reviewDate: October 2023
+  alpakkaProfile: FPS Fusion
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (100 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: 1
+  colorBlind: 0
+  uiScale: [1, '2 presets']
+  uiLockPlatform: [1, 'Allow to hide console hints']
+  subtitlesDialog: null
+  subtitlesCaption: 0
+  subtitlesSize: null
+  subtitlesBackground: null
+  testArea: 0
+  pauseCinematics: null
+
+battlebit_remastered:
+  title: 'Battlebit: Remastered'
+  stub: battlebit_remastered
+  reviewDate: October 2023
+  alpakkaProfile: FPS Fusion
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (500 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: 1
+  colorBlind: [1, 'UI colors fully customizable']
+  uiScale: 0
+  uiLockPlatform: 0
+  subtitlesDialog: null
+  subtitlesCaption: null
+  subtitlesSize: null
+  subtitlesBackground: null
+  testArea: 1
+  pauseCinematics: null
+
+returnal:
+  title: Returnal
+  stub: returnal
+  reviewDate: October 2023
+  alpakkaProfile: FPS Fusion
+  fusionInput: [1, 'Yes but sound glitch']
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (200 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: [1, 'Yes but with relative values']
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  subtitlesDialog: 1
+  subtitlesCaption: 0
+  subtitlesSize: [1, 'Yes (3 sizes)']
+  subtitlesBackground: 1
+  testArea: 0
+  pauseCinematics: null
+
+quake_2_2023:
+  title: Quake II (2023)
+  stub: quake_2_2023
+  reviewDate: October 2023
+  alpakkaProfile: FPS Fusion
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (20 steps)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: 1
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  subtitlesDialog: 0
+  subtitlesCaption: 0
+  subtitlesSize: null
+  subtitlesBackground: null
+  testArea: 1
+  pauseCinematics: 0
+
+teardown:
+  title: Teardown
+  stub: teardown
+  reviewDate: October 2023
+  alpakkaProfile: FPS Fusion
+  fusionInput: 1
+  mouseRaw: 1
+  mouseAnyValue: [0, 'No (only slider)']
+  remapKeyboard: 1
+  remapMouse: 1
+  remapGamepad: 1
+  menuNavMouse: 1
+  fov: 1
+  colorBlind: 0
+  uiScale: 0
+  uiLockPlatform: 0
+  subtitlesDialog: 0
+  subtitlesCaption: 0
+  subtitlesSize: null
+  subtitlesBackground: null
+  testArea: [1, 'Hub with limited tools']
+  pauseCinematics: null
+
 template:
   title:
   stub:

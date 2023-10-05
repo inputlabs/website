@@ -1,0 +1,8 @@
+extends _db.pug
+
+block append subtitle
+  - const game = db['battlebit_remastered']
+  | #{game['title']}
+
+block content
+  include _format.pug
