@@ -1,0 +1,53 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #17
+
+block content
+  h2 Progress report #17
+  +news_header('6 October 2023', 'report_16', '')
+
+  h3 Ctrl app
+  p We released firmware #[+ax(org.fw_release+'0.92.0') 0.92.0] along the new #[+ax('https://ctrl.inputlabs.io') Ctrl app] for the Alpakka controller. We decided that having a minimalistic app was the best solution to address the feedback from the community, and the desire to have a simpler way to modify profiles. The app is aligned with Input Labs principles, so it is completely #[em optional], #[em open-source], and #[em multi-platform].
+  p Some of the features the Ctrl app have already:
+  ul
+    li Changing controller configuration (mouse sensitivity, touch responsiveness, deadzone, protocol).
+    li Functions such as calibration and factory reset.
+    li Simple access to the firmware logs, for troubleshooting any issues while DIY'ing the controller.
+
+  p Features planned for later:
+  ul
+    li Profile edit.
+    li Offline mode (based on PWA).
+    li Input tester.
+
+  p The app is accessible at #[+ax('https://ctrl.inputlabs.io') ctrl.inputlabs.io] and it is compatible with #[em Windows], #[em Linux], and the #[em Steam Deck].
+
+  img.wm.mr.mt(src='/static/manual/ctrl_app_screenshot_1.png')
+  img.wm.mr.mt(src='/static/manual/ctrl_app_screenshot_2.png')
+  hr
+
+  h3 Research with Pico-W Bluetooth continues
+  p We are actively testing different approaches to use the Raspberry Pi Pico-W Bluetooth, with the focus on bringing the latency to the minimum.
+  p As you can imagine the Bluetooth standard is quite complex nowadays, but the good folks from #[+ax('https://bluekitchen-gmbh.com') Blue Kitchen] (creators of the Bluetooth library the Pico is using) are helping us figuring out all the small details, and we deeply appreciate their support.
+  hr
+
+  h3 Rework of accessibility DB
+  p We streamlined the accessibility database entries, and removed fields that were more prone to interpretation. We hope that this simpler format promotes more external contributions.
+  p Additionally now everyone can use this form to #[+ax('https://forms.gle/SSUUPPLCkB4PC82B8') submit entries], which is much easier than the making a Pull Request.
+  p And finally we added 10 new entries:
+  ul
+    li: +a('/db/battlebit_remastered') Battlebit: Remastered
+    li: +a('/db/counter_strike_2') Counter-Strike 2
+    li: +a('/db/everspace_2') Everspace 2
+    li: +a('/db/ion_fury') Ion Fury
+    li: +a('/db/minecraft_bedrock') Minecraft (Bedrock edition)
+    li: +a('/db/necromunda') Necromunda: Hired Gun
+    li: +a('/db/quake_2_2023') Quake II (2023)
+    li: +a('/db/returnal') Returnal
+    li: +a('/db/teardown') Teardown
+    li: +a('/db/warframe') Warframe
+
+  hr
+
+  p Thanks a lot for the support! <br> - M&M <3
