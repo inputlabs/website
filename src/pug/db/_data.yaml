@@ -1621,7 +1621,7 @@ necromunda:
   remapMouse: 1
   remapGamepad: 1
   menuNavMouse: 1
-  fov: [0, 'minimum 78 vertical (110 horizontal)']
+  fov: [0, 'Min 78° vertical (110° horizontal)']
   colorBlind: 0
   uiScale: 0
   uiLockPlatform: 0
@@ -1739,7 +1739,7 @@ minecraft_bedrock:
   fov: 1
   colorBlind: 0
   uiScale: [1, '2 presets']
-  uiLockPlatform: [1, 'Allow to hide console hints']
+  uiLockPlatform: [1, 'Allows to hide console hints']
   subtitlesDialog: null
   subtitlesCaption: 0
   subtitlesSize: null
