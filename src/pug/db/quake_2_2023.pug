@@ -1,0 +1,8 @@
+extends _db.pug
+
+block append subtitle
+  - const game = db['quake_2_2023']
+  | #{game['title']}
+
+block content
+  include _format.pug
