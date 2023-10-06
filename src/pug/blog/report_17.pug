@@ -8,33 +8,33 @@ block content
   +news_header('6 October 2023', 'report_16', '')
 
   h3 Ctrl app
-  p We released firmware #[+ax(org.fw_release+'0.92.0') 0.92.0] along the new #[+ax('https://ctrl.inputlabs.io') Ctrl app] for the Alpakka controller. We decided that having a minimalistic app was the best solution to address the feedback from the community, and the desire to have a simpler way to modify profiles. The app is aligned with Input Labs principles, so it is completely #[em optional], #[em open-source], and #[em multi-platform].
-  p Some of the features the Ctrl app have already:
+  p We released firmware #[+ax(org.fw_release+'0.92.0') 0.92.0] along the new #[+ax('https://github.com/inputlabs/ctrl') Ctrl app source code] for the Alpakka controller. A minimalistic app was the best approach to address the feedback from the community, and to have a simpler way to modify profiles. The app is aligned with Input Labs principles, so it is completely #[em optional], #[em open-source], and #[em multi-platform].
+  p Current features of the Ctrl app:
   ul
     li Changing controller configuration (mouse sensitivity, touch responsiveness, deadzone, protocol).
-    li Functions such as calibration and factory reset.
-    li Simple access to the firmware logs, for troubleshooting any issues while DIY'ing the controller.
+    li Performing calibration and factory reset.
+    li Accessing firmware logs and help trouble shooting.
 
-  p Features planned for later:
+  p Other planned features:
   ul
-    li Profile edit.
+    li Editing profiles.
     li Offline mode (based on PWA).
     li Input tester.
 
-  p The app is accessible at #[+ax('https://ctrl.inputlabs.io') ctrl.inputlabs.io] and it is compatible with #[em Windows], #[em Linux], and the #[em Steam Deck].
+  p The app is accessible at #[+ax('https://ctrl.inputlabs.io') ctrl.inputlabs.io] and it is compatible with #[em Windows], #[em Linux], and the #[em Steam Deck]. (Requires an internet browser with WebUSB support).
 
   img.wm.mr.mt(src='/static/manual/ctrl_app_screenshot_1.png')
   img.wm.mr.mt(src='/static/manual/ctrl_app_screenshot_2.png')
   hr
 
   h3 Research with Pico-W Bluetooth continues
-  p We are actively testing different approaches to use the Raspberry Pi Pico-W Bluetooth, with the focus on bringing the latency to the minimum.
-  p As you can imagine the Bluetooth standard is quite complex nowadays, but the good folks from #[+ax('https://bluekitchen-gmbh.com') Blue Kitchen] (creators of the Bluetooth library the Pico is using) are helping us figuring out all the small details, and we deeply appreciate their support.
+  p We are actively testing different approaches to use the Raspberry Pi Pico-W Bluetooth, with the focus on minimizing latency.
+  p As you can imagine the Bluetooth standard is quite complex nowadays, but thanks to the help from the good folks of #[+ax('https://bluekitchen-gmbh.com') Blue Kitchen] (creators of the Bluetooth library the Pico is using) we have been able to figure out lot of small details, and find ways to reduce the latency. We deeply appreciate their support.
   hr
 
   h3 Rework of accessibility DB
   p We streamlined the accessibility database entries, and removed fields that were more prone to interpretation. We hope that this simpler format promotes more external contributions.
-  p Additionally now everyone can use this form to #[+ax('https://forms.gle/SSUUPPLCkB4PC82B8') submit entries], which is much easier than the making a Pull Request.
+  p Additionally now everyone can use a new #[+ax('https://forms.gle/SSUUPPLCkB4PC82B8') form to submit entries], which is much easier than the making a Pull Request.
   p And finally we added 10 new entries:
   ul
     li: +a('/db/battlebit_remastered') Battlebit: Remastered
