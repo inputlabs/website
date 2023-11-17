@@ -318,7 +318,7 @@ deep_rock_galactic:
   thumbstickDeadzone: 1
   thumbstickCurve: [0.5, 'Only for aim']
   fov: 1
-  colorBlind: 0
+  colorBlind: 1
   uiScale: 1
   uiLockPlatform: 0
   framerateLimiter: 1
