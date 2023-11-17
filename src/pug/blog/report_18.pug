@@ -1,0 +1,33 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #18
+
+block content
+  h2 Progress report #18
+  +news_header('17 November 2023', 'report_17', '')
+
+  h3 Fully soldered Printed Circuit Boards
+  p Based on feedback from our community we know that soldering components on the PCB can pose a bit of a challenge. While the soldering is very basic, and can represent a very nice learning experience, people may be afraid of making a mistake.
+  p We have therefore been experimenting with the two-sided soldering service from JLCPCB. So far the results are very promising and we expect to offer fully soldered PCBs in our distribution channel soon. This way people can skip the soldering and only need the parts, and the hex-key to assemble their Alpakka.
+  p At least for now we will also keep offering the separate one-sided PCB and electronics set.
+  br
+  img(src='/static/blog/soldered_pcb.jpg').wm
+  hr
+
+  h3 New colors
+  p Some people were not satisfied with the selection of filament colors we are offering.
+  p We are thus adding the #[+ax('https://www.prusa3d.com/product/prusament-pla-prusa-orange-1kg/') Prusa Orange] option. We are also replacing the #[+ax('https://www.prusa3d.com/product/prusament-pla-pineapple-yellow-1kg/') Pineaple Yellow] with the#[+ax('https://www.prusa3d.com/product/prusament-pla-oh-my-gold-blend-970g/') Oh My Gold Blend] and the #[+ax('https://www.prusa3d.com/product/prusament-pla-lipstick-red-1kg/') Lipstick Red from Prusa] with #[+ax('https://www.redline-filament.com/products/pla-glitzer-rot') Glitter Red from REDLINE FILAMENT].
+  p We hope that you like the result:
+  br
+  img(src='/static/blog/colors2c.jpg').wm
+  
+  hr
+
+  h3 International Game Developers Association
+  p Last month we had the opportunity to demonstrate the Alpakka at the #[+ax('https://igda.fi') International Game Developers Association (IGDA)] meetup, here in Helsinki. The feedback from the game developer community was absolutely fabulous and our Alpakka received a lot if interest.
+  br
+  img(src='/static/blog/IGDA.jpg').wm
+  hr
+ 
+  p Thanks a lot for the support! <br> - M&M <3
