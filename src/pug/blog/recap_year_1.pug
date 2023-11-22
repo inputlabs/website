@@ -1,0 +1,69 @@
+extends _blog.pug
+
+block append subtitle
+  | Year one recap
+
+block content
+  h2 Year one recap
+  +news_header('22 November 2023', 'report_18', '')
+
+  p One year ago Input Labs went live. It is time to review our achievements and lessons learnt.
+
+  h3 Things that went nicely
+  h4 Community
+  ul
+    li Our #[+ax(org.discord) Discord community] reached 735 members. This is by far the thing that makes us most proud, and it is awesome to see people helping each other there. To make it even better, some of the members are experts in their fields (electrical engineers, industrial designers) and contribute with professional advice and knowledge.
+    li We set up a #[em small office] in the #[+ax('https://maria.io/about/') Maria 01 startup campus] in Helsinki, and we moved our 3D-printers and other tools there, making it the "Lab" of Input Labs.
+    li We received an abundance of #[em positive feedback] across various social channels where we are active. Many people have expressed their encouragement and support, which is a great motivation for us.
+    li About #[em 30 community mods] were created for the Alpakka controller (Discord #[em #mods] channel), most of them modifications of the 3D-printed models for different purposes.
+    li Our project got supported by several #[+ax(org.patreon) wonderful folks on Patreon] and we delivered some merch to them.
+    li We opened the #[+ax(org.shop) distribution channel (shop)] to better serve testers and reviewers, but also for people who do not have access to all the materials and tools necessary to build their own Alpakka. Setting up the logistics to build and deliver all these components has been a challenge, but also a success in validating the #[em DIY-or-buy] model of our open source project.
+
+  h4 Exposure
+  ul
+    li We published #[+ax(org.youtube) 15 videos on Youtube], reaching a total of 58k views so far.
+    li The Alpakka controller was independently #[em reviewed by 8 Youtube channels].
+    li We were featured in the #[+ax('https://magpi.raspberrypi.com/issues/128') Raspberry Pi magazine], Heise magazine, and at least 10 other tech-related websites.
+    li The Alpakka controller was demonstrated to a few #[em videogame companies], and had a small demo booth at the #[+ax('https://igda.org') IGDA] (International Game Developers Association) event.
+
+  h4 Development
+  ul
+    li There were #[em 21 firmware releases] (including betas), addressing lot of community requested features such as:
+    ul
+      li #[em Console Legacy] profile which makes easier to play emulators and retro games.
+      li #[em Racing] profile which allows to use the controllers as a steering wheel.
+      li #[em Generic] gamepad mode (aka DirectInput) implementation, which is useful both for retro gaming and for simulators expecting generic joysticks or steering wheels.
+      li Full #[em Steam Deck] compatibility.
+    li There were #[em five 3D-print models releases] with iterative improvements.
+    li There were #[em three PCB releases] with iterative improvements.
+    li We created the #[em Ctrl app], a simple web-app used as an alternative (and optional) method for configuring the Alpakka controller.
+
+  h4 Research
+  ul
+    li A total of #[+a('/db/stats') 44 games were evaluated] for the accessibility game database.
+    li We published research notes about #[+a('gyro_ratcheting') Gyro ratcheting and flick-stick].
+    li In-depth research about #[+a('alphanumeric_input') Alphanumeric input methods] was conducted, and some of it was implemented.
+    li We gathered (and incorporated) useful feedback from the community through 2 rounds of questionnaires.
+    li We experimented with alternative materials, such as metal and electrically conductive PLA. As well as different processes including various textured beds, embossing, metal engraving, and painting on PLA.
+
+  hr
+  h3 Things that could have gone better
+  ul
+    li We were too optimistic in our estimates about the #[em.wrap amount of work 2 individuals can achieve] even if working full-time. There are many aspects of running a company that can become a time sink (legal, taxes, insurances, accounting, logistics, support, etc).
+    li The #[em.wrap Kapybara controller development] did not receive the attention we hoped it would. Our original plan was to develop it alongside with the Alpakka, but we realized that we do not have the resources develop 2 devices in parallel, and decided delay the Kapybara.
+    li We were not able to figure out #[em.wrap how to run the Tester program effectively]. We onboarded a total of 46 testers in the Testers program, 21 of them with disabilities, but have to define a better process to keep receiving feedback periodically, and increase testers engagement.
+    li Implementing the #[em wireless / Bluetooth version] of the Alpakka has proven to be significantly more challenging than anticipated. At the same time, we appreciate the help and support we received from our community.
+    li We had to (re)implement the distribution channel on #[em Squarespace], after an unsuccessful attempt with another shopping platform. What a waste of time.
+    li Even though we were successful in making ourselves somewhat visible in the DIY, 3D-printing, and accessibility communities, #[em.wrap we expected to get more attention from videogame journalism] (eg PC Gamer, IGN, Kotaku, etc). We will keep working hard and do our best to be noticed.
+
+  hr
+  h3 Things we hope to achieve in the second year of Input Labs
+  ul
+    li #[em Alpakka 1.0] with wireless power and communication.
+    li Shift our focus into into the #[em Kapybara] development.
+    li Additional #[em Ctrl app] features (profile edit, advanced settings, etc).
+    li Re-think our approach of the #[em testers program].
+    li Find alternative ways to #[em support our research], such as external investment, partnerships with other companies, governmental support, etc...
+
+  hr
+  p Thanks for making this project possible! <br> - Michael and Marcos <3
