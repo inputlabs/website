@@ -1,0 +1,47 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #19
+
+block content
+  h2 Progress report #19
+  +news_header('22 December 2023', 'recap_year_1', '')
+
+  h3 Now in shop: Fully soldered Printed Circuit Boards
+  p As promised in last months progress report #18, we now offer also fully soldered PCBs in our distribution channel.
+  p It took some time to test that the process was working and the results were reliable and of high quality. Of course you can still order the separate electronics kit and PCB and solder them yourself.
+  p We consider this a major step toward offering complete Alpakka controllers.
+
+  br
+  img(src='/static/blog/soldered_pcb.jpg').wm
+  hr
+
+  h3 Editing profiles in the Ctrl app
+  p We released a new version of the #[+ax('https://github.com/inputlabs/ctrl') Ctrl app] together with for the corresponding firmware #[+ax(org.fw_release+'0.94.0') 0.94.0] for the Alpakka.
+  p In addition to some minor improvements and fixes, this version provides the ability to #[em edit profiles conveniently in the app] and have changes immediately stored and reflected in the Alpakka.
+
+  hr
+
+  h3 Wireless Communication 
+  p Power and latency are still the primary concerns when it comes to the wireless Alpakka. As discussed earlier, our focus is still very much on using Bluetooth for wireless communication, despite the heterogeneity of BT devices out there.
+  p Thus, while we have also spent some time investigating solutions based on #[+ax('https://www.nordicsemi.com') Nordic SoCs], our primary focus was on using the Bluetooth capabilities of the Raspberry Pi Pico-W.
+  p In our initial experiments, based on Bluetooth Classic HID profiles (we wanted to enable as many people as possible to use the wireless Alpakka, instead of focusing only on more recent BT LE) we fairly quickly achieved latencies of 30 - 35 ms.
+  p While for some use-cases this may be acceptable, it is not viable for serious game-play. While we were quickly able to reduce the latency to 24 ms and lateron in best-cases even to 3 - 9 ms, we still experienced maximum latencies of 28 ms.
+
+  br
+  img(src='/static/blog/latencies.png').wm
+  br
+  p After a few more months of work we now managed to achieve consistent latencies of average 3.543 ms, with a minimum of 3.161 ms and a maximum of 3.934 ms. These are of course pure Bluetooth communication latencies, using SPI as a (zero-latency) feedback channel.
+  p We have now moved on to integrating Bluetooth communication in the actual Alpakka firmware, where signaling, data processing, etc. will incur additional latencies on their own. Still, this development is very encouraging.
+
+
+  hr
+
+  h3 Bug tracking 
+  p Something we have not been exercising consistently is the tracking of bugs. In order to a) do better ourselves and b) enable others to contribute more easily, you can find open issues in their corresponding repositories (e.g., #[+ax('https://github.com/inputlabs/alpakka_firmware/issues') firmware[]).
+
+  hr
+
+  p Enjoy the winter solstice celebrations!
+
+  p - Marcos and Michael <3
