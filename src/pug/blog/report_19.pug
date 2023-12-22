@@ -1,0 +1,50 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #19
+
+block content
+  h2 Progress report #19
+  +news_header('22 December 2023', 'recap_year_1', '')
+
+  h3 Now in shop: Fully soldered Printed Circuit Boards
+  p As mentioned in the previous progress report, we now offer also #[+ax(org.shop+'/everyone/p/alpakka-pcb-soldered') fully soldered PCBs] in our distribution channel.
+  p It took some time to test that the process was working, and the results were reliable and of high quality. Of course you can still order the separate electronics kit and (partially soldered) PCB and solder them yourself.
+  p We consider this a major step toward simplifying the DIY process, and maybe offering complete Alpakka controllers in the future.
+
+  br
+  img(src='/static/blog/pcb_0_90_1_full.jpg').wm
+
+  hr
+  h3 Editing profiles in the Ctrl app
+  p We released a new version of the #[+ax(org.ctrl_release+'0.94.0') Ctrl app] together with for the corresponding firmware #[+ax(org.fw_release+'0.94.0') 0.94.0] for the Alpakka.
+  p In addition to some minor improvements and fixes, this version provides the ability to #[em edit profiles conveniently in the app] and have changes immediately stored and reflected in the Alpakka.
+
+  br
+  img(src='/static/manual/ctrl_app_screenshot_3.png').wm
+
+  hr
+  h3 Wireless communication progress
+  p Power and latency are still the primary concerns when it comes to the wireless Alpakka. As discussed earlier, our focus is still very much on using Bluetooth for wireless communication, despite the heterogeneity of BT devices out there.
+  p So while we have also spent some time investigating solutions based on #[+ax('https://www.nordicsemi.com') Nordic SoCs], our primary focus was on using the Bluetooth capabilities of the #[em Raspberry Pi Pico-W].
+  p In our initial experiments, we fairly quickly achieved latencies of ~30 ms with huge spikes (red line), which was not really suitable for this kind of controller, and a bit disappointing. But after a lot of work (and using #[+ax('https://bluekitchen-gmbh.com') BTStack] development branch) we now managed to achieve a consistent #[em latency of ~3.5 ms] (green line), which is much more acceptable for gaming.
+
+  br
+  img(src='/static/blog/bluetooth_latencies.png').wm
+  br
+
+  p There is still plenty of work to do integrating Bluetooth communication in the actual Alpakka firmware, and designing the power circuitery. Still, this development is very encouraging.
+
+  hr
+  h3 Bug tracking
+  p Something we have not been exercising consistently is the tracking of pending tasks and bugs at individual repositories level. So now we are now doing a bit better:
+  ul
+    li: +ax('https://github.com/inputlabs/alpakka_firmware/issues') Alpakka firmware open issues
+    li: +ax('https://github.com/inputlabs/ctrl/issues') Ctrl app open issues
+
+  p This is not only making our lifes easier (so we do not have to rememeber all of that), but makes the project much more transparent, and easy for anyone to check the status of features and bugs, to comment, or even to contribute.
+
+  hr
+  p Enjoy the winter solstice celebrations!
+
+  p - Marcos and Michael <3
