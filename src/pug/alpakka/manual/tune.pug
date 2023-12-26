@@ -8,7 +8,19 @@ block content
   hr
 
   p Tune settings define how the controller works at a fundamental level, independently from the operative system. these settings are applied to all profiles, and will be stored in the controller memory even if the controller is powered off.
-  p Tune settings are configurable by the user directly on the controller:
+  p Tune settings are configurable directly on the controller, or also in the Ctrl app.
+
+  hr
+  h3 In the Ctrl app
+
+  ul
+    li Settings tab in the header.
+
+  img.wm.mr.mt(src='/static/manual/ctrl_app_settings.png')
+
+  hr
+  h3 In the controller
+
   ul
     li Hold the #[em Home #[+home]] button.
     li Hold the #[em Directional Hat #[+hat]] either up, down, left or right. Each direction tune a different option (see below).
@@ -53,16 +65,19 @@ block content
         div + hold Hat left #[+hat]←
       td.center
         img(src='/static/manual/led_tune_left_0.png' width='50px')
-        div 5%
+        div Low
+        div 8%
         i (Default)
       td
       td.center
         img(src='/static/manual/led_tune_left_1.png' width='50px')
-        div 10%
+        div Mid
+        div 12%
       td
       td.center
         img(src='/static/manual/led_tune_left_2.png' width='50px')
-        div 15%
+        div High
+        div 20%
     tr
       td.middle
         h3 Touch sensitivity
@@ -106,21 +121,20 @@ block content
         div 4K
 
   hr
-  h3 Protocol mode
+  h3 Settings description
+
+  h4 Protocol mode
   p Defines how the controller communicates with the computer operating system, XInput for either Windows or Linux are the most recommended, but in some cases the generic gamepad mode can also be useful (eg. Retro games and simulators).
-  hr
 
-  h3 Thumbstick deadzone
+  h4 Thumbstick deadzone
   p Defines how much of the inner movement of the thumbstick will be ignored, increase this according to your thumbstick wear (thumbstick centering spring will get softer over time). Please check #[+a('calibrate') Calibration] instructions before tweaking this parameter.
-  hr
 
-  h3 Touch sensitivity
+  h4 Touch sensitivity
   p Defines how sensitive the touch surface is. Depending on which conductive material was used on the touch surface you may want to tweak this parameter:
   ul
     li The automatic setting will adjust the sensitivity dynamically.
     li Set a higher fixed sensitivity if the detection is not registered consistently.
     li Set a lower fixed sensitivity if the detection is taking too long to be released after the finger is lifted.
-  hr
 
-  h3 Mouse sensitivity
+  h4 Mouse sensitivity
   p Defines how sensitive the mouse emulation is, using recommended values for different display resolution with the default OS sensitivity. This is similar to changing the DPI on a traditional mouse. Check #[+a('setup') OS setup] and #[+a('mouse') Mouse] for more details.
