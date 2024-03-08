@@ -8,29 +8,84 @@ block content
   hr
   p
     i 08 September 2023 <br>
+    //leaving the original date on purpose for now
   hr
 
   h3 1. Introduction
   p One of the most requested features for the Alpakka controller is the ability to use it without any kind of cable. To replace the cable, the controller requires an alternative power source, as well as an alternative means of communication with the computer.
   p At this stage we would like to outline the current status of our research and the decisions that we have taken so far to progress in the development of a suitable solution.
 
-  h3 2. Power
+  h3 2. Communication
+  p Using existing open standards, such as Bluetooth (originally IEEE 802.15.1) or wireless LAN (IEEE 802.11), but also proprietary solutions, e.g., from Nordic Semiconductors or Espressif Systems.
 
-  h4 2.1 Battery
-  p Power consumption and acceptable wireless use
+  h4 2.1 Bluetooth
+  p Bluetooth is as one of the most ubiquitous technologies, seamlessly linking devices and enabling a plethora of applications. From wireless headphones to smart home devices. Most wireless controllers also offer Bluetooth, at least as an option.
+  p As a wireless technology standard, it facilitates data exchange over short distances between electronic devices. It operates in the 2.4 to 2.485 GHz frequency band and uses radio waves for communication. Originally developed by Ericsson in 1994, Bluetooth was intended to replace cumbersome wired connections between devices.
 
-  h4 2.2 Recharging
-
-  h3 3. Communication
-  p Using existing standards, i.e. BT, WLAN, Nordic
-
-  h4 3.1 Bluetooth
   h5 Versions
-  h5 Profiles
-  h5 Hardware Heterogeneity
-  h5 Latency
-  
-  h4 4. Status of first Iteration
-  p 
+  p One of the first decisions was the minimum supported Bluetooth version for the Alpakka. A quick question amongst our Discord users revealed an almost even split between Bluetooth version 4 and version 5.
+  p Bluetooth 4.0, launched in 2010, introduced Low Energy (LE) technology, also known as Bluetooth Smart. This version optimized power consumption, making it ideal for devices requiring long battery life, such as the Alpakka.
+  p Bluetooth 5, released in 2016, represented a significant leap forward in terms of performance and capabilities. It doubled the maximum data transfer speed to 50 Mbps and quadrupled the range compared to its predecessor. Bluetooth 5.x versions introduced features like improved advertising capabilities, enhanced security, and support for mesh networking. It also introduced HID over GATT, which allowed for significantly lower communication latencies.
 
-  h4 5. Future Development
+  h5 Profiles
+  p Bluetooth profiles define the capabilities and functionalities that Bluetooth-enabled devices can support. These profiles are meant to ensure interoperability between different devices by standardizing communication protocols.
+  p Of particular interest for the Alpakka are the Human Interface Device Profile (HID) and HID over GATT profiles.
+  p HID enables the connection of input devices like keyboards, mice, and game controllers to host devices via Bluetooth. It is meant to ensure the compatibility and smooth operation of input devices across various platforms.
+  p HID over GATT (HoGATT) extends the functionality of the Generic Attribute Profile (GATT) to support the transmission of Human Interface Device (HID) data over Bluetooth Low Energy (BLE) connections. This allows for seamless integration of HID devices, such as keyboards and mice, with BLE-enabled host devices, with significantly lower input latencies.
+  
+  p In order to ensure that the wireless Alpakka can be used easily by as many people as possible, we elected to focus Bluetooth 4.2 and the corresponding classic HID profile for the wireless Alpakka.
+
+  h5 Latency
+  p In order to determine the communication latency of the classic HID profile and Bluetooth 4, we set up a communication between two Pico-W, using SPI as feedback channel.
+  img.mt(src='/static/img/wireless_setup.jpg' width='400px')
+  p While the initial latencies were unacceptable, about 30 - 40 ms, we were able to reduce them to an average of 3.5 ms, with maximum latencies of 3.9 ms for short periods of time.
+
+  h5 Jitter
+  p Upon longer testing, we encountered a significant variability in latency, and even sudden, very high latencies of 20 ms and more, which again placed the idea of a wireless Alpakka, using Bluetooth, into jeopardy.
+
+  h5 Hardware Heterogeneity
+  p One other challenge for the Alpakka is the heterogeneity of available hardware. Despite the standardization of Bluetooth, it's support and implementation in different hardware varies significantly, making interoperability challenging.
+  p While our latency experiments worked very well between two Pico-W getting the same code to work reliably with other hardware, such as Bluetooth dongles, was very challenging.
+
+  h5 Stacks and Operating Systems
+  p While our initial focus was on latency between two Pico-W, the next step was the communication between and Pico-W and a Linux laptop. After some struggles and with the help of Bluekitchen, we managed to get the latencies into an acceptable range. However, once again, getting the communication to work with the Bluetooth stack that come with Mac OS X, or Microsoft Windows proved to be impossible.
+
+  h5 Licensing cost
+  p Another challenge for a small project like ours are the Bluetooth licensing costs. To quote from #[+ax('https://support.bluetooth.com/hc/en-us/articles/360049018272-Do-I-Need-to-Qualify') the website of the Bluetooth SIG]:
+  ul
+    li "To ... sell a Bluetooth® product, your company must join the Bluetooth Special Interest Group (SIG) and complete the Qualification process."
+    li "ALL Bluetooth® Products Must Be Qualified"
+    li "Product qualifications cannot be inherited from your supplier. You must complete the qualification of your product for yourself."
+
+  p While for an "Adopter" there is no annual fee, a "Declaration Fee", part of the "Qualification Process", is required, in the amount of of #[+ax('https://www.bluetooth.com/fee-schedule/') USD 11,040].
+  // https://www.bluetooth.com/develop-with-bluetooth/join/membership-benefits/
+  // https://launchstudio.bluetooth.com/Listings/Search
+  
+  h4 2.2 To dongle or not to dongle
+  p In order to resolve the above interoperability issues, we are currently considering the use of a dongle, based on a second Pico-W. This approach would give us full control over the wireless communication and allow us to get around problems with different hardware and operating system. Instead, the dongle would make the Alpakka appear as a mouse / keyboard / game-controller, as it does now.
+  p The Alpakka would also not be bound to a specific wireless communications standard, but the two dongles would merely replace the current USB cable (for communication).
+  p While there would is certainly additional effort required for developing the software for the wireless dongle, it is difficult to estimate exactly how much effort it entails. At the same time, it may reduce the required changes in the Alpakka firmware.
+  p One drawback of such a solution would also be the additional cost for the dongle itself.
+
+  h3 3. Power
+
+  h4 3.1 Battery
+  p Power consumption and acceptable wireless use
+  p battery management
+
+  h4 3.2 Recharging
+  p charge management 
+
+  h4 3.3 Safety 
+  p Certification
+
+  h3 4. Initial Conclusions
+  p After several hundreds of hours and even with the support from Bluekitchen, we have at least for now come to the conclusion that the Raspberry Pi Pico-W in combination with the currently available drivers and  Bluetooth stack are currently not sufficiently mature for a good gaming experience. We have thus started to pursue other options for the wireless Alpakka.
+  
+
+  h3 5. Future Development
+  p We are looking into other options to provide a wireless experience. This include
+  ul
+    li communication between the Alpakka and a Pico-W dongle over wireless LAN (802.11), including Wi-Fi Direct
+    li other forms of wireless communication between the Pico-W in the Alpakka and a Pico-W dongle
+    li using a different communication chip than the Infineon CYW43439, such as an SOC from Nordic Semiconductors, in combination with the Raspbery Pi Pico and a corresponding dongle
