@@ -1,0 +1,29 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #21
+
+block content
+  h2 Progress report #21
+  +news_header('8 March 2023', 'patents', '')
+
+  h3 Wireless Alpakka
+  p After several hundreds of hours and even with the support from Bluekitchen, we have at least for now come to the conclusion that the Raspberry Pi Pico-W in combination with the currently available drivers and  Bluetooth stack are currently not sufficiently mature for a good gaming experience. We have thus started to pursue other options for the wireless Alpakka.
+  img.mt(src='/static/img/wireless_setup.jpg' width='400px')
+
+  p We have instead started to look into other options to provide a wireless experience, such as
+  ul
+    li communication between the Alpakka and a Pico-W dongle over wireless LAN (802.11), including Wi-Fi Direct
+    li other forms of wireless communication between the Pico-W in the Alpakka and a Pico-W dongle
+    li using a different communication chip than the Infineon CYW43439, such as an SOC from Nordic Semiconductors, in combination with the Raspbery Pi Pico and a corresponding dongle
+  hr
+
+  h3 Scrollwheel redesign
+  p For a while now, we have been less than satisfied with the quality of our 3D printed scrollwheel of the Alpakka.
+  p In order to make the scroll-wheel more stable (or at least significantly reduce any "wobbling"), and to make sure that it is much easier to print, we have re-designed our model.
+  p We also used this opportunity to experiment with build123d, making this a proper CAD design, while also enabling us to see differences (and thus bugs) in new versions more easily.
+  img.mt(src='/static/blog/scrollwheel_evolution.jpg' width='400px')
+  p The results can now be found in #[+ax('https://github.com/inputlabs/prototypes_cad') our github]. 
+  hr
+
+  p - Marcos and Michael <3
