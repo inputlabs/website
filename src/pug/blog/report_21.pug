@@ -1,0 +1,70 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #21
+
+block content
+  h2 Progress report #21
+  +news_header('8 March 2023', 'patents', '')
+
+  h3 Wireless Alpakka
+  p For the last months we have been researching (and developing) the wireless functionality on the Alpakka controller. Originally we decided to continue using the #[em Raspberry Pi Pico], but moving to the #[em Pico-W] variant. Our initial work was to validate a potential BT solution, focusing on 4 key requirements:
+
+  h4 Latency
+  p Pico-W to Pico-W latency tests demostrated that, after some tuning, BT can achieve latencies down to #[em 4 milliseconds]. So in this regard BT had an acceptable performance for gaming.
+
+  h4 Interoperability
+  p One of the selling points of BT is that it works everywhere, unfortunately our tests have shown that even if you have a device that is following the BT specs, the results may be very different depending on which dongle is being used, which operating system, which drivers, etc. A workaround for this would be using a #[em second Pico-W as a dongle], which would be inconvenient but acceptable, as most gamer PC peripherals use custom dongles (probably for the same reason).
+
+  h4 Battery life
+  p We only conducted a single test with a wireless Alpakka prototype, in which we played for #[em 60 minutes], and a #[em 1200 mAh] battery went from #[em 4.18V to 4.12V], this was not representative of how long the battery would last for real, as battery voltage drop is not linear, but gives us confidence that 1200 mAh should be enough for a few gaming sessions, even in the current state of the firmware without power-saving optimizations.
+
+  h4 Consistency / Jitter
+  p Unfortunately this is were the experiments with BT on the Pico-W failed to meet our requirements, after hundreds of hours trying, many tweaks, and even with the help of BlueKitchen devs, we were unable to get rid of #[em latency spikes].
+  p These spikes often went into 20+ milliseconds, with big spikes up to 60+ milliseconds, that completely #[em ruined the gaming experience] with regular lagging.
+
+  +figure(
+    '',
+    'Pico-W to Pico-W setup with SPI time measurement',
+    '/static/blog/wireless_setup.jpg',
+    'inline pair',
+  )
+  +figure(
+    '',
+    'Alpakka prototype with Pico-W and battery connector',
+    '/static/blog/wireless_prototype.jpg',
+    'inline pair',
+  )
+
+  h4 Moving forward
+
+  p We decided to #[em pause] the research of a #[em BT-based] wireless Alpakka (at least temporally), and instead started to look into other options:
+  ul
+    li Experiment with the the #[em WLAN 4] features of the Pico-W, which in theory can also achieve very low latencies, but may be more prone to network congestion.
+    li Keep the normal Pico but introduce a dedicated #[em RF transceiver chip], which would also require to design our own dongle from scratch.
+    li A Complete redesign of the Alpakka, replacing Raspberry Pi RP2040 with either #[em Espressif ESP32 or Nordic Semiconductors] solutions. Which would require a significant amount of work, and dealing with backwards compatibility.
+    li Prioritizing other work while Raspberry Pi Pico (and libraries) bring #[em updates] that improve the consistency and interoperability of the BT solution.
+    li Prioritizing other work while a potential #[em Raspberry Pico 2.0] arrives, with better wireless performance (we can only hope).
+  hr
+
+  h3 Scroll-wheel redesign
+  p We have redesigned the scroll-wheel model, in order to make it more stable and reduce any #[em "wobbling"]. While it still consists of three parts (wheel, core and holder), the axle around in both sides is now in the same piece. Additionally the core is now much easier to assemble and disassemble.
+  p We also used this opportunity to experiment with #[+ax("https://build123d.readthedocs.io/en/latest/index.html") Build123d], making this a proper CAD design, while also enabling us to review differences (and spot bugs) in new versions more easily.
+
+  +figure(
+    '',
+    'Build123d model preview',
+    '/static/blog/scrollwheel_b123d.png',
+    'inline pair',
+  )
+  +figure(
+    '',
+    'Several iterations testing different ideas',
+    '/static/blog/scrollwheel_evolution.jpg',
+    'inline pair',
+  )
+
+  p The results can now be found in #[+ax('https://github.com/inputlabs/prototypes_cad') CAD prototypes] repo and are currently being tested. If no further issues are found, we plan to gradually integrate Build123d models with our Blender designs, and potentially replace Blender as the main CAD solution in the long term.
+  hr
+
+  p - Marcos and Michael <3
