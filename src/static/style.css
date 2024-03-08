@@ -486,6 +486,9 @@ main .boxes.center {
 .wiki .figure.big img {
   width: 425px;
 }
+.wiki .figure.pair img {
+  height: 300px;
+}
 .wiki .figure.inline {
   display: inline-block;
   margin-right: 20px;
