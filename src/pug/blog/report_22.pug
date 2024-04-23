@@ -5,44 +5,57 @@ block append subtitle
 
 block content
   h2 Progress report #22
-  +news_header('12 April 2024', 'report_21', '')
+  +news_header('23 April 2024', 'report_21', '')
 
+  h3 Migration from Blender to Build123d
+  p We decided to start using #[+ax('https://build123d.readthedocs.io') Build123d] as our main modelling solution. The original idea of using #[em Blender as a CAD] app did not turn out to be very popular.
+
+  p Build123d is a #[em CAD solution] that defines models in code (Python). Internally it uses OpenCascade, the same engine than #[em FreeCAD].
+
+  p We chose Build123d based on multiple criteria #[+ax('https://github.com/orgs/inputlabs/projects/5/views/1') we defined]:
+  ul
+    li #[em Open-source] and multiplatform support.
+    li Active project and #[em community].
+    li Learning resources and #[em documentation] quality.
+    li Common #[em CAD abstractions] and tooling.
+    li Collaboration workflow (able to review on #[em Git/GitHub]).
+    li #[em Assembly] tooling / multipart integration.
+
+  p In the latest Alpakka 3D-models release #[+ax(org.cad_release+'0.96.0') c0.96.0] we already ported the #[em scrollwheel] (with a full redesign) and the #[em L1/R1 triggers] to Build123d. The new scrollwheel features a redesigned core, much more stable and easier to print. While the L1/R1 triggers are just a 1:1 port.
+
+  p Our plan is to keep porting Alpakka parts into Build123d gradually, and starting the Kapybara prototyping directly in Build123d.
+
+  img.ws.mt.mr(src='/static/blog/scrollwheel_0960.png')
+  img.ws.mt.mr(src='/static/blog/scrollwheel_core_0960.png')
+  img.ws.mt.mr(src='/static/blog/trigger_r1_0960.png')
+
+  hr
   h3 Wireless Alpakka (the odyssey continues)
-  p In the last report we explained our criteria to evaluate #[em Pico-w + BT] (with and without dongle) and how we were not able to achieve acceptable results.
+  p In the last report we explained our criteria to evaluate the #[em Pico W with BT] and how we were not able to achieve acceptable results.
 
-  p During the last weeks we focused on evaluating #[em Pico-w + WLAN], and while the initial results on latency (~2 ms) and jitter were very satisfactory, we found critical issues with #[+ax('https://github.com/georgerobotics/cyw43-driver/issues/111') connection dropping] that we were no able to solve either, which also makes the solution unsuitable.
+  p During the last weeks we focused on evaluating #[em Pico W with WLAN], and while the initial results on latency (~2 ms) and jitter were very satisfactory, we found critical issues with #[+ax('https://github.com/georgerobotics/cyw43-driver/issues/111') connection dropping]. Since we were no able to solve these problems, this solution is also unsuitable.
 
-  p Ultimately we have to ask ourselves if BT or WLAN are the #[em right tool] for low-latency videogame peripherals, and the answer is possibly "no".
-
-  p So even though we may go back to one of these solutions if the blockers are solved, for now we decided to explore alternatives without the Pico-W:
+  p We came to the conclusion that at present the combination of Pico W with (either with BT or WLAN) may not be suitable to for low-latency videogame peripherals. For now we decided to #[em.wrap explore alternatives without the Pico W]:
 
   ul
-    li Keep the original Pico (or bare #[em RP2040]), but with a #[em standalone RF module] best suited for our usecase.
+    li Combine the normal Pico with a #[em standalone RF module] best suited for our usecase.
+    li Redesign the PCB with a bare #[em RP2040] and a standalone RF module.
     li Redesign the PCB into the #[em Nordic Semi] SoC ecosystem.
     li Redesign the PCB into the #[em Espressif ESP32] SoC ecosystem.
 
 
-  p In the case of Nordic or ESP32 redesigns, we would also have to retain retrocompatibility for current PCBs, which is not a trivial task, so we are exploring how it could be done with #[+ax('https://www.zephyrproject.org') Zephyr] since it provides multiple architectures as a target.
-
-  p We are also tempted to create our own #[em core module] similar in size to a Raspberry Pico, including SoC, wireless module, battery charging, and USB-C. So it plugs into the main PCB with a #[em board-to-board connector], and can be reused in all our devices (Alpakka, Kapybara, dongle, and other device ideas we have for the future).
+  p In the case of Nordic or ESP32 redesigns, we would have to maintain backwards compatibility for current "Raspberry" PCBs (for new firmware features and fixes), which is not a trivial task.
 
   hr
   h3 Battery charging
   p We have been experimenting with #[em Microchip MCP73871] integrated circuit for power management, as a simple way to power the Alpakka either from the USB or from a LiPo battery, to charge the battery if necessary, and to indicate if the battery is #[em low], #[em charging], or #[em fully charged]. Results are very positive so we will continue with this chip if there are no surprises.
 
-  p With an early prototype we ran a full cycle of charging the battery, and discharging it while playing (mostly Helldivers 2 and other FPS games) and the #[em 1200 mAh] battery lasted for a total of #[em 17 hours] of continued gameplay, which is awesome.
+  p Using an early prototype, we ran a full cycle of charging and discharging the battery while playing some games (mostly Helldivers 2 and other FPS). With this setup the #[em 1200 mAh] battery lasted for a total of #[em 17 hours] of continued gameplay, which is better than what we expected.
 
-  hr
-  h3 Wireless ready when?
-  p Even after all the progress we made, we are still far away from a final reference design, or a kit that we can offer on the shop. Please do not take our progress updates as sign that the wireless Alpakka "could be ready any day now", because realistically #[em we are still a few months away] from it.
-
-  p Or in other words, if you want to #[em support the open development] we are doing in Input Labs, please do not hold on buying (or building) the wired version today.
 
   hr
   h3 Government funding
-  p We applied for grants coming from the government of Finland, aiming to help small startups to innovate and thrive. The goal for us as a company is to keep growing organically and to continue our research and development, hopefully being able to focus more in the accessibility part in the future, and ultimately to conquer the world one sauna at a time, muahahaha.
-
-  p Now seriously Finland is a great place to innovate.
+  p We applied for grants coming from the government of Finland, aiming to help small startups to #[em innovate]. Some were already approved, and even though these are modest, surely will help us running our research. Kiitos Suomi!
 
   hr
 
