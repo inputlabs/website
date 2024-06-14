@@ -10,8 +10,8 @@ block content
   h3 Firmware and Ctrl app 0.96.0
   p We released #[+ax(org.fw_release+'0.96.0') f0.96.0] firmware, and Ctrl app #[+ax(org.ctrl_release+'0.96.0') a0.96.0]. The main new features are:
   ul
-    li Unlocked 4 custom slot profiles. (#[em Home] + #[em DPad] double-press).
-    li Button #[em double-press].
+    li Unlocked 4 custom slot profiles. (Holding #[em Home] + #[em DPad] double-press).
+    li Button #[em double-press] mode (able to have a bind for single-click, and another bind for double-click).
     li Profile copy/reset.
     li Profile #[em import/export] from/to #[em .ctrl] file. (Not compatible with 0.95.0)
     li Thumbstick #[em anti-deadzone].
@@ -50,28 +50,29 @@ block content
   ul
     li A breakout board with a standalone #[em Nordic NRF24] and a 2.4GHz chip antenna.
     li An external microcontroller (or a Pico) uses the wireless solution via #[em SPI].
-    li End-to-end latency: #[em ~1 millisecond].
+    li End-to-end latency: #[em ~1 millisecond]. (Have in mind this is lab-conditions testing, final results could vary IRL scenarios).
     li Jitter: So small we cannot even measure it (possibly #[em microseconds] on average).
     li Connection range: #[em Excellent], able to transmit even from the next room.
 
   h4 RF test 2 board
   ul
     li A full board with #[em Raspberry RP2040] microcontroller, Nordic NRF24 and a 2.4GHz chip antenna.
-    li #[em USB-C], but because a design error it was unusable.
-    li #[em Snap-in connectors] so it can be attached to a main board without soldering.
+    li #[em USB-C] connector.
+    li Board-to-board #[em snap-in connectors] so it can be attached to a main board without soldering.
     li Castellated pins for UART.
+    li Unfortunately USB was unusable due to design error.
     li We realized that the USB-C receptacle was 0.2 millimeters too tall.
 
   h4 Connector breakout test
   ul
     li A simple connector-to-headers breakout board that allowed us to test the connectors.
-    li Connectors have a very #[em satisfying snap-in click].
+    li Connectors have a very positive #[em snap-in click] confirmation.
     li Connectors have very solid communication even when only partially plugged.
-    li Physical connection is very robust but can move a bit if the USB-C cable is twisted. Would require additional 3D-printed support when attached to a full controller.
+    li Physical connection is very robust, but can move a bit if the USB-C cable is twisted. Would require additional 3D-printed support if attached to a full controller.
 
   h4 RF test 3 board
   ul
-    li USB-C works as expected!
+    li #[em USB-C] works as expected.
     li USB-C receptacle is sunk into the board for extra clearance.
     li #[em RP2040], flash memory, crystal clocks, linear regulator, and all other boring components works as expected.
     li Power bridge allows us to test battery charging with external components.
@@ -79,15 +80,15 @@ block content
 
   h4 Next steps
   ul
-    li Introduce #[em Microchip MCP73871] battery charging chip that we tested previously (the space is very limited due to the connectors).
-    li Investigate how to bring back great signal performance of the first prototype / Which changes are to blame for the reduction in connection quality.
+    li Introduce #[em Microchip MCP73871] battery charging chip that we tested #[+a('report_22') previously]. (The space is very limited due to the connectors).
+    li Fix regression in wireless communication. Figure out which changes are to blame for the reduction in connection quality.
     li Create an Alpakka board prototype with snap-in connectors instead of soldering pads.
 
   hr
 
   h3 Maria01 Pitching Day
-  p #[+ax('https://maria.io') Maria01] (the startup campus in which Input Labs is located) organizes #[+ax('https://maria.io/events/maria-365-pitching-day/') 365 Pitching Day], an event in which startups showcase their work, not to actual VC companies, but as a #[em fun exercise] / competition (with judges!).
-  p Michael was presenting Input Labs in an extremely short #[em 3 minutes] pitch + 3 minutes Q&A session format. It was fun!
+  p #[+ax('https://maria.io') Maria01] (the startup campus in which Input Labs is located) organizes #[+ax('https://maria.io/events/maria-365-pitching-day/') 365 Pitching Day], an event in which startups showcase their work, not to actual VC companies, but as a #[em fun exercise] / competition (with judges from different backgrounds).
+  p Michael was presenting Input Labs along with other companies in the category of #[em games and learning]. It was fun!
   img.wm.mt(src='/static/blog/pitch_day.jpg')
   hr
 
