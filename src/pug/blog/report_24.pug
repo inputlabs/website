@@ -1,0 +1,63 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #24
+
+block content
+  h2 Progress report #24
+  +news_header('25 July 2024', 'report_23', '')
+
+  h3 More 3D models in build123d
+  p In progress report 22 we started the serious migration from Blender to #[+ax('https://build123d.readthedocs.io') build123d] to design our 3D models.
+  p After the re-design of the #[em scroll-wheel] with all it's related parts as well as the #[em L1/R1 triggers], we now turned to the #[em battery cover], and the #[em ABXY], #[em D-Pad] and #[em Select buttons].
+  p The battery cover received not only a port from Blender to #[+ax('https://build123d.readthedocs.io') build123d], but was also re-designed with proper fillet to significantly strengthen it and make it less susceptible to breaking. Especially for FDM printers this represents a significant improvement.
+  p We also added tabs to compensate for minor inaccuracies in 3D printing and allow for a better fit, even in sub-optimal conditions.
+
+  +figure(
+    '',
+    'New battery cover, changes in red',
+    '/static/blog/new_cover.png',
+    'medium inline',
+  )
+  +figure(
+    '',
+    'New battery cover in practice',
+    '/static/blog/new_cover_battery.jpg',
+    'medium inline',
+  )
+
+  p The #[em ABXY], #[em D-Pad] and #[em Select buttons] were ported directly from Blender to beautiful #[+ax('https://build123d.readthedocs.io') build123d] #[+ax('https://github.com/inputlabs/alpakka_case/ ...fix after release ... /build123d/button_abxy.py') Python code].
+
+  +figure(
+    '',
+    'New ABXY button',
+    '/static/blog/new_abxy.png',
+    'small inline',
+  )
+  +figure(
+    '',
+    'New D-Pad button',
+    '/static/blog/new_dpad.png',
+    'small inline',
+  )
+
+  +figure(
+    '',
+    'New Select button',
+    '/static/blog/new_select.png',
+    'small inline',
+  )
+
+  p Special thanks for his help, support and advice in all matters #[+ax('https://build123d.readthedocs.io') build123d] to Jern!
+  p All four models are now part of 3D-models release #[+ax(org.cad_release+'0.97.0') c0.97.0]
+  hr
+
+  h3 Wireless custom RF prototypes
+  p Special thanks to Fabio!
+  hr
+
+  h3 More than a thousand Discord members
+  p In July we exceeded the magic number of one thousand members on Discord.
+  hr
+
+  p - Marcos and Michael <3
