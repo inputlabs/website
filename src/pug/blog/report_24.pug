@@ -75,6 +75,10 @@ block content
       li Antenna placed in vertical.
       li Matching network arrangement very similar to Nordic reference design.
       li Unfortunately we didn't realized about the required bottom stub until later, so we added a bit of copper tape manually.
+    li Power management circuit works mostly as expected:
+    ul
+      li It reports #[em no battery], #[em low battery], #[em no USB power] and all other power states.
+      li Unfortunately it does not charge the battery due to a mistake we made in the circuit (unconnected secondary ground). It should be trivial to fix it on the next iteration.
     li Results with different setups:
     ul
       li No stub: Still sub-optimal signal strength.
