@@ -7,76 +7,56 @@ block page
   include _title.pug
 
   div.boxes.grid
+
+    div.box
+      h2 Complete DIY kits
+      p To make more obvious which parts are required to build a complete DIY Alpakka controller, we introduced the concept of #[em Complete kits] into the shop.
+      p These work similar to a guided configurator in which you select a few options, and the relevant parts are added to the shopping cart.
+      table.data
+        tr
+          td Complete DIY kit (solder+assembly)
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-kit-solder') Input Labs
+        tr
+          td Complete DIY kit (assembly only)
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-kit-assembly') Input Labs
+
     div.box
       h2 Firmware
       p The open source firmware for the controller, for the Raspberry Pi Pico.
       p Compiled builds with the latest version are also available.
       table.data
         tr
-          td Alpakka firmware source code
+          td Firmware source code
           td: +ax('https://github.com/inputlabs/alpakka_firmware') GitHub
         tr
-          td Alpakka firmware latest builds
+          td Firmware latest builds
           td: +ax('https://github.com/inputlabs/alpakka_firmware/releases') GitHub
 
     div.box
       h2 Printed Circuit Board
-      p The main board where all the buttons, gyro, thumbstick, LEDs and most other electronics are.
+      p The main board where all the buttons, gyro, thumbstick, LEDs and most other electronics are mounted.
       p Read the documentation about #[+a('/alpakka/manual/diy_pcb') making an order] from PCB manufacturer companies, or get it directly from us.
       table.data
         tr
-          td Alpakka PCB KiCad schematics
+          td PCB KiCad schematics
           td: +ax('https://github.com/inputlabs/alpakka_pcb') GitHub
         tr
-          td Alpakka PCB ready-to-order files
+          td PCB ready-to-order files
           td: +ax('https://github.com/inputlabs/alpakka_pcb/releases') GitHub
         tr
-          td Alpakka PCB (Partially soldered)
+          td Manufactured PCB (Partially soldered)
           td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-pcb') Input Labs shop
         tr
-          td Alpakka PCB (Fully soldered)
+          td Manufactured PCB (Fully soldered)
           td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-pcb-soldered') Input Labs shop
 
     div.box
-      h2 Case and buttons
-      p The front and back part of the case, buttons, triggers, and everything else.
-      table.data
-        tr
-          td Blender project with source 3D models
-          td: +ax('https://github.com/inputlabs/alpakka_case') GitHub
-        tr
-          td STL and M3F files for 3D printing
-          td: +ax('https://github.com/inputlabs/alpakka_case/releases') GitHub
-        tr
-          td Front case
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-front-case') Input Labs shop
-        tr
-          td Back case
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-back-case') Input Labs shop
-        tr
-          td Buttons set
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-buttons-set') Input Labs shop
-        tr
-          td Conductive hexagon
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-conductive-hexagon') Input Labs shop
-      table.data
-
-    div.box
-      h2 3D printer filament
-      p Selected premium filaments from different manufacturers, that we tried and recommend.
-      p Polylactic acid (PLA) is a biodegradable material usually made from corn waste, popular for 3D printing due to its low melting temperature and strength.
-      table.data
-        tr
-          td Prusament PLA (in many colors)
-          td: +ax('https://www.prusa3d.com/category/prusament-pla') Prusa shop
-        tr
-          td Protopasta PLA Conductive
-          td: +ax('https://www.proto-pasta.com/collections/conductive/products/conductive-pla') Protopasta shop
-
-    div.box
       h2 Electronics
-      p This includes the micro-controller, as well as through-hole components. Those are usually not soldered by the PCB manufacturer, so you may want to solder them yourself, and later you may even want to to replace worn components. See #[+a('manual/specs') specs].
+      p Large components usually not soldered by the PCB manufacturer, so you may want to solder (or replace) them yourself. See #[+a('/alpakka/manual/diy_solder') solder] manual page.
       table.data
+        tr
+          td All-included Electronics set
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-electronics-set') Input Labs shop
         tr
           td Raspberry Pi Pico
           td: +ax('https://mou.sr/3xHPuDS') Mouser shop
@@ -95,14 +75,51 @@ block page
         tr
           td Trigger buttons (4x)
           td: +ax('https://www.lcsc.com/product-detail/Tactile-Switches_ALPSALPINE-SKQGAFE010_C202424.html') LCSC shop
+
+    div.box
+      h2 Case and buttons
+      p The front and back part of the case, buttons, triggers, and everything else making the exterior of the controller.
+      table.data
         tr
-          td Electronics set (all included)
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-electronics-set') Input Labs shop
+          td Project with source 3D models
+          td: +ax('https://github.com/inputlabs/alpakka_case') GitHub
+        tr
+          td STL / STEP files for 3D printing
+          td: +ax('https://github.com/inputlabs/alpakka_case/releases') GitHub
+        tr
+          td Crafted Front case
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-front-case') Input Labs shop
+        tr
+          td Crafted Back case
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-back-case') Input Labs shop
+        tr
+          td Crafted Buttons set
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-buttons-set') Input Labs shop
+        tr
+          td Crafted Touch sensitive hexagon
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-conductive-hexagon') Input Labs shop
+      table.data
+
+    div.box
+      h2 3D printer filament
+      p Selected premium filaments from different manufacturers, that we tried and recommend.
+      p Polylactic acid (PLA) is a biodegradable material usually made from corn waste, popular for 3D printing due to its low melting temperature and strength.
+      p See #[+a('/alpakka/manual/diy_case') 3D printing] manual page for tips.
+      table.data
+        tr
+          td Prusament PLA (in many colors)
+          td: +ax('https://www.prusa3d.com/category/prusament-pla') Prusa shop
+        tr
+          td Protopasta PLA Conductive (touch-able)
+          td: +ax('https://www.proto-pasta.com/collections/conductive/products/conductive-pla') Protopasta shop
 
     div.box
       h2 Bolts and nuts
       p M2.5 bolts and nuts to hold the case together, and as pivot points for the triggers.
       table.data
+        tr
+          td All-included Bolts set
+          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-bolts-kit') Input Labs shop
         tr
           td M2.5 DIN-912 Hex-socket 12 mm (2x)
           td: +ax('https://www.mcmaster.com/92290A062/') Reference
@@ -112,13 +129,10 @@ block page
         tr
           td M2.5 DIN-934 Hex nut (8x)
           td: +ax('https://www.mcmaster.com/91828A113/') Reference
-        tr
-          td Alpakka bolts set (all included)
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-bolts-kit') Input Labs shop
 
     div.box
-      h2 Developer kit
-      p Basic tools required for hacking the Alpakka. For more details check Alpakka's #[+a('manual/dev') Developer] manual.
+      h2 Developer tools
+      p Additional hardware for hacking the Alpakka. For more details check Alpakka's #[+a('manual/dev') Developer] manual.
       p: i Links for reference, components with the same specs from other shops will also work.
       table.data
         tr
