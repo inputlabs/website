@@ -164,17 +164,26 @@ h1 {
   margin: 30px 20px;
 }
 h1.dynamic {
+  margin-top: 20px;
   margin-bottom: 25px;
+  font-size: 24px;
+}
+h1.primary {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+h1.secondary {
+  margin-top: 0px;
+  margin-bottom: 15px;
+  font-size: 24px;
 }
 h1 a {
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  margin: 0 10px;
+  margin: 0 5px;
   padding: 5px;
-}
-h1 a.sub {
-  font-size: 24px;
   margin-top: 8px;
 }
 h1 a.active {
@@ -182,6 +191,12 @@ h1 a.active {
   animation: animation-bg var(--cycle) linear infinite;
   animation-delay: var(--seed);
   box-shadow: 2px 2px 8px 0px hsla(0, 0%, 0%, 0.1);
+}
+h1 a.notfound {
+  color: hsl(  0, 0%, 30%);
+  cursor: not-allowed;
+  text-decoration: line-through;
+  text-decoration-thickness: 4px;
 }
 
 /* MAIN ==================================================================== */
