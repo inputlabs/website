@@ -10,6 +10,11 @@
     ],
     "redirects": [
       {
+        "source": "/devices",
+        "destination": "/alpakka",
+        "type": 301
+      },
+      {
         "source": "/devices/alpakka/manual",
         "destination": "/devices/alpakka/manual/mouse",
         "type": 301

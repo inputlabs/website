@@ -1,0 +1,12 @@
+-
+  const active = (bool) => bool ? 'active' : 'inactive'
+
+h1.primary
+  a(class=active(SECTION=='alpakka') href='/alpakka') Alpakka
+  a(class=active(SECTION=='kapybara') href='/kapybara') Kapybara
+
+h1.secondary
+  a(class=active(PAGE=='kapybara') href='/kapybara') Overview
+  a.notfound Manual
+  a.notfound Gallery
+  a.notfound Components
