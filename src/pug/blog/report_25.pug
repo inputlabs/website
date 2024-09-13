@@ -1,0 +1,126 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #25
+
+block content
+  h2 Progress report #25
+  +news_header('13 September 2024', 'report_24', '')
+
+  h3 Wireless RF prototypes 6 and 7
+  p We continued experimenting with antenna performance by doing #[em "trim tuning"]: adding a long copper stub on the antenna's end. Taking measurements while progressive scratching off the copper and reducing the stub length.
+
+  p In the #[em v6] iteration the antenna was placed horizontally, which is not the reference design but was preferred because footprint space limitations. Unfortunately the antenna was detuned so much that the center frequency was unreachable no matter the stub length.
+
+  p In the #[em v7] iteration we were able to reach the target center frequency of #[em 2445 MHz] by scracthing the stub (~1.25 millimeter under the recommended length), these measurements were performed with a #[em VNA] (Vector Network Analyzer) device first by #[em Fabio], and later replicated inhouse at Input Labs lab.
+
+  +figure(
+    '',
+    'RF test 6',
+    '/static/blog/RF_proto_6.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'RF test 7 (unmodified)',
+    '/static/blog/RF_proto_7.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'RF test 7 (tuned)',
+    '/static/blog/RF_proto_7b.jpg',
+    'small inline',
+  )
+
+  p The modified v7 prototype has substantially better antenna performance, but it is still far from reaching its full potential. With the "trim tuning" method we can only tune the antenna itself but not the inductance/capacitance of the matching network. To actually tune the matching network we would need more advanced tools and expertise we don't have, or outsource the tuning to an external company (expensive).
+
+  p We also found that by reducing the rate of the #[em ESB] (Enhanced Shock Burst) connection from #[em 2 Mbps] to #[em 250 Kbps] (8x times slower) the reception sensitivity increases by several decibels (from a theoretical #[em -82 dBm] to #[em -94dBm] according to the specs).
+  ul
+    li At 2 Mbps the range is quite short and there are some micro-cuts while drastically changing the antenna orientation.
+    li At 250 Kbps the range is much better and its much more stable while changing orientation.
+
+  p The slower bandwidth rate is an acceptable tradeoff with a negligible impact on latency (~400 microseconds), but has some #[em negative effects]:
+  ul
+    li More chances of interference in congested WLAN/BT environments.
+    li Most likely not being able to use 2 controllers at once (for example in couch coop games).
+    li Potentially slower transference of data from/to the Ctrl app.
+
+  p Since these results are not as good as we expected, and we do not have the means to improve it further, we decided to experiment with #[em Espressif ESP] all-in-one modules as secondary communication unit, with the idea of replacing NordicSemi NRF24 and antenna with it, while keeping the Raspberry RP2040 as the primary microcontroller, in the same form factor than the previous prototypes.
+
+  p We evaluated #[em ESP C-series] (RISC-V) Mini modules, using the #[em ESP-NOW] protocol, and measuring latency, jitter, range and connection stability in the same way we did with our prototypes.
+
+  +figure(
+    '',
+    'ESP-C6-MINI RF test',
+    '/static/blog/ESP-C6-MINI.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'Idea for next prototype',
+    '/static/blog/RF_proto_8_render.jpg',
+    'small inline',
+  )
+
+  table.inline.mono
+    tr
+      th
+      th Proto v7 (ESB 2 Mbps)
+      th Proto v7 (ESB 250 Kbps)
+      th ESP32-C6-MINI (ESP-NOW)
+    tr
+      th Latency (99%)
+      td < 1 ms
+      td < 1 ms
+      td 1.4 ms
+    tr
+      th Jitter (1%)
+      td +1 ms
+      td +1 ms
+      td +2 ms
+    tr
+      th Usable range
+      td ~ 4 meters
+      td ~ 10 meters
+      td ~ 25 meters
+    tr
+      th Stability
+      td Very bad
+      td Acceptable
+      td Excellent
+
+  hr
+  h3 End-to-End prototypes
+
+  p We started end-to-end testing on fully assembled wireless controllers, this includes a redesigned Alpakka board with socket connectors, which allow to plug-in the core module (no soldering required).
+
+  p Over the next weeks we will collect data on wireless performance and battery usage/charging, testing on varied setups in real environments.
+
+  +figure(
+    '',
+    'Plug/socket connectors, core module not attached',
+    '/static/blog/RF_E2E_1.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'Core module attached, connecting battery',
+    '/static/blog/RF_E2E_2.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'Controller running, showing USB-C and LED',
+    '/static/blog/RF_E2E_3.jpg',
+    'small inline',
+  )
+
+  hr
+  h3 Finland VAT increase
+  p Finland Value-Added Tax has increased from #[em 24%] to #[em 25.5%] after September 2024, and we updated the shop accordingly.
+
+  p We decided to make an effort (and take the hit ourselves) so the final price remains the same / is not increased.
+
+  hr
+  p Thanks for the support. <br>- Marcos and Michael 🤍
