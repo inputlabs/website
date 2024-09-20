@@ -1,0 +1,5 @@
+/devices  /alpakka
+/devices/:sub  /:sub
+/alpakka/manual  /alpakka/manual/mouse
+/contribute  /contribute/open_source
+/db  /db/stats
