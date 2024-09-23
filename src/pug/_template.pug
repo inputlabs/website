@@ -9,8 +9,8 @@ html
       | Input Labs -
       |
       block title
+    link(rel='canonical' href=('https://inputlabs.io' + (PATH=='/' ? '' : PATH)))
     if ENV != 'prod'
-      link(rel='canonical' href=('https://inputlabs.io' + (PATH=='/' ? '' : PATH)))
       meta(name='robots' content='noindex')
     else
       meta(
