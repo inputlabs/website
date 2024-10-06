@@ -36,31 +36,29 @@ block content
         div ← Tune down
         div (scroll down)
       th
-      th
-      th
       th.center
         div Tune up →
         div (scroll up)
+
     tr
-      td.middle
-        h3 Protocol mode
+      th.middle
+        div Protocol mode
         div Hold Home #[+home]
         div + hold Hat up #[+hat]↑
       td.center
         img(src='/static/manual/led_tune_up_0.png' width='50px')
         div XInput Windows
         i (Default)
-      td
       td.center
         img(src='/static/manual/led_tune_up_1.png' width='50px')
         div XInput Linux / MacOS
-      td
       td.center
         img(src='/static/manual/led_tune_up_2.png' width='50px')
         div Generic / DirectInput
+
     tr
-      td.middle
-        h3 Thumbstick deadzone
+      th.middle
+        div Thumbstick deadzone
         div Hold Home #[+home]
         div + hold Hat left #[+hat]←
       td.center
@@ -68,40 +66,36 @@ block content
         div Low
         div 8%
         i (Default)
-      td
       td.center
         img(src='/static/manual/led_tune_left_1.png' width='50px')
         div Mid
         div 12%
-      td
       td.center
         img(src='/static/manual/led_tune_left_2.png' width='50px')
         div High
         div 20%
+
     tr
-      td.middle
-        h3 Touch sensitivity
+      th.middle
+        div Touch sensitivity
         div Hold Home #[+home]
         div + hold Hat right #[+hat]→
       td.center
         img(src='/static/manual/led_tune_right_0.png' width='50px')
-        div Automatic
-        i (Default)
-      td.center
-        img(src='/static/manual/led_tune_right_1.png' width='50px')
         div Low
+        i (More stable)
       td.center
         img(src='/static/manual/led_tune_right_2.png' width='50px')
         div Mid
-      td.center
-        img(src='/static/manual/led_tune_right_3.png' width='50px')
-        div High
+        i (Default)
       td.center
         img(src='/static/manual/led_tune_right_4.png' width='50px')
-        div Very high
+        div High
+        i (More responsive)
+
     tr
-      td.middle
-        h3 Mouse sensitivity
+      th.middle
+        div Mouse sensitivity
         div Hold Home #[+home]
         div + hold Hat down #[+hat]↓
       td.center
@@ -109,32 +103,32 @@ block content
         div Low
         div 1080p
         i (Default)
-      td
       td.center
         img(src='/static/manual/led_tune_down_1.png' width='50px')
         div Mid
         div 1440p
-      td
       td.center
         img(src='/static/manual/led_tune_down_2.png' width='50px')
         div High
         div 4K
 
   hr
-  h3 Settings description
+  h3 Protocol mode
+  p Defines how the controller communicates with the computer operating system, #[em XInput] for either #[em Windows] or #[em Linux] are the most recommended, but in some cases the #[em Generic] gamepad mode can also be useful (eg. Retro games and simulators).
 
-  h4 Protocol mode
-  p Defines how the controller communicates with the computer operating system, XInput for either Windows or Linux are the most recommended, but in some cases the generic gamepad mode can also be useful (eg. Retro games and simulators).
-
-  h4 Thumbstick deadzone
+  hr
+  h3 Thumbstick deadzone
   p Defines how much of the inner movement of the thumbstick will be ignored, increase this according to your thumbstick wear (thumbstick centering spring will get softer over time). Please check #[+a('calibrate') Calibration] instructions before tweaking this parameter.
 
-  h4 Touch sensitivity
+  hr
+  h3 Touch sensitivity
   p Defines how sensitive the touch surface is. Depending on which conductive material was used on the touch surface you may want to tweak this parameter:
   ul
-    li The automatic setting will adjust the sensitivity dynamically.
-    li Set a higher fixed sensitivity if the detection is not registered consistently.
-    li Set a lower fixed sensitivity if the detection is taking too long to be released after the finger is lifted.
+    li The default presets adjust the sensitivity automatically, and comes in 3 variants (low, mid, high).
+    li 2 additional custom presets are available and allow to change the values manually in the #[+a('ctrl_app') Ctrl app], keep scrolling up to access them.
+    li Set a higher sensitivity if the detection is not registered consistently and it has microcuts.
+    li Set a lower sensitivity if the detection has false positives and triggers by itself.
 
-  h4 Mouse sensitivity
+  hr
+  h3 Mouse sensitivity
   p Defines how sensitive the mouse emulation is, using recommended values for different display resolution with the default OS sensitivity. This is similar to changing the DPI on a traditional mouse. Check #[+a('setup') OS setup] and #[+a('mouse') Mouse] for more details.
