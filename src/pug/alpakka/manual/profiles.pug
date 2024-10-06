@@ -9,68 +9,79 @@ block content
 
   h3 What is a profile
   p The active profile in the controller determines how the controller reacts to your input, and which actions will be sent to the computer.
-  p The firmware comes with a few #[em built-in profiles] that are carefully crafted for different game genres or activities (eg:  FPS, or Racing). So hundreds of games of similar genre do work perfectly with the same profile.
-  //- p You can also imagine profiles as a translation layer between actions and results, for example:
-  //- ul.smallfont
-  //-   li Alpakka #[em X button] -> Console profile -> Gamepad #[em.nowrap X button]
-  //-   li Alpakka #[em X button] -> FPS profile -> Keyboard #[em.nowrap R key]
-  //- hr
+  p The firmware comes with a few #[em built-in profiles] that are carefully crafted for different game genres or activities (eg:  FPS, or Racing), tested in hundreds of games of similar genre.
+  p Alternatively the profiles can be modified in the #[+a('ctrl_app') Ctrl app], and is possible to create per-game profiles too.
+  p In total, there are #[em 12 profile slots] + the Home shortcuts profile. All of them stored directly in the controller.
 
+  hr
   h3 Select the active profile
   p The active profile is changed by holding the #[em Home #[+home]] button and pressing a #[em Directional pad #[+dpad_left] #[+dpad_up] #[+dpad_down] #[+dpad_right]].
-  p Notice how the #[em LEDs] on the controller indicate which profile is active, and the direction of the LED matches the direction of the D-pad.
+  p Notice how the #[em LEDs] on the controller indicate which profile is active, and the direction of the LED matches the direction of the d-pad.
   p After selecting the most fitting profile for a game, the buttons will never match 100% with your preferences, instead go to the in-game settings and change the key binds as you like, just as you would do when using a keyboard and mouse.
   p These are the built-in profiles:
   br
 
-
   div.card.center.pad(style='margin-bottom:20px')
     div: img(src='/static/manual/led_on.png' width='50px' )
-    +a('profile_home') Home
+    +a('profile_home') Home (shortcuts)
     div Active while holding Home button
 
-  div.flex.inner.basisgap
-    div.card.inner.center.basis4
-      div Hold #[em Home #[+home]] +#[br] #[em.nowrap D-pad up #[+dpad_up]]
-      hr
-      img.mt.centered(src='/static/manual/led_up.png' width='50px' )
-      +a('profile_fps_fusion') FPS Fusion
-      hr
-      img.mt.centered(src='/static/manual/led_triangle_up.png' width='50px')
-      +a('profile_fps_wasd') FPS WASD
-      div.dim (Hold D-pad)
+  table.manual.col5.hdiv
+    tr
+      th Hold #[em Home #[+home]] &nbsp;&nbsp;&nbsp; +
+      th.center Up #[+dpad_up]
+      th.center Right #[+dpad_right]
+      th.center Down #[+dpad_down]
+      th.center Left #[+dpad_left]
 
-    div.card.inner.center.basis4
-      div Hold #[em Home #[+home]] +#[br] #[em.nowrap D-pad right #[+dpad_right]]
-      hr
-      img.mt.centered(src='/static/manual/led_right.png' width='50px')
-      +a('profile_racing') Racing
-      hr
-      img.mt.centered(src='/static/manual/led_triangle_right.png' width='50px')
-      em Flight
-      div.dim (Hold D-pad)
-      i.dim Not available yet
+    tr
+      th.middle DPad normal press
+      td.center
+        div: img(src='/static/manual/led_up.png' width='50px')
+        +a('profile_fps_fusion') FPS Fusion
+      td.center
+        div: img(src='/static/manual/led_right.png' width='50px')
+        +a('profile_racing') Racing
+      td.center
+        div: img(src='/static/manual/led_down.png' width='50px')
+        +a('profile_console') Console
+      td.center
+        div: img(src='/static/manual/led_left.png' width='50px')
+        +a('profile_desktop') Desktop
 
-    div.card.inner.center.basis4
-      div Hold #[em Home #[+home]] +#[br] #[em.nowrap D-pad down #[+dpad_down]]
-      hr
-      img.mt.centered(src='/static/manual/led_down.png' width='50px')
-      +a('profile_console') Console
-      hr
-      img.mt.centered(src='/static/manual/led_triangle_down.png' width='50px')
-      +a('profile_console_legacy') Console Legacy
-      div.dim (Hold D-pad)
+    tr
+      th.middle DPad long press
+      td.center
+        div: img(src='/static/manual/led_triangle_up.png' width='50px')
+        +a('profile_fps_wasd') FPS WASD
+      td.center
+        div: img(src='/static/manual/led_triangle_right.png' width='50px')
+        span Flight
+      td.center
+        div: img(src='/static/manual/led_triangle_down.png' width='50px')
+        +a('profile_console_legacy') Console Legacy
+      td.center
+        div: img(src='/static/manual/led_triangle_left.png' width='50px')
+        span RTS
 
-    div.card.inner.center.basis4
-      div Hold #[em Home #[+home]] +#[br] #[em.nowrap D-pad left #[+dpad_left]]
-      hr
-      div: img.mt.centered(src='/static/manual/led_left.png' width='50px')
-      +a('profile_desktop') Desktop
-      hr
-      div: img.mt.centered(src='/static/manual/led_triangle_left.png' width='50px')
-      em RTS
-      div.dim (Hold D-pad)
-      i.dim Not available yet
+    tr
+      th.middle DPad double press
+      td.center
+        div: img(src='/static/manual/led_diagonal_1.png' width='50px')
+        div Custom 1
+        div.dim (Empty)
+      td.center
+        div: img(src='/static/manual/led_diagonal_2.png' width='50px')
+        div Custom 2
+        div.dim (Empty)
+      td.center
+        div: img(src='/static/manual/led_diagonal_3.png' width='50px')
+        div Custom 3
+        div.dim (Empty)
+      td.center
+        div: img(src='/static/manual/led_diagonal_4.png' width='50px')
+        div Custom 4
+        div.dim (Empty)
 
   p: i (Some of these profiles are still being developed or waiting for more feedback).
   hr
@@ -79,8 +90,4 @@ block content
   p Holding the #[em Home #[+home]] button, makes the #[+a('profile_home') Home] profile temporally active (until release). Showing all the LEDs on. This allow to switch profile and access additional functions of the controller.
   p Double pressing the #[em Home #[+home]] button, makes the button to behave as the native #[em gamepad home button]. This allows for example to bring Steam Big Picture overlay.
   p Double-pressing and holding the #[em Home #[+home]] button, makes the #[+a('profile_console_legacy') Console Legacy] profile temporally active (until release). Showing all the LEDs off. This allows for example to use shortcuts in the Steam Deck.
-  hr
-
-  h3 Create or edit profiles
-  p While most of people won't need to tinker with profiles, we understand that some players will have to, either because physical constrains or because very specific niche games. So we made possible to edit profiles directly in the #[+a('ctrl_app') Ctrl app].
 
