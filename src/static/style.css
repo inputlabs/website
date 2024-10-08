@@ -588,6 +588,9 @@ table.manual th .subtitle {
   font-weight: normal;
   font-size: 13px;
 }
+table.manual.col2 th, table.manual.col2 td {
+  width: 50% !important;
+}
 table.manual.col4 th {
   width: 25% !important;
 }
