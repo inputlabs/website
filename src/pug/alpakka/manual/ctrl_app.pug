@@ -12,7 +12,7 @@ block content
   p Additionally the Alpakka is compatible with the #[em Steam Input UI], with or without using the #[em Ctrl app].
 
   img.wm.mr.mt(src='/static/manual/ctrl_app_profiles.png')
-  img.wm.mr.mt(src='/static/manual/ctrl_app_profiles_thumbstick.png')
+  img.wm.mr.mt(src='/static/manual/ctrl_app_profiles_custom.png')
   img.wm.mr.mt(src='/static/manual/ctrl_app_profiles_bind.png')
   img.wm.mr.mt(src='/static/manual/ctrl_app_logs.png')
 
@@ -137,7 +137,10 @@ block content
         span DPI multiplier on button
         +planned('https://github.com/inputlabs/alpakka_firmware/issues/104')
     tr
-      td Local space / World space
+      td 3DOF to 2D modes: Yaw / Pitch / Roll
+      td Gyro axis: X / Y / Z
+    tr
+      td 3DOF to 2D modes: World space
       td.dim #{notPlanned}
 
   h4 Thumbstick
@@ -165,7 +168,7 @@ block content
     tr
       td Joystick directional pad analog emulation
       td
-        span Thumbstick 16-direction WASD emulation
+        span Thumbstick WASD 16-direction emulation
         +planned('https://github.com/inputlabs/alpakka_firmware/issues/127')
     tr
       td.dim N/A
