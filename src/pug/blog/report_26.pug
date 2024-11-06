@@ -1,0 +1,46 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #26
+
+block content
+  h2 Progress report #26
+  +news_header('07 November 2024', 'report_25', '')
+
+  h3 Wireless Communications
+  p ESP32
+
+  h3 Wireless Power
+  p While experimenting with the ESP32 for communication, we also tried to ensure that wireless power was working correctly. Previous prototypes established that the Microchip MCP73871 would work very nicely (see #[+a('report_22') reports 22] and #[+a('report_22') 23]) for us. Now we validated the various charging, discharging and low-battery use-cases.
+  +figure(
+    '',
+    'Power measurement test',
+    '/static/blog/wireless_E2E_2.jpg',
+    'medium inline',
+  )
+
+  p This includes estimating the state of the battery, e.g., in order to warn the user when the battery capacity becomes low.
+  p In principle there are two ways to achieve such an estimate:
+  ol
+    li deducting the amount of energy required for various operation from the budget of the energy store
+    li estimating the amount of remaining energy based on the discharge curve of the energy store
+
+  h4 Energy budget
+  p In this approach the energy / current, needed for various operations (e.g., checking the IMUs, getting the data to the microcontroller, calculating orientation changes, etc.) is estimates. This can then be deducted from the estimated capacity of the energy store, until the remaining charge is below set thresholds. According to those thresholds, various actions are taken, such as warning the user of a low battery, or going into an energy-saving mode.
+  p While is can be significantly more accurate, this approach has a number of draw-backs. First of all, to work well, it requires very precise knowledge of the energy consumption of the various components and their corresponding operations. It also relies on information regarding the behavior of the energy store. Not merely it's capacity, but also how it behaves when higher currents are required.
+  p This kind of information is not only very difficult to obtain, but can also change significantly with the environment in which the components operate. Varying temperatures, for example, have considerable impact on the current a given battery may be able to provide.
+
+  h4 Discharge curves
+  p The other approach is based on the relationship between the voltage a energy store can provide and it's remaining capacity.
+  +figure(
+    '',
+    'Image background to be changed\
+    Li-ion battery voltage and capacity decline with higher C rates. (Image: Richtek)',
+    '/static/blog/Battery-voltage-capacity-and-C-rate-768x409.webp',
+    'medium inline',
+  )
+  p This approach is usually less accurate, and it relies on knowing the discharge curve(s) of the battery. Such curves also depend on external factors, such as the temperature, as well as the current that is drawn by the system (C-rates).
+  p More importantly, in the middle part of the discharge curve, the voltage is meant to remain very stable and as a result it can be very difficult to precisely distinguish between a 45% full battery and 55% full battery.
+  p For our use cases, however, it is not necessary to know the remaining capacity precisely. The most important use-case is to warn the user before the battery is exhausted and the controller seizes to function correctly.
+  p For this case, the drop in voltage on the right-side of the discharge curve is sufficient for a reasonable estimate.
+  p Additionally, by using a boost-converter, in combination with the MCP73871, we can also take advantage of battery voltages below 3.3V, or even below 3.0V and give the user sufficient time to connect the controller to USB.
