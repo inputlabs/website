@@ -69,7 +69,7 @@ block content
     'medium inline',
   )
 
-  p Testing was performed by playing #[em Call of Duty BO6] and #[em Deep Rock Galactic], verifying that connection quality (latency, jitter, range and stability) was on par with the previous results on the ESP-C6 devkits. Wireless connectivity was achieved with #[+ax('https://www.espressif.com/en/solutions/low-power-solutions/esp-now') ESP-NOW] 2.4GHz wireless protocol.
+  p We tested that connection quality (latency, jitter, range and stability) was on par with the previous results on the ESP-C6 devkits. Wireless connectivity was achieved with #[+ax('https://www.espressif.com/en/solutions/low-power-solutions/esp-now') ESP-NOW] 2.4GHz wireless protocol.
 
   p Regarding power, we made sure that the inclusion of the #[em ESP8684] wasn't raising the consumption too much (old ESP32 were infamous for using a lot of energy). Fortunately new Espressif modules are much better:
 
@@ -99,7 +99,7 @@ block content
       td
       td ~12 hours
 
-  p On a real full-cycle test, battery discharged from full (4.12v) to almost empty (3.0v) in #[em 10 hours+]. Then the controller stopped working without giving a #[em low-battery alert], now that's a problem!.
+  p On a real full-cycle test, playing #[em Call of Duty BO6] and #[em Deep Rock Galactic], battery discharged from full (4.12v) to almost empty (3.0v) in #[em 10 hours+]. Then the controller stopped working without giving a #[em low-battery alert], now that's a problem!.
 
   p Why? for context, there are several ways to estimate the remaining battery:
   ul
