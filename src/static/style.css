@@ -626,11 +626,13 @@ table.manual .right {
 table.inline td,
 table.inline th {
   padding: 10px;
-  border-right: 1px solid hsl(0, 0%, 30%);
-  border-bottom: 1px solid hsl(0, 0%, 30%);
+  text-align: left;
 }
 table.inline th {
   background: hsl(0, 0%, 20%);
+}
+table.inline td {
+  background: hsla(0, 0%, 40%, 0.5);
 }
 
 /* FOOTER ================================================================== */
