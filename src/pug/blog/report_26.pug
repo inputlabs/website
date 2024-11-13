@@ -1,0 +1,123 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #26
+
+block content
+  h2 Progress report #26
+  +news_header('13 November 2024', 'report_25', '')
+
+  h3 ESP-based wireless prototypes
+  p We created RF prototypes iterations #[em 8] and #[em 9], moving from a chip antenna to a pre-certified #[+ax('https://www.espressif.com/en/products/socs?id=ESP32-C2') Espressif ESP-8684-MINI-1] for communication, but still using the RP2040 as main MCU.
+
+  p These small ESP modules feature a #[em single low-power RISC-V core] with a built-in antenna, and we are testing them as a very flexible programmable communication module, with the tradeoff of having to create our own "AT command" firmware from it, and flash it from the main MCU.
+
+  p We are glad to report that the  #[em RP2040<->ESP8684] communication, which is established via high frequency UART, have minimal impact on the latencies tested on the previous progress report (around 1.5 milliseconds), and retains an acceptable power usage (see table below). So it looks like a very viable candidate to move forward. Wireless connectivity was achieved with #[+ax('https://www.espressif.com/en/solutions/low-power-solutions/esp-now') ESP-NOW] 2.4GHz wireless protocol.
+
+  p Prototype 9 implemented fixes for the ESP integration, and added a front-angled reset button so the controller can be restarted with a bobby pin if necessary. Find the differences:
+
+  +figure(
+    '',
+    'Core module proto 8',
+    '/static/blog/RF_proto_8.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'Core module proto 9',
+    '/static/blog/RF_proto_9.jpg',
+    'small inline',
+  )
+
+
+  h3 Dongle case
+  p The plan for the #[em core module] is to be reused on different devices, including the wireless dongle. But it would be weird to leave the module exposed and unprotected, so we designed a dongle case, keeping a similar minimalist and low-poly design than the Alpakka case.
+  p While the design is not yet final (missing the pairing button), is pretty usable by now, and we already love it.
+
+  +figure(
+    '',
+    'Dongle case',
+    '/static/blog/dongle_case_1.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'Dongle with short cable',
+    '/static/blog/dongle_case_2.jpg',
+    'small inline',
+  )
+
+
+  h3 End-to-end prototypes
+  p We put together a full controller with the new core modules (one in the #[em controller] and another as a #[em dongle]), including a #[em 1200 mAh] battery. With the purpose of validating the wireless connection, battery life, and overall experience in a real-life environment with:
+  ul
+    li Real controller enclosing, antenna being between the PCB and the battery.
+    li Dongle with enclosing and behind the PC.
+    li Real living room with other wireless devices around, including plenty of neighbors' internet WLAN.
+
+  +figure(
+    '',
+    'Wireless controller E2E prototype',
+    '/static/blog/RF_E2E_4.jpg',
+    'medium inline',
+  )
+
+  +figure(
+    '',
+    'Power consumption testing',
+    '/static/blog/wireless_E2E_2.jpg',
+    'medium inline',
+  )
+
+  p We tested that connection quality (latency, jitter, range and stability) was on par with the previous results on the ESP-C6 devkits.
+
+  p Regarding power, we made sure that the inclusion of the #[em ESP8684] was not increasing the consumption too much (old ESP32 were infamous for using a lot of energy). Fortunately new Espressif modules are much better:
+
+  p: b
+  table.inline.mono
+    tr
+      th
+        div Measured power
+        div consumption
+        div while gaming
+        div (250hz rate)
+      th Wired
+      th Wireless
+    tr
+      th RP2040 + IO + IMUs
+      td ~25 mA
+      td ~25 mA
+    tr
+      th ESP8684 + antenna
+      td
+      td ~70 mA
+    tr
+      th
+        div Expected
+        div battery life
+        div (1200 mAh)
+      td
+      td ~12 hours
+
+  p On a real full-cycle test, playing #[em Call of Duty BO6] and #[em Deep Rock Galactic], battery discharged from full (4.12v) to almost empty (3.0v) in #[em 10 hours+]. Then the controller stopped working without giving a #[em low-battery alert], now that's a problem!.
+
+  p Why? for context, there are several ways to estimate the remaining battery:
+  ul
+    li Measuring the voltage and making an estimation based on the discharge curve.
+    li Making an estimation based on the time the device was running, and the tasks it was performing.
+    li Setting a trigger after the voltage goes below some specific threshold.
+
+  p For simplicity (and to avoid wasting precious analog GPIO pins), we won't measure voltage and we won't know the exact % of battery remaining, but have only a #[em low-battery alert] provided by the battery management chip, which triggers at #[em 3.1v].
+
+  p We originally thought that not using a buck-boost converter was an acceptable approach, since there should be plenty of time between the low-battery alert at #[em 3.1v] and the #[em 2.7v] cutoff of the RP2040.
+
+  p The problem is that with the introduction of the #[em ESP8684] (which cutoffs much sooner at #[em 3.0v]), in combination with the low-battery alert not being very accurate (anything in the #[em 2.95v ~ 3.25v] range), we got effectively no low-battery alert at all.
+
+  p The solution is "simple", we will add a buck-boost converter in the next prototype iteration, which will convert any voltage coming out from the battery management IC into 3.3v, solving the low-battery problem, and in theory allowing the controller to extract more battery juice all the way down to #[em ~2.5v], also extending the battery life a bit more.
+
+  p More software #[em optimizations] will be done later to extend the battery life, but 10~12 hours seems like a good start for a high performance controller such as the Alpakka.
+
+  p Overall, we consider these end-to-end prototypes a huge success.
+
+  hr
+  p Thanks for the support! 🤍 <br>- Michael and Marcos
