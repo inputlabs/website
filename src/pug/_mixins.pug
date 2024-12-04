@@ -24,16 +24,16 @@
     discord: 'https://discord.gg/s8Yb4pfusT',
     youtube: 'https://www.youtube.com/@inputlabs/videos',
     patreon: 'https://www.patreon.com/inputlabs',
-    shop: 'https://inputlabs.squarespace.com',
+    shop: 'https://inputlabs.squarespace.com/diy/alpakka-v1',
     ctrl_app: 'https://ctrl.inputlabs.io',
   }
 
   const redirect = {
     db:            '/db/stats',
     contribute:    '/contribute/open_source',
-    blog:          '/blog/report_26',
     devices:       '/alpakka',
     alpakkaManual: '/alpakka/manual/mouse',
+    blog:          '/blog/alpakka_v1',
   }
 
   const loadMathJax = [
@@ -45,7 +45,7 @@ mixin nav
   -
     const active = (name) => {
       if (name==SECTION) return 'active'
-      const devices = ['alpakka', 'kapybara']
+      const devices = ['alpakka', 'kapybara', 'marmota']
       if (name=='devices' && devices.includes(SECTION)) return 'active'
       return ''
     }

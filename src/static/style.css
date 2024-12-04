@@ -302,9 +302,12 @@ main .boxes.center {
 }
 .box.image {
   position: relative;
-  /* background: hsl(0, 0%, 10%) !important; */
   padding: 0;
   min-height: 300px;
+  background-color: hsla(0, 0%, 0%, 0.5);
+}
+.box.image.dark {
+  background-color: hsla(0, 0%, 0%, 0.7);
 }
 .box.translucent {
   opacity: 0.95;
@@ -318,8 +321,12 @@ main .boxes.center {
   /* backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px); */
 }
-.box.image.colored.blend img {
+.box.image.blend img {
   mix-blend-mode: multiply;
+}
+.box.image.hue img {
+  animation: animation-hue var(--cycle) linear infinite;
+  animation-delay: var(--seed);
 }
 .box.image img  {
   width: 100%;
@@ -367,6 +374,27 @@ main .boxes.center {
 }
 .box code .dim {
   color:hsl(0, 0%, 40%);
+}
+
+/* WARNING ================================================================= */
+.warning > div {
+  margin-left: 7px !important;
+  margin-right: 7px !important;
+  width: 100% !important;
+  padding: 10px !important;
+  background-color: black;
+  border: 3px solid black;
+  animation: animation-border var(--cycle) linear infinite;
+  animation-delay: var(--seed);
+}
+.warning > div span {
+  text-align: center;
+  color: var(--green);
+  font-size: 18px;
+  font-weight: bold;
+  /* text-transform: uppercase; */
+  animation: animation-color var(--cycle) linear infinite;
+  animation-delay: var(--seed);
 }
 
 /* WIKI ==================================================================== */
@@ -773,6 +801,30 @@ table, tr, th, td {
   80%  {background-color: var(--red)}
   90%  {background-color: var(--pink)}
   100% {background-color: var(--purple)}
+}
+@keyframes animation-border {
+  0%   {border-color: var(--purple)}
+  20%  {border-color: var(--purple)}
+  30%  {border-color: var(--blue)}
+  40%  {border-color: var(--green)}
+  50%  {border-color: var(--green)}
+  60%  {border-color: var(--yellow)}
+  70%  {border-color: var(--yellow)}
+  80%  {border-color: var(--red)}
+  90%  {border-color: var(--pink)}
+  100% {border-color: var(--purple)}
+}
+@keyframes animation-hue {
+  0%   {filter: hue-rotate(280deg)} /* purple */
+  20%  {filter: hue-rotate(280deg)} /* purple */
+  30%  {filter: hue-rotate(180deg)} /* blue */
+  40%  {filter: hue-rotate(160deg)} /* green */
+  50%  {filter: hue-rotate(160deg)} /* green */
+  60%  {filter: hue-rotate(40deg)} /* yellow */
+  70%  {filter: hue-rotate(40deg)} /* yellow */
+  80%  {filter: hue-rotate(0deg)} /* red */
+  90%  {filter: hue-rotate(-40deg)} /* pink */
+  100% {filter: hue-rotate(-80deg)} /* purple */
 }
 @keyframes animation-rotate {
   0%   {rotate: 0deg}

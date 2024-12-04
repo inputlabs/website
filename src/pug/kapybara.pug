@@ -4,35 +4,28 @@ block title
   | Kapybara controller
 
 block page
-  include kapybara/_title.pug
+  include _device_selector.pug
 
   div.boxes.grid
     div.box
       h2 All the control in your hand
       p The Kapybara controller is Input Labs' second reference design, to be used with a #[em single hand], and more focused in disability use-cases, yet it still have the same advanced gyro controls than the Alpakka.
-      p This controller is still in the conceptual phase, actual development will start later.
-      p If you are interested in the Kapybara controller, remember you can #[+a('/contribute') Contribute] to Input Labs research with ideas, early feedback and more.
+      p Use it as a #[em standalone controller], and play any game single-handed without limitations.
+      p Or use as a replacement for #[em WASD] (keyboard) while also using a mouse.
+
+    div.box.image
+      img(src='/static/img/kapybara.png')
+
+    div.box
+      h2 Next phase starts in 2025
+      p We already solved most of the basic features by developing the #[+a('marmota') Marmota] module, which will also become the core of the Kapybara controller.
+      p The next phase will be to create the #[em Kapybara workgroup], a small group of testers and contributors.
+      p There is a lot of work to do figuring out the #[em physical layout] of the controller, how many buttons and inputs will have, and how they will be placed. We expect this work to start in #[em Q2 2025].
 
     div.box
       h2 Use-cases
       p The Kapybara controller could be for you if:
       ul
         li It is difficult for you to use controllers designed for 2 hands.
-        li You still want to use mouse, but is difficult for you to use a keyboard.
-        li You still want to use mouse, but your prefer a thumbstick over WASD keys.
-
-    div.box.image
-      img(src='/static/img/kapybara.png')
-
-    div.box
-      mixin done(state)
-        span(style='font-family:monospace') [#{state ? '✔' : ' '}]
-      h2 Overview of development
-      div #[+done(1)] Concept.
-      div #[+done(0)] Breadboard prototypes.
-      div #[+done(0)] Firmware.
-      div #[+done(0)] Printed Circuit Board.
-      div #[+done(0)] 3D-printed prototypes.
-      div #[+done(0)] Early public testing.
-      div #[+done(0)] Reference designs.
-
+        li You still want to use mouse, but is difficult for you to use a #[em keyboard].
+        li You still want to use mouse, but your prefer an analog #[em thumbstick] over WASD keys.

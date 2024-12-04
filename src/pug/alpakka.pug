@@ -4,19 +4,21 @@ block title
   | Alpakka controller
 
 block page
-  include alpakka/_title.pug
+  include _device_selector.pug
 
   div.boxes.grid
     div.box
       h2 Our flagship design
-      p The Alpakka controller is Input Labs' main reference design, a re-interpretation of the standard gamepad that everyone is familiar with, but with #[em advanced gyro controls], mouse-like competitive performance, and the power of an open source community bringing #[em limitless accessibility] and customization options.
-      p Having the performance of a mouse combined with the convenience of a gamepad, you won't have to make any compromise anymore.
+      p The Alpakka controller is Input Labs' main reference design, a #[em re-interpretation] of the classic gamepad.
+      p Features #[em advanced gyro controls] with the performance of a mouse and the convenience of a controller.
+      p An awesome community bringing endless accessibility and customization via mods.
+      p The #[em 1.0 update] now features USB-C, wireless, and a second thumbstick. Check the #[+ax(org.roadmap) Roadmap] to see what comes next.
 
     div.box
       h2 Nextgen gyro
       p Engineered for gyro with no compromises, every aspect of the controller is tuned for having #[em pixel-perfect accuracy], ultra low latency, and no acceleration nor smoothing.
       p With #[em 2 gyro sensors] working in parallel, and the hexagonal touch-sensitive surface surrounding the ABXY buttons, we finally cracked the code for gyro as primary input.
-      p Gyro controls are not an afterthought anymore, they are the new default. And since a secondary thumbstick would be redundant, instead it features a scrollwheel and a 8-directional "physical selection wheel".
+      p Gyro controls are not an afterthought anymore, they are the new default.
 
     div.box.image
       a.img(href='alpakka/gallery')
@@ -26,8 +28,8 @@ block page
     div.box
       h2 No bloat software
       p: i "Gaming peripherals and bloatware apps, name a more iconic duo"
-      p No drivers, no overlays, no bloat. The Alpakka firmware emulates as a standard keyboard, mouse, and Xinput gamepad at hardware level; so it just works out of the box in Windows and Linux, and every game launcher.
-      p Instead of having per-game configurations, the firmware includes #[+a('alpakka/manual/profiles') per-genre profiles], which are also editable in an optional configuration app: #[+a('alpakka/manual/ctrl_app') Ctrl app].
+      p No drivers, no overlays, no bloat. The Alpakka firmware emulates as a keyboard, mouse, and Xinput gamepad #[em at hardware level], so it works out of the box in Windows and Linux, and every game launcher.
+      p Instead of having per-game configurations, the firmware includes #[+a('alpakka/manual/profiles') per-genre profiles], which are also editable in an #[em optional] configuration app: #[+a('alpakka/manual/ctrl_app') Ctrl app].
 
 
     div.box.image.colored(style='border-radius:10px')
@@ -41,32 +43,20 @@ block page
       p Check the list of #[+a('alpakka/components') Components] to see all the required parts and materials, and get them either from 3rd-party suppliers or directly from the #[+ax('https://inputlabs.squarespace.com') Input Labs Distribution] shop.
 
     div.box
-      mixin done(state)
-        span(style='font-family:monospace') [#{state ? '✔' : ' '}]
-      h2 Overview of development
-      p See #[+ax(org.roadmap) Roadmap] for more details.
-      ul.nobullet
-        li #[+done(1)] Concept.
-        li #[+done(1)] Breadboard prototypes.
-        li #[+done(1)] Firmware.
-        li #[+done(1)] Printed Circuit Board.
-        li #[+done(1)] 3D-printed prototypes.
-        li #[+done(1)] Closed alpha testing (5 testers).
-        li #[+done(1)] Reference designs.
-        li #[+done(1)] Edit profiles.
-        li #[+done(0)] Wireless.
-        li #[+done(0)] Vibration.
+      h2 Competitive performance
+      p Ultra #[em low latency], no smoothing, and no acceleration, in a carefully tuned firmware with #[em 250 Hz] polling rate (up to #[em 1000 hz] via mods).
+      p Optional #[em wireless] solution with custom 2.4 GHz dongle and also minimal latency.
+      p Become a pioneer of the first controller that can battle along (or against) mouse players with no disadvantage and #[em no aim-assist].
 
     div.box
       h2 Use-cases
       p The Alpakka controller could be for you if:
       ul
-        li You want to play FPS games on the sofa.
-        li You want to play mouse-cursor games (eg RTS or city builders) on the sofa.
+        li You want to play FPS games or other mouse-focused games #[em on the sofa].
         li It is difficult for you to use a keyboard.
         li It is difficult for you to use a thumbstick for aiming.
-        li You have special needs that require controller modifications.
-        li You are interested in a more natural way to aim (actually aiming at things / similar to VR) than traditional input methods.
+        li You have #[em special needs] that require controller modifications.
+        li You want a more natural way to aim (actually aiming at things / similar to VR) than traditional input methods.
 
     div.box
       h2 Read the manual
