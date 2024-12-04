@@ -4,7 +4,7 @@ block title
   | Alpakka images and videos
 
 block page
-  include _title.pug
+  include ../_device_selector.pug
 
   mixin boximg(src)
     div.box.image
@@ -12,29 +12,27 @@ block page
         img(src=src)
 
   div.boxes.grid
-      +boximg('/static/img/alpakka_black_silver_stand.jpg')
-      +boximg('/static/img/alpakka_black_silver_top.jpg')
-      +boximg('/static/img/alpakka_black_silver_back.jpg')
-      +boximg('/static/img/alpakka_black_silver_bottom.jpg')
-      +boximglink(
-        '/static/img/youtube.jpg',
-        org.youtube,
-        'Gameplay and DIY videos',
-        true
-      )
+      +boximg('/static/gallery/alpakka_v1_color_silver.jpg')
+      +boximg('/static/gallery/alpakka_v1_top.jpg')
+      +boximg('/static/gallery/alpakka_v1_back.jpg')
+
+      +boximg('/static/gallery/alpakka_v1_front.jpg')
       +boximg('/static/img/alpakka_brief.jpg')
-      +boximg('/static/img/alpakka_black_purple_stand.jpg')
-      +boximg('/static/img/alpakka_black_blue_stand.jpg')
-      +boximg('/static/img/alpakka_black_teal_stand.jpg')
-      +boximg('/static/img/alpakka_black_lime_stand.jpg')
-      +boximg('/static/img/alpakka_black_yellow_stand.jpg')
-      +boximg('/static/img/alpakka_black_orange_stand.jpg')
-      +boximg('/static/img/alpakka_black_red_stand.jpg')
-      +boximg('/static/img/alpakka_black_pink_stand.jpg')
-      +boximg('/static/img/alpakka_rainbow.jpg')
-      +boximg('/static/img/alpakka_black_silver_info.jpg')
+      +boximg('/static/gallery/alpakka_v1_detail.jpg')
+
+      +boximg('/static/gallery/alpakka_v1_color_purple.jpg')
+      +boximg('/static/gallery/alpakka_v1_color_blue.jpg')
+      +boximg('/static/gallery/alpakka_v1_color_teal.jpg')
+      +boximg('/static/gallery/alpakka_v1_color_green.jpg')
+      +boximg('/static/gallery/alpakka_v1_color_gold.jpg')
+      +boximg('/static/gallery/alpakka_v1_color_orange.jpg')
+      +boximg('/static/gallery/alpakka_v1_color_red.jpg')
+      +boximg('/static/gallery/alpakka_v1_color_pink.jpg')
+      //- +boximg('/static/gallery/alpakka_v1_rainbow.jpg')
+
+      +boximglink('/static/img/youtube.jpg', org.youtube, 'Gameplay and DIY videos', true)
       +boximglink(
-        '/static/community/community_lime_pair.jpg',
+        '/static/community/community_holo.jpg',
         '/contribute/gallery_community',
         'Wild Alpakkas from the community'
       )

@@ -7,11 +7,6 @@ block content
   h2 Frequently Asked Questions
   hr
 
-  +h3id('thumbstick') Why it does not have a second thumbstick?
-  p What the second thumbstick is normally used in most games (camera control / aiming) is replaced with a much superior gyro solution (this controller is made from the ground up for gyro controls).
-  p Then the extra thumbstick is not very useful for other tasks. So for example zooming in/out maps, or scrolling inventory, or zooming weapons is much better on a scrollwheel, and emulating a selection wheel is much better on a 8-directional switch with much less travel (faster) and with physical feedback (clicking).
-  hr
-
   +h3id('gyro') How the gyro works?
   p The mouse emulation works by #[em touching the hexagon] on the right side of the controller, and turning the controller as if it was a VR controller. The gyro is NOT active when not touching the hexagon. For more details see #[+a('mouse') Mouse Emulation] manual page, or watch the #[+ax('https://www.youtube.com/watch?v=o-CsdLEzD5Y') Gyro guide] video on Youtube.
   hr
@@ -49,10 +44,6 @@ block content
   p But we recommend instead to use the #[+a('profiles') Built-in profiles], and remap the controls directly in the game if required (like you do with a normal keyboard and mouse), since it is much simpler! (there is no need for that additional layer of translation).
   hr
 
-  +h3id('wireless') Is it wireless?
-  p Not yet, but making the controller wireless is something we want to do as soon as possible. The reference design already have a rear bay for a battery, but there is still work to do.
-  hr
-
   +h3id('vibration') Does it vibrate?
   p Not yet, but we also want implement vibration soon. The Xinput protocol supports vibration, but we still have to test different vibration motors.
   hr
@@ -87,8 +78,6 @@ block content
   hr
 
   +h3id('cad') Why are you using Blender as a CAD?
-  p Because CAD programs have a very steep learning curve, and we want everyone to be able to make basic modifications to the reference designs (such a longer or wider buttons).
-  p Also because nowadays Blender bool operations and non-destructive workflows allows to emulate basic CAD functionality.
-  p We will make a blog post with more details about this topic, eventually.
+  p While we originally made the models in Blender, we are in the process of migrating from Blender to #[+ax('https://build123d.readthedocs.io') Build123d].
 
 
