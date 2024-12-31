@@ -9,7 +9,7 @@ block content
 
   p Input Labs went live in late November 2022, since this date is just a few weeks from the end of the year, this time we are making a double report #[em Input Labs year 2 recap] and #[em Year 2024 recap].
 
-  h3 Achievements
+  h3 Things that went nicely
 
   h4.bullet 4 firmware (and Ctrl app) updates
   p We released a total of 4 firmware updates and 4 Ctrl app updates (they usually go together), some of the new features include:
@@ -17,16 +17,12 @@ block content
       li #[em 16-bit] mouse values.
       li Configurable thumbstick #[em anti-deadzone] (to compensate for game's hardcoded deadzone).
       li #[em Double press] mappings.
-      li Home button double press can be used as #[em Steam Deck shortcuts].
+      li Home button can be used for #[em Steam Deck shortcuts].
       li New algorithm with much #[em better touch sensor] detection.
       li Unlocked #[em 4 custom profile slots] in the Ctrl app for personalized profiles.
-      li Option to #[em load / save / copy / reset] profile slots.
-      li Option for #[em longer gyro calibration].
-      li Option to manually #[em tweak gyro calibration] values.
-      li Option to #[em swap gyros] (left <-> right).
-      li Option to #[em invert touch sensor ]polarity.
-      li Ctrl app logs #[em auto-diagnose] and report about common issues.
-      li Ctrl app logs option to enable #[em additional logs]. (eg, touch sensor specific logs).
+      li Option to #[em load / save / copy / reset] profiles.
+      li Ctrl app #[em advanced settings] (gyro calibration tweaks, swap gyros, longer calibration).
+      li Ctrl app #[em additional logs] (auto-diagnose, touch sensor logs).
 
   h4.bullet Migration from Blender to Build123d
   p We finally decided on a better CAD tool to replace Blender, that tool is #[+ax('https://build123d.readthedocs.io') build123d], a Python library to declare #[em CAD as code] and uses #[em OpenCASCADE] geometry engine internally (the same than #[em FreeCAD] uses).
@@ -36,36 +32,36 @@ block content
     li #[em L1/R1] triggers.
     li #[em Scrollwheel] assemble.
     li #[em Battery cover].
-  p With the release of Alpakka 1.0 we also expect to port or create:
-  ul: ul
-    li Main #[em Thumbstick].
-    li New secondary #[em Mini-thumbstick].
-    li New #[em Scrollwheel] assemble.
-    li New #[em Dongle case].
+  //- p With the release of Alpakka 1.0 we also expect to port or create:
+  //- ul: ul
+  //-   li Main #[em Thumbstick].
+  //-   li New secondary #[em Mini-thumbstick].
+  //-   li New #[em Scrollwheel] assemble.
+  //-   li New #[em Dongle case].
 
   h4.bullet Alpakka kits in the shop
-  p During summer we introducing the concept of #[em Complete DIY kits] in the shop, while these look like an additional product, they are configurators that help users adding all the relevant parts into the cart, depending on how they want to approach their DIY project. This reduced the guesswork, and was well received by the community.
+  p During summer we introduced the concept of #[em Complete DIY kits] in the shop, these are configurators that help users adding all the relevant parts into the cart, depending on how they want to approach their DIY project. This reduced the guesswork, and was well received by the community.
 
-  h4.bullet Reaching 1000+ members in Discord
-  p Input Labs' most awesome success is our community, always willing to help each other, sharing mods, cool designs, profiles, knowledge and fun. Keep being wonderful, folks 🤍.
+  h4.bullet Community
+  p Input Labs' most awesome success is our community, always willing to help each other, sharing mods, cool designs, profiles, knowledge and fun. We are now 1200+ members in Discord, and the community published a total of 43 mods. Keep being wonderful, folks 🤍.
 
   h4.bullet Patents
-  p Since we want to be fully transparent with the community, we explained #[+a('patents') our strategy] regarding patents. In a nutshell, we submitted 2 of our innovations, in both European and US patent offices.
+  p Since we want to be fully transparent with the community, we explained #[+a('patents') our strategy] regarding patents. In a nutshell, we submitted two of our innovations, in both European and US patent offices.
 
   h4.bullet Many wireless prototype iterations
   p We created a total of:
   ul
-    li #[em 10 RF module prototypes] (later renamed as Marmota module).
-    li #[em 2 Alpakka carrier board prototypes] compatible with such RF modules.
+    li #[em 10 module prototypes] for wireless communication and power management (later consolidated as Marmota module).
+    li #[em 2 Alpakka carrier board prototypes] compatible with such modules.
     li #[em 4 breakout boards] to perform hardware integration tests.
 
   h4.bullet Alpakka 1.0 announcement and pre-order
-  p All these efforts on the wireless development eventually crystallized into the the #[+a('alpakka_v1') Alpakka 1.0 reference design], sadly we were not able to have it ready for the holiday season, since we are still putting the finishing touches.
+  p All these efforts on the wireless development eventually crystallized into the the #[+a('alpakka_v1') Alpakka 1.0 reference design]. Including the new modular approach with the #[+a('/marmota') Marmota] module.
 
   hr
   h3 Things that could have gone better
 
-  p There is an elephant in the room here: The development of the wireless Alpakka, in which we hit many research dead-ends, and it consumed most of our time during the whole year.
+  p The development of the wireless Alpakka, in which we hit many research dead-ends, and it consumed most of our time during the whole year.
 
   p In early 2024 we put a lot of effort trying to make the #[em Raspberry Pico W] to meet our requirements, the upgrade made a lot of sense since the #[em Alpakka v0] uses the normal (non-W) #[em Pico]. The first laboratory-condition tests were very promising, but later end-to-end testing revealed serious issues in both in the BT and WLAN approaches. After submitting bug reports to the appropriate channels, we could do nothing else but abandoning the idea of using the Pico W.
 
@@ -75,23 +71,24 @@ block content
 
   p In October 2024 we started testing a #[em Espressif ESP8684-MINI-1] as a communication module (while still using the #[em RP2040] as main MCU). This is a somewhat convoluted solution, but still better than the alternatives. End-to-end prototypes were very satisfactory, and we were confident that this approach is the best one to move forward.
 
-  p Looking back, is easy to see why it took us so much time to figure out the wireless Alpakka, we didn't develop just one solution, but almost three, it just happened that the first two failed in the later stage of development. We could blame back luck, our lack of resources, or that we are not electrical engineers, but ultimately is hard not to feel that we failed a bit.
+  p Looking back, is easy to see why it took us so much time to figure out the wireless Alpakka, we didn't develop just one solution, but almost three, it just happened that the first two failed in the later stage of development. On the bright side, we learnt a lot, we came stronger, and we finally have a solid solution we are happy with.
 
   hr
   h3 Things we hope to achieve in the 3rd year of Input Labs / 2025
   h4.bullet Primary goals:
   ul: ul
     li Complete the #[em Alpakka 1.0 reference design], and start shipping pre-orders.
-    li Put together the Kapybara workgroup, and start working on #[em Kapybara prototypes] (it is unclear how long the prototype phase will be).
+    li Put together the Kapybara workgroup, and start working on #[em Kapybara prototypes].
 
-  h4.bullet Secondary goals
-  span: i (Using the gaps in between hardware development cycles)
+  h4.bullet Secondary goals:
   ul: ul
-    li Implement some of the most requested features into the #[em firmware and Ctrl app].
+    li Keep updating the #[em firmware and Ctrl app] with some of the most requested features.
     li Finalize the port of 3D models into #[em Build123d].
+    li Secure #[em additional funding] via licensing or external investment.
+    li Increase presence in #[em social media] and journalism outlets.
 
   hr
   h3 Closing notes
-  p Thanks to everyone supporting this project, you make the dream of an open source controller ecosystem possible!
+  p Thanks to everyone supporting this project, the dream of an open source controller ecosystem is possible thanks to you!.
   p Have a nice new year and solstice celebrations! 🤍
   | - Michael and Marcos
