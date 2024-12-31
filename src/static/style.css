@@ -454,7 +454,11 @@ main .boxes.center {
 .wiki .entry h4 {
   font-size: 18px;
   margin-bottom: 0;
+
 }
+/* .wiki .entry h4.bullet::before {
+  content: "• ";
+} */
 .wiki .entry h5 {
   font-size: 16px;
   margin-bottom: 0;

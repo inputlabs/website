@@ -5,7 +5,7 @@ block append subtitle
 
 block content
   h2 Alpakka 1.0 announcement
-  +news_header('4 December 2024', 'report_26', '')
+  +news_header('4 December 2024', 'report_26', 'recap_year_2')
 
   h3 Alpakka 1.0 pre-order
   p It is still work in progress, but we are now confident to announce a significant update to the Alpakka reference design. While the new main feature is wireless communication, we are using the opportunity to introduce some other significant changes.
@@ -22,16 +22,16 @@ block content
   hr
   h3 Features of the reference design
 
-  h4 ▸ Wireless connectivity
+  h4.bullet Wireless connectivity
   p Being able to play without a cable was by far the most requested feature, and it makes a lot of sense for the people playing PC in the living room / on a sofa. Since #[em low latency] was a hard requirement (due to gyro-to-mouse emulation), the connection with the PC is achieved with a #[em wireless dongle] (more on that below).
 
-  h4 ▸ Battery
+  h4.bullet Battery
   p Now the Alpakka can be powered both via USB or with a battery. The reference design battery is a #[em LiPo 1200 mAh] with undervoltage and overvoltage protection, that can be #[em charged via USB]. We will provide more details about compatible batteries when the manual is updated.
 
-  h4 ▸ USB-C
+  h4.bullet USB-C
   p Another highly requested feature, the new reference design now comes with a #[em USB-C connector] (but is still USB 2.0 under the hood). So if you still want to play wired (or charge the battery) you can do it with a cable from this decade.
 
-  h4 ▸ Second thumbstick
+  h4.bullet Second thumbstick
   p The #[em 8-directional switch] from the original Alpakka (v0) is #[em replaced with a second thumbstick]. We realized that many gamers are afraid to jump into gyro controls without a second thumbstick as a safety net. So we #[i -puts corporate hat on-] #[em "listened to the feedback"], and figured out a design that still retains the #[em Alpakka DNA], but with the benefits of 2 additional analog axes.
   p The second thumbstick is still relegated to a secondary role, the aperture and cap are smaller, but it still has #[em 70% of the range] compared to the primary thumbstick.
   p Overall this change will make Alpakka much more usable on genres like twin stick shooters and simulators, and able to do #[em flick-stick gyro] #[i *(flick-stick won't be available on the Ctrl app at launch, but should be available via Steam Input)].
