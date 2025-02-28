@@ -75,8 +75,15 @@ html
         +nav
 
       div.mininav
-        +a('/nav')
-          img(src='/static/img/burger.svg')
+        img(src='/static/img/burger.svg')
+        select(onchange="selectRedirect(event)")
+          option(value='') SELECT A PAGE
+          option(value='/') Input Labs
+          option(value='/alpakka') Devices
+          option(value=redirect.contribute) Contribute
+          option(value=redirect.db) Accessibility DB
+          option(value=redirect.blog) Blog
+          option(value=org.shop) Shop
 
     main
       block page
