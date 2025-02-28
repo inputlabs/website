@@ -764,7 +764,7 @@ table, tr, th, td {
 
 .lima {
   background-color: hsl(0, 0%, 0%);
-  padding: 0 6px;
+  /* padding: 0 6px; */
   animation: animation-color var(--cycle) linear infinite;
   animation-delay: var(--seed);
   font-weight: bold;
