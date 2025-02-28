@@ -1,0 +1,69 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #27
+
+block content
+  h2 Progress report #27
+  +news_header('28 February 2024', 'recap_year_2', '')
+
+  h3 Alpakka 1.0 delay
+  p The Alpakka 1.0 release was estimated for February 14th, but #[em we decided to delay it a bit], since the last iteration of Marmota core modules had problems that we won't be able to solve with updates / without breaking backwards compatibility.
+
+  p Making sure our customers get an excellent product is more important than desperately trying to stick to a deadline. We are sorry for breaking our delivery date promise.
+
+  p This was really a #[em last minute call], and we had everything else ready to start shipping on the planned date, see the picture below with the first 12 orders (8 boxes and 4 envelopes) prepared to ship on day one. Additionally we have a buffer of printed parts and components to keep an steady number of orders going out per day, until we catch up with all the preorders.
+
+  +figure(
+    '',
+    'Orders prepared to go out on day one',
+    '/static/blog/v1_orders.jpg',
+    '',
+  )
+
+  h3 Issues with the Marmota power supply
+  p During the prototype phase of the Marmota we integrated a buck-boost converter (#[em Richtek RT6160]) in the design, with the purpose of making better use of battery levels under 3.3 volts. This introduced a ripple (noise) in the power supply that was negatively affecting the analog components of the Alpakka controller, especially the thumbstick, which has a noticeable ~1% flicker if not filtered by software (see figure 1).
+
+  p For the #[em Marmota beta 1], we improved the signal filtering with additional decoupling capacitors, a bigger inductor, and a better overall layout. Unfortunately these improvements barely reduced the noise.
+
+  p For the #[em Marmota beta 2], we replaced the RT6160 with a RT6150, the same model of buck-boost converter than the Raspberry Pico is using, which while being an older model, has a bigger footprint and less nominal noise according to the specs.
+
+  p Both of these converters (RT6160 and RT6150) have a power saving mode that makes the switching frequency dynamic, but changing it requires additional changes to the circuit. At this point #[em we didn't know for sure the reason for the ripple], was the RT6160 too noisy? or the power saving mode was to blame?
+
+  p Since we were more concerned about fixing the issue rather than knowing the exact source of the problem, #[em we took the nuclear option], we changed to the RT6150 but we also disabled the power saving mode.
+
+  p These changes fixed the issue and the #[em Marmota did not have that ripple noise anymore] 🚀.
+
+  p Unfortunately in later testing we found a problem: When the device was powered off (sleeping) the battery was draining too fast. A full #[em battery only lasted 3~4 days while the controller was off]. This would force to keep the controller charging almost every night, and while we are not aiming to match the efficiency of commercial consumer electronics, this was not good enough.
+
+  p The reason for this power consumption issue was that, now with the RT6150 power saving mode disabled, we were hitting the worst possible point in the efficiency curve, low enough so the efficiency is only ~20%, but high enough so the lack of efficiency was very noticeable (see figure 2).
+
+  p Now we put ourselves between a rock and a hard place, #[em Marmota beta1] had the noise issue, and #[em beta2] used too much power during sleep, and worst of all, we were not yet sure of the better way to fix both. Given then information available at that point, we thought the most likely culprit of the issue was the differences between RT6160 and RT6150, rather than the dynamic frequency switching created by the power saving mode,
+
+  p So when ordering the #[em Marmota release candidate 1], we flipped a coin and went for the RT6150 with the power saving mode on. But unfortunately it backfired, the noise was back 😩, and we ran out of time.
+
+  +figure(
+    '1',
+    'Noise on oscilloscope (thanks John)',
+    '/static/blog/marmota_ripple.jpg',
+    'inline',
+  )
+  +figure(
+    '2',
+    'RT6150 efficiency curve',
+    '/static/blog/rt6150_efficiency.jpg',
+    'inline',
+  )
+
+
+  h3 Planned solution
+  p The solution we are going to try next is to connect one of the Raspberry RP2040 GPIOs to the #[em pin controlling the RT6150 power saving mod]; so while the controller is being used, the dynamic switching is off and there is no noise; but when the controller is sleeping, the power saving mode is on, and the battery should last about 30 days (based on early tests).
+  p The problem is that we were already using all the available GPIOs on the RP2040, so allocating one for this purpose requires #[em backward compatibility] changes.
+
+  h3 How long the delay will be
+  p Boards with these changes, as #[em Marmota release candidate 2], are being manufactured already, and are expected to arrive to us around #[em March 10th].
+  p These have the same deal than with the previous RC batch, if they are good, they will considered #[em final 1.0] and shipped in the first set of orders. But again, there are #[em no guarantees] that the new batch does not have the same problems or new problems that delay everything more.
+  p Also we want to remind everyone with a preorder that if they are not comfortable with the delay, they can cancel the preorder and get a full refund anytime no-questions-asked, by sending an email to #[span.lima #[span.lima1]] #[i (Cannot be copied)]
+
+  hr
+  p Thanks for the support and the patience! 🤍 <br>- Michael and Marcos
