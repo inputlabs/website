@@ -75,3 +75,9 @@ MathJax = {
     fontCache: 'global'
   }
 }
+
+// Additional functions.
+function selectRedirect(event) {
+  var url = event.target.value
+  window.location.href = url
+}

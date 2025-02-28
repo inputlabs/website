@@ -129,11 +129,23 @@ header .nav .tab.active a {
 }
 header .mininav {
   display: none;
+  position: relative;
 }
 header .mininav img {
   width: 36px;
   opacity: 0.5;
 }
+header .mininav select {
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+  opacity: 0;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  background: none;
+}
+
 .navwidget {
   width: 440px;
   margin: 40px auto;
