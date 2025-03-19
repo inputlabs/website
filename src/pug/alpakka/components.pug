@@ -5,21 +5,17 @@ block title
 
 block page
   include ../_device_selector.pug
-  include ../_disclaimer_v1.pug
 
   div.boxes.grid
 
     div.box
       h2 Complete DIY kits
       p To make more obvious which parts are required to build a complete DIY Alpakka controller, we introduced the concept of #[em Complete kits] into the shop.
-      p These work similar to a guided configurator in which you select a few options, and the relevant parts are added to the shopping cart.
+      p These work as a guided configurator in which you select a few options, and the relevant parts are added to the shopping cart.
       table.data
         tr
-          td Complete DIY kit (solder+assembly)
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-kit-solder') Input Labs
-        tr
-          td Complete DIY kit (assembly only)
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-kit-assembly') Input Labs
+          td DIY kit configurator
+          td: +ax('https://inputlabs.squarespace.com/diy/p/alpakka-diy-kit-v1') Input Labs shop
 
     div.box
       h2 Firmware
@@ -30,7 +26,7 @@ block page
           td Firmware source code
           td: +ax('https://github.com/inputlabs/alpakka_firmware') GitHub
         tr
-          td Firmware latest builds
+          td Firmware latest releases
           td: +ax('https://github.com/inputlabs/alpakka_firmware/releases') GitHub
 
     div.box
@@ -45,28 +41,23 @@ block page
           td PCB ready-to-order files
           td: +ax('https://github.com/inputlabs/alpakka_pcb/releases') GitHub
         tr
-          td Manufactured PCB (Partially soldered)
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-pcb') Input Labs shop
+          td Alpakka PCB pre-built
+          td: +ax('https://inputlabs.squarespace.com/diy/p/alpakka-pcb-v1') Input Labs shop
         tr
-          td Manufactured PCB (Fully soldered)
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-pcb-soldered') Input Labs shop
+          td Marmota core module pre-built
+          td: +ax('https://inputlabs.squarespace.com/diy/p/marmota-module') Input Labs shop
+
 
     div.box
       h2 Electronics
       p Large components usually not soldered by the PCB manufacturer, so you may want to solder (or replace) them yourself. See #[+a('/alpakka/manual/diy_solder') solder] manual page.
       table.data
         tr
-          td All-included Electronics set
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-electronics-set') Input Labs shop
+          td All-included electronics set
+          td: +ax('https://inputlabs.squarespace.com/diy/p/alpakka-electronics-set-v1') Input Labs shop
         tr
-          td Raspberry Pi Pico
-          td: +ax('https://mou.sr/3xHPuDS') Mouser shop
-        tr
-          td Thumbstick (1x)
+          td Thumbsticks (2x)
           td: +ax('https://www.lcsc.com/product-detail/Variable-Resistors-Potentiometers_ALPSALPINE-RKJXV122400R_C918854.html') LCSC shop
-        tr
-          td Directional hat (1x)
-          td: +ax('https://www.lcsc.com/product-detail/Multi-Directional-Switches_ALPSALPINE-RKJXM1015004_C97432.html') LCSC shop
         tr
           td Rotary encoder (1x)
           td: +ax('https://www.lcsc.com/product-detail/Rotary-Encoders_ALPSALPINE-EC10E1220503_C110291.html') LCSC shop
@@ -76,43 +67,50 @@ block page
         tr
           td Trigger buttons (4x)
           td: +ax('https://www.lcsc.com/product-detail/Tactile-Switches_ALPSALPINE-SKQGAFE010_C202424.html') LCSC shop
+        tr
+          td Battery connector (1x)
+          td: +ax('https://www.lcsc.com/product-detail/Wire-To-Board-Connector_XUNPU-WAFER-PH2-0-2PWZ_C5359610.html') LCSC shop
 
     div.box
       h2 Case and buttons
       p The front and back part of the case, buttons, triggers, and everything else making the exterior of the controller.
       table.data
         tr
-          td Project with source 3D models
+          td 3D models sources
           td: +ax('https://github.com/inputlabs/alpakka_case') GitHub
         tr
-          td STL / STEP files for 3D printing
+          td 3D models STL files for 3D printing
           td: +ax('https://github.com/inputlabs/alpakka_case/releases') GitHub
         tr
-          td Crafted Front case
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-front-case') Input Labs shop
+          td Front case pre-built
+          td: +ax('https://inputlabs.squarespace.com/diy/p/alpakka-front-case-v1') Input Labs shop
         tr
-          td Crafted Back case
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-back-case') Input Labs shop
+          td Back case pre-built
+          td: +ax('https://inputlabs.squarespace.com/diy/p/alpakka-back-case-v1') Input Labs shop
         tr
-          td Crafted Buttons set
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-buttons-set') Input Labs shop
+          td Buttons set pre-built
+          td: +ax('https://inputlabs.squarespace.com/diy/p/alpakka-buttons-set-v1') Input Labs shop
         tr
-          td Crafted Touch sensitive hexagon
-          td: +ax('https://inputlabs.squarespace.com/everyone/p/alpakka-conductive-hexagon') Input Labs shop
+          td Touch sensitive hexagon pre-built
+          td: +ax('https://inputlabs.squarespace.com/diy/p/alpakka-touch-hexagon-v1') Input Labs shop
+        tr
+          td Touch-sensing PLA filament
+          td: +ax('https://www.proto-pasta.com/collections/conductive/products/conductive-pla') Protopasta shop
       table.data
 
     div.box
-      h2 3D printer filament
-      p Selected premium filaments from different manufacturers, that we tried and recommend.
-      p Polylactic acid (PLA) is a biodegradable material usually made from corn waste, popular for 3D printing due to its low melting temperature and strength.
-      p See #[+a('/alpakka/manual/diy_case') 3D printing] manual page for tips.
+      h2 Additional components
+      p Optional parts to make a wireless controller, or to use developer tools.
       table.data
         tr
-          td Prusament PLA (in many colors)
-          td: +ax('https://www.prusa3d.com/category/prusament-pla') Prusa shop
+          td Battery (1200 mAh)
+          td: +ax('https://inputlabs.squarespace.com/diy/p/battery-1200-mah') Input Labs shop
         tr
-          td Protopasta PLA Conductive (touch-able)
-          td: +ax('https://www.proto-pasta.com/collections/conductive/products/conductive-pla') Protopasta shop
+          td Wireless dongle kit
+          td: +ax('https://inputlabs.squarespace.com/diy/p/wireless-dongle-kit') Input Labs shop
+        tr
+          td USB to TTL serial cable (developer)
+          td: +ax('https://www.adafruit.com/product/954') Adafruit shop
 
     div.box
       h2 Bolts and nuts
@@ -132,18 +130,5 @@ block page
           td: +ax('https://www.mcmaster.com/91828A113/') Reference
 
     div.box
-      h2 Developer tools
-      p Additional hardware for hacking the Alpakka. For more details check Alpakka's #[+a('manual/dev') Developer] manual.
-      p: i Links for reference, components with the same specs from other shops will also work.
-      table.data
-        tr
-          td USB to TTL serial cable
-          td: +ax('https://www.adafruit.com/product/954') Adafruit shop
-        tr
-          td JST PH 4-pin cable
-          td: +ax('https://www.adafruit.com/product/3955') Adafruit shop
-
-    div.box
       h2 About sourcing from Input Labs
       p By getting some of the components and materials directly from #[+ax('https://inputlabs.squarespace.com') Input Labs Distribution] shop, you help us to continue doing the research we do, and to keep releasing awesome open-source and accessible controllers for everybody.
-      p Also, it increases your charisma by 10 points.
