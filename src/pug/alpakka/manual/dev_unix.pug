@@ -27,19 +27,15 @@ block content
     make install  <span class='dim'># It may take several minutes.</span>
   hr
 
-  h3 Compile
+  h3 Compile and load into device
   p To setup the build environment and to compile for first time:
   pre: code.
-    make
-  p If the build was successful then the firmware file is created at #[em build/alpakka.uf2]. After this point we can use reuse the compiling environment and cache to compile faster (even if we change the source code):
+    DEVICE=&lt;target-device&gt; make
+  p Other useful commands (check the repo readme for more details).
   pre: code.
     make rebuild
-  hr
-
-  h3 Load the firmware into the controller
-  p With the controller in #[em Bootsel mode] or having an active #[em Session], we can now flash the firmware into the controller memory with:
-  pre: code.
     make load
+    make reload
   hr
 
   h3 Connect via session
@@ -47,7 +43,7 @@ block content
 
   p Using #[em make session] will create a GNU Screen session, with a log similar to this:
   pre: code.
-    make session
+    ADAPTER=&lt;your-adapter&gt; make session
 
     ╔════════════════════════════╗
     ║ Input Labs Oy.             ║
@@ -74,20 +70,3 @@ block content
     Profile: 1
     USB: tud_ready TRUE
   p Now in another terminal we can also use #[em make restart] or #[em make bootsel] instead of using the Developer Kit reset button (as long as the controller program did not crash). And also some other tooling will automatically use this communication channel if active.
-  hr
-
-  h3 Developer quality of life
-  p Additionally, for faster development cycles we can use #[em make reload], which will automatically rebuild the firmware, put the controller into bootsel mode, and flash the controller. Now that's convenient!
-  p: em make reload = make rebuild + make bootsel + make load
-  pre: code.
-    make reload
-
-    [ 16%] Completed 'ELF2UF2Build'
-    [ 64%] Built target ELF2UF2Build
-    [100%] Built target alpakka
-    Expecting drive at: /media/RPI-RP2
-    Requesting controller to go into Bootsel
-    Waiting for RPI-RP2 drive
-    UF2 loaded into Pico
-
-  p To check all other developer commands, check the Firmware repository #[+ax('https://github.com/inputlabs/alpakka_firmware') Readme].
