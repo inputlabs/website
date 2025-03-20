@@ -7,7 +7,6 @@ block title
 
 block page
   include ../../_device_selector.pug
-  include ../../_disclaimer_v1.pug
 
   mixin home
     img(src='/static/manual/button_home.svg' height='14px')
@@ -34,13 +33,12 @@ block page
           +wikilink('diy_getting_started') Getting Started
           +wikilink('diy_pcb') Order PCB
           +wikilink('diy_solder') Solder PCB
-          +wikilink('diy_case') 3D print case & buttons
+          +wikilink('diy_case') 3D print parts
           +wikilink('diy_assembly') Assembly
 
-        h3 Config
+        h3 Setup
         div
           +wikilink('firmware') Firmware
-          +wikilink('setup') OS setup
           +wikilink('mouse') Mouse
           +wikilink('tune') Tune settings
           +wikilink('calibrate') Calibrate
@@ -73,8 +71,6 @@ block page
           +wikilink('dev') Firmware development
           +wikilink('dev_unix') Setup in Linux
           +wikilink('dev_windows') Setup in Windows
-          div.inactive PCB development #[i (soon)]
-          div.inactive Case mods #[i (soon)]
 
         h3 Other
         div

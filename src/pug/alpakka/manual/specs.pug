@@ -33,11 +33,11 @@ block content
           td Output Data Rate
           td 6.66 KHz
 
-      h3 Thumbstick
+      h3 Thumbsticks
       table.data
         tr
           td Units
-          td 1
+          td 2
         tr
           td Manufacturer
           td Alps Alpine (Japan)
@@ -49,10 +49,10 @@ block content
           td 46º
         tr
           td Center spring deadzone
-          td ~4%
+          td ~6%
         tr
           td Analog to Digital Converter
-          td 12 bits (Raspberry Pico)
+          td 12 bits (RP2040)
         tr
           td Expected lifetime (move)
           td 2,000,000 cycles
@@ -84,29 +84,50 @@ block content
           td Expected lifetime
           td 100,000 cycles
 
-      h3 Directional switch (Hat)
+      h3 Battery
       table.data
         tr
           td Units
           td 1
         tr
           td Manufacturer
-          td Alps Alpine (Japan)
+          td PKCell
         tr
-          td Model
-          td RKJXM1015004
+          td Model / Size
+          td 503562
         tr
-          td Directions
-          td 8 directions + push-in
+          td Capacity
+          td 1200 mAh
         tr
-          td Force
-          td 3 N
+          td Nominal voltage
+          td 3.7 v
         tr
-          td Expected lifetime (move)
-          td 100,000 cycles
-        tr
-          td Expected lifetime (push-in)
-          td 100,000 cycles
+          td Connector
+          td JPT PH 2-pin
+
+      //- h3 Directional switch (Hat)
+      //- table.data
+      //-   tr
+      //-     td Units
+      //-     td 1
+      //-   tr
+      //-     td Manufacturer
+      //-     td Alps Alpine (Japan)
+      //-   tr
+      //-     td Model
+      //-     td RKJXM1015004
+      //-   tr
+      //-     td Directions
+      //-     td 8 directions + push-in
+      //-   tr
+      //-     td Force
+      //-     td 3 N
+      //-   tr
+      //-     td Expected lifetime (move)
+      //-     td 100,000 cycles
+      //-   tr
+      //-     td Expected lifetime (push-in)
+      //-     td 100,000 cycles
 
 
     div.group
@@ -185,29 +206,29 @@ block content
       h3 Other
       table.data
         tr
-          td Processor
-          td ARM 133 MHz 2-cores (Raspberry Pico)
+          td Main processor
+          td ARM 133 MHz 2-cores (Raspberry RP2040)
         tr
           td USB port
-          td USB micro-B (Raspberry Pico)
+          td USB-C (USB 2.0)
         tr
           td Developer port
-          td JST PH 4-pin
+          td Dupont 4-pin
+        tr
+          td Wireless module
+          td Espressif ESP8684
         tr
           td LEDs color
           td White
-
-      h3 Dimensions
-      table.data
         tr
-          td Without buttons
-          td 162mm x 100mm x 58mm
-        tr
-          td With buttons
+          td Dimensions (bounding box)
           td 162mm x 102mm x 64mm
         tr
-          td Weight
+          td Weight without battery
           td 187 g
+        tr
+          td Weight with battery
+          td 202 g
 
 
 
