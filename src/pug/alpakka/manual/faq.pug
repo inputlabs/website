@@ -29,42 +29,48 @@ block content
     li 1 month to master it.
   hr
 
+  +h3id('rate') What is the polling rate?
+  p Default firmware polling rate is #[em 250 hz] (both wired and wireless), but it can be overclocked via mods to #[em 1000 hz].
+  p But have in mind that the perceived latency of the Alpakka gyro is extremely low compared with other gyro controllers, because it does not apply any filtering nor smoothing to the IMU data.
+  hr
+
+  +h3id('rate') What is latency?
+  p The latency while the controller is connected via USB is negligible.
+  p The latency while connected to the reference design #[em Dongle] is measured to be around #[em 2 milliseconds].
+  hr
+
   +h3id('systems') In which systems does it work?
-  p The Alpakka has been tested on Windows 10, Windows 11, Ubuntu, Kubuntu, Debian (GTK), and Arch (KDE). Framerates from 30fps to 144fps. And more than 200 games.
+  p The Alpakka is regularly tested in #[em Windows 11] and #[em Steam Deck]. But It should also work in Windows 10 and most Linux distros.
+  p MacOS is NOT an officially supported OS by the reference design firmware.
   hr
 
   +h3id('games') Which game launchers and games are compatible?
   p All game launchers are compatible, since the firmware does all the processing in the controller, and no apps nor drivers are required on the computer.
   p 100% of games are compatible when emulating a mouse and keyboard.
-  p Approximately 90% of games are compatible when using #[em Fusion Input], see the #[+a(redirect.db) Accessibility DB] for a comprehensive list of games.
+  p Approximately 80% of games are compatible when using #[em mixed input] (simultaneous mouse + thumbstick input).
   hr
 
   +h3id('steam') It is compatible with Steam input configurator?
-  p Yes, the Xinput emulated device shows up in the Steam UI as a normal controller, so remapping is possible that way too.
+  p Yes, the #[em Xinput emulated device] shows up in the #[em Steam UI] as a normal controller, so remapping gamepad controls is possible in this way too.
   p But we recommend instead to use the #[+a('profiles') Built-in profiles], and remap the controls directly in the game if required (like you do with a normal keyboard and mouse), since it is much simpler! (there is no need for that additional layer of translation).
   hr
 
   +h3id('vibration') Does it vibrate?
-  p Not yet, but we also want implement vibration soon. The Xinput protocol supports vibration, but we still have to test different vibration motors.
+  p Not yet, but we also want implement vibration in the future. The Xinput protocol supports vibration, but we still have to test different vibration motors.
   hr
 
   +h3id('triggers') Are the triggers analog?
   p No, this is a design choice, since digital triggers perform better on shooters and most games (that's why mouse buttons are still digital), and trigger's analog input is rarely used in anything else than racing games.
-  p Additionally we are working in a Racing Profile which uses Gyro to turn, and thumbstick for gas/break.
-  p Of course we may want to reevaluate this later, depends on community feedback; or you could modify the reference design!
+  p For racing games there is a built-in #[em Racing] profile which uses tilt to turn, and thumbstick(s) for gas/break.
   hr
 
   +h3id('buy') Can I buy a controller?
   p Not directly, but you can check where to buy components and DIY kits at #[+a('/alpakka/components') Alpakka components] page.
   hr
 
-  +h3id('test') Can I get a free controller?
-  p If you run or work for a Youtube channel, website, or similar; and you want to review our devices. See #[+a('/blog/hardware_review') Get hardware for review].
-  hr
-
   +h3id('cost') How much would it cost to build my own controller?
-  p Your mileage will vary a lot, depending on how many controllers you want to build (e.g., there is usually an order minimum for PCBs), on different suppliers and manufacturers, etc.
-  p If you already have the required tools (3D printer, solder iron, etc...), and ignoring shipping costs of components, the cost per controller may come down to between €25 and €45.
+  p If you source the components from Input Labs, a full #[+ax(org.shop) DIY kit] will cost between 150 and 200 euros.
+  p If you source the components elsewhere, it will vary a lot, depending on how many controllers you want to build (e.g., there is usually an order minimum for PCBs), on different suppliers and manufacturers, etc. If you already have the required tools (3D printer, solder iron, etc...), and ignoring shipping costs of components, the cost per controller may come down to ~100 euros.
   p For the latest experiences, you could check the various #[+ax(org.discord) Discord channels] (e.g., #diy-support, #diy-share-parts).
   hr
 
@@ -75,9 +81,3 @@ block content
 
   +h3id('naming') Why is it called Alpakka?
   p Because we like fluffy, highly-huggable animals, see #[+a('/about') About] page for more details.
-  hr
-
-  +h3id('cad') Why are you using Blender as a CAD?
-  p While we originally made the models in Blender, we are in the process of migrating from Blender to #[+ax('https://build123d.readthedocs.io') Build123d].
-
-
