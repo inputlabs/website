@@ -76,4 +76,51 @@ block content
         img(src='/static/manual/turn_45.svg' width='50%' display='inline')
         img(src='/static/manual/turn_3d.svg' width='50%' display='inline')
 
-  p Alternatively you can check each game recommended in-game sensitivity for the games we already evaluated in the #[a(redirect.db) Accessibility Database].
+  hr
+  h3 OS settings
+  p It is recommended to set the operative system mouse sensitivity to its default value, and to disable mouse acceleration:
+  table.manual.vdiv
+    tr
+      th Windows
+      th Linux with GTK
+      th Linux with KDE
+    tr
+      td: ul
+        li Open Settings app.
+        li Go to Devices tab.
+        li Go to Mouse page.
+        li Set #[em Mouse pointer speed] to default (half way).
+      td: ul
+        li Open Settings app.
+        li Go to Mouse and Touchpad tab.
+        li Set #[em Mouse Speed] to default (half way).
+      td: ul
+        li Open Settings app.
+        li Go to Input Devices tab.
+        li Go to Mouse page.
+        li Set #[em Pointer speed] to default (half way).
+    tr
+      td: img(src='/static/manual/sens_win.png' width='100%')
+      td: img(src='/static/manual/sens_gtk.png' width='100%')
+      td: img(src='/static/manual/sens_kde.png' width='100%')
+    tr
+      td
+        hr
+        ul
+          li Go to Additional options.
+          li Go to Pointer options tab.
+          li Disable #[em Enhance pointer precision].
+      td
+        hr
+        ul
+          li Open gnome-tweaks app (install it if necessary).
+          li Go to Keyboard and Mouse tab.
+          li Set #[em Acceleration Profile] to Flat.
+      td
+        hr
+        ul
+          li Set #[em Acceleration profile] to flat.
+    tr
+      td: img(src='/static/manual/sens_win_acc.png' width='100%')
+      td: img(src='/static/manual/sens_gtk_acc.png' width='100%')
+      td: img(src='/static/manual/sens_kde_acc.png' width='100%')
