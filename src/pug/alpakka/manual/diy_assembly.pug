@@ -7,6 +7,8 @@ block content
   h2 Assembly
   hr
 
+  p: i Some of the pictures below are from older controllers, but the process is fundamentally the same.
+
   h3 Materials and tools
   p: b Materials
   ul
@@ -15,6 +17,7 @@ block content
     li M2.5 DIN-912 Hex-socket 12 mm bolts. (2x)
     li M2.5 DIN-912 Hex-socket 25 mm bolts. (6x)
     li M2.5 DIN-934 Hex nuts. (8x)
+    li (Optional) LiPo battery 503562.
   p: b Tools
   ul
     li Hex key 2 mm.
@@ -50,43 +53,49 @@ block content
   img.hm.mt.mr(src='/static/manual/assembly_R4_c.jpg')
   hr
 
-  h3 Fit PCB
+  h3 Assemble electronics
   p The PCB is kept in place thanks to the multiple mounting holes that the back case pillars are fitting. The first time a PCB is mounted it could be difficult to fit, so apply force carefully.
   ol
+    li Plug the Marmota code module into the main PCB.
     li Put PCB on the case, aligning the case columns with the holes.
     li Apply force carefully until it snaps in.
     li Check that the surface of PCB sits flat, and at the same height than the case around it.
+  img.hm.mt.mr(src='/static/manual/assembly_marmota.jpg')
   img.hm.mt.mr(src='/static/manual/assembly_pcb.jpg')
   hr
 
-  h3 Fit Thumbstick cap
+  h3 Fit thumbstick caps
   p The thumbstick cap fits into the thumbstick shaft just by pressure.
   ol
     li Put the cap in place.
     li Press down until it snaps in.
+    li Repeat with both thumbstick caps.
   img.hm.mt.mr(src='/static/manual/assembly_tscap.jpg')
   hr
 
   h3 Assemble and fit scroll wheel
-  p The scroll wheel is composed by the wheel, the shaft, and the support.
+  p The scroll wheel is composed by the wheel, the core, and the support.
+  p Before assembly: Check that the core can be inserted in the wheel with reasonable force (without requiring tools) but stays on it firmly.
   ol
-    li Fit the shaft piece into the wheel by pressure, be sure that it is perfectly centered.
-    li Introduce the hexagonal shaft (right) into the encoder axis.
-    li Place the support piece on the PCB, so the big cylindrical shaft (left) rest on it.
-  img.hm.mt.mr(src='/static/manual/assembly_wheel_a.jpg')
-  img.hm.mt.mr(src='/static/manual/assembly_wheel_b.jpg')
-  img.hm.mt.mr(src='/static/manual/assembly_wheel_c.jpg')
+    li Insert the core (only the core) into the encoder.
+    li Align the wheel with the core and push into the encoder direction until the core is inserted.
+    li Place the holder into into position (resting on the thumbstick side).
+    li Move the wheel-core assembly to the right by pushing the core shaft from the other side of the encoder.
+    li Check that the wheel rotates freely and it is correctly aligned / does not wobble.
+  img.hm.mt.mr(src='/static/manual/assembly_wheel_a_.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_wheel_b_.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_wheel_c_.jpg')
   hr
 
-  h3 Fit 8-directional hat cap
-  p The DHat cap fits into the DHat shaft just by pressure, but it only fits in 1 of the 4 possible orientations.
-  ol
-    li Put the cap in place (the cap has a ledge that must point up).
-    li Press down until it snaps in.
-    li If it does not snap in because it is too tight, apply heat to the metal shaft with a soldering iron and try to push the cap again (Ideally using a secondary and disposable 8-directional switch to avoid temperature damage).
-  img.hm.mt.mr(src='/static/manual/assembly_dhat_a.jpg')
-  img.hm.mt.mr(src='/static/manual/assembly_dhat_b.jpg')
-  hr
+  //- h3 Fit 8-directional hat cap
+  //- p The DHat cap fits into the DHat shaft just by pressure, but it only fits in 1 of the 4 possible orientations.
+  //- ol
+  //-   li Put the cap in place (the cap has a ledge that must point up).
+  //-   li Press down until it snaps in.
+  //-   li If it does not snap in because it is too tight, apply heat to the metal shaft with a soldering iron and try to push the cap again (Ideally using a secondary and disposable 8-directional switch to avoid temperature damage).
+  //- img.hm.mt.mr(src='/static/manual/assembly_dhat_a.jpg')
+  //- img.hm.mt.mr(src='/static/manual/assembly_dhat_b.jpg')
+  //- hr
 
   h3 Assemble and fit anchors
   p The anchors serve a double purpose of aligning the front and back cases while assembling them, and hosting the hex nuts internally.
@@ -145,11 +154,16 @@ block content
   img.hm.mt.mr(src='/static/manual/assembly_bolts_b.jpg')
   hr
 
-  h3 Fit rear cover
+  h3 Place battery / cover
   p The rear bay cover fits by pressure. Guess what is that slot for! :)
   ol
+    li (Optional) Plug the battery connector.
+    li (Optional) Tuck the cable carefully in the clearance, in a way that does not push the battery out when placed.
+    li (Optional) Place the battery in position.
     li Align the rear cover.
-    li Press until it snaps in (it may require plenty of force).
+    li Press until the cover snaps in (be careful not to pinch the battery edges).
+  img.hm.mt.mr(src='/static/manual/assembly_battery_a.jpg')
+  img.hm.mt.mr(src='/static/manual/assembly_battery_b.jpg')
   img.hm.mt.mr(src='/static/manual/assembly_cover_a.jpg')
   img.hm.mt.mr(src='/static/manual/assembly_cover_b.jpg')
   hr
