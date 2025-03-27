@@ -7,8 +7,8 @@ block content
   h2 Firmware development
   p This manual page (and the following pages) explains how to setup and use the #[+ax('https://github.com/inputlabs/alpakka_firmware') Alpakka Firmware], and to setup a developer environment both from the software and hardware point of view.
   //- p The firmware source code is made in C programming language, using the #[+ax('https://raspberrypi.github.io/pico-sdk-doxygen/modules.html') Raspberry Pi Pico C SDK].
-  hr
 
+  hr
   h3 Developer Kit
   p The #[em Developer Kit] is a simple DIY device that allows the developer to connect to the controller, get logs, send commands, and use a physical reset button. This is not required to hack the Alpakka, but it helps a lot.
   p The components for the reference developer kit are:
@@ -25,8 +25,15 @@ block content
   ul
     li #[em Single press]: Restarts the controller.
     li #[em Double press]: Controller goes into Bootsel mode (ready to be flashed).
-  hr
 
+  hr
+  h3 Other dev-like methods to put the device into Bootsel
+  ul
+    li #[b In devices with Marmore core:] Double press the reset button next to the USB port (see #[+a('wireless') Wireless] page).
+    li #[b In the Raspberry Pico:] Hold the white button while connecting the USB cable.
+    li #[b With a USB serial cable:] Send #[em B] character.
+
+  hr
   h3 Software setup & development cycle
   p Check #[+a('dev_unix') Development in Linux] or #[+a('dev_windows') Development in Windows] for further instructions.
 

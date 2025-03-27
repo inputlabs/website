@@ -5,34 +5,72 @@ block append title
 
 block content
   h2 Firmware
-  hr
 
-  h3 Get latest firmware
-  p The software embedded in the controller can be easily updated to get new features and fixes. Latest builds of the firmware #[em .uf2 files] are located in the Firmware repository #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/latest') Releases].
   hr
+  h3 Basics
+  p Input Labs devices are made from a collection of DIY components, so the electronics usually come blank, with #[em nothing installed] on them. Thankfully it is very easy to manually install (and update) the firmware yourself.
 
-  h3 Install the firmware for first time
+  hr
+  h3 How to install the firmware (overview)
+  ol
+    li Get the latest firmware #[em .uf2] files from #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/latest') Github].
+    li Put the device in Bootsel mode.
+    li (#[em RPI-RP2] drive shows up in the computer, as if it was an USB drive).
+    li If the device is wireless:
+    ul
+      li Copy the wireless submodule firmware into the #[em RPI-RP2] drive.
+      li Wait until goes it back to Bootsel mode.
+    li Copy the main #[em .uf2] file into the #[em RPI-RP2] drive.
+    li Wait until the device restarts.
+
+  hr
+  h3 Devices with wireless functionality
+  p Devices with wireless (Alpakka v1 and Dongle) require to install #[em 2 different firmwares], first for the wireless submodule, then the main firmware. See per-device instructions below for more details.
+
+  hr
+  h3 How to put the device into Bootsel mode
   ul
-    li Connect the controller to a PC with a cable.
-    li In your computer file explorer, drag the #[em .uf2] file into the RPI-RP2 drive.
-    li The controller should restart itself, and the front LEDs will blink.
-  hr
+    li If the device is #[em factory new], it will go into Bootsel mode automatically when connected, and the #[em RPI-RP2] drive appears directly.
 
-  h3 Update the firmware
   ul
-    li Connect the controller to a PC with a cable, and let it start normally.
-    li Hold #[em Home #[+home]] button.
-    li Hold #[em Select #[+select]] button (central area, top left button).
-    li
-      div After LEDs are turned off, release all buttons.
-      img(src='/static/manual/led_off.png' width='50px')
-    li Notice how the controller is now in #[em Boot mode], and will show up as #[em RPI-RP2] drive in your computer.
-    li In your computer file explorer, drag the #[em .uf2] file into the RPI-RP2 drive.
-    li The controller should restart itself, and the front LEDs will blink.
-  hr
+    li If the device has already an #[em old firmware] installed, there are multiple ways:
+    ul
+      li #[b Option 1:] Use the #[em Ctrl app] > Tools > Commands > #[em Restart in bootsel mode] button.
+      li #[b Option 2:] With the controller on, hold #[em Home #[+home]]+#[em Select #[+select]] for a few seconds, while the controller is connected via USB.
+      li #[b Option 3:] In the Dongle, hold the multifunction button while connecting the USB cable.
+      li #[b Option 4:] Other alternatives in the #[+a('dev') Developer] section.
 
+  hr
+  h3 Per-device instructions
+
+  h4 Alpakka with v0 hardware (Raspberry Pico core)
+  ol
+    li Put the controller in Boolsel mode (#[em RPI-RP2] drive appears).
+    li Copy #[em alpakka_pico.uf2] to RPI-RP2 drive.
+    li Controller turns on automatically (LEDs flashing).
+
+  h4 Alpakka with v1 hardware (Marmota core)
+  ol
+    li Put the controller in Boolsel mode (#[em RPI-RP2] drive appears).
+    li Copy #[em wireless_submodule.uf2] to RPI-RP2 drive.
+    li Wait until the wireless module is flashed and RPI-RP2 re-appears (#[em ~30 seconds]).
+    li Copy #[em alpakka_marmota.uf2] to RPI-RP2 drive.
+    li Controller turns on automatically (LEDs flashing).
+
+  h4 Wireless dongle (Marmota core)
+  ol
+    li Put the Dongle in Boolsel mode (#[em RPI-RP2] drive appears).
+    li Copy #[em wireless_submodule.uf2] to RPI-RP2 drive.
+    li Wait until the wireless module is flashed and RPI-RP2 re-appears (#[em ~30 seconds]).
+    li Copy #[em dongle_marmota.uf2] to RPI-RP2 drive.
+    li Dongle turns on automatically (LED is on).
+
+  hr
   h3 After the installation
-  p Run the controller #[+a('calibrate') calibration] if necessary (if the #[+a('problem_led') LEDs are blinking]).
+  ul
+    li Run the #[+a('calibrate') calibration] if necessary.
+    li Why the #[+a('problem_led') LEDs are blinking]?.
 
+  hr
   h3 Modify the firmware
   p Check the #[+a('dev') Developer] section.
