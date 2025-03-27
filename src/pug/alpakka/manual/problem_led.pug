@@ -5,23 +5,24 @@ block append title
 
 block content
   h2 LED blinking
-  hr
 
+  hr
   h3 Connecting USB
   img(src='/static/manual/led_blink_all.apng' width='50px').mt
-  p While the controller is #[em establishing a wired connection] with the computer all LEDs will blink at once, if the blinking continues forever it means that the controller is not able to connect to the PC.
+  p While the controller is #[em establishing a connection] with the computer all LEDs will blink at once, if the blinking continues forever it means that the controller is not able to connect to the PC.
   p Potential solutions:
   ul
     li Unplug the controller and plug it back in.
     li Try using #[em another USB cable], be sure that the cable is not just a charging cable, and that it supports USB 2+.
     li Check that the computer is not suspended.
-  hr
 
-  h3 Boot warnings
+  hr
+  h3 Warnings
   img(src='/static/manual/led_blink_problem.apng' width='50px').mt
-  p If any #[em problems are detected during boot], the controller LEDs will blink in an alternating horizontal and vertical pattern.
-  p The specific problem will be pointed out in the #[em Firmware logs] section on the #[+ax(org.ctrl_app) Ctrl app]. Some of these problems could be:
+  p If any #[em problems are detected], the controller LEDs will blink in an alternating horizontal and vertical pattern.
+  p The specific problem will be pointed out in the #[em firmware logs] section on the #[+ax(org.ctrl_app) Ctrl app]. Some of these problems could be:
   ul
     li The controller is not #[+a('calibrate') calibrated] yet.
-    li One (or both) of the #[em IMU / Gyro(s)] could not start, possibly because a problem with soldering.
+    li One (or both) of the #[em IMU / Gyro(s)] could not start.
+    li The #[em battery level] is low (if the forward-facing LED is also blinking).
   p Double-pressing the #[em Home #[+home]] button will make the LEDs to stop blinking, and ignore there issues until the next boot.
