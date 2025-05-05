@@ -1,0 +1,203 @@
+extends _blog.pug
+
+block append subtitle
+  | Kapybara development
+
+block content
+  h2 Kapybara development
+  +news_header('7 May 2025', 'report_28', '')
+
+  h3 Kapybara development starts now
+  p Kapybara (finnish spell for #[+ax('https://en.wikipedia.org/wiki/Capybara') Capybara]) is the name for Input Labs' second reference design, a #[em single hand] controller more focused on accessibility usecases. We had plans to make the Kapybara as early as 2022 when Input Labs was founded, but the development of the Alpakka (our first controller) forced us to delay its development until now.
+
+  p We are setting a development framework for the Kapybara that will be #[em very different than what we did for the Alpakka]. When we developed the Alpakka we had a #[em strong vision] for how a gyro-first controller should be, and how it should fit into the classic gamepad layout, therefore when we published the project and started getting feedback, such "late" feedback was mostly about how to nail the final design, but there were no radical re-designs.
+
+  p On the contrary, with the Kapybara we are going to start gathering ideas from the community when we are still on the #[em drawing board], and we hope to get insights that only players with disabilities could give us. The concept is completely open at the moment, everything about it can be influenced by the #[em feedback from the workgroup].
+
+  p In the new workgroup, we want testers to have a closer relationship with the developers, and more interaction in the process. This might include #[em 1on1 interviews] and video-sharing when using the prototypes (more on the expectations below). For this reason the number of testers will be much more limited (5~10) and more focused on the disability aspect.
+
+  hr
+  h3 Design goals (not final)
+  ul
+    li The controller should be usable with a #[em single hand].
+    li #[em All games] that are playable with an Alpakka should be playable with a Kapybara, without losing any core functionality.
+    li #[em Button density] on the Kapybara should be higher than in most other single-hand controllers. The number and layout of inputs will be decided during development.
+    li The Kapybara could complement #[em other devices] (see use-cases below).
+    li The Kapybara will use the #[em Marmota module] as core, reducing the development complexity (as if it was an Alpakka with different form factor).
+    li The Kapybara may have a #[em jack 3.5mm] connector, so a #[em pedal] can be attached for additional inputs.
+    li Reference design structure will be similar to Alpakka, with #[em open] 3D-printed models and PCB schematics.
+    li Firmware and Ctrl app will support both Alpakka and Kapybara.
+
+
+  hr
+  h3 Open questions
+  ul
+    li Should the controller be #[em symmetric] and usable with either hand?, or should we have dedicated left-hand and right-hand versions? Is there any clever solution that have the benefits of an asymmetric case without the tradeoffs?.
+    li Should the controller have a #[em strap]? It would keep the controller in position without requiring the ring and pinky fingers to be used to held the controller. Can we 3d-print straps with rubber materials such as TPU?.
+    li Should the #[em ring and pinky fingers] be used for inputs (buttons)? They are the less dexterous fingers, and some people may have issues pressing buttons with them. Are the other 3 fingers (thumb, index, middle) enough for all the inputs required in complex games?.
+    li Should the thumb be used for the #[em thumbstick]? this is the obvious solution, but the thumb is the most dexterous finger and maybe would be better to use the thumb for ABXY and the index finger for the thumbstick?.
+    li What about the #[em second thumbstick]? should be placed in the back? in the front in a double stick arrangement? or not placed at all?.
+    li Compared to an Alpakka, a Kapybara could have #[em reduced stability] while pressing buttons/triggers, which could lead to increased actuation motion or "gyro shake" (unintended rotation while pressing buttons).
+    li Given the complex arrangement of buttons, can the PCB be designed with a #[em single board] / without requiring submodules nor #[em flex PCBs]?.
+
+
+  hr
+  h3 Use-cases
+
+  h4 Kapybara only
+  table.manual
+    tr
+      td(style='width:200px !important')
+        img(style='width:100px' src='/static/blog/kapybara_empty.png')
+        img(style='width:100px' src='/static/blog/kapybara_remote.png')
+      td
+        ul
+          li Player has restricted motion or pain in one hand.
+          li Player has limb difference or amputation.
+          li Player is able to play any game with a single hand.
+
+  h4 Kapybara + Mouse
+  table.manual
+    tr
+      td(style='width:200px !important')
+        img(style='width:100px;transform:scaleX(-1)' src='/static/blog/kapybara_remote.png')
+        img(style='width:100px' src='/static/blog/kapybara_mouse.png')
+      td
+        ul
+          li Player has restricted motion or pain in one hand, preventing the usage of keyboard / WASD.
+          li Kapybara replaces the keyboard in the KB&M combo.
+          li Also for enthusiasts without disabilities, because analog movement and better ergonomics.
+        //- p Left hand: Kapybara.
+        //- p Right hand: Mouse.
+
+  h4 Keyboard (WASD) + Kapybara
+  table.manual
+    tr
+      td(style='width:200px !important')
+        img(style='width:100px' src='/static/blog/kapybara_keyboard.png')
+        img(style='width:100px' src='/static/blog/kapybara_remote.png')
+      td
+        ul
+          li Player has restricted motion or pain in one hand, preventing the usage of a mouse.
+          li Kapybara replaces the mouse in the KB&M combo.
+        //- p Left hand: WASD+keys.
+        //- p Right hand: Kapybara.
+
+  h4 Kapybara + Kapybara
+  table.manual
+    tr
+      td(style='width:200px !important')
+        img(style='width:100px;transform:scaleX(-1)' src='/static/blog/kapybara_remote.png')
+        img(style='width:100px' src='/static/blog/kapybara_remote.png')
+      td
+        ul
+          li Player has restricted motion or pain, preventing usage of a traditional controller (with both hands in proximity).
+          li Unclear how communication between devices would work.
+          li Combined profiles?
+          li Able to join them with a bracket? (contradicts 1st point).
+          li This is the most complicated use case, and might need additional research.
+
+  h4 Other usages that will NOT be implemented on the reference design
+  i (*But could be implemented via mods)
+  ul
+    li Kapybara(s) as VR controller(s).
+    li Kapybara on a joystick base.
+    li Kapybara as a 3D mouse.
+    li Kapybara as a MIDI controller.
+
+
+  hr
+  h3 Grip / Main body shape candidates
+  +figure(
+    '',
+    'TV remote grip',
+    '/static/blog/kapybara_remote.png',
+    'small inline',
+  )
+  +figure(
+    '',
+    'T-shape / pistol grip',
+    '/static/blog/kapybara_empty.png',
+    'small inline',
+  )
+  +figure(
+    '',
+    'Brick with strap',
+    '/static/blog/kapybara_empty.png',
+    'small inline',
+  )
+
+  hr
+  h3 Workgroup roles
+
+  h4 Organizer role
+  ul
+    li #[b Members:] Michael and Marcos. Maybe additional coordinators.
+    li #[b Expectations:]
+      ul
+        li Organize the development / Implement the core solutions.
+        li Coordinate and moderate the workgroup communication channels.
+        li Facilitate feedback gathering via interviews and/or surveys.
+
+  h4 Tester role
+  ul
+    li #[b Members:] Between 5 and 10 approved testers.
+    li #[b Prototypes:] Provided by Input Labs.
+    li #[b Requirements / Expectations:]
+      ul
+        li Having disabilities relevant to the use-cases.
+        li Being able to share details (privately) about their mobility-related disabilities.
+        li Being able to make videocall interviews if required.
+        li Being able to pay for prototypes shipping costs.
+        li Having a pro-active aptitude, and communicate often in Discord.
+        li NOT required: 3D printer nor DIY skills.
+        li #[+ax('/TODO') Apply to become a tester].
+
+  h4 Collaborator role
+  ul
+    li #[b Members:] Everyone is welcome.
+    li #[b Hardware:] Self-sourced according to schematics.
+    li #[b Requirements / Expectations:]
+      ul
+        li Having a 3D printer and basic DIY skills.
+        li Follow up with latest mockups and prototypes, build and test them.
+        li Share feedback and ideas in Discord.
+        li Keep the same etiquette than the other testers.
+
+  hr
+  h3 Development phases
+
+  table.manual.hdiv
+    tr
+      td: h4 Testers selection
+      td
+        li The period in which Input Labs will onboard testers.
+        li Interviews might be conducted as a way to know each other better, and figure out the best way to work together.
+    tr
+      td: h4 Mockup phase
+      td
+        li Figuring out the controller main body shape and buttons placement.
+        li During this period the mockups won't have electronics, but just a chunk of PLA material.
+        li Mockups will be distributed to testers.
+        li Feedback gathering from testers and collaborators.
+    tr
+      td: h4 Prototype phase
+      td
+        li Adding electronics to the most promising mockup(s), and make them functional.
+        li Minimum Kapybara integration with firmware and Ctrl app should be achieved at this point.
+        li Full prototypes will be distributed to testers.
+        li Prototype electronics might be distributed to selected collaborators.
+        li Feedback gathering from testers and collaborators.
+
+
+  hr
+  h3 Additional notes
+  ul
+    li We won't define deadlines for the development phases, it will be ready when is ready.
+    li It is unclear if Input Labs will sell Kapybara parts in the shop. We will evaluate it in the future.
+    li If Kapybaras are sold, there won't be a pre-order period.
+    li Tester channels in Discord will be reworked.
+
+
+  hr
+  p Thanks for the support! 🤍 <br>- Michael and Marcos
