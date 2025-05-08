@@ -16,21 +16,23 @@ block content
 
   p In the new workgroup, we want testers to have a closer relationship with the developers, and more interaction in the process. This might include #[em 1on1 interviews] and video-sharing when using the prototypes (more on the expectations below). For this reason the number of testers will be much more limited (5~10) and more focused on the disability aspect.
 
+  p The research will focus on solving accessibility issues related with #[em motor disabilities] (limb difference, amputation, neuromuscular and musculoskeletal disorders), and will not be trying to solve problems derived from cognitive disorders, such as attention disorders nor intellectual disabilities; although the resulting solution could also be helpful in these cases.
+
+
   hr
   h3 Design goals (not final)
   ul
     li The controller should be usable with a #[em single hand].
     li #[em All games] that are playable with an Alpakka should be playable with a Kapybara, without losing any core functionality.
-    li #[em Button density] on the Kapybara should be higher than in most other single-hand controllers. The number and layout of inputs will be decided during development.
     li The Kapybara could complement #[em other devices] (see use-cases below).
+    li The external case should be compatible with as many hand sizes and different grips as possible.
     li The Kapybara will use the #[em Marmota module] as core, reducing the development complexity (as if it was an Alpakka with different form factor).
-    li The Kapybara may have a #[em jack 3.5mm] connector, so a #[em pedal] can be attached for additional inputs.
-    li Reference design structure will be similar to Alpakka, with #[em open] 3D-printed models and PCB schematics.
+    li Project structure will be similar to Alpakka, with #[em open] 3D-printed models and PCB schematics.
     li Firmware and Ctrl app will support both Alpakka and Kapybara.
 
 
   hr
-  h3 Open questions
+  h3 Open questions (so far)
   ul
     li Should the controller be #[em symmetric] and usable with either hand?, or should we have dedicated left-hand and right-hand versions? Is there any clever solution that have the benefits of an asymmetric case without the tradeoffs?.
     li Should the controller have a #[em strap]? It would keep the controller in position without requiring the ring and pinky fingers to be used to held the controller. Can we 3d-print straps with rubber materials such as TPU?.
@@ -55,6 +57,8 @@ block content
           li Player has restricted motion or pain in one hand.
           li Player has limb difference or amputation.
           li Player is able to play any game with a single hand.
+          li Will require higher button density than in most other single-hand controllers.
+          li Controller could have a #[em jack 3.5mm] connector, so a #[em pedal] can be attached for additional inputs.
 
   h4 Kapybara + Mouse
   table.manual
@@ -67,8 +71,7 @@ block content
           li Player has restricted motion or pain in one hand, preventing the usage of keyboard / WASD.
           li Kapybara replaces the keyboard in the KB&M combo.
           li Also for enthusiasts without disabilities, because analog movement and better ergonomics.
-        //- p Left hand: Kapybara.
-        //- p Right hand: Mouse.
+          li Unclear purpose of gyro in this configuration.
 
   h4 Keyboard (WASD) + Kapybara
   table.manual
@@ -80,8 +83,6 @@ block content
         ul
           li Player has restricted motion or pain in one hand, preventing the usage of a mouse.
           li Kapybara replaces the mouse in the KB&M combo.
-        //- p Left hand: WASD+keys.
-        //- p Right hand: Kapybara.
 
   h4 Kapybara + Kapybara
   table.manual
@@ -146,10 +147,16 @@ block content
     li #[b Requirements / Expectations:]
       ul
         li Having disabilities relevant to the use-cases.
+          ul
+            li Limb difference.
+            li Limb / hand / finger amputation.
+            li Neuromuscular disorder (dystrophy, sclerosis, palsy...).
+            li Musculoskeletal disorder (arthritis, carpal syndrome, strain injury...).
         li Being able to share details (privately) about their mobility-related disabilities.
         li Being able to make videocall interviews if required.
-        li Being able to pay for prototypes shipping costs.
-        li Having a pro-active aptitude, and communicate often in Discord.
+        li Being able to pay for prototypes shipping costs. (Shipping is around 15 euros per parcel).
+        li Having a pro-active attitude, and communicate often in Discord.
+        li
         li NOT required: 3D printer nor DIY skills.
         li #[+ax('/TODO') Apply to become a tester].
 
@@ -162,7 +169,7 @@ block content
         li Having a 3D printer and basic DIY skills.
         li Follow up with latest mockups and prototypes, build and test them.
         li Share feedback and ideas in Discord.
-        li Keep the same etiquette than the other testers.
+        li Maintain basic etiquette, avoid heated arguments, and respect the opinions of other testers.
 
   hr
   h3 Development phases
@@ -193,9 +200,8 @@ block content
   hr
   h3 Additional notes
   ul
-    li We won't define deadlines for the development phases, it will be ready when is ready.
+    li We won't define a final deadline for the development, it will be ready when is ready.
     li It is unclear if Input Labs will sell Kapybara parts in the shop. We will evaluate it in the future.
-    li If Kapybaras are sold, there won't be a pre-order period.
     li Tester channels in Discord will be reworked.
 
 
