@@ -78,30 +78,6 @@ block content
   h3 Battery low / charging
   p When the #[em battery is low] the #[em forward-facing LED will blink] (next to the USB port), when there is ~1 hour of energy remaining.
   p Additionally, to make the battery low alert more noticeable, the 4 frontal LEDs will animate with the warning pattern.<br>(Dismiss with #[em Home #[+home]] double-press).
-  img(src='/static/manual/led_blink_problem.apng' width='50px').mt
+  img(src='/static/manual/led_animation_lowbattery.png' width='50px').mt
   p Be aware that when the battery is empty, the controller could briefly lose wireless connection before going completely off.
   p The battery recharges when the USB is connected, when the battery is charging the forward-facing LED turns on.
-
-  hr
-  h3 LEDs summary (wireless related)
-  table.manual.vdiv
-    tr
-      th Dongle
-      th Controller wired
-      th Controller wireless
-      th Controller sleeping
-    tr
-      td
-        p #[em LED on:] The dongle is ready for receiving wireless data.
-        p #[em LED off:] The dongle does not have a USB connection (PC is turned off), or the dongle is on bootsel mode.
-        p #[em LED blinking:] #[i Not implemented.]
-      td
-        p #[em Forward-facing LED on:] The controller battery is being charged.
-        p #[em Forward-facing LED off:] The controller battery is fully charged, or there is no battery.
-      td
-        p #[em Forward-facing LED blinking:] The controller battery is low.
-        p #[em Main LEDs warning pattern:] The controller battery is low, or there are other #[+a('problem_led') problems].
-        img(src='/static/manual/led_blink_problem.apng' width='50px').mt
-      td
-        p All LEDs should be off.
-
