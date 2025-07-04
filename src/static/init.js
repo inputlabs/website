@@ -81,3 +81,15 @@ function selectRedirect(event) {
   var url = event.target.value
   window.location.href = url
 }
+
+function playLED(id) {
+  const frames = document.getElementById(`frames_${id}`)
+  const animation = document.getElementById(`animation_${id}`)
+  const toggle = (el) => {
+    if (el.style.display !== 'none') el.style.display = 'none'
+    else if (el.style.display === 'none') el.style.display = 'inline'
+
+  }
+  toggle(frames)
+  toggle(animation)
+}

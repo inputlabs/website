@@ -9,23 +9,20 @@ block content
 
   h3 Watch the video
   p The #[+ax('https://www.youtube.com/watch?v=yYwrVL2b9eM') DIY video] should give you a fairly good idea about what to expect, and what it takes to get started.
+  +axc('https://www.youtube.com/watch?v=yYwrVL2b9eM')
+    img.ws.mt(src='/static/blog/youtube_thumbnail_diy.jpg')
   hr
 
-  h3 Get the PCB and components
-  p There are various places from where you can order the PCB and electronic components. Different manufacturers offer different services, available components, and prices, etc. Check #[+a("diy_pcb") how we get our PCBs] and how to #[+a("diy_solder") solder] the components.
-  p Check #[+a('/alpakka/components') Components] for different sourcing options, or check #[em #diy-share-parts] on #[+ax(org.discord) Discord] since people in your region might be interested in sharing order and shipping costs.
-  hr
-
-  h3 Get 3D-printed parts
-  p Check #[+a("diy_case") 3D-print case and buttons].
-  p If you don't have a 3D printer yourself, you might want to check what is available in your vicinity. Would you be able to 3D-print in your local library? Are there professional shops nearby that offer a 3D-printing service?
-  p Check #[+a('/alpakka/components') Components] for different sourcing options, or join #[em #diy-share-parts] on #[+ax(org.discord) Discord] since people in your region might be willing to print for you.
+  h3 Relevant manual pages
+  ul
+    li List with all #[+a('/alpakka/components') components] and suppliers.
+    li Ordering a #[+a("diy_pcb") Printed Circuit Board].
+    li How to #[+a("diy_solder") solder] the components. #[i (Optional)].
+    li #[+a("diy_case") 3D-printing] controller case and buttons.
+    li How to #[+a("diy_assembly") assemble] all the parts together.
 
   hr
-
-  h3 Assembly
-  p Check #[+a("diy_assembly") how to assemble] the Alpakka, or watch the #[+ax('https://youtu.be/yYwrVL2b9eM?t=276') DIY video] section about assembly.
-  hr
-
-  h3 Support
-  p If you need help or have any questions, we have a #[em #diy-support] channel on #[+ax(org.discord) Discord].
+  h3 Support on Discord
+  ul
+    li #[+ax(org.discord) #diy-support]: If you need help, or have any questions.
+    li #[+ax(org.discord) #diy-share-parts]: Community members in your region might be able to share extra parts with you.
