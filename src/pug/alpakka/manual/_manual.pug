@@ -6,7 +6,7 @@ block title
     |
 
 block page
-  include ../_title.pug
+  include ../../_device_selector.pug
 
   mixin home
     img(src='/static/manual/button_home.svg' height='14px')
@@ -33,22 +33,33 @@ block page
           +wikilink('diy_getting_started') Getting Started
           +wikilink('diy_pcb') Order PCB
           +wikilink('diy_solder') Solder PCB
-          +wikilink('diy_case') 3D print case & buttons
+          +wikilink('diy_case') 3D print parts
           +wikilink('diy_assembly') Assembly
 
-        h3 Config
+        h3 Setup
         div
           +wikilink('firmware') Firmware
-          +wikilink('setup') OS setup
           +wikilink('mouse') Mouse
           +wikilink('tune') Tune settings
           +wikilink('calibrate') Calibrate
+          +wikilink('wireless') Wireless
           +wikilink('ctrl_app') Ctrl app
+
+        h3 References
+        div
+          +wikilink('specs') Specs
+          +wikilink('led') LED reference
+          +wikilink('faq') Frequently Asked Questions
+          //- +wikilink('problem_soldering') Soldering problems
+          //- +wikilink('problem_fitting') Parts fitting
+          //- div.inactive Soldering problems #[i (soon)]
+          //- div.inactive Parts fitting #[i (soon)]
+          //- div.inactive Touch detection #[i (soon)]
 
         h3 Profiles
         div
           +wikilink('profiles') About profiles
-          +wikilink('profile_home') Home
+          +wikilink('profile_home') Home (shortcuts)
           +wikilink('profile_fps_fusion') FPS Fusion
           +wikilink('profile_fps_wasd') FPS WASD
           +wikilink('profile_console') Console
@@ -63,13 +74,6 @@ block page
           +wikilink('dev') Firmware development
           +wikilink('dev_unix') Setup in Linux
           +wikilink('dev_windows') Setup in Windows
-          div.inactive PCB development #[i (soon)]
-          div.inactive Case mods #[i (soon)]
-
-        h3 Other
-        div
-          +wikilink('faq') Frequently Asked Questions
-          +wikilink('specs') Specs
 
     div.box.entry
       block content

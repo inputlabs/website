@@ -1,0 +1,124 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #24
+
+block content
+  h2 Progress report #24
+  +news_header('29 July 2024', 'report_23', 'report_25')
+
+  h3 More 3D models in build123d
+  p We published a new iteration of the Alpakka 3D-models with the #[+ax(org.cad_release+'0.97.0') c0.97.0] release, continuing the migration from Blender to #[+ax('https://build123d.readthedocs.io') build123d] that we mentioned in #[+a('report_22') report 22].
+  p The battery cover received not only a direct port, but was also improved:
+  ul
+    li Added #[em fillets] to strengthen it and make it less susceptible to breaking (especially on FDM printers).
+    li Added #[em friction tabs] to compensate for minor inaccuracies in 3D printing and allow for a better fit, even in sub-optimal conditions.
+
+  +figure(
+    '',
+    'New battery cover (changes in red)',
+    '/static/blog/c0970_cover.png',
+    'small inline',
+  )
+  +figure(
+    '',
+    'New battery cover in practice',
+    '/static/blog/c0970_cover_real.jpg',
+    'small inline',
+  )
+
+  p The #[em ABXY], #[em D-Pad] and #[em Select] buttons were ported without changes from Blender to #[+ax('https://build123d.readthedocs.io') build123d] in beautiful #[+ax('https://github.com/inputlabs/alpakka_case/tree/main/build123d/button_abxy.py') Python code].
+
+  +figure(
+    '',
+    'New ABXY button',
+    '/static/blog/c0970_abxy.png',
+    'small inline',
+  )
+  +figure(
+    '',
+    'New D-Pad button',
+    '/static/blog/c0970_dpad.png',
+    'small inline',
+  )
+  +figure(
+    '',
+    'New Select button',
+    '/static/blog/c0970_select.png',
+    'small inline',
+  )
+
+  p Special thanks for his help, support and advice in all matters #[+ax('https://build123d.readthedocs.io') build123d] to #[em Jern]! 🤗
+  hr
+
+  h3 Wireless RF prototypes (4 and 5)
+  p We developed a couple of additional #[em core module] prototypes (v4 and v5) in which we are experimenting with different antenna arrangements for the stronger possible signal.
+
+  +figure(
+    '',
+    'RF test 4',
+    '/static/blog/RF_proto_4.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'RF test 5',
+    '/static/blog/RF_proto_5.jpg',
+    'small inline',
+  )
+
+  h4 RF test 4 board
+  ul
+    li Continuation of the previous #[em RP2040] + #[em NRF24] prototypes. (See #[+a('report_23') report 23]).
+    li Antenna arrangement following specs and reference designs as much as possible:
+    ul
+      li Antenna placed in vertical.
+      li Matching network arrangement very similar to Nordic reference design.
+      li Unfortunately we didn't realized about the required bottom stub until later, so we added a bit of copper tape manually.
+    li Power management circuit works mostly as expected:
+    ul
+      li It reports #[em no battery], #[em low battery], #[em no USB power] and all other power states.
+      li Unfortunately it does not charge the battery due to a mistake we made in the circuit (unconnected secondary ground). It should be trivial to fix it on the next iteration.
+    li Results with different setups:
+    ul
+      li No stub: Still sub-optimal signal strength.
+      li Big stub: Barely any difference.
+      li Small stub: Very good signal strength. 🚀
+
+  h4 RF test 5 board
+  ul
+    li We ordered this prototype before the successful findings on the v4 prototype.
+    li Antenna arrangement reverted to something similar to v1 prototype, hoping to get same signal strength than v1.
+    li This research path (emulating v1 arrangement) is now discontinued.
+
+  p Now that we know it is possible to tune the antenna via the length of the bottom stub, the next step is to design an arrangement that allow us to scratch the stub shorter and shorter until we find the perfect length.
+
+  +figure(
+    '',
+    'VNA measurement (by Fabio)',
+    '/static/blog/RF_proto_4_VNA.jpg',
+    'mid',
+  )
+
+  p Special thanks to #[em Fabio] for performing VNA measurements on the designs, and to the other Discord members for the expert advice. 🤗
+  hr
+
+  h3 Complete Alpakka kits in the shop
+  p To make more obvious which parts are required to build a complete DIY Alpakka controller, we introduced the concept of #[em Complete kits] into the shop, these act similar to a guided configurator in which the user selects a few options, and the relevant parts are added to the shopping cart.
+
+  p For now we have 2 variants:
+  ul
+    li #[+ax('https://inputlabs.squarespace.com/everyone/p/alpakka-kit-solder') Alpakka complete DIY Kit (solder+assembly)] for the full DIY experience including soldering.
+    li #[+ax('https://inputlabs.squarespace.com/everyone/p/alpakka-kit-assembly') Alpakka complete DIY Kit (assembly only)] for a simpler DIY which only requires assembly and final adjustments.
+
+  +axc('https://inputlabs.squarespace.com/everyone/p/alpakka-kit-solder'): img.ws.mt.mr(src='/static/blog/DIY_kit_1.png')
+  +axc('https://inputlabs.squarespace.com/everyone/p/alpakka-kit-assembly'): img.ws.mt.mr(src='/static/blog/DIY_kit_2.png')
+
+
+  hr
+  h3 1000 Discord members
+  p In July we exceeded the magic number of one thousand members on Discord. #[em Thank you all] for being part of this exceptional community of gyro enthusiast, DIY builders, accessibility advocates, and wonderful people! 🙏
+  p: i The real treasure was the friends we made along the way, you are the real Input Labs.
+  hr
+
+  p - Marcos and Michael 🤍

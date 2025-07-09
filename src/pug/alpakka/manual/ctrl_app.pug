@@ -6,11 +6,185 @@ block append title
 block content
   h2 Ctrl app
   hr
-  p An #[em optional] app for Input Labs devices, able to run diagnostics, configure the controller settings, and modify profile mappings.
+  p An #[em optional] app for Input Labs devices, able to edit profiles, change advanced settings, and run diagnostics.
   p The app is hosted at #[+ax('http://ctrl.inputlabs.io') ctrl.inputlabs.io] and it is compatible with Windows, Linux and the Steam Deck; without the need to install any additional software in your computer (but it must be used with a WebUSB compatible browser).
   p The source code is available at #[+ax(org.repo+'ctrl') GitHub] and it is open source.
-  p Some features are missing since the application is still under active development.
-
-  img.wm.mr.mt(src='/static/manual/ctrl_app_logs.png')
+  p Additionally the Alpakka is compatible with the #[em Steam Input UI], with or without using the #[em Ctrl app].
 
   img.wm.mr.mt(src='/static/manual/ctrl_app_profiles.png')
+  img.wm.mr.mt(src='/static/manual/ctrl_app_profiles_custom.png')
+  img.wm.mr.mt(src='/static/manual/ctrl_app_profiles_bind.png')
+  img.wm.mr.mt(src='/static/manual/ctrl_app_logs.png')
+
+  hr
+  h3 Comparison of Ctrl app vs Steam Input
+  p: i (This is not a comprehensive list of all Steam Input features)
+
+
+  - notPlanned = 'Not planned at the moment'
+  - var getGHid = (url) => url.split('/').pop()
+
+  mixin _planned(url, text)
+    span.dim &nbsp;- #{text} #[+ax(url) ##{getGHid(url)}]
+
+  mixin planned(url)
+    +_planned(url, 'Not implemented yet')
+
+  mixin notPlannedWithLink(url)
+    +_planned(url, 'Not planned at the moment')
+
+  h4 Overview
+  table.manual.hdiv.col2
+    tr
+      th Steam Input
+      th Ctrl app
+    tr
+      td Only for Steam games (or added to Steam)
+      td For any launcher and any game
+    tr
+      td 1 profile per game (detected executable)
+      td 12 profiles stored in the controller
+    tr
+      td Profile load / save to cloud
+      td Profile load / save to file
+    tr
+      td Virtual XInput device
+      td
+        div Hardware XInput device (app not required)
+    tr
+      td Steam button shortcuts / guide button chords layout
+      td Home button shortcuts (home profile)
+    tr
+      td Profile action sets and layers
+      td
+        span Profile layers
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/70')
+
+  h4 Buttons
+  table.manual.hdiv.col2
+    tr
+      th Steam Input
+      th Ctrl app
+    tr
+      td Normal / Long / Double press
+      td Normal / Long / Double press
+    tr
+      td Multiple commands per button
+      td Multiple actions per button
+    tr
+      td Interruptable
+      td Immediate / trigger both
+    tr
+      td Button axis command
+      td Button to axis (absolute)
+    tr
+      td Move by amount
+      td
+        span Button to axis (relative)
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/118')
+    tr
+      td Chords
+      td
+        span Chords
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/70')
+    tr
+      td.dim N/A
+      td
+        span Edit macros
+        +planned('https://github.com/inputlabs/ctrl/issues/29')
+    tr
+      td Toggle / Cycle
+      td.dim #{notPlanned}
+
+  h4 Gyro
+  table.manual.hdiv.col2
+    tr
+      th Steam Input
+      th Ctrl app
+    tr
+      td Gyro to mouse
+      td Gyro to mouse
+    tr
+      td Gyro to directional pad
+      td Gyro to buttons
+    tr
+      td Gyro to joystick
+      td Gyro to thumbstick (absolute)
+    tr
+      td Gyro to joystick camera
+      td
+        span.dim Gyro to thumbstick (relative)
+        +notPlannedWithLink('https://github.com/inputlabs/alpakka_firmware/issues/77')
+    tr
+      td Gyro hold to #[em enable] / #[em suppress] gyro
+      td Gyro mode #[em touch on] / #[em touch off]
+    tr
+      td Gyro activation button
+      td Gyro engage (touch sensor or any button)
+    tr
+      td Gyro acceleration / precision
+      td
+        span Gyro acceleration / tightening
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/107')
+    tr
+      td Gyro momentum
+      td
+        span Gyro momentum
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/102')
+    tr
+      td Trigger press mouse dampening
+      td
+        span DPI multiplier on button
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/104')
+    tr
+      td 3DOF to 2D modes: Yaw / Pitch / Roll
+      td Gyro axis: X / Y / Z (Local space)
+    tr
+      td 3DOF to 2D modes: World space
+      td.dim #{notPlanned}
+
+  h4 Thumbstick
+  table.manual.hdiv.col2
+    tr
+      th Steam Input
+      th Ctrl app
+    tr
+      td Joystick deadzone / anti-deadzone
+      td Thumbstick deadzone / anti-deadzone
+    tr
+      td Joystick outer ring (with invert option)
+      td Thumbstick inner and outer rings (both)
+    tr
+      td Joystick overlap region
+      td Thumbstick overlap
+    tr
+      td Joystick to directional pad
+      td Thumbstick to buttons
+    tr
+      td Joystick mouse
+      td
+        span Thumbstick to mouse
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/77')
+    tr
+      td Joystick directional pad analog emulation
+      td
+        span Thumbstick WASD 16-direction emulation
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/127')
+    tr
+      td.dim N/A
+      td
+        span Thumbstick push auto-toggle
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/128')
+    tr
+      td.dim N/A
+      td
+        span Edit glyph-stick keyboard
+        +planned('https://github.com/inputlabs/ctrl/issues/25')
+    tr
+      td.dim N/A
+      td
+        span Edit daisywheel keyboard
+        +planned('https://github.com/inputlabs/ctrl/issues/26')
+    tr
+      td Flick stick
+      td.dim #{notPlanned}

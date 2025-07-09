@@ -1,0 +1,192 @@
+extends _manual.pug
+
+block append title
+  | LED reference
+
+block content
+  h2 LED reference
+
+  mixin playButton(id)
+    - const toggle = `playLED(${id})`
+    img(src='/static/manual/led_play_pause.png' width='50px' style='cursor:pointer' onclick=toggle)
+
+  hr
+  h3 Frontal LED solid
+  table.manual.hdiv
+    tr
+      td
+        div
+          img(src='/static/manual/led_up.png' width='50px')
+        div
+          img(src='/static/manual/led_triangle_up.png' width='50px')
+        div
+          img(src='/static/manual/led_diagonal_1.png' width='50px')
+      td
+        h3 Active profile
+        p #[b Profile 1 to 4:] Single LED in one of four directions.
+        p #[b Profile 5 to 8:] Triangle LED array pointing in one of four directions.
+        p #[b Profile 9 to 12:] Double LED, custom profiles.
+        p See #[+a('profiles') Profiles].
+    tr
+      td
+        span: img(src='/static/manual/led_on.png' width='50px')
+      td
+        h3 Home shortcuts (home profile)
+        p Special profile that is temporally enabled while holding the #[em Home #[+home]] button.
+        p Allows for shortcuts at any time (changing the current profile, alt-tabbing, etc).
+        p See #[+a('profile_home') Home profile].
+    tr
+      td
+        span: img(src='/static/manual/led_flat.png' width='50px')
+      td
+        h3 Gamepad shortcuts
+        p Double-pressing and holding #[em Home #[+home]] button enables a special profile (mapped to a generic gamepad).
+        p Allows for quick access of gamepad buttons, and to use Steam Deck shortcuts such as bringing the on-screen keyboard.
+    tr
+      td
+        span: img(src='/static/manual/led_off.png' width='50px')
+      td
+        h3 Powered off / sleeping
+        p Controller is sleeping, or ran out of battery, or does not have any source of power, or it was fried by a solar flare or supernova.
+
+  hr
+  h3 Frontal LED animation
+  table.manual.hdiv
+    tr
+      td
+        span(id='frames_1')
+          img(src='/static/manual/led_on.png' width='50px')
+          img(src='/static/manual/led_off.png' width='50px')
+        span(id='animation_1' style='display:none')
+          img(src='/static/manual/led_blink_all.apng' width='50px')
+        +playButton(1)
+      td
+        h3 Booting up / connecting USB
+        p The controller is booting up and trying to establish a #[em wired connection].
+        p If USB connection fails, the controller will try to go into wireless mode (see next entry).
+    tr
+      td
+        span(id='frames_2')
+          img(src='/static/manual/led_diagonal_1.png' width='50px')
+          img(src='/static/manual/led_diagonal_2.png' width='50px')
+          //- img(src='/static/manual/led_diagonal_3.png' width='50px')
+          //- img(src='/static/manual/led_diagonal_4.png' width='50px')
+        span(id='animation_2' style='display:none')
+          img(src='/static/manual/led_animation_pair.png' width='50px')
+        +playButton(2)
+      td
+        h3 Pairing with dongle
+        p Controller is trying to connect with the wireless dongle.
+    tr
+      td
+        span(id='frames_3')
+          img(src='/static/manual/led_on.png' width='50px')
+          img(src='/static/manual/led_triangle_down.png' width='50px')
+          //- img(src='/static/manual/led_down.png' width='50px')
+          //- img(src='/static/manual/led_off.png' width='50px')
+        span(id='animation_3' style='display:none')
+          img(src='/static/manual/led_animation_lowbattery.png' width='50px')
+        +playButton(3)
+      td
+        h3 Low battery
+        p Battery level is under ~10% charge. Approximately 1 hour of use remains (with the reference design battery).
+        p Double-press #[em Home #[+home]] button to ignore this warning.
+    tr
+      td
+        span(id='frames_4')
+          img(src='/static/manual/led_flat.png' width='50px')
+          img(src='/static/manual/led_vertical.png' width='50px')
+        span(id='animation_4' style='display:none')
+          img(src='/static/manual/led_blink_problem.apng' width='50px')
+        +playButton(4)
+      td
+        h3 Calibration required / other problems
+        p The specific problem will be pointed out in the #[em firmware logs] section on the #[+ax(org.ctrl_app) Ctrl app]. Some of these problems could be:
+        ul
+          li The controller is not #[+a('calibrate') calibrated] yet.
+          li One (or both) of the #[em IMU / Gyro(s)] could not start.
+          li Other problems while initializing the controller (see logs).
+        p Double-press #[em Home #[+home]] button to ignore this warning.
+    tr
+      td
+        span(id='frames_5')
+          img(src='/static/manual/led_flat.png' width='50px')
+          img(src='/static/manual/led_off.png' width='50px')
+        span(id='animation_5' style='display:none')
+          img(src='/static/manual/led_animation_flat.png' width='50px')
+        +playButton(5)
+      td
+        h3 Pre-calibration / leave on a flat surface
+        p The calibration procedure will start soon, you have a few seconds to leave the controller on a flat surface.
+    tr
+      td
+        span(id='frames_6')
+          img(src='/static/manual/led_up.png' width='50px')
+          img(src='/static/manual/led_right.png' width='50px')
+          //- img(src='/static/manual/led_down.png' width='50px')
+          //- img(src='/static/manual/led_left.png' width='50px')
+        span(id='animation_6' style='display:none')
+          img(src='/static/manual/led_cycle.apng' width='50px')
+        +playButton(6)
+      td
+        h3 Calibrating
+        p Controller is being calibrated, do not take it until it finish.
+
+
+  hr
+  h3 Marmota module LED (on controller)
+  table.manual.hdiv
+    tr
+      td: img(src='/static/manual/led_usb_off.jpg' width='100px')
+      td
+        h3 Power supply OK
+        p #[b Wired:] Battery is fully charged (or there is no battery).
+        p #[b Wireless:] Battery charge is between ~10% and 100%.
+    tr
+      td: img(src='/static/manual/led_usb_on.jpg' width='100px')
+      td
+        h3 Charging battery
+        p The USB cable is supplying power to charge the battery. It will turn off when the battery is full.
+        p #[b Important:] If the controller is sleeping this LED remains off even when the battery is charging.
+    tr
+      td
+        img(src='/static/manual/led_usb_blink_fake.jpg' width='100px' id='frames_7')
+        img(src='/static/manual/led_usb_blink.png' width='100px' id='animation_7' style='display:none')
+        +playButton(7)
+      td
+        h3 Low battery
+        p Battery level is under ~10% charge. Approximately 1 hour of use remains (with the reference design battery).
+        p This warning cannot be disabled.
+    tr
+      td
+        img(src='/static/manual/led_usb_blink_fake.jpg' width='100px' id='frames_8')
+        img(src='/static/manual/led_usb_blink_fast.png' width='100px' id='animation_8' style='display:none')
+        +playButton(8)
+      td
+        h3 Flashing in progress
+        p While flashing the #[em wireless_submodule] firmware, the LED will blink rapidly to indicate flash memory is being rewritten.
+        p It will turn off when the flashing is completed, and reboot into #[em Bootsel] / #[em RPI-RP2 drive] mode. See #[+a('firmware') Firmware] instructions.
+
+  hr
+  h3 Marmota module LED (on dongle)
+  table.manual.hdiv
+    tr
+      td: img(src='/static/manual/led_dongle_off.jpg' width='100px')
+      td
+        h3 Powered off / inactive mode
+        p If the dongle cannot communicate via USB (for example because the PC is suspended), it will stay in a low-power mode in which is the antenna is off, but any signal via USB will wake it up again.
+    tr
+      td: img(src='/static/manual/led_dongle_on.jpg' width='100px')
+      td
+        h3 Paired
+        p The dongle is ready to communicate with the controller.
+    tr
+      td
+        img(src='/static/manual/led_dongle_blink_fake.png' width='100px' id='frames_9')
+        img(src='/static/manual/led_dongle_blink_fast.png' width='100px' id='animation_9' style='display:none')
+        +playButton(9)
+      td
+        h3 Flashing in progress
+        p While flashing the #[em wireless_submodule] firmware, the LED will blink rapidly to indicate flash memory is being rewritten.
+        p It will turn off when the flashing is completed, and reboot into #[em Bootsel] / #[em RPI-RP2 drive] mode. See #[+a('firmware') Firmware] instructions.
+

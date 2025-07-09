@@ -1,0 +1,128 @@
+extends _blog.pug
+
+block append subtitle
+  | Alpakka 1.0 announcement
+
+block content
+  h2 Alpakka 1.0 announcement
+  +news_header('4 December 2024', 'report_26', 'recap_year_2')
+
+  h3 Alpakka 1.0 pre-order
+  p It is still work in progress, but we are now confident to announce a significant update to the Alpakka reference design. While the new main feature is wireless communication, we are using the opportunity to introduce some other significant changes.
+  p The parts for the #[em Alpakka v1] reference design can be #[+ax('https://inputlabs.squarespace.com/diy/alpakka-v1') pre-ordered] now on Input Labs shop, and shipping will start #[em 14th of February 2025].
+  p Completion of remaining features to achieve the 1.0 reference design will be tracked in the #[+ax('https://github.com/orgs/inputlabs/projects/2') roadmap].
+
+  +figure(
+    '',
+    'Alpakka 1.0 features',
+    '/static/gallery/alpakka_v1_detail.jpg',
+    'medium inline',
+  )
+
+  hr
+  h3 Features of the reference design
+
+  h4.bullet Wireless connectivity
+  p Being able to play without a cable was by far the most requested feature, and it makes a lot of sense for the people playing PC in the living room / on a sofa. Since #[em low latency] was a hard requirement (due to gyro-to-mouse emulation), the connection with the PC is achieved with a #[em wireless dongle] (more on that below).
+
+  h4.bullet Battery
+  p Now the Alpakka can be powered both via USB or with a battery. The reference design battery is a #[em LiPo 1200 mAh] with undervoltage and overvoltage protection, that can be #[em charged via USB]. We will provide more details about compatible batteries when the manual is updated.
+
+  h4.bullet USB-C
+  p Another highly requested feature, the new reference design now comes with a #[em USB-C connector] (but is still USB 2.0 under the hood). So if you still want to play wired (or charge the battery) you can do it with a cable from this decade.
+
+  h4.bullet Second thumbstick
+  p The #[em 8-directional switch] from the original Alpakka (v0) is #[em replaced with a second thumbstick]. We realized that many gamers are afraid to jump into gyro controls without a second thumbstick as a safety net. So we #[i -puts corporate hat on-] #[em "listened to the feedback"], and figured out a design that still retains the #[em Alpakka DNA], but with the benefits of 2 additional analog axes.
+  p The second thumbstick is still relegated to a secondary role, the aperture and cap are smaller, but it still has #[em 70% of the range] compared to the primary thumbstick.
+  p Overall this change will make Alpakka much more usable on genres like twin stick shooters and simulators, and able to do #[em flick-stick gyro] #[i *(flick-stick won't be available on the Ctrl app at launch, but should be available via Steam Input)].
+
+
+  hr
+  h3 Marmota module
+  p #[+a('/marmota') Marmota] is the core module and central piece of the new #[em modular ecosystem] of Input Labs. A reusable core that will become the heart and brain for multiple devices: Alpakka v1, Kapybara, wireless dongle (still looking for a funny animal name), community designs/mods, and future Input Labs reference designs.
+  p The Marmota name is a reference to #[em Groundhog Day] movie, and how many times we got back to square one while developing wireless.
+  p Interestingly enough, most of the new features of the Alpakka v1 are actually provided by the Marmota module:
+  ul
+    li Low latency communication solution.
+    li USB-C connector.
+    li Battery charging.
+    li Connectors for easy plug in/out (without soldering).
+
+  +figure(
+    '',
+    'Marmota module',
+    '/static/blog/marmota_alpha.jpg',
+    'medium inline',
+  )
+  +figure(
+    '',
+    'Marmota as Alpakka core',
+    '/static/blog/marmota_alpakka_alpha.jpg',
+    'medium inline',
+  )
+  +figure(
+    '',
+    'Marmota as wireless dongle',
+    '/static/blog/dongle_case_2.jpg',
+    'medium inline',
+  )
+
+
+  hr
+  h3 Upgrade
+  p A principle of Input Labs is backward compatibility, and we tried our best to make Alpakka v0 upgradable to Alpakka v1.
+  p This is an early compatibility table (the final one will be in the manual):
+
+  br
+  table.inline.mono
+    tr
+      th
+      th Alpakka v0
+      th Alpakka v1
+      th Compatible
+    tr
+      th PCB
+      td Old PCB + Pico
+      td New PCB + Marmota
+      td ❌ No
+    tr
+      th Electronic components
+      td Multiple items + 8directional
+      td Multiple items + 2nd thumbstick
+      td ✅ Mostly compatible
+    tr
+      th Front case
+      td With 8-directional aperture
+      td With 2nd thumbstick aperture
+      td ❌ No
+    tr
+      th Back case
+      td With USB micro-B aperture
+      td With USB-C aperture / Antenna chamber
+      td 🔸 Requires manual conversion
+    tr
+      th Buttons
+      td Multiple items
+      td Same but with 2nd thumbstick cap and new scrollwheel
+      td ✅ Mostly compatible
+    tr
+      th Touch hexagon
+      td -
+      td Tab for preventing wrong angle insertion
+      td ✅ Compatible
+    tr
+      th Bolts
+      td -
+      td -
+      td ✅ Compatible
+
+
+  hr
+  h3 Kapybara and future plans
+  p Our #[em plans for 2024] were to develop Alpakka wireless and start the Kabybara prototypes afterwards, unfortunately we hit many roadblocks while developing the wireless communication, which delayed the Kapybara even more.
+  p On the bright side, by developing the #[em Marmota module] we already solved lot of the #[em basic functionality of the Kapybara].
+  p The plan regarding the Kapybara remains the same: To create a workgroup, and start doing prototypes just after the launch of the Alpakka 1.0.
+  p We will soon write a blog entry for the #[em 2nd anniversary] of Input Labs, with a recap of 2024 achievements, and plans for 2025.
+
+  hr
+  p Thanks for the support! 🤍 <br>- Marcos and Michael

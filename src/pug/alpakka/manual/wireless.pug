@@ -1,0 +1,83 @@
+extends _manual.pug
+
+block append title
+  | Wireless
+
+block content
+  h2 Wireless
+
+  hr
+  h3 Dongle setup
+  p To achieve a wireless setup with the Alpakka reference design you need 2 Marmota modules communicating to each other, one a an Alpakka core (inside the controller) and another acting as a Dongle.
+  p These communicate with a low latency 2.4 GHz protocol based on #[+ax('https://github.com/espressif/esp-now') ESP-NOW], using the #[em ESP8684-MINI-1] submodule on the Marmota.
+  p Check the #[+a('firmware') Firmware] section for instructions about how to install the firmware in these.
+  p A controller can still be used as a #[em wired-only] device even if it has no battery a no dongle.
+
+  +figure(
+    '',
+    'Alpakka PCB with attached Marmota core',
+    '/static/manual/assembly_marmota.jpg',
+    'inline',
+  )
+  +figure(
+    '',
+    'Dongle reference design (Marmota+case+cable)',
+    '/static/blog/dongle_case_2.jpg',
+    'inline',
+  )
+
+  hr
+  h3 Dongle pairing
+  p In the current version of the firmware there is #[em no need for manual pairing] of the Dongle+Controller, they are always paired.
+  p Unfortunately this also means that the communication is #[em NOT encrypted]. Please be aware of this if using the controller to type passwords (we are working to introduce encryption in a future update).
+  p The Dongle #[em LED turns on] while is running normally and able to receive wireless data.
+  p The Dongle #[em LED turns off] if there is no USB connection, or cannot receive wireless data.
+  p The Dongle has a multifunction button that can be clicked by pressing the Dongle case, this button is reserved for initiating the pairing process, but is not in use yet.
+
+  hr
+  h3 Wired vs wireless
+  p The controller always starts in #[em wired mode] and expect an USB connection, if the USB connection cannot be established then the controller switches automatically into #[em wireless mode].
+  p The same applies in reverse, if the device suddenly detects an USB connection, it switches back into #[em wired mode].
+
+  hr
+  h3 Turn off controller
+  p The controller can be turned off (sleep mode) by holding #[em Home #[+home]]+#[em Start #[+select]] for 2 seconds.
+  p The controller is awaken by pressing #[em Home #[+home]].
+  p While the controller is off, all the LEDs are off, and the battery is drained at a much lower rate.
+
+  hr
+  h3 Force restart
+  p To restart the Dongle, unplug it and plug it again.
+  p To restart the controller (if running on battery), turn off the controller (sleep), and the controller will restart clean when awaken.
+  p If the firmware is malfunctioning while the controller is running on battery power, a restart can be forced by pressing the #[em Marmota reset button] with the hex key from the bolts kit, a paperclip, or any other similar pointy object.
+  +figure(
+    '',
+    'Marmota interfaces',
+    '/static/manual/marmota_buttons.jpg',
+    'inline',
+  )
+  +figure(
+    '',
+    'Controller force reset button',
+    '/static/manual/marmota_reset.jpg',
+    'inline',
+  )
+
+  hr
+  h3 Protocol
+  p As in the current firmware version, the dongle and the controller have their own separate Protocol setting #[em Windows / Linux / Generic] (see #[+a('tune') Tune settings]) and they do not sync automatically yet.
+  p This means the user has to change the protocol in both dongle and controller, and make them match, so they work as intended.
+  p: i Note: There is a bug in which the dongle has to be manually restarted when switching protocol.
+
+  hr
+  h3 Compatible batteries
+  p The reference design battery is a #[em LiPo 1200 mAh] in the range of 3.0v to 4.2v, with integrated protection circuitry. Similar LiPo batteries could be used, always having in mind that this is a DIY project and you are responsible for the safety of the device.
+  p Using AA or AAA batteries would require significant and complex modifications (not recommended).
+
+  hr
+  h3 Battery low / charging
+  p When the #[em battery is low] the #[em forward-facing LED will blink] (next to the USB port), when there is ~1 hour of energy remaining.
+  p Additionally, to make the battery low alert more noticeable, the 4 frontal LEDs will animate with the warning pattern.<br>(Dismiss with #[em Home #[+home]] double-press).
+  img(src='/static/manual/led_animation_lowbattery.png' width='50px').mt
+  p Be aware that when the battery is empty, the controller could briefly lose wireless connection before going completely off.
+  p The battery recharges when the USB is connected, when the battery is charging the forward-facing LED turns on.

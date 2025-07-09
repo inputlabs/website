@@ -1,0 +1,31 @@
+extends _template.pug
+
+block title
+  | Marmota core
+
+block page
+  include _device_selector.pug
+
+  //- div.warning.boxes
+  //-   div: span MARMOTA REFERENCE DESIGN IS NOT YET FINAL
+
+  div.boxes.grid
+    div.box
+      h2 Modular ecosystem
+      p Marmota core is the heart of Input Labs' #[em.wrap modular ecosystem], a common core for many devices: Alpakka (v1), Kapybara, wireless dongle, future reference designs, and community designs.
+      p It #[em abstracts away] some of the shared functionality such as the USB connection, battery charging, and wireless connectivity.
+      p This way development of the devices becomes simpler both for Input Labs #[em reference designs] and for the #[em modding community].
+
+    div.box.image.hue
+      img(src='/static/img/marmota_cutout.png')
+
+    div.box
+      h2 Low latency wireless
+      p Engineered so the wireless connection controller-to-dongle (#[em Marmota-to-Marmota]) is up to the same performance you would expect in a gaming mouse, so the gyro controls are not compromised.
+      p The Marmota reference design uses a carefully selected wireless module, with a #[em 2.4 GHz] antenna, and low-latency protocol.
+      p Specs for latency, jitter, and range will be published later when the reference design is final.
+
+    div.box
+      h2 No soldering required
+      p Thanks to the included connectors, the Marmota module can be #[em plugged in and out] easily from a carrier board.
+      p With this approach replacing or upgrading the Marmota module is trivial, and there is #[em no soldering] required anymore.

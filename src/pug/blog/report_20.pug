@@ -1,0 +1,28 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #20
+
+block content
+  h2 Progress report #20
+  +news_header('2 February 2024', 'patents', 'report_21')
+
+  h3 New version of 3D models
+  p To make them fit better, we improved the gap tolerances for the conductive hex, as well as the L4 / R4 triggers. We also slightly increased the size of the screw holes, to make assembly easier.
+  p These changes, as well as some restructuring of the STLs are part of release #[+ax('https://github.com/inputlabs/alpakka_case/releases/tag/0.95.0') c0.95.0] and #[+ax('https://github.com/inputlabs/alpakka_case/releases/tag/0.95.1') c0.95.1].
+  hr
+
+  h3 Minecraft video
+  p A new video voted by the supporters in Patreon is out, playing #[+ax('https://www.youtube.com/watch?v=ctiO1GMrKNk') Minecraft].
+  p Check it out!
+  +axc('https://www.youtube.com/watch?v=ctiO1GMrKNk')
+    img.ws.mt(src='/static/blog/youtube_thumbnail_minecraft.jpg')
+  hr
+
+  h3 Boot diagnostics in firmware and Ctrl app
+  p In order to help with the diagnosis of problems, the new firmware release #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/0.95.0') f0.95.0] is now doing a quick self-check upon boot, indicating any problems with a new LED blink pattern.
+  p If such problems occur, they easily be checked via the #[+ax('https://ctrl.inputlabs.io') Ctrl app].
+  p We also increased mouse data channel to #[em 16 bits].
+  hr
+
+  p - Marcos and Michael <3

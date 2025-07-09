@@ -7,14 +7,13 @@ block content
   h2 Firmware development
   p This manual page (and the following pages) explains how to setup and use the #[+ax('https://github.com/inputlabs/alpakka_firmware') Alpakka Firmware], and to setup a developer environment both from the software and hardware point of view.
   //- p The firmware source code is made in C programming language, using the #[+ax('https://raspberrypi.github.io/pico-sdk-doxygen/modules.html') Raspberry Pi Pico C SDK].
-  hr
 
+  hr
   h3 Developer Kit
   p The #[em Developer Kit] is a simple DIY device that allows the developer to connect to the controller, get logs, send commands, and use a physical reset button. This is not required to hack the Alpakka, but it helps a lot.
   p The components for the reference developer kit are:
   ul
     li USB to TTL serial cable. #[+ax('https://www.adafruit.com/product/954') Like this one]
-    li JST PH 4-pin cable. #[+ax('https://www.adafruit.com/product/3955') Like this one]
     li Mini-breadboard. #[+ax('https://www.adafruit.com/product/65') Like this one]
     li Reset button. #[+ax('https://www.adafruit.com/product/1119') Like these]
 
@@ -27,50 +26,14 @@ block content
     li #[em Single press]: Restarts the controller.
     li #[em Double press]: Controller goes into Bootsel mode (ready to be flashed).
 
-  p Warning: Do not push the JST connector all the way in, it may be very difficult to remove.
   hr
+  h3 Other dev-like methods to put the device into Bootsel
+  ul
+    li #[b In devices with Marmore core:] Double press the reset button next to the USB port (see #[+a('wireless') Wireless] page).
+    li #[b In the Raspberry Pico:] Hold the white button while connecting the USB cable.
+    li #[b With a USB serial cable:] Send #[em B] character.
 
-  h3 Running state
-  p The Raspberry Pi Pico (and therefore the Alpakka controller) have 3 possible states:
-  table.manual.hdiv
-    tr
-      td Powered-off
-      td If the USB cable is not connected.
-    tr
-      td Running
-      td Executing the code located in the memory.
-    tr
-      td Bootsel mode
-      td
-        p Behaving as a USB drive called #[em RPI-RP2], ready to get new code (firmware) into memory.
-        p: em This is how new code is loaded into the controller, via USB cable
   hr
-
-  h3 Bootsel mode
-  p There are 4 different ways to put the controller into Bootsel mode:
-  table.manual.hdiv
-    tr
-      td The Pico way
-      td
-        p Holding the Pico #[em small white button] located under the battery bay, while connecting the USB cable.
-        p Not very convenient after the controller is assembled.
-    tr
-      td The casual way
-      td
-        p Performing the #[+a('firmware') Bootsel button combination] in the controller.
-        p For non-developer users that just want to update to a new reference firmware release.
-    tr
-      td The reliable way
-      td
-        p Double-clicking the physical #[em Developer Kit reset button]
-        p This will always work!
-    tr
-      td The cool way
-      td
-        p Sending a Bootsel request via the TTL serial session, with #[em make bootsel] or as part of other automated tooling.
-        p It requires an active session, and won't work if the previous execution failed.
-  hr
-
   h3 Software setup & development cycle
   p Check #[+a('dev_unix') Development in Linux] or #[+a('dev_windows') Development in Windows] for further instructions.
 

@@ -1,0 +1,36 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #29
+
+block content
+  h2 Progress report #29
+  +news_header('30 May 2025', 'kapybara_development', '')
+
+  h3 Alpakka 1.0 fully released now
+  p We are proud to announce #[em 100%] of the Alpakka 1.0 pre-orders have been fulfilled, and the shop #[em queue has been reduced to zero], meaning that we also delivered all the orders that came after the release (technically not pre-orders but still waiting on the same queue).
+
+  p It took #[em 2 months and a half] to catch up on all orders (from March 12th to May 30th), but the overall period was almost 6 months since the pre-orders were open (#[+a('alpakka_v1') Alpakka 1.0 announcement]).
+
+  p This has been a great effort that pushed our processes to the limit, before and after publishing the 1.0 reference designs, including:
+  ul
+    li Finding the right #[em wireless solution] (took us a big chunk of 2023 development time).
+    li Assessing the feedback from the community, and #[em preparing a plan] for the 1.0 hardware/software.
+    li Defining a #[em deadline] in which we are confident the development can be done.
+    li Pushing the #[em limits of the 3D printers] (and breaking some).
+    li Doing the manual labor of #[em quality checking] the parts.
+    li Preparing and #[em boxing] the orders.
+    li Providing #[em customer support] if something goes wrong.
+
+  p Now we can go back into #[em "normal" operations mode], in which we prepare a small buffer of parts, and orders can be processed immediately. Also we can now allocate more time for development (features and fixes).
+
+  hr
+  h3 Kapybara and Alpakka next steps
+  p We had the Kapybara tester sign-up open for ~3 weeks, now we are going to #[em evaluate the submissions], contact the applicants, and hopefully select #[em between 5 and 10 testers] to move forward.
+
+  p The next step will be to start making #[em Kapybara mockups] (3D-printed non-functional models) for determining the best device shape and buttons placement, and distribute them among the testers. We also expect additional self-supporting testers to 3D-print the mockups by themselves and provide feedback too.
+
+  p But we are not going to be focusing 100% on the Kapybara, we also expect to work on #[em Alpakka and Ctrl app updates]  in parallel. The firmware #[+ax('https://github.com/inputlabs/alpakka_firmware/milestones') 1.1.0 milestone] is already in the works, and will include important fixes and a few quality-of-life improvements.
+
+  hr
+  p Thanks for the support and the patience! 🤍 <br>- Michael and Marcos

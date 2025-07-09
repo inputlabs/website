@@ -16,9 +16,13 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build_prod
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - run: cp _redirects build/_redirects
+      - uses: cloudflare/wrangler-action@v3
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          projectId: inputlabs
-          channelId: 'live'
+          wranglerVersion: '3'
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          # Use branch name to indicate Cloudflare environment: (main | staging)
+          # Cloudflare does not deploy by itself so the value is only used to
+          # determine the target environment according to defined rules.
+          command: pages deploy build --project-name=website --branch=main

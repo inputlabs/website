@@ -1,0 +1,38 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #28
+
+block content
+  h2 Progress report #28
+  +news_header('18 April 2025', 'report_27', 'kapybara_development')
+
+  h3 Alpakka 1.0 pre-orders being delivered
+  p On 12th of March 2025 we started shipping for Alpakka 1.0 DIY kits. As of today #[em 75% of the pre-orders] has been fulfilled.
+  p From the logistics point of view, we have #[em 2 different queues], depending if the order has 3d-printed parts (and goes into a box) or it does not (and goes into a padded envelope). The envelopes are going out faster, while with the 3d-printed parts the production is constrained by the speed of the printers.
+  p Overall, we are #[em happy with the feedback received] from the first Alpakka 1.0 owners, and we hope to catch up with all pre-orders in a few more weeks.
+
+  hr
+  h3 Press F to print respects
+  p To make things even more interesting, one of our printers, the Prusa Mini+ (#[em OG Input Labs printer]), had it first critical failure after more than #[em 5000 hours] of printing. 🫡
+  p The hotend PTFE tube was ruptured in the bottom part, and now we are awaiting for replacement parts. Hopefully the printer will get into its former glory soon, but meanwhile we will have slightly reduced printing capabilities for at least a week. But don't worry, we are still getting orders out.
+  +figure(
+    '',
+    'Hotend tube have seen better days',
+    '/static/blog/hotend_tube.jpg',
+    '',
+  )
+
+  hr
+  h3 Alpakka 0.97 kits discontinued on the shop
+  p The old Alpakka controller (a.k.a. #[em v0]) are no longer available in the Input Labs shop. But we will keep the #[em electronics kit] in stock for a while, in case someone needs to replace aged components at some point.
+  p Just to clarify for the wired-only players: The new 1.0 Alpakka fully replaces the previous Alpakka design, and can also be used wired (without dongle nor battery, and just a single Marmota module).
+
+  hr
+  h3 Kapybara workgroup about to start
+  p Soon we will detail the design goals for the #[em Kapybara (the single hand controller)], its intended use-cases, how the workgroup will be set up, what we will expect from testers and collaborators, and next steps.
+  p We know there is a significant excitement about the Kapybara, but there is no need to contact Input Labs staff directly. We will clarify how to be involved with the development, and how apply to be a tester soon.
+  p Stay tuned to #[+ax(org.discord) Discord] #[em #announcements] and upcoming blog posts in here.
+
+  hr
+  p Thanks for the support and the patience! 🤍 <br>- Michael and Marcos

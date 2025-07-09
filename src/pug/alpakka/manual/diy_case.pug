@@ -1,10 +1,10 @@
 extends _manual.pug
 
 block append title
-  | 3D print case & buttons
+  | 3D print parts
 
 block content
-  h2 3D-printed case & buttons
+  h2 3D-printed parts
   hr
 
   h3 3D models
@@ -29,7 +29,8 @@ block content
 
   h3 List of 3D parts
   p The following is a list of all the models and their recommended settings for FDM printing.
-  h4 Primary color / material
+
+  h4 Layer height 0.15mm
   mixin preview(src)
     img(width='80px' src=src)
   table.manual.col3.hdiv
@@ -42,7 +43,16 @@ block content
       td Front case
       td
         div 0.15mm layer height.
-        div Primary color.
+        div Primary color in reference design.
+        div 10% gyroid infill.
+        div 2 perimeters.
+        div Very slow first layer.
+    tr
+      td: +preview('/static/manual/print_back.png')
+      td Back case
+      td
+        div 0.15mm layer height.
+        div Secondary color in reference design.
         div 10% gyroid infill.
         div 2 perimeters.
         div Very slow first layer.
@@ -51,16 +61,15 @@ block content
       td L1/R1 triggers
       td
         div 0.15mm layer height.
-        div Primary color.
+        div Primary color in reference design.
         div 15% gyroid infill.
-        div Tight and loose variants available.
         div 2x units, mirrored.
     tr
       td: +preview('/static/manual/print_r2.png')
       td L2/R2 triggers
       td
         div 0.15mm layer height.
-        div Primary color.
+        div Primary color in reference design.
         div 15% gyroid infill.
         div 2x units.
     tr
@@ -68,59 +77,34 @@ block content
       td L4/R4 triggers
       td
         div 0.15mm layer height.
-        div Primary color.
+        div Primary color in reference design.
         div 15% gyroid infill.
-        div Tight and loose variants available.
         div 2x units, mirrored.
     tr
-      td: +preview('/static/manual/print_dhat.png')
-      td 8-directional hat
+      td: +preview('/static/manual/print_wheel.png')
+      td Wheel
       td
         div 0.15mm layer height.
-        div Primary color.
-        div Consider using brim.
+        div Secondary color in reference design.
     tr
-      td: +preview('/static/manual/print_select.png')
-      td Select buttons
+      td: +preview('/static/manual/print_cover.png')
+      td Back bay cover
       td
-        div: em 0.07mm layer height.
-        div Primary color.
-        div 15% gyroid infill.
-        div 4x units.
+        div 0.15mm layer height.
+        div Secondary color in reference design.
 
-  h4 Secondary color / material
+  h4 Layer height 0.07mm
   table.manual.col3.hdiv
     tr
       th(style='width:25% !important') Preview
       th(style='width:25% !important') Name
       th(style='width:50% !important') Recommendations
     tr
-      td: +preview('/static/manual/print_back.png')
-      td Back case
-      td
-        div 0.15mm layer height.
-        div Secondary color.
-        div 10% gyroid infill.
-        div 2 perimeters.
-        div Very slow first layer.
-    tr
-      td: +preview('/static/manual/print_cover.png')
-      td Back bay cover
-      td
-        div 0.15mm layer height.
-        div Secondary color.
-    tr
-      td: +preview('/static/manual/print_wheel.png')
-      td Wheel
-      td
-        div 0.15mm layer height.
-        div Secondary color.
-    tr
       td: +preview('/static/manual/print_abxy.png')
       td ABXY buttons
       td
         div: em 0.07mm layer height.
-        div Secondary color.
+        div Secondary color in reference design.
         div 15% gyroid infill.
         div 4x units.
     tr
@@ -128,34 +112,42 @@ block content
       td Dpad buttons
       td
         div: em 0.07mm layer height.
-        div Secondary color.
+        div Secondary color in reference design.
         div 15% gyroid infill.
         div 4x units.
     tr
-      td: +preview('/static/manual/print_thumbstick.png')
-      td Thumbstick cap
+      td: +preview('/static/manual/print_select.png')
+      td Select buttons
       td
         div: em 0.07mm layer height.
-        div Secondary color.
+        div Primary color in reference design.
         div 15% gyroid infill.
-        div Custom supports.
-        div See #[+a('#thumbstick') additional notes].
+        div 4x units.
     tr
       td: +preview('/static/manual/print_home.png')
       td Home button
       td
         div: em 0.07mm layer height.
-        div Secondary color.
+        div Secondary color in reference design.
         div 15% gyroid infill.
         div Custom supports.
         div See #[+a('#home_button') additional notes].
     tr
-      td: +preview('/static/manual/print_wheel_shaft.png')
-      td Wheel shaft
+      td: +preview('/static/manual/print_thumbstick.png')
+      td Thumbstick cap
       td
         div: em 0.07mm layer height.
-        div Secondary color.
-        div Consider using brim.
+        div Secondary color in reference design.
+        div 15% gyroid infill.
+        div Custom supports.
+        div See #[+a('#thumbstick') additional notes].
+    tr
+      td: +preview('/static/manual/print_thumbstick_right.png')
+      td Mini-thumbstick cap
+      td
+        div: em 0.07mm layer height.
+        div Primary color in reference design.
+        div 15% gyroid infill.
 
   h4 Electrically conductive material
   table.manual.col3.hdiv
@@ -169,40 +161,44 @@ block content
       td
         div 0.15mm layer height.
         div Electrically conductive material.
-        div If using Protopasta: 245°C.
         div 3 perimeters.
-        div Tight and loose variants available.
+        div If using Protopasta filament: 235°C.
 
-  h4 Any color / recycled material
+  h4 Internal / recycled material
   table.manual.col3.hdiv
     tr
       th(style='width:25% !important') Preview
       th(style='width:25% !important') Name
       th(style='width:50% !important') Recommendations
     tr
-      td: +preview('/static/manual/print_anchor.png')
-      td Anchors
+      td: +preview('/static/manual/print_wheel_core.png')
+      td Wheel core
       td
-        div 0.15mm layer height.
-        div Any material / recycled.
-        div Internal part.
+        div: em 0.07mm layer height.
+        div Internal part / recycled.
         div Consider using brim.
-        div 2x units.
     tr
       td: +preview('/static/manual/print_wheel_holder.png')
       td Wheel holder
       td
         div 0.15mm layer height.
-        div Any material / recycled.
-        div Internal part.
+        div Internal part / recycled.
+        div
         div Consider using brim.
+    tr
+      td: +preview('/static/manual/print_anchor.png')
+      td Anchors
+      td
+        div 0.15mm layer height.
+        div Internal part / recycled.
+        div Consider using brim.
+        div 2x units.
     tr
       td: +preview('/static/manual/print_stand.png')
       td Soldering stand
       td
         div: em 0.20mm layer height.
-        div Any material / recycled.
-        div Optional tool.
+        div Optional tool / recycled.
   hr
 
   h3(id='thumbstick') Additional notes (Thumbstick)
