@@ -1,0 +1,114 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #30
+
+block content
+  h2 Progress report #30
+  +news_header('18 July 2025', 'report_29', '')
+
+  h3 New Input Labs staff member
+  p #[+ax('https://www.linkedin.com/in/maria-bortnichenko-a8345044/') Maria Bortnichenko] joined Input Labs for a temporal assignment as #[em Strategy business developer], over the next few months she will help us analyzing the market, and how our devices align with it.
+  p Additionally, she will explore partnerships with other companies, and potential investors.
+  p Please join us in welcoming her to the team!.
+
+  hr
+  h3 Kapybara development is happening
+  p After careful consideration of the applicants, we selected #[em 10 testers with disabilities], along with an additional 10+ testers without disabilities (self-supported testers). The number of testers is significantly smaller than that for the testing phase of Alpakka, but we hope this allows for closer follow-up of the individual cases.
+  p We prioritized testers with limb difference / amputation, neuromuscular disorders (dystrophy, sclerosis, palsy), or musculoskeletal disorders (arthritis, carpal syndrome, strain injury).
+  p Most of the testers with disabilities have already participated in #[em 1-on-1 introductory meeting], so we got an initial understanding of their current setups and requirements.
+  p From the 3 potential controller shapes (see #[+a('kapybara_development') previous post]), we decided to start experimenting with a symmetrical shape. We did a few iterations with different sizes and button placements, and printed a several non-functional mockups made with recycled PLA bio-plastic.
+
+  +figure(
+    '',
+    'Placeholder components',
+    '/static/blog/kapybara_blender_1.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'Buttons arrangement',
+    '/static/blog/kapybara_blender_1b.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'Non-functional mockup',
+    '/static/blog/kapybara_mockup_1b.jpg',
+    'small inline',
+  )
+  +figure(
+    '',
+    'Grip ext. + finger strap',
+    '/static/blog/kapybara_mockup_1.jpg',
+    'small inline',
+  )
+
+  h4 Layout proposal
+  table.manual.hdiv
+    tr
+      td
+        h4 Top
+        div Thumb finger
+      td: ul
+        li 2 mini-thumbsticks (second thumbstick might act as dpad or 8-directional).
+        li 4 select buttons.
+        li Scrollwheel.
+    tr
+      td
+        h4 Front
+        div Index finger
+      td: ul
+        li 6 bumper buttons.
+        li Touch surface.
+        li Big home button (so the thumb is free for profile switching and home shortcuts).
+    tr
+      td
+        h4 Front
+        div Middle finger
+      td: ul
+        li 2 triggers (can be used simultaneously or individually).
+    tr
+      td
+        h4 Grip
+        div Ring and pinky fingers / Palm
+      td: ul
+        li Optional mini finger-strap.
+        li Optional grip extension (for bigger hands).
+
+
+
+
+  p This layout is not final, soon we will distribute these #[em non-functional mockups] among testers to get early feedback. The most tricky aspects of the design we want to check with them are:
+  ul
+    li Size and ergonomics of the controller.
+    li Button placement and angle of operation.
+    li Grip extension for bigger hands (see picture above).
+    li Finger-strap / full-strap.
+
+  hr
+  h3 1.1.0 update for Alpakka firmware and Ctrl app
+  p It started as a small compilation of hotfixes after the v1 release, but ended up being a significant update with many fixes, quality of life improvements, and some minor new features.
+
+  p Links and full changelogs:
+  ul
+    li #[+ax('https://github.com/inputlabs/alpakka_firmware/releases/tag/1.1.0') Firmware 1.1.0]
+    li #[+ax('https://github.com/inputlabs/ctrl/releases/tag/1.1.0') Ctrl app 1.1.0]
+
+  p TL;DR:
+  ul
+    li More stable wireless.
+    li More stable gyro.
+    li New LED animations for #[em low-battery] and #[em pairing].
+    li Hold home 5 seconds for #[em power off].
+    li Global #[em thumbstick smoothing] option (adjustable in Ctrl app).
+    li Thumbstick saturation limit increased to 200%.
+    li Ctrl app PWA: #[em Offline support], and full OS integration as an app.
+    li Mouse sensitivity as #[em DPI].
+    li Dongle protocol sync automatically with controller.
+    li Many firmware and app stability improvements.
+    li Many app UI tweaks.
+
+
+  hr
+  p Thanks for the support! 🤍 <br>- MMM (Marcos, Maria, and Michael)

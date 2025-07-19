@@ -532,6 +532,9 @@ main .boxes.center {
 .wiki .small .caption  {
   width: 210px !important;
 }
+.wiki .mid .caption  {
+  width: 339px !important;
+}
 .wiki .figure {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -541,6 +544,9 @@ main .boxes.center {
 }
 .wiki .figure.small img {
   width: 210px;
+}
+.wiki .figure.mid img {
+  width: 339px;
 }
 .wiki .figure.big img {
   width: 425px;
