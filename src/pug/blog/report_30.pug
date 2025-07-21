@@ -5,16 +5,16 @@ block append subtitle
 
 block content
   h2 Progress report #30
-  +news_header('18 July 2025', 'report_29', '')
+  +news_header('21 July 2025', 'report_29', '')
 
   h3 New Input Labs staff member
-  p #[+ax('https://www.linkedin.com/in/maria-bortnichenko-a8345044/') Maria Bortnichenko] joined Input Labs for a temporal assignment as #[em Strategy business developer], over the next few months she will help us analyzing the market, and how our devices align with it.
+  p #[+ax('https://www.linkedin.com/in/maria-bortnichenko-a8345044/') Maria Bortnichenko] joined Input Labs for a temporary assignment as #[em Strategy & Business developer], over the next few months she will help us analyzing the market, and how our devices align with it.
   p Additionally, she will explore partnerships with other companies, and potential investors.
   p Please join us in welcoming her to the team!.
 
   hr
   h3 Kapybara development is happening
-  p After careful consideration of the applicants, we selected #[em 10 testers with disabilities], along with an additional 10+ testers without disabilities (self-supported testers). The number of testers is significantly smaller than that for the testing phase of Alpakka, but we hope this allows for closer follow-up of the individual cases.
+  p After careful consideration of the applicants, we selected #[em 10 testers with disabilities], along with an additional 10+ testers without disabilities (mostly self-supported testers). The number of testers is significantly smaller than that for the testing phase of Alpakka, so we hope this allows for closer follow-up of the individual cases.
   p We prioritized testers with limb difference / amputation, neuromuscular disorders (dystrophy, sclerosis, palsy), or musculoskeletal disorders (arthritis, carpal syndrome, strain injury).
   p Most of the testers with disabilities have already participated in #[em 1-on-1 introductory meeting], so we got an initial understanding of their current setups and requirements.
   p From the 3 potential controller shapes (see #[+a('kapybara_development') previous post]), we decided to start experimenting with a symmetrical shape. We did a few iterations with different sizes and button placements, and printed a several non-functional mockups made with recycled PLA bio-plastic.
@@ -33,8 +33,8 @@ block content
   )
   +figure(
     '',
-    'Non-functional mockup',
-    '/static/blog/kapybara_mockup_1b.jpg',
+    'Non-functional mockups',
+    '/static/blog/kapybara_mockup_1c.jpg',
     'small inline',
   )
   +figure(
@@ -44,7 +44,7 @@ block content
     'small inline',
   )
 
-  h4 Layout proposal
+  h4 Layout so far (not final)
   table.manual.hdiv
     tr
       td
@@ -79,12 +79,14 @@ block content
 
 
 
-  p This layout is not final, soon we will distribute these #[em non-functional mockups] among testers to get early feedback. The most tricky aspects of the design we want to check with them are:
+  p Soon we will distribute these #[em non-functional mockups] among testers to get early feedback. The most tricky aspects of the design we want to check with them are:
   ul
     li Size and ergonomics of the controller.
     li Button placement and angle of operation.
     li Grip extension for bigger hands (see picture above).
     li Finger-strap / full-strap.
+
+  p We will adjust future mockups/prototypes based on the feedback from our testers, and maybe try other shapes and layouts.
 
   hr
   h3 1.1.0 update for Alpakka firmware and Ctrl app
