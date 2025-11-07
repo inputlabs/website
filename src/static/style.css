@@ -946,4 +946,5 @@ table, tr, th, td {
   .basis4 {
     flex-basis: calc(25% - 15px);
   }
+
 }
