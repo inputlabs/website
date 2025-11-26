@@ -49,41 +49,7 @@ html
 
   body
     header
-      div.logo
-        +a('/')
-          div
-            img(src='/static/img/logo.apng')
-          span Input Labs
-
-      div.icon
-        +ax(org.discord)
-          img(src='/static/img/discord.png')
-
-      div.icon
-        +ax(org.youtube)
-          img(src='/static/img/youtube.png')
-
-      div.icon
-        +ax(org.repos)
-          img(src='/static/img/github.png')
-
-      div.icon
-        +ax(org.patreon)
-          img(src='/static/img/patreon.png')
-
-      div.nav(class=((PAGE=='nav') ? '' : 'hide'))
-        +nav
-
-      div.mininav
-        img(src='/static/img/burger.svg')
-        select(onchange="selectRedirect(event)")
-          option(value='') SELECT A PAGE
-          option(value='/') Input Labs
-          option(value='/alpakka') Devices
-          option(value=redirect.contribute) Contribute
-          option(value=redirect.db) Accessibility DB
-          option(value=redirect.blog) Blog
-          option(value=org.shop) Shop
+      include _header.pug
 
     main
       block page

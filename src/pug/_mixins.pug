@@ -41,20 +41,6 @@
     'placeholder'
   ].includes(PAGE)
 
-mixin nav
-  -
-    const active = (name) => {
-      if (name==SECTION) return 'active'
-      const devices = ['alpakka', 'kapybara', 'marmota']
-      if (name=='devices' && devices.includes(SECTION)) return 'active'
-      return ''
-    }
-  div.tab(class=active('devices')):    +a('/alpakka')          Devices
-  div.tab(class=active('contribute')): +a(redirect.contribute) Contribute
-  div.tab(class=active('db')):         +a(redirect.db)         Accessibility DB
-  div.tab(class=active('blog')):       +a(redirect.blog)       Blog
-  div.tab:                             +ax(org.shop)           Shop
-
 mixin wikilink(href, external=false)
   - const active = (href==PAGE)
   - const cls = (active ? 'active' : '')

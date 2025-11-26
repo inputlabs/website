@@ -64,7 +64,7 @@ body {
 
 /* HEADER ================================================================== */
 header {
-  height: 100px;
+  /* height: 130px; */
   width: 964px;
   margin: 0 auto;
   padding: 0;
@@ -86,14 +86,14 @@ header .logo {
 header .logo a {
   font-family: Poppins;
   display: flex;
-  font-size: 24px;
-  margin-right: 10px;
+  font-size: 35px;
+  /* margin-right: 10px; */
   text-decoration: none;
 }
 header .logo img {
   display: block;
-  width: 80px;
-  margin-top: 15px;
+  width: 100px;
+  margin-top: 5px;
   animation: animation-bg var(--cycle) linear infinite;
   animation-delay: var(--seed);
   box-shadow: inset 0 0 0 4px black;
@@ -111,20 +111,33 @@ header .icon img {
   margin-right: 14px;
   opacity: 0.5;
 }
+header .nav .tab {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-left: 2px solid hsl(0, 0%, 20%);
+}
 header .nav .tab a {
   font-family: Inter;
   font-weight: bold;
   text-decoration: none;
-  font-size: 19px;
-  padding: 8px;
-  margin: 3px;
-  color: hsl(0, 0%, 50%);
+  text-transform: uppercase;
+  font-size: 14px;
+  color: hsl(0, 0%, 70%);
   white-space: nowrap;
 }
-header .nav .tab.active a {
-  color: black;
-  border-radius: 5px;
-  animation: animation-bg var(--cycle) linear infinite;
+header .nav .tab .title {
+  font-family: Inter;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: hsl(0, 0%, 30%);
+}
+header .nav .tab .active a {
+  /* color: black; */
+  /* border-radius: 5px; */
+  animation: animation-color var(--cycle) linear infinite;
   animation-delay: var(--seed);
 }
 header .mininav {
@@ -187,7 +200,7 @@ h1.primary {
 }
 h1.secondary {
   margin-top: 0px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   font-size: 24px;
 }
 h1 a {
@@ -871,7 +884,9 @@ table, tr, th, td {
   header {
     width: 480px;
     padding-left: 0px;
+    flex-direction: column;
   }
+  /*
   header .icon img {
     height: 36px;
     margin-right: 14px;
@@ -894,7 +909,7 @@ table, tr, th, td {
   header .mininav {
     display: initial;
     padding-bottom: 2px;
-  }
+  } */
   main .boxes {
     width: 480px;
     /* flex-wrap: wrap; */
@@ -925,9 +940,9 @@ table, tr, th, td {
     height: 36px;
     margin-right: 18px;
   }
-  header .nav .tab a {
+  /* header .nav .tab a {
     margin: 5px;
-  }
+  } */
   main .boxes {
     width: 1446px;
   }
