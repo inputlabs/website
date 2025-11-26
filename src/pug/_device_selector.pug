@@ -1,10 +1,11 @@
 -
   const active = (bool) => bool ? 'active' : 'inactive'
 
-h1.primary
-  a(class=active(SECTION=='alpakka') href='/alpakka') Alpakka
-  a(class=active(SECTION=='kapybara') href='/kapybara') Kapybara
-  a(class=active(SECTION=='marmota') href='/marmota') Marmota
+br
+//- h1.primary
+//-   a(class=active(SECTION=='alpakka') href='/alpakka') Alpakka
+//-   a(class=active(SECTION=='kapybara') href='/kapybara') Kapybara
+//-   a(class=active(SECTION=='marmota') href='/marmota') Marmota
 
 if SECTION == 'alpakka'
   h1.secondary

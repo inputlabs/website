@@ -1,0 +1,64 @@
+mixin nav
+  -
+    const active = (name) => {
+      if (name===SECTION) return 'active'
+      if (name===SECTION_2) return 'active'
+      //- const devices = ['alpakka', 'kapybara', 'marmota']
+      //- if (name=='devices' && devices.includes(SECTION)) return 'active'
+      return ''
+    }
+  div.tab
+    div.title Devices
+    div.link(class=active('alpakka')): +a('/alpakka') Alpakka
+    div.link(class=active('kapybara')): +a('/kapybara') Kapybara
+    div.link(class=active('marmota')): +a('/marmota') Marmota
+    div.link(class=active('')): +a('/') &nbsp;
+  div.tab
+    div.title Community
+    div.link(class=active('open_source')): +a('/contribute/open_source') Open Source
+    div.link(class=active('db')): +a(redirect.db) Accessibility DB
+    div.link(class=active('discord')): +ax(org.discord) Discord ↗
+    div.link(class=active('youtube')): +ax(org.youtube) Youtube ↗
+  div.tab
+    div.title Company
+    div.link(class=active('')): +a('/') Input Labs
+    div.link(class=active('blog')): +a(redirect.blog) Research / Blog
+    div.link(class=active('about')): +a('/about') About
+    div.link(class=active('shop')): +ax(org.shop) Shop ↗
+
+
+div.logo
+  +a('/')
+    div
+      img(src='/static/img/logo.apng')
+    span Input Labs
+
+//- div.icon
+//-   +ax(org.discord)
+//-     img(src='/static/img/discord.png')
+
+//- div.icon
+//-   +ax(org.youtube)
+//-     img(src='/static/img/youtube.png')
+
+//- div.icon
+//-   +ax(org.repos)
+//-     img(src='/static/img/github.png')
+
+//- div.icon
+//-   +ax(org.patreon)
+//-     img(src='/static/img/patreon.png')
+
+div.nav(class=((PAGE=='nav') ? '' : 'hide'))
+  +nav
+
+//- div.mininav
+//-   img(src='/static/img/burger.svg')
+//-   select(onchange="selectRedirect(event)")
+//-     option(value='') SELECT A PAGE
+//-     option(value='/') Input Labs
+//-     option(value='/alpakka') Devices
+//-     option(value=redirect.contribute) Contribute
+//-     option(value=redirect.db) Accessibility DB
+//-     option(value=redirect.blog) Blog
+//-     option(value=org.shop) Shop
