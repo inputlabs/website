@@ -9,9 +9,8 @@ block page
   div.boxes.grid
     div.box
       h2 Who are we?
-      p Input Labs Oy. (OsakeYhtiö) is a small company established in Finland, Europe.
+      p #[em Input Labs Oy.] (OsakeYhtiö) is a small company established in Finland, Europe.
       p Founded in 2022 by 2 friends, both engineers and gamers: Marcos (born in Spain) and Michael (born in Germany). Later several friends joined as testers, idea givers and contributors. And now we are waiting for you.
-      p You can talk with us on #[+ax(org.discord) Discord] anytime.
 
     div.box
       h2 Our principles and goals
@@ -20,28 +19,10 @@ block page
       p We #[em welcome and support] everyone in our community, we do not leave anyone behind.
 
     div.box
-      h2 Get in contact
-      p If you want to collaborate with us, check the #[+a('/contribute') Contribute] section.
-      p For journalism or videogame media topics, check the #[+a('/press') Press] section.
-      p For other generic inquiries, send us a message to #[span.lima #[span.lima1]] #[i (Cannot be copied)]
-
-    div.box
-      h2 Do you sell controllers?
-      p Short answer: No.
-      p Long answer: We are selling selected #[em components] and #[em DIY kits], and try to make as easy as possible for people to build their own DIY controllers, adapted to their needs.
-      p: i "We give you the recipe, but you cook the pizza".
-      p The Alpakka #[+a('alpakka/components') components] page outlines which components are required to build a controller and from where to source them.
-
-    div.box
       h2 What does the logo mean?
       p The logo is a sinusoidal wave representing an analog signal, being captured by code brackets (digital), in the shape of an hexagon, because hexagons are the #[a.egg(target='_blank' href='https://www.youtube.com/watch?v=thOifuHs6eY') bestagons].
       p: del I'm not high, I promise.
       p When you think blue, green, or red, you associate these with some specific videogame brands, right? We don't settle with a single color, because #[em.wrap our favorite color is your favorite color].
-
-    //- div.box
-    //-   h2 Patents
-    //-   p We explained about #[em Input Labs approach to patents] in a blog post: #[+a('/blog/patents') Patents, a necessary evil].
-    //-   p Patents granted:
 
     div.box
       h2 On the shoulders of giants
@@ -61,9 +42,24 @@ block page
       p We also find funny when gaming companies call their products with 90's style rad animal names, such as the #[i "Cobra"], #[i "Black Puma"], or #[i "Death Hornet"] #[i (not actual names)].
       p Instead we go for the most huggable, weird, and cute animals. Please give us ideas for the next ones!
 
-
     div.box
       h2 Privacy
       p This website do not use cookies, do not store any personal information, and #[em respect your privacy]. We do not care who you are! and that's a good thing.
       p For aggregated usage stats we use #[+ax('https://plausible.io') Plausible], an open-source web analytics tool which is 100% anonymous, do not track you across different websites nor devices, and is hosted in the European Union (covered by strict privacy laws).
-      p For details, read the full #[+a('/policies/privacy') Privacy policy].
+      p For details, read the full #[+a('/legal/privacy') Privacy policy].
+
+    div.box
+      h2 Patents
+      p We explained about our #[em approach to patents] in the blog post #[+a('/blog/patents') Patents, a necessary evil]. These are our granted/pending patents:
+      p: b Multiple angular rate sensors
+      ul(style='margin-top:0px')
+        li: +ax('https://patents.google.com/patent/US20240337994A1') US-20240337994-A1
+        li: +ax('https://patents.google.com/patent/FI20237064A1') FI-20237064-A1
+      p: b Touch sensor integrated with depressible buttons
+      ul(style='margin-top:0px')
+        li: +ax('https://patents.google.com/patent/US12248639B1') US-12248639-B1
+
+    div.box
+      h2 Get in contact
+      p For support or generic inquiries, send us a mail to #[span.lima #[span.lima1]] #[i (Cannot be copied)]
+      p Or you can find us on #[+ax(org.discord) Discord] anytime.
