@@ -1,0 +1,69 @@
+extends ./_template.pug
+
+block title
+  | Alpakka 2
+
+block page
+  h1 Alpakka 2
+
+  mixin boximg(src)
+    div.box.image
+      a.img(href=src target='_blank')
+        img(src=src)
+
+  div.boxes.grid
+    div.box
+      h2 Gyro is the new mouse
+      p Native gyro-to-mouse tech allows to play with the #[em accuracy of a mouse], while #[em playing on a sofa] or leaning back on a gaming chair.
+      p Alpakka 2 is the only controller engineered for #[em gyro-to-mouse emulation], while other controllers just feature basic gyro as an afterthought.
+      p Play at #[em competitive] level, or chill with cozy games using the most advanced mouse emulation on a gamepad.
+
+    div.box.image
+      a.img(href='https://www.youtube.com/watch?v=4WOOHM32PpI' target='_blank')
+        img(src='/static/gallery/alpakka_2_video.jpg')
+
+    div.box
+      h2 Actual competitive performance
+      p It #[em works like a native mouse], so there is no need for aim assist, game support, nor complicated setups.
+      p With #[em Quad-gyro] (4 motion sensors), #[em Thumb-sense] touch surface, #[em 1000 hz] polling rate, and ultra-low latency, the Alpakka is the first controller able to match the performance of a mouse.
+      p Excels on #[em FPS] and #[em RTS]: Play shooters, strategy games, or any other cursor-based games at competitive level.
+      p Check the #[+a('/alpakka_2/specs') Specs].
+
+    +boximg('/static/gallery/alpakka_2_display.jpg')
+
+    div.box
+      h2 DIY and PRO variants
+      p #[em Alpakka 2 PRO]: A pre-assembled, #[em injection molded] controller, that you can just buy ready for gaming.
+      p #[em Alpakka 2 DIY]: The classic #[em Do-It-Yourself] Alpakka approach for makers, in which the case and buttons can be 3D-printed based on reference designs or community mods.
+      p Both share the same electronics components, firmware, and features. So you can choose what fits best your needs.
+
+    +boximg('/static/gallery/alpakka_2_front.jpg')
+
+    div.box
+      h2 Advanced configuration
+      p Use the carefully designed build-in profiles, or create/modify your own profiles with the #[em Ctrl app], available in your web browser, or PWA installed as a native app.
+      p Including #[em advanced features] such as cross-device mappings, long-press, double-press, thumbstick 4 and 8 button emulation, anti-deadzone, and more.
+      p No drivers, no overlays, any launcher.
+      p Compatible with #[em Windows] 10/11, #[em Steam Deck] (Arch), and other #[em Linux] distros.
+
+    +boximg('/static/gallery/alpakka_2_app.jpg')
+
+    div.box
+      h2 Built on solid foundations
+      p Input Labs, researchers of #[em advanced gyro technology], released the original Alpakka (in 2022), the first controller made for gyro gaming.
+      p During the last 3 years Input Labs built a solid #[em firmware], configuration #[em app], dedicated #[em electronics], and #[em wireless] solution.
+      p Feedback from #[em thousands of Alpakka enthusiasts] made this a battle-tested gyro controller, years ahead from any alternatives.
+
+    div.box
+      h2 Open source, Right-to-repair
+      p The Alpakka designs are all about #[em easy maintenance] and easy fixes; with simple screws, no glue, and basic soldering.
+      p At Input Labs we stand for #[em open source], open hardware, and open research.
+      p Use the open designs to #[em modify and extend] any part of the controller, or download #[em community mods] to tweak your controller into perfection.
+
+    div.box
+      h2 Funded on Indiegogo
+      p The Alpakka 2 will be funded via the Indieogo, a #[em crowdfunding platform] for independent creators.
+      p #[+ax('https://www.indiegogo.com/en/projects/input-labs/alpakka-2') Follow now on Indiegogo], and claim a #[em supporter pack].
+      br
+      a.img(href='/static/gallery/supporter_pack.jpg' target='_blank')
+        img(src='/static/gallery/supporter_pack.jpg' width='100px')

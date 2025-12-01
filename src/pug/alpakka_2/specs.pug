@@ -1,0 +1,47 @@
+extends ../_template.pug
+
+block title
+  | Alpakka 2 specs
+
+block page
+  h1 Alpakka 2 specs
+
+  mixin boximg(src)
+    div.box.image
+      a.img(href=src target='_blank')
+        img(src=src)
+
+  div.boxes.grid
+    div.box
+      h2 New on Alpakka 2
+      ul
+        li 4 high quality IMU sensors (working in parallel).
+        li 2 full-size thumbsticks.
+        li 2 scroll-wheels (mouse-like).
+        li Display for profile preview and config.
+        li Injection molded case and buttons in the PRO version.
+        li 1000 hz polling rate wired (~0.5 milliseconds latency)
+
+    div.box
+      h2 Inherited from Alpakka 1.0
+      ul
+        li Open source app with Linux support. (#[+a('/alpakka/manual/ctrl_app') Ctrl app features])
+        li Thumb touch surface for gyro engage/disengage.
+        li Wireless dongle with low-latency 2.4 GHz protocol.
+        li 12 customizable profile slots (8 built-in + 4 custom) in the controller memory.
+        li Compatible with 100% games and launchers.
+        li USB-C connector.
+        li Rechargeable 1200 mAh LiPo battery.
+        li No drivers required (detected as HID mouse, HID keyboard, and XInput or generic gamepad).
+
+    div.box
+      h2 To be tested in development
+      p: b: i (Not confirmed)
+      ul
+        li Hall effect / TMR thumbsticks.
+        li Mechanical switch buttons.
+        li Final arrangement of back paddles.
+        li Dual-action triggers (digital and analog).
+        li Low-poly / classic Alpakka case for the DIY version (to be decided).
+
+    +boximg('/static/gallery/alpakka_2_label.jpg')
