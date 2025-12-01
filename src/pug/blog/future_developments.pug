@@ -1,0 +1,156 @@
+extends _blog.pug
+
+block append subtitle
+  | Future developments update
+
+block content
+  h2 Future developments update
+  +news_header('1 December 2025', 'report_30', '')
+
+  h3 State of funding
+  p Small recap: When we launched Input Labs in #[em 2022] the plan was to fund the project via Patreon, later in #[em 2023] we started 3D-printing some parts and selling them in our shop, then since late 2023 we have been selling complete DIY kits in the shop, and that became our main funding source.
+  p This current funding model pays the bills, but unfortunately it does #[em not provide enough] capital for new research and development.
+  p We expected this situation to be temporary while we grew a bit more, but #[em organic growth] (without significant marketing investment) has been slowing down, and current #[em shipping restrictions] to the United States only made it worse.
+  p While we love #[em 3D-printing], it became a #[em bottleneck] to scale up our operations, not because 3d-printing is slow (which can be solved by having more printers) but because inconsistencies in the resulting parts require a lot of time doing additional #[em quality checks and post-processing], the kind of task that cannot be outsourced to a 3rd-party company without deep understanding of the controller.
+  p For all these reasons, we want to introduce #[em injection molding] as an additional manufacturing method for our devices, and sell #[em pre-assembled controllers] to a larger audience. But we are not abandoning 3D-printing (more on that below).
+  p During the last months we worked on putting together a #[em financial plan] to develop an injection molded Alpakka, including the molds, certification, supply chain, and looking for potential partners, and decided we will fund the #[em Alpakka 2 on Indiegogo] (more on that below).
+
+
+  hr
+  h3 Results of the Alpakka survey
+  ul
+    li Almost #[em 200 people] answered the survey about the Alpakka present and future.
+    li Average satisfaction of Alpakka owners is #[em 8.6 / 10].
+
+  p: b Most loved features in the Alpakka 1:
+  ul
+    li Gyro performance.
+    li Open source and open hardware.
+    li Scrollwheel.
+
+  p: b Less loved features in the Alpakka 1:
+  ul
+    li Build quality.
+    li Firmware install process.
+    li Missing advanced features in the Ctrl app.
+
+
+  p: b Most hyped features for the Alpakka 2:
+  ul
+    li Buy pre-assembled.
+    li Quad-gyro.
+    li Analog triggers.
+
+
+  hr
+  h3 DIY and PRO versions
+  p Moving forward, Input Labs' devices will come in 2 variants:
+
+  table.manual.vdiv.col2
+    tr
+      th DIY version
+      th PRO version
+    tr
+      td: div
+        span Our classic approach to Do-It-Yourself, for makers that own a 3D-printer.
+        p PCB and electronic components available in the shop.
+        p 3d-printed parts will NOT be available in the shop anymore, but maybe spare injection molded part will be available instead.
+        p All sources and schematics available as open source and creative commons.
+      td: div
+        span Injection molded case and buttons, with superior quality.
+        p Sold in the shop as a "normal" controller.
+        p Ready to use: Pre-assembled, firmware pre-installed.
+        p Certified.
+
+  p DIY and PRO variants share features, electronics, and firmware. Only the external case is different.
+
+
+  hr
+  h3(style='margin-bottom:20px') Alpakka 2 enters design phase
+
+
+  div(style="display:inline")
+    div(style="display:inline-block; margin-bottom:10px; margin-right:20px")
+      a(href='https://www.youtube.com/watch?v=4WOOHM32PpI' target='_blank' style='background-color:initial')
+        img(src='/static/gallery/alpakka_2_video.jpg' width='420')
+      div.caption Alpakka 2 reveal trailer
+    div(style="display:inline-block; margin-bottom:10px; margin-right:20px")
+      a(href='/alpakka_2' style='background-color:initial')
+        img(src='/static/gallery/alpakka_2_label.jpg', width='420')
+      div.caption Alpakka 2 proposed design (not final)
+
+  p Alpakka 2 will be #[+ax('https://www.indiegogo.com/en/projects/input-labs/alpakka-2') funded via Indiegogo] for both DIY and PRO versions. This campaign is necessary to design and manufacture injection molds, CE and FCC cerfitications, and hopefully adding new members to the team to complement our expertise.
+  p The #[em Alpakka 2 vision] is to bring advanced gyro controls to #[em all PC players], and #[em reduce barriers] to its adoption.
+  p Some of the planned features of the Alpakka 2 are:
+
+  table.manual.hdiv
+    tr
+      th Alpakka 2 feature (confirmed)
+      th Reason
+    tr
+      td Injection molded and pre-assembled (PRO version)
+      td Most requested feature in the community.
+    tr
+      td Quad-gyro
+      td Also a very requested feature. #[br] To get even more gyro performance, and reduce temperature-induced drift.
+    tr
+      td Display (OLED?)
+      td To preview the current mappings, and navigate config shortcuts. #[br] So profiles are less intimidating and self-explanatory for new users.
+    tr
+      td Smooth external case
+      td So people do not assume is non-ergonomic even before trying it.
+    tr
+      td Twin thumbsticks
+      td So the design is more familiar for people that are not fully sold on gyro gaming yet.
+    tr
+      td 2 Scrollwheels
+      td Having a scrollwheel has been surprisingly useful, and the community loves it. #[br] But what's better than a single scrollwheel? two of them!.
+
+  p Other features like #[em hall-effect] thumbsticks and #[em dual-action triggers] are to be evaluated and tested later, and are not yet confirmed. Please check the #[+ax('https://www.indiegogo.com/en/projects/input-labs/alpakka-2') Alpakka 2 Indiegogo page] for more details and features.
+  p We are still working on final adjustments for the actual campaign launch, please stay tuned, and share any feedback you may have!
+  +figure(
+    '',
+    'Free supporter pack for followers on Indiegogo',
+    '/static/gallery/supporter_pack.jpg',
+    'small',
+  )
+
+  hr
+  h3 Kapybara development update
+  p The Kapybara first #[em mockup prototypes were distributed] among testers (and STL files published). We had #[em video interviews] with most of the testers which provided very useful feedback and insights.
+  +figure(
+    '',
+    'Non-functional mockups',
+    '/static/blog/kapybara_mockup_1c.jpg',
+    'small inline',
+  )
+  p The received #[em feedback is unanimously positive], so we decided to move to the next stage of development:
+  ul
+    li Designing the PCB.
+    li Modelling the case and buttons (with actual mechanical integration).
+    li Put together a functional prototype.
+    li Organize the next round of feedback from testers.
+
+  p For now #[em only the DIY] version of the Kapybara will be developed.
+
+  hr
+  h3 Lineup of Input Labs' devices
+  table.manual.hdiv
+    tr
+      th Device
+      th Status
+    tr
+      td: h4 Alpakka 1 (DIY)
+      td 🟢 Current model, updates will continue.
+    tr
+      td: h4 Alpakka 2 DIY & PRO
+      td 🟣 Concept phase, Indiegogo campaign launch in early 2026.
+    tr
+      td: h4 Kapybara DIY
+      td 🟡 Active development, functional prototype phase next.
+    tr
+      td: h4 Kapybara PRO
+      td 🔴 Not being developed at the moment / development will start later.
+
+  hr
+  p Thanks for the support! 🤍 <br>- MMM (Marcos, Maria, and Michael)
