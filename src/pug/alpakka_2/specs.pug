@@ -4,44 +4,82 @@ block title
   | Alpakka 2 specs
 
 block page
-  h1 Alpakka 2 specs
+  include ../_selector.pug
 
   mixin boximg(src)
     div.box.image
       a.img(href=src target='_blank')
         img(src=src)
 
+
   div.boxes.grid
     div.box
-      h2 New on Alpakka 2
+      h2 Input
+      ul
+        li Single-piece cross dpad.
+        li 4 Face buttons (ABXY) with Thumb-sense touch surface.
+        li 4 Select/start buttons.
+        li 2 High quality thumbsticks.
+        li 2 Scrollwheels (mouse-like).
+        li 2 Bumper buttons.
+        li 2 Swappable triggers (mouse-like click or analog).
+        li 4 Back buttons.
+        li: i [We will investigate using mechanical switches]
+        li: i [We will investigate using hall-effect / TMR thumbsticks]
+
+    div.box
+      h2 Output
+      ul
+        li 1000 hz polling rate wired (~0.5 ms latency).
+        li Wireless dongle with 2.4 GHz protocol (~2 ms latency).
+        li OLED 128x64 display for profile preview and config.
+        li USB-C connector.
+        li Multi-protocol output.
+          ul
+            li HID mouse.
+            li HID keyboard.
+            li HID gamepad / DirectInput (+generic steering wheel).
+            li XInput gamepad (Compatible with Steam Input).
+
+    div.box
+      h2 Firmware
+      ul
+        li 12 customizable profile slots in the controller memory.
+        li Compatible with 100% games and launchers.
+        li No drivers required.
+        li Operating System support:
+          ul
+            li Windows 10/11.
+            li GNU/Linux (distros with xpad).
+            li Android (limited support / experimental).
+            li Steam Deck / Steam Machine.
+
+    div.box
+      h2 App
+      ul
+        li Available on browsers or as PWA native-like app.
+        li Cross-device mappings (mouse, keyboard, gamepad).
+        li Long-press and double-press mappings.
+        li Gyro touch-on and touch-off modes assignable to thumb-sense or any button.
+        li Gyro steering-wheel and plane-joystick modes.
+        li Thumbstick deadzone, anti-deadzone, and saturation.
+        li Thumbstick 4 and 8 button-pad modes.
+        li Glyphstick and daisywheel keyboard typing modes.
+        li Many more #[+a('/alpakka/manual/ctrl_app') Ctrl app features].
+
+    div.box
+      h2 Internals
       ul
         li 4 high quality IMU sensors (working in parallel).
-        li 2 full-size thumbsticks.
-        li 2 scroll-wheels (mouse-like).
-        li Display for profile preview and config.
-        li Injection molded case and buttons in the PRO version.
-        li 1000 hz polling rate wired (~0.5 milliseconds latency)
-
-    div.box
-      h2 Inherited from Alpakka 1.0
-      ul
-        li Open source app with Linux support. (#[+a('/alpakka/manual/ctrl_app') Ctrl app features])
-        li Thumb touch surface for gyro engage/disengage.
-        li Wireless dongle with low-latency 2.4 GHz protocol.
-        li 12 customizable profile slots (8 built-in + 4 custom) in the controller memory.
-        li Compatible with 100% games and launchers.
-        li USB-C connector.
         li Rechargeable 1200 mAh LiPo battery.
-        li No drivers required (detected as HID mouse, HID keyboard, and XInput or generic gamepad).
-
-    div.box
-      h2 To be tested in development
-      p: b: i (Not confirmed)
-      ul
-        li Hall effect / TMR thumbsticks.
-        li Mechanical switch buttons.
-        li Final arrangement of back paddles.
-        li Dual-action triggers (digital and analog).
-        li Low-poly / classic Alpakka case for the DIY version (to be decided).
+        li Raspberry RP2350 microcontroller:
+        ul
+          li 150 MHz core frequency.
+          li 520 KB of SRAM.
+          li FPU co-processor (floating point unit).
+          li 2 ARM Cortex-M33 cores.
+          li 2 RISC-V Hazard3 cores.
 
     +boximg('/static/gallery/alpakka_2_label.jpg')
+
+    div: b: i *All specs are subject to change
