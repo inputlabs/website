@@ -1,23 +1,26 @@
 -
   const active = (bool) => bool ? 'active' : 'inactive'
 
-br
-//- h1.primary
-//-   a(class=active(SECTION=='alpakka') href='/alpakka') Alpakka
-//-   a(class=active(SECTION=='kapybara') href='/kapybara') Kapybara
-//-   a(class=active(SECTION=='marmota') href='/marmota') Marmota
 
 if SECTION == 'alpakka'
+  h1.primary Alpakka 1
   h1.secondary
     a.sub(class=active(PAGE=='alpakka') href='/alpakka') Overview
     a.sub(class=active(SECTION_2=='manual') href=redirect.alpakkaManual) Manual
     a.sub(class=active(PAGE=='gallery') href='/alpakka/gallery') Gallery
     a.sub(class=active(PAGE=='components') href='/alpakka/components') Components
 
+if SECTION == 'alpakka_2'
+  h1.primary Alpakka 2
+  h1.secondary
+    a.sub(class=active(PAGE=='alpakka_2') href='/alpakka_2') Overview
+    a.sub(class=active(PAGE=='specs') href='/alpakka_2/specs') Specs
+
+
 if SECTION == 'kapybara'
-  br
+  h1 Kapybara
   //- h1.secondary
     //- a.sub(class=active(PAGE=='kapybara') href='/kapybara') Overview
 
 if SECTION == 'marmota'
-  br
+  h1 Marmota
