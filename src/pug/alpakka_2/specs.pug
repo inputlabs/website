@@ -6,9 +6,9 @@ block title
 block page
   include ../_selector.pug
 
-  mixin boximg(src)
+  mixin boximg(src, href)
     div.box.image
-      a.img(href=src target='_blank')
+      a.img(href=href target='_blank')
         img(src=src)
 
 
@@ -80,6 +80,9 @@ block page
           li 2 ARM Cortex-M33 cores.
           li 2 RISC-V Hazard3 cores.
 
-    +boximg('/static/gallery/alpakka_2_label.jpg')
+    +boximg('/static/img/alpakka_2_spec_front.png', '/static/img/alpakka_2_spec_all.png')
+    +boximg('/static/img/alpakka_2_spec_back.png', '/static/img/alpakka_2_spec_all.png')
 
-    div: b: i *All specs are subject to change
+    div
+      div(style="padding:10px")
+        b: i *All specs are subject to change
