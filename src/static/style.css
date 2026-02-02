@@ -63,6 +63,17 @@ body {
 }
 
 /* HEADER ================================================================== */
+.banner {
+  height: 100px;
+  text-align: center;
+  border-bottom: 1px solid hsl(  0, 0%, 50%);
+  background-image: url('/static/img/alpakka_2_banner_bg.png');
+}
+
+.banner img {
+  height: 100px;
+}
+
 header {
   /* height: 130px; */
   width: 964px;
