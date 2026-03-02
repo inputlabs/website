@@ -1,0 +1,88 @@
+extends _blog.pug
+
+block append subtitle
+  | Alpakka 2 crowdfunding fail
+
+block content
+  h2 Alpakka 2 crowdfunding fail
+  +news_header('2 March 2025', 'future_developments', '')
+
+  h3 Results of the campaign
+  p From the 2nd of February to the 2nd of March #[em we ran a Indiegogo campaign to fund the Alpakka 2], unfortunately the campaign was #[em not funded], as it did not reach the target we set.
+  p We needed about 900 backers, but only #[em 115 people backed the campaign]. So it only reached about 1/8 of the goal, which is still a significant amount of money, but not enough to justify the cost of injection molding and certification. This also means the campaign is cancelled from the Indiegogo point of view, so #[em no money will be taken from backers], and we will not receive any funds.
+  p This surely is a big letdown for us. We still want to #[em thank to everyone that backed the project], and say sorry to them because we failed at making this product a reality (at least for now, more about future plans below).
+
+  hr
+  h3 Why we think it failed
+  p We believe the #[em Alpakka 2 features and design were on point], as it received a lot of positive feedback, and the pre-campaign had #[em 800 followers] before the launch (we needed 900 backers), which is above average for most campaigns. But something went wrong, #[em.wrap very few of these followers converted into backers]. Why? Here are our theories:
+
+  h4 The price was too high
+  ul
+    li The cost for an #[em Alpakka 2 PRO was 220 euros + VAT], but this price tag was not visible during the pre-campaign. While people in our community knew more or less what price to expect, people less familiar with our project were likely surprised, #[em.wrap expecting a pricetag around $70] (the cost of basic controllers).
+    li We knew that the high price would be a friction point, but #[em as an independent developer] we were caught between a rock and a hard place, the relationship between unit price and funding is not linear, so for making the cost per unit half the price we would have to secure ~10x the total funds. We tried to balance these numbers into a ratio with a realistic chance of success.
+    li A lot of people understood that an independent company cannot manufacture small product batches for cheap (because we lack the economies of scale of bigger companies). But ultimately a dollar is a dollar, and #[em we failed to provide an interesting value proposition] given our limited reach.
+
+  h4 Lack of reach and visibility
+  ul
+    li Several content creators talked about us, and we would like to give #[em special thanks] to them: #[+ax('https://www.youtube.com/@NerdNest') NerdNest], #[+ax('https://www.youtube.com/@FlickStickVids') FlickStick videos], #[+ax('https://www.hackster.io/') Hackster], #[+ax('https://www.youtube.com/@ResenasCortas') Reseñas Cortas], #[+ax('https://www.youtube.com/@Ciudadanos_de_Gotham') Ciudadanos de Gotham], #[+ax('https://www.youtube.com/@fpsgyro') FPS Gyro], #[+ax('https://www.youtube.com/@IPlayController') IPlayController].
+    li But overall #[em very few media outlets talked about the Alpakka 2]. This wasn't because we didn't try, we reached out to a hundred of these outlets multiple times (if you can think a name, we contacted them) and we were either #[em ghosted], or #[em asked to pay].
+    li There is a hard lesson to learn here: Most gaming media will only talk #[i "for free"] about products and companies that are already successful (since it generates traffic). So it creates a rich-gets-richer situation that is #[em extremely hard to overcome for indie devs].
+
+  h4 Lack of funding
+  ul
+    li There is a common theme for both of these previous points, they could have been alleviated #[em if we had more initial funding]... to create a funding campaign... well, the Catch-22 problem is obvious.
+
+  hr
+  h3 A retrospective of Input Labs shop
+  p #[em Selling controllers was never a goal for us], but a means to keep our #[em research into input methods and accessibility] going. In fact when we started Input Labs we did not even have a shop, our only income came from #[em Patreon] supporters.
+  p #[em We opened the shop] only after people showed interest on getting electrically conductive filament from us (since it is tricky to source). Later we introduced more 3D-printed parts, PCBs, pre-soldered kits, and ultimately full DIY controller kits.
+  p Managing the shop, fulfilling orders, and supporting customers was progressively #[em taking a bigger chunk of our time], with a promise of becoming a sustainable way of funding.
+  p But the sad truth is that selling #[em.wrap DIY kits in the shop was never a good source of income], and while it helped paying the bills, it was only viable by having underpaid workers (the 2 founders!). Our attempt to grow sales by having a more mainstream, streamlined, and scalable product (the #[em Alpakka 2]) also failed.
+  p So at this point we can argue that #[em.wrap funding Input Labs via hardware sales failed], or at least we have to accept that we are not able to pull it off while #[em remaining independent].
+
+  hr
+  h3 Previous efforts to fund Input Labs
+  p Something we mentioned when talking about last year goals was to find #[em alternative ways of funding], and during 2025 we put a significant amount of effort talking with:
+  ul
+    li Social foundations.
+    li Government funding representatives.
+    li Angel investment organizations.
+    li Venture capital firms that matched our principles.
+  p Unfortunately #[em none of these materialized] into getting any financial help, but wasted a lot of resources, the effort was barely visible in the community, and it took a big chunk of our sanity 😫... I mean #[i "— It required significant resource allocation but had a negligible impact"].
+
+  hr
+  h3 Options moving forward
+  h4 The ambitious way / Venture Capital
+  ul
+    li Take venture capital to #[em fund Alpakka 2 development].
+    li This would require a #[em bigger scope], growing the team, getting a bigger lab, more tools and cool stuff.
+    li But would also require aggressive marketing, more focus on the core business, bigger sales expectations, and #[em less margin for error].
+    li Ultimately VCs expect their investment back with interests.
+    li This approach is #[em exciting but also risky], we make it big or bust.
+
+  h4 The modest way / Videogame hardware partner
+  ul
+    li #[em Accepting our limitations] as a small team, and focus on our strength: Engineering.
+    li Entering a partnership with a videogame hardware maker.
+    li The partner would take care of the commercial aspects (manufacturing, logistics, marketing, support) and #[em monetize our innovations and patents], while we focus on the research and accessibility aspects.
+    li We could consider #[em Input Labs making the DIY] version of the devices, while a #[em partner makes the PRO] version.
+    li In this scenario the #[em Alpakka 2 as a concept might take a different shape or name], depending on the nature of the collaboration.
+
+  h4 The community way / Open source as a hobby project
+  ul
+    li Giving up on the idea of Input Labs as a full-time job.
+    li We (the founders) will be #[em back in the job market], most likely with boring corporate jobs as we had before.
+    li We keep contributing to Input Labs as an #[em open source project in our free time].
+    li The lab (our office) and the #[em shop would be closed].
+    li In this scenario the #[em Alpakka 2 PRO] would not happen. The #[em Alpakka 2 DIY] might happen later, or not.
+    li Input Labs Oy. (the company) would still exist, and still own the patents. We believe gyro is inevitable, so maybe in a few years we come back.
+    li We can #[em be proud] about what we built: a very successful #[em open source] project, an amazing #[em community], and having #[em helped a lot of people] with disabilities. All of these will keep going. #[i (or IDK, maybe we are coping)]
+
+  hr
+  h3 The immediate future
+  p During the #[em next months] we are going to explore partnerships and venture capital options #[em more intensively]. If none of these work, we might go for the #[em open source as a hobby project] approach.
+  p Please share your #[em feedback] about these options with us #[em on Discord], we are legit interested about what do you think.
+
+
+  hr
+  p Thanks for the support! 🤍 <br>- Marcos and Michael
