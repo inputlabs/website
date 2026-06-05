@@ -25,7 +25,7 @@ block content
   - var getGHid = (url) => url.split('/').pop()
 
   mixin _planned(url, text)
-    span.dim &nbsp;- #{text} #[+ax(url) ##{getGHid(url)}]
+    span.dim: i &nbsp;- #{text} #[+ax(url) ##{getGHid(url)}]
 
   mixin planned(url)
     +_planned(url, 'Not implemented yet')
@@ -40,7 +40,7 @@ block content
       th Ctrl app
     tr
       td Only for Steam games (or added to Steam)
-      td For any launcher and any game
+      td For any launcher, and any game
     tr
       td 1 profile per game (detected executable)
       td 12 profiles stored in the controller
@@ -57,8 +57,11 @@ block content
     tr
       td Profile action sets and layers
       td
-        span Profile layers
+        span.dim Profile layers
         +planned('https://github.com/inputlabs/alpakka_firmware/issues/70')
+    tr
+      td.dim Does not work in login screen and administrator apps
+      td Works in login screen, administrator apps, and UEFI/BIOS
 
   h4 Buttons
   table.manual.hdiv.col2
@@ -69,32 +72,32 @@ block content
       td Normal / Long / Double press
       td Normal / Long / Double press
     tr
-      td Multiple commands per button
-      td Multiple actions per button
+      td Toggle / Repeat / Cycle
+      td
+        span.dim Toggle / Repeat / Cycle
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/225')
     tr
       td Interruptable
       td Immediate / trigger both
+    tr
+      td Multiple commands per button
+      td Up to 4 actions per button
     tr
       td Button axis command
       td Button to axis (absolute)
     tr
       td Move by amount
       td
-        span Button to axis (relative)
+        span.dim Button to axis (relative)
         +planned('https://github.com/inputlabs/alpakka_firmware/issues/118')
     tr
       td Chords
       td
-        span Chords
+        span.dim Chords
         +planned('https://github.com/inputlabs/alpakka_firmware/issues/70')
     tr
       td.dim N/A
-      td
-        span Edit macros
-        +planned('https://github.com/inputlabs/ctrl/issues/29')
-    tr
-      td Toggle / Cycle
-      td.dim #{notPlanned}
+      td Quick-chat macros
 
   h4 Gyro
   table.manual.hdiv.col2
@@ -120,28 +123,30 @@ block content
       td Gyro mode #[em touch on] / #[em touch off]
     tr
       td Gyro activation button
-      td Gyro engage (touch sensor or any button)
+      td Gyro activation (touch sensor / any button)
     tr
       td Gyro acceleration / precision
       td
-        span Gyro acceleration / tightening
+        span.dim Gyro acceleration / tightening
         +planned('https://github.com/inputlabs/alpakka_firmware/issues/107')
     tr
       td Gyro momentum
       td
-        span Gyro momentum
+        span.dim Gyro momentum
         +planned('https://github.com/inputlabs/alpakka_firmware/issues/102')
     tr
       td Trigger press mouse dampening
       td
-        span DPI multiplier on button
+        span.dim DPI multiplier on button
         +planned('https://github.com/inputlabs/alpakka_firmware/issues/104')
     tr
       td 3DOF to 2D modes: Yaw / Pitch / Roll
       td Gyro axis: X / Y / Z (Local space)
     tr
       td 3DOF to 2D modes: World space
-      td.dim #{notPlanned}
+      td
+        span.dim Gyro axis: X / Y / Z (World space)
+        +planned('https://github.com/inputlabs/alpakka_firmware/issues/79')
 
   h4 Thumbstick
   table.manual.hdiv.col2
@@ -155,6 +160,9 @@ block content
       td Joystick outer ring (with invert option)
       td Thumbstick inner and outer rings (both)
     tr
+      td.dim N/A
+      td Thumbstick push auto-toggle
+    tr
       td Joystick overlap region
       td Thumbstick overlap
     tr
@@ -162,29 +170,21 @@ block content
       td Thumbstick to buttons
     tr
       td Joystick mouse
-      td
-        span Thumbstick to mouse
-        +planned('https://github.com/inputlabs/alpakka_firmware/issues/77')
+      td Thumbstick to mouse
     tr
       td Joystick directional pad analog emulation
       td
-        span Thumbstick WASD 16-direction emulation
+        span.dim Thumbstick WASD 16-direction emulation
         +planned('https://github.com/inputlabs/alpakka_firmware/issues/127')
     tr
-      td.dim N/A
-      td
-        span Thumbstick push auto-toggle
-        +planned('https://github.com/inputlabs/alpakka_firmware/issues/128')
-    tr
-      td.dim N/A
-      td
-        span Edit glyph-stick keyboard
-        +planned('https://github.com/inputlabs/ctrl/issues/25')
-    tr
-      td.dim N/A
-      td
-        span Edit daisywheel keyboard
-        +planned('https://github.com/inputlabs/ctrl/issues/26')
-    tr
       td Flick stick
-      td.dim #{notPlanned}
+      td Thumbstick Rotation mode (mouse output)
+    tr
+      td.dim N/A
+      td Thumbstick Rotation mode (any axis output)
+    tr
+      td.dim Daisy-wheel keyboard (deprecated)
+      td Daisy-wheel keyboard
+    tr
+      td.dim N/A
+      td Glyph-stick keyboard
