@@ -709,6 +709,66 @@ table.inline td {
   background: hsla(0, 0%, 40%, 0.5);
 }
 
+/* MIXED INPUT DB ========================================================== */
+.wiki .game {
+  background-color: black;
+  margin: 8px;
+  padding: 6px;
+  display: flex;
+}
+.wiki .game .badge {
+  height: 50px;
+  margin-right: 15px;
+}
+.wiki .game .cover {
+  height: 50px;
+  margin-right: 15px;
+}
+.wiki .game .title {
+  margin: 0;
+  font-size: 22px;
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+.wiki .game .info {
+  font-size: 15px;
+  color: hsl(0deg, 0%, 35%);
+}
+.wiki .index .filter {
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  width: calc(100% - 20px);
+  height: 30px;
+  font-family: monospace;
+  font-size: 17px;
+  color: hsl(0deg, 0%, 80%);
+  background-color: hsl(0deg, 0%, 10%);
+  border: 1px solid hsl(0deg, 0%, 50%);
+}
+.wiki .index .searchbar {
+  position: relative;
+}
+.wiki .index #searchbar:focus {
+  border: 1px solid white;
+  outline: 1px solid white;
+}
+.wiki .index .searchreset {
+  position: absolute;
+  font-family: monospace;
+  font-size: 17px;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+  color: hsl(0deg, 0%, 50%);
+}
+.wiki .index .desc {
+  margin-left: 20px;
+  font-size: 14px;
+  color: hsl(0deg, 0%, 100%);
+}
+
 /* FOOTER ================================================================== */
 footer {
   width: 100%;

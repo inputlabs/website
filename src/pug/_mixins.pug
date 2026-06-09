@@ -8,7 +8,7 @@
   const SECTION_3 = PATH.split('/')[3]
   const PAGE = Path.basename(PATH)
 
-  const db = YAML.parse(FS.readFileSync('src/pug/db/_data.yaml', 'utf8'))
+  const MIDB = YAML.parse(FS.readFileSync('src/pug/db/_midb.yaml', 'utf8'))
 
   const org = {
     repo: 'https://github.com/inputlabs/',

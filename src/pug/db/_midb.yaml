@@ -1,0 +1,82 @@
+"Apex Legends":                  {tier: NO,   steamId: 1172470    , type: FPS    }
+"Battlebit: Remastered":         {tier: GOLD, steamId: 671860     , type: FPS    }
+"Battlefield 3":                 {tier: GOLD, steamId: 1238820    , type: FPS    }
+"Battlefield 4":                 {tier: GOLD, steamId: 1238860    , type: FPS    }
+"Battlefield 6":                 {tier: GOLD, steamId: 2807960    , type: FPS    }
+"Battlefield V":                 {tier: GOLD, steamId: 1238810    , type: FPS    }
+"Black Mesa":                    {tier: GOLD, steamId: 362890     , type: FPS    }
+"Borderlands 3":                 {tier: GOLD, steamId: 397540     , type: FPS    }
+"Bullets Per Minute":            {tier: GOLD, steamId: 1286350    , type: FPS    }
+"Call of Duty: Warzone 2":       {tier: GOLD, steamId: 1962663    , type: FPS    }
+"Control":                       {tier: NO,   steamId: 870780     , type: TP     }
+"Counter-Strike 2":              {tier: NO,   steamId: 730        , type: FPS    }
+"Cyberpunk 2077":                {tier: GOLD, steamId: 1091500    , type: FPS    }
+"Days Gone":                     {tier: PLAT, steamId: 1259420    , type: TP     }
+"Deep Rock Galactic":            {tier: SILV, steamId: 548430     , type: FPS    }
+"Destiny 2":                     {tier: GOLD, steamId: 1085660    , type: FPS    }
+"Dishonored 2":                  {tier: GOLD, steamId: 403640     , type: FPS    }
+"Doom (2016)":                   {tier: GOLD, steamId: 379720     , type: FPS    }
+"Doom Eternal":                  {tier: GOLD, steamId: 782330     , type: FPS    }
+"Doom: The Dark Ages":           {tier: GOLD, steamId: 3017860    , type: FPS    }
+"Elden Ring":                    {tier: PLAT, steamId: 1245620    , type: TP     }
+"Enshrouded":                    {tier: NO,   steamId: 1203620    , type: TP     }
+"Enter The Gungeon":             {tier: NO,   steamId: 311690     , type: TWIN   }
+"Escape From Duckov":            {tier: NO,   steamId: 3167020    , type: TWIN   }
+"Everspace 2":                   {tier: PLAT, steamId: 1128920    , type: COCKPIT}
+"Far Cry 4":                     {tier: GOLD, steamId: 298110     , type: FPS    }
+"Far Cry 5":                     {tier: GOLD, steamId: 552520     , type: FPS    }
+"Far Cry 6":                     {tier: GOLD, steamId: 2369390    , type: FPS    }
+"Fortnite":                      {tier: PLAT, steamId: fortnite   , type: TP     }
+"Ghost of Tsushima":             {tier: NO,   steamId: 2215430    , type: TP     }
+"Ghost Recon Breakpoint":        {tier: PLAT, steamId: 2231380    , type: TP     }
+"Ghostrunner":                   {tier: GOLD, steamId: 1139900    , type: FPS    }
+"Grand Theft Auto V":            {tier: BRON, steamId: 271590     , type: TP     }
+"Gunfire Reborn":                {tier: NO,   steamId: 1217060    , type: FPS    }
+"Half-Life 2":                   {tier: GOLD, steamId: 220        , type: FPS    }
+"Horizon Forbidden West":        {tier: NO,   steamId: 2420110    , type: TP     }
+"Horizon Zero Dawn":             {tier: NO,   steamId: 1151640    , type: TP     }
+"Hunt: Showdown":                {tier: GOLD, steamId: 594650     , type: FPS    }
+"I Am Your Beast":               {tier: PLAT, steamId: 1876590    , type: FPS    }
+"Insurgency: Sandstorm":         {tier: GOLD, steamId: 581320     , type: FPS    }
+"Ion Fury":                      {tier: GOLD, steamId: 562860     , type: FPS    }
+"Kingdom Come: Deliverance 2":   {tier: GOLD, steamId: 1771300    , type: FPS    }
+"Kingdom Come: Deliverance":     {tier: GOLD, steamId: 379430     , type: FPS    }
+"Left 4 Dead 2":                 {tier: GOLD, steamId: 550        , type: FPS    }
+"Marvel Rivals":                 {tier: NO,   steamId: 2767030    , type: TP     }
+"Minecraft (Bedrock edition)":   {tier: GOLD, steamId: 'minecraft', type: FPS    }
+"Mirror's Edge":                 {tier: GOLD, steamId: 17410      , type: FPS    }
+"Necromunda: Hired Gun":         {tier: GOLD, steamId: 1222370    , type: FPS    }
+"Neon White":                    {tier: GOLD, steamId: 1533420    , type: FPS    }
+"No Man's Sky":                  {tier: SILV, steamId: 275850     , type: FPS    }
+"Noita":                         {tier: NO,   steamId: 881100     , type: PLAT   }
+"Portal 2":                      {tier: GOLD, steamId: 620        , type: FPS    }
+"PowerWash Simulator":           {tier: GOLD, steamId: 1290000    , type: FPS    }
+"Prodeus":                       {tier: NO,   steamId: 964800     , type: FPS    }
+"PUBG: Battlegrounds":           {tier: NO,   steamId: 578080     , type: FPS    }
+"Quake II (2023)":               {tier: GOLD, steamId: 2320       , type: FPS    }
+"Rainbow Six Siege":             {tier: NO,   steamId: 359550     , type: FPS    }
+"Resident Evil 2 (2019)":        {tier: GOLD, steamId: 883710     , type: TP     }
+"Resident Evil 4 (2023)":        {tier: GOLD, steamId: 2050650    , type: TP     }
+"Returnal":                      {tier: BRON, steamId: 1649240    , type: TP     }
+"Risk of Rain 2":                {tier: GOLD, steamId: 632360     , type: TP     }
+"Roboquest":                     {tier: NO,   steamId: 692890     , type: FPS    }
+"Superhot: Mind Control Delete": {tier: GOLD, steamId: 322500     , type: FPS    }
+"Teardown":                      {tier: SILV, steamId: 1167630    , type: FPS    }
+"The Elder Scrolls V: Skyrim":   {tier: SILV, steamId: 489830     , type: FPS    }
+"The Witcher 3":                 {tier: GOLD, steamId: 292030     , type: TP     }
+"Titanfall 2":                   {tier: GOLD, steamId: 1237970    , type: FPS    }
+"Warframe":                      {tier: GOLD, steamId: 230410     , type: TP     }
+"White Knuckle":                 {tier: NO,   steamId: 3195790    , type: FPS    }
+"Witchfire":                     {tier: GOLD, steamId: 3156770    , type: FPS    }
+"MS Flight Simulator":           {tier: '-' , steamId: 1250410    , type: COCKPIT}
+"CULTIC":                        {tier: '-' , steamId: 1684930    , type: FPS    }
+"Dying Light":                   {tier: '-' , steamId: 239140     , type: FPS    }
+"Dying Light 2: Stay Human":     {tier: '-' , steamId: 534380     , type: FPS    }
+"DCS World":                     {tier: '-' , steamId: 223750     , type: COCKPIT}
+"Outer Wilds":                   {tier: '-' , steamId: 753640     , type: FPS    }
+"Resident Evil 3 (2020)":        {tier: '-' , steamId: 952060     , type: FPS    }
+"Resident Evil 7":               {tier: '-' , steamId: 418370     , type: FPS    }
+"Resident Evil Village":         {tier: '-' , steamId: 1196590    , type: FPS    }
+"Rage 2":                        {tier: '-' , steamId: 548570     , type: FPS    }
+"Shadow Warrior 2":              {tier: '-' , steamId: 324800     , type: FPS    }
+"Shadow Warrior 3":              {tier: '-' , steamId: 1036890    , type: FPS    }
