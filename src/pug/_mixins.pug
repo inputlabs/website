@@ -41,6 +41,8 @@
     'placeholder'
   ].includes(PAGE)
 
+  const loadMIDB = SECTION == 'db'
+
 mixin wikilink(href, external=false)
   - const active = (href==PAGE)
   - const cls = (active ? 'active' : '')

@@ -4,6 +4,7 @@ class MIDB {
       name: '',
       tier: '',
       category: '',
+      limit: 1000,
     }
     this.getQueryString()
   }
@@ -26,14 +27,19 @@ class MIDB {
   search() {
     const name = this.filterState.name.toLowerCase().replace(' ', '-')
     const tier = this.filterState.tier
+    const category = this.filterState.category
 
     const elements = document.querySelectorAll('.game')
+    let count = 0
     elements.forEach(element => {
       const match = (
         (name === '' || element.id.includes(name)) &&
-        (tier === '' || element.dataset.tier == tier)
+        (tier === '' || element.dataset.tier == tier) &&
+        (category === '' || element.dataset.category == category)
       )
-      element.style.display = match ? '' : 'none'
+      const reachedLimit = count > this.filterState.limit
+      element.style.display = match && !reachedLimit ? '' : 'none'
+      if (match) count += 1
     })
 
     if (name !== '') this.setQueryString(name)
@@ -64,6 +70,7 @@ class MIDB {
     const searchBar = document.getElementById('searchbar')
     if (searchBar && query) {
       searchBar.value = query
+      this.setFilterName(query)
     }
   }
 }

@@ -13,35 +13,41 @@ block page
       div.box.index
         //- h2 Mixed Input database
 
-        select.filter(onchange='midb.setFilterTier(this.value)')
-          option(value='') All tiers
-          option(value='PLAT') Platinum
-          option(value='GOLD') Gold
-          option(value='SILV') Silver
-          option(value='BRON') Bronze
-          option(value='NO') No support
-
-        select.filter(name='category' id='category')
-          option(value='all') All input types
-          option(value='fps') First Person
-          option(value='tp') Third Person
-          option(value='cockpit') Cockpit
-          option(value='twin') Twin Sticks
-          option(value='platform') Platformer
-
         div.searchbar
           input.filter(
             id='searchbar'
             type='text'
-            placeholder='Search'
+            placeholder='Search by name'
             oninput='midb.setFilterName(this.value)'
           )
           span.searchreset(onclick="midb.resetFilterName()") X
 
+        div.select
+          select.filter(onchange='midb.setFilterTier(this.value)')
+            option(value='') All tiers
+            option(value='PLAT') Platinum
+            option(value='GOLD') Gold
+            option(value='SILV') Silver
+            option(value='BRON') Bronze
+            option(value='NO') No support
+
+        div.select
+          select.filter(onchange='midb.setFilterCategory(this.value)')
+            option(value='') All categories
+            option(value='FPS') First Person
+            option(value='TP') Third Person
+            option(value='COCK') Cockpit
+            option(value='TWIN') Twin Sticks
+            option(value='PLAT') Platformer
+
         div.desc
-          p #[em Mixed Input DB] is community-driven database dedicated to tracking, testing, and rating how videogames handle simultaneous input. So any combination of mouse, keyboard, and gamepad, used in parallel.
-          p Games with good mixed input support are more accessible, and more fun to use with gyro controllers.
-          p This subproject is hosted and maintained by Input Labs and its community.
+          p #[em Mixed Input DB] is community-driven database dedicated to test and #[+a('tiers') rate] how videogames handle simultaneous input. So any combination of mouse, keyboard, and gamepad, used in parallel.
+          p Games with good mixed input support are more accessible, and more fun to play with gyro controllers.
+          //- p This subproject is hosted and maintained by Input Labs and its community.
+          p To submit new entries, request games, or propose changes, please ping us on #[+ax(org.discord) Discord #games] channel.
+          p
+            span Games in database: #{Object.keys(MIDB).length} #[br]
+            span.dim: i *Data could be outdated or incorrect.
 
     div.box.entry
       block content
@@ -51,8 +57,8 @@ block page
             GOLD: 'Gold',
             SILV: 'Silver',
             BRON: 'Bronze',
-            NO: 'No',
-            '-': 'None',
+            NO: 'No support',
+            _: 'Not evaluated',
           }
           const tierSort = {
             PLAT: 1,
@@ -60,7 +66,7 @@ block page
             SILV: 3,
             BRON: 4,
             NO: 5,
-            '-': 6,
+            _: 6,
           }
 
           const MIDB_sorted = Object.fromEntries(Object.entries(MIDB).sort((a, b) => {
@@ -75,22 +81,47 @@ block page
             else return nameA.localeCompare(nameB)
           }))
 
-          const imgUrl = (id) => {
-            if (typeof id == 'number') return `https://steamcdn-a.akamaihd.net/steam/apps/${id}/capsule_184x69.jpg`
-            //- if (typeof id == 'number') return `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${id}/header.jpg`
-            else return `/static/img/game_${id}.png`
+          const imgUrl = (game) => {
+            const id = game.steamId
+            if (game.altCover && game.altCover[0] == '/') return `/static/img/game_${game.altCover.slice(1)}.png`
+            if (id && !game.altCover) return `https://steamcdn-a.akamaihd.net/steam/apps/${id}/capsule_184x69.jpg`
+            if (id && game.altCover == 'header') return `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${id}/header.jpg`
+            if (id && game.altCover) return `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${id}/${game.altCover}/header.jpg`
           }
 
-          const nameToId = (name) => name.replace(' ', '-').replace(':', '').toLowerCase()
+          const badgeUrl = (tier) => tier.toLowerCase().replace(' ', '_')
+          const nameToId = (name) => name.replaceAll(' ', '-').replaceAll(':', '').toLowerCase()
+
+        -
+          const limit = 1000
+          let count = 0
 
         each game, name in MIDB_sorted
           div.game(
             id=nameToId(name)
             data-tier=game.tier
+            data-category=game.type
+            style=(count >= limit ? 'display:none' : '')
           )
-            img.badge(src=`/static/img/badge_${tierNames[game.tier].toLowerCase()}.png`)
-            img.cover(src=imgUrl(game.steamId) loading='lazy')
-            div.info
+            img.badge(src=`/static/img/badge_${badgeUrl(tierNames[game.tier])}.png`)
+            img.cover(src=imgUrl(game) loading='lazy')
+            div
               h3.title= name
-              div.tier Mixed Input support: #{tierNames[game.tier]}
+              div.info
+                span: +a('tiers') #{tierNames[game.tier]}
+                if game.steamId
+                  span #[+ax(`https://store.steampowered.com/app/${game.steamId}`) Steam]
+                span: +a(PATH + '?game=' + nameToId(name)) Permalink
+                span= game.type
+                if game.notes
+                  span: a(href='javascript:console.log(101)') Notes
+          - count += 1
+
+        //- div
+        //-   span Showing
+        //-   span #{limit}
+        //-   span of
+        //-   span #{count}
+        //-   span -
+        //-   span Show all
 

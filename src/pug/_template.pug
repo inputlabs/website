@@ -34,12 +34,12 @@ html
     )
     //- Scripts.
     script(type='text/javascript' src='/static/init.js?v=3' defer)
-    script(type='text/javascript' src='/static/midb.js?v=1' defer)
     script(
       defer
       data-domain=(ENV=='prod' ? 'inputlabs.io' : 'dev.inputlabs.io')
       src='https://plausible.io/js/plausible.outbound-links.file-downloads.js'
     )
+    //- Math formulas visualizer.
     if loadMathJax
       script(
         type='text/javascript'
@@ -47,6 +47,10 @@ html
         async
         src='/static/tex-svg.js' /* From: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js */
       )
+    //- Mixed input database.
+    if loadMIDB
+      link(rel='stylesheet' href='/static/midb.css?v=1')
+      script(type='text/javascript' src='/static/midb.js?v=1' defer)
 
   body
     //- div.banner
