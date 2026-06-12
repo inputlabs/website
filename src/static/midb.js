@@ -73,6 +73,13 @@ class MIDB {
       this.setFilterName(query)
     }
   }
+
+  toggleNotes(name) {
+    const element = document.querySelector(`#${name} .notes`)
+    if (element.style.display == '') element.style.display = 'none'
+    else element.style.display = ''
+    console.log(element, element.style.display)
+  }
 }
 
 const midb = new MIDB()

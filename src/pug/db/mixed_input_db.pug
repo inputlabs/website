@@ -8,6 +8,31 @@ block title
 block page
   h1 Mixed Input DB
 
+  -
+    const TierNames = {
+      PLAT: 'Platinum',
+      GOLD: 'Gold',
+      SILV: 'Silver',
+      BRON: 'Bronze',
+      NO: 'No support',
+      _: 'Not evaluated',
+    }
+    const CategoryNames = {
+      FPS: 'First Person',
+      TP: 'Third Person',
+      COCK: 'Cockpit',
+      TWIN: 'Twin Sticks',
+      PLAT: 'Platformer',
+    }
+    const TierSort = {
+      PLAT: 1,
+      GOLD: 2,
+      SILV: 3,
+      BRON: 4,
+      NO: 5,
+      _: 6,
+    }
+
   div.boxes.wiki
     div
       div.box.index
@@ -25,20 +50,20 @@ block page
         div.select
           select.filter(onchange='midb.setFilterTier(this.value)')
             option(value='') All tiers
-            option(value='PLAT') Platinum
-            option(value='GOLD') Gold
-            option(value='SILV') Silver
-            option(value='BRON') Bronze
-            option(value='NO') No support
+            option(value='PLAT')= TierNames['PLAT']
+            option(value='GOLD')= TierNames['GOLD']
+            option(value='SILV')= TierNames['SILV']
+            option(value='BRON')= TierNames['BRON']
+            option(value='NO'  )= TierNames['NO']
 
         div.select
           select.filter(onchange='midb.setFilterCategory(this.value)')
             option(value='') All categories
-            option(value='FPS') First Person
-            option(value='TP') Third Person
-            option(value='COCK') Cockpit
-            option(value='TWIN') Twin Sticks
-            option(value='PLAT') Platformer
+            option(value='FPS' )= CategoryNames['FPS' ]
+            option(value='TP'  )= CategoryNames['TP'  ]
+            option(value='COCK')= CategoryNames['COCK']
+            option(value='TWIN')= CategoryNames['TWIN']
+            option(value='PLAT')= CategoryNames['PLAT']
 
         div.desc
           p #[em Mixed Input DB] is community-driven database dedicated to test and #[+a('tiers') rate] how videogames handle simultaneous input. So any combination of mouse, keyboard, and gamepad, used in parallel.
@@ -52,29 +77,12 @@ block page
     div.box.entry
       block content
         -
-          const tierNames = {
-            PLAT: 'Platinum',
-            GOLD: 'Gold',
-            SILV: 'Silver',
-            BRON: 'Bronze',
-            NO: 'No support',
-            _: 'Not evaluated',
-          }
-          const tierSort = {
-            PLAT: 1,
-            GOLD: 2,
-            SILV: 3,
-            BRON: 4,
-            NO: 5,
-            _: 6,
-          }
-
           const MIDB_sorted = Object.fromEntries(Object.entries(MIDB).sort((a, b) => {
             // Sort by tier.
             const [nameA, gameA] = a
             const [nameB, gameB] = b
-            let tierA = tierSort[gameA.tier]
-            let tierB = tierSort[gameB.tier]
+            let tierA = TierSort[gameA.tier]
+            let tierB = TierSort[gameB.tier]
             if      (tierA > tierB) return 1
             else if (tierA < tierB) return -1
             // Then sort alphabetically.
@@ -89,33 +97,43 @@ block page
             if (id && game.altCover) return `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${id}/${game.altCover}/header.jpg`
           }
 
-          const badgeUrl = (tier) => tier.toLowerCase().replace(' ', '_')
-          const nameToId = (name) => name.replaceAll(' ', '-').replaceAll(':', '').toLowerCase()
 
-        -
           const limit = 1000
           let count = 0
 
         each game, name in MIDB_sorted
+          -
+            const nameId = name.replaceAll(' ', '-').replaceAll(':', '').replaceAll("'", '').toLowerCase()
+            const badgeUrl = TierNames[game.tier].toLowerCase().replace(' ', '_')
+            const categoryName = CategoryNames[game.type]
+            const permalink = PATH + '?game=' + nameId
+
           div.game(
-            id=nameToId(name)
+            id=nameId
             data-tier=game.tier
             data-category=game.type
             style=(count >= limit ? 'display:none' : '')
           )
-            img.badge(src=`/static/img/badge_${badgeUrl(tierNames[game.tier])}.png`)
+            - count += 1
+            a(href='tiers')
+              img.badge(src=`/static/img/badge_${badgeUrl}.png`)
             img.cover(src=imgUrl(game) loading='lazy')
             div
-              h3.title= name
+              h3.title
+                a(href=permalink)= name
               div.info
-                span: +a('tiers') #{tierNames[game.tier]}
                 if game.steamId
-                  span #[+ax(`https://store.steampowered.com/app/${game.steamId}`) Steam]
-                span: +a(PATH + '?game=' + nameToId(name)) Permalink
-                span= game.type
+                  span
+                    a(href=`https://store.steampowered.com/app/${game.steamId}` target='blank')
+                      img(src='/static/img/icon_steam.png')
+                span: +a('tiers') #{TierNames[game.tier]}
+                span= categoryName
                 if game.notes
-                  span: a(href='javascript:console.log(101)') Notes
-          - count += 1
+                  span: a(href=`javascript:midb.toggleNotes('${nameId}')`) Notes
+              if game.notes
+                div.notes(style='display:none')
+                  b Notes:&nbsp;
+                  span= game.notes
 
         //- div
         //-   span Showing

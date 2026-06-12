@@ -71,7 +71,7 @@
 
 .wiki .game .badge {
   height: 50px;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .wiki .game .cover {
@@ -88,10 +88,21 @@
   margin-top: 0px;
   margin-bottom: 3px;
 }
+.wiki .game .title a {
+  color: white !important;
+  padding-left: 0 !important;
+  text-decoration: none;
+}
 
 .wiki .game .info {
   font-size: 15px;
   color: hsl(0deg, 0%, 35%);
+}
+.wiki .game .info img {
+  height: 15px;
+  opacity: 0.4;
+  /* margin-right: 8px; */
+  vertical-align: center;
 }
 
 .wiki .game .info span:not(:last-child):after {
@@ -106,21 +117,33 @@
   /* text-decoration: none; */
 }
 
+.wiki .game .notes {
+  margin-top: 5px;
+}
 
 @media (max-width: 964px) {
   .wiki .game .badge {
     height: 35px;
     margin-top: 1px;
-    margin-right: 10px;
+    margin-right: 7px;
   }
   .wiki .game .cover {
     height: 35px;
     width: auto;
     aspect-ratio: 2.66 / 1;
     margin-top: 1px;
+    margin-right: 10px;
   }
   .wiki .game .title {
     font-size: 16px;
     margin-bottom: 0px;
+  }
+  .wiki .game .info,
+  .wiki .game .notes {
+    font-size: 14px;
+  }
+  .wiki .game .info img {
+    height: 12px;
+    /* margin-right: 6px; */
   }
 }
