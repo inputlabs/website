@@ -1,5 +1,13 @@
-/devices               /alpakka
-/devices/*             /:splat
-/alpakka/manual        /alpakka/manual/mouse
-/contribute            /contribute/open_source
-/db                    /db/stats
+/devices         /alpakka                 301
+/devices/*       /:splat                  301
+/alpakka/manual  /alpakka/manual/mouse    301
+/contribute      /contribute/open_source  301
+
+/db           /mixed-input/db     301
+/db/stats     /mixed-input/db     301
+/db/glossary  /mixed-input/tiers  301
+
+/db/:a_:b_:c_:d  /mixed-input/db?game=:a-:b-:c-:d  301
+/db/:a_:b_:c     /mixed-input/db?game=:a-:b-:c     301
+/db/:a_:b        /mixed-input/db?game=:a-:b        301
+/db/:game        /mixed-input/db?game=:game        301
