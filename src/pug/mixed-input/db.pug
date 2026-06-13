@@ -96,7 +96,15 @@ block page
 
         each game, name in MIDB_sorted
           -
-            const nameId = name.replaceAll(' ', '-').replaceAll(':', '').replaceAll("'", '').toLowerCase()
+            const nameId = name
+              .replaceAll(' ', '-')
+              .replaceAll('.', '')
+              .replaceAll(',', '')
+              .replaceAll(':', '')
+              .replaceAll("'", '')
+              .replaceAll('(', '')
+              .replaceAll(')', '')
+              .toLowerCase()
             const badgeUrl = TierNames[game.tier].toLowerCase().replace(' ', '_')
             const categoryName = CategoryNames[game.type]
             const permalink = PATH + '?game=' + nameId

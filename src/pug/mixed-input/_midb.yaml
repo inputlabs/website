@@ -90,7 +90,7 @@
 "Stray":                         {tier: GOLD, type: TP,   steamId: 1332010 }
 "Superhot: Mind Control Delete": {tier: GOLD, type: FPS,  steamId: 322500  }
 "Teardown":                      {tier: GOLD, type: FPS,  steamId: 1167630 }
-"THE FINALS":                    {tier: GOLD, type: FPS,  steamId: 2073850 }
+"The Finals":                    {tier: GOLD, type: FPS,  steamId: 2073850 }
 "The First Descendant":          {tier: GOLD, type: TP,   steamId: 2074920 }
 "The Witcher 3":                 {tier: GOLD, type: TP,   steamId: 292030  }
 "Titanfall 2":                   {tier: GOLD, type: FPS,  steamId: 1237970 }

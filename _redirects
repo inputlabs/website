@@ -7,7 +7,48 @@
 /db/stats     /mixed-input/db     301
 /db/glossary  /mixed-input/tiers  301
 
-/db/:a_:b_:c_:d  /mixed-input/db?game=:a-:b-:c-:d  301
-/db/:a_:b_:c     /mixed-input/db?game=:a-:b-:c     301
-/db/:a_:b        /mixed-input/db?game=:a-:b        301
-/db/:game        /mixed-input/db?game=:game        301
+/db/apex_legends          /mixed-input/db?game=apex-legends
+/db/battlebit_remastered  /mixed-input/db?game=battlebit-remastered
+/db/battlefield_4         /mixed-input/db?game=battlefield-4
+/db/borderlands_3         /mixed-input/db?game=borderlands-3
+/db/bullets_per_minute    /mixed-input/db?game=bullets-per-minute
+/db/control               /mixed-input/db?game=control
+/db/counter_strike_2      /mixed-input/db?game=counter-strike-2
+/db/days_gone             /mixed-input/db?game=days-gone
+/db/deep_rock_galactic    /mixed-input/db?game=deep-rock-galactic
+/db/dishonored_2          /mixed-input/db?game=dishonored-2
+/db/doom_2016             /mixed-input/db?game=doom-2016
+/db/elden_ring            /mixed-input/db?game=elden-ring
+/db/everspace_2           /mixed-input/db?game=everspace-2
+/db/far_cry_5             /mixed-input/db?game=far-cry-5
+/db/fortnite              /mixed-input/db?game=fortnite
+/db/ghostrunner           /mixed-input/db?game=ghostrunner
+/db/glossary              /mixed-input/db?game=glossary
+/db/gta_v                 /mixed-input/db?game=gta-v
+/db/half_life_2           /mixed-input/db?game=half-life-2
+/db/horizon_zero_dawn     /mixed-input/db?game=horizon-zero-dawn
+/db/hunt_showdown         /mixed-input/db?game=hunt-showdown
+/db/insurgency_sandstorm  /mixed-input/db?game=insurgency-sandstorm
+/db/ion_fury              /mixed-input/db?game=ion-fury
+/db/minecraft_bedrock     /mixed-input/db?game=minecraft-bedrock
+/db/mirrors_edge          /mixed-input/db?game=mirrors-edge
+/db/necromunda            /mixed-input/db?game=necromunda
+/db/neon_white            /mixed-input/db?game=neon-white
+/db/no_mans_sky           /mixed-input/db?game=no-mans-sky
+/db/noita                 /mixed-input/db?game=noita
+/db/portal_2              /mixed-input/db?game=portal-2
+/db/prodeus               /mixed-input/db?game=prodeus
+/db/pubg                  /mixed-input/db?game=pubg
+/db/quake_2_2023          /mixed-input/db?game=quake-ii-2023
+/db/rainbow_six_siege     /mixed-input/db?game=rainbow-six-siege
+/db/returnal              /mixed-input/db?game=returnal
+/db/risk_of_rain_2        /mixed-input/db?game=risk-of-rain-2
+/db/skyrim                /mixed-input/db?game=skyrim
+/db/stats                 /mixed-input/db?game=stats
+/db/superhot_mcd          /mixed-input/db?game=superhot-mind-control-delete
+/db/teardown              /mixed-input/db?game=teardown
+/db/the_witcher_3         /mixed-input/db?game=the-witcher-3
+/db/titanfall_2           /mixed-input/db?game=titanfall-2
+/db/warframe              /mixed-input/db?game=warframe
+/db/warzone_2             /mixed-input/db?game=warzone-2
+
