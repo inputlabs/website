@@ -8,7 +8,7 @@
   const SECTION_3 = PATH.split('/')[3]
   const PAGE = Path.basename(PATH)
 
-  const db = YAML.parse(FS.readFileSync('src/pug/db/_data.yaml', 'utf8'))
+  const MIDB = YAML.parse(FS.readFileSync('src/pug/mixed-input/_midb.yaml', 'utf8'))
 
   const org = {
     repo: 'https://github.com/inputlabs/',
@@ -29,7 +29,7 @@
   }
 
   const redirect = {
-    db:            '/db/stats',
+    db:            '/mixed-input/db',
     contribute:    '/contribute/open_source',
     devices:       '/alpakka',
     alpakkaManual: '/alpakka/manual/ctrl_app',
@@ -40,6 +40,8 @@
     'dual_gyro',
     'placeholder'
   ].includes(PAGE)
+
+  const loadMIDB = SECTION == 'mixed-input'
 
 mixin wikilink(href, external=false)
   - const active = (href==PAGE)

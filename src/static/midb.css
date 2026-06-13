@@ -1,0 +1,194 @@
+.wiki .index .filter {
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  width: calc(100% - 20px);
+  height: 30px;
+  font-family: monospace;
+  font-size: 17px;
+  color: hsl(0deg, 0%, 80%);
+  background-color: hsl(0deg, 0%, 10%);
+  border: 1px solid hsl(0deg, 0%, 50%);
+}
+
+.wiki .index em {
+  padding-left: 0 !important;
+}
+
+.wiki .index select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.wiki .index .select {
+  position: relative;
+}
+.wiki .index .select::after {
+  content: "v";
+  position: absolute;
+  font-size: 17px;
+  font-family: monospace;
+  color: hsl(0deg, 0%, 50%);
+  top: 9px;
+  right: 10px;
+  pointer-events: none;
+}
+
+.wiki .index .searchbar {
+  position: relative;
+}
+
+.wiki .index #searchbar:focus {
+  border: 1px solid white;
+  outline: 1px solid white;
+}
+
+.wiki .index .searchreset {
+  position: absolute;
+  font-family: monospace;
+  font-size: 17px;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+  color: hsl(0deg, 0%, 50%);
+}
+
+.wiki .index .desc {
+  margin-left: 20px;
+  font-size: 14px;
+  color: hsl(0deg, 0%, 100%);
+}
+
+.wiki .index .back {
+  display: block;
+  box-sizing: border-box;
+  width: calc(100% - 20px);
+  margin-top: 1px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  padding-left: 15px;
+  border: 1px solid white;
+  font-family: monospace;
+  font-size: 17px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Entries ==================================================================*/
+.wiki .game {
+  background-color: black;
+  margin: 8px;
+  padding: 6px;
+  display: flex;
+}
+
+.wiki .game .badge {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.wiki .game .cover {
+  height: 50px;
+  width: auto;
+  aspect-ratio: 2.66 / 1;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.wiki .game .title {
+  margin: 0;
+  font-size: 22px;
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+.wiki .game .title a {
+  color: white !important;
+  padding-left: 0 !important;
+  text-decoration: none;
+}
+
+.wiki .game .info {
+  font-size: 15px;
+  color: hsl(0deg, 0%, 50%);
+}
+.wiki .game .info img {
+  height: 15px;
+  opacity: 0.4;
+  /* margin-right: 8px; */
+  vertical-align: center;
+}
+
+.wiki .game .info span:not(:last-child):after {
+  content: " - ";
+}
+
+.wiki .game .info a,
+.wiki .game .info a:visited {
+  padding-left: 0 !important;
+  color: hsl(0deg, 0%, 50%) !important;
+  font-weight: normal;
+  /* text-decoration: none; */
+}
+
+.wiki .game .notes {
+  margin-top: 5px;
+}
+
+@media (max-width: 964px) {
+  .wiki .game .badge {
+    height: 35px;
+    margin-top: 1px;
+    margin-right: 7px;
+  }
+  .wiki .game .cover {
+    height: 35px;
+    width: auto;
+    aspect-ratio: 2.66 / 1;
+    margin-top: 1px;
+    margin-right: 10px;
+  }
+  .wiki .game .title {
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+  .wiki .game .info,
+  .wiki .game .notes {
+    font-size: 14px;
+  }
+  .wiki .game .info img {
+    height: 12px;
+    /* margin-right: 6px; */
+  }
+}
+
+/* Tiers =================================================================== */
+.wiki .tier {
+  background-color: black;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 20px;
+  padding-top: 15px;
+}
+
+.wiki .tier .badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wiki .tier .badge img {
+  height: 70px;
+  /* margin: 10px; */
+  margin-right: 30px;
+}
+
+.wiki .tier h2 {
+  /* margin-top: 0; */
+}
+
+.wiki .tier .desc ul {
+  margin-top: 5px;
+  margin-left: -4px;
+}
