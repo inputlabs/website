@@ -1,7 +1,7 @@
 "Apex Legends":                  {tier: NO,   type: FPS,  steamId: 1172470 }
 "ARC Raiders":                   {tier: NO,   type: TP,   steamId: 1808500 }
 "Assassin's Creed Origins":      {tier: NO,   type: TP,   steamId: 582160  }
-"BALL x PIT":                    {tier: NO,   type: TWIN, steamId: 2062430, altCover: /ball_x_pit }
+"Ball x Pit":                    {tier: NO,   type: TWIN, steamId: 2062430, altCover: /ball_x_pit }
 "Battlebit: Remastered":         {tier: GOLD, type: FPS,  steamId: 671860  }
 "Battlefield 1":                 {tier: GOLD, type: FPS,  steamId: 1238840 }
 "Battlefield 3":                 {tier: GOLD, type: FPS,  steamId: 1238820 }
@@ -20,7 +20,7 @@
 "Crysis 2 Remastered":           {tier: GOLD, type: FPS,  steamId: 2096600 }
 "Crysis 3 Remastered":           {tier: GOLD, type: FPS,  steamId: 2096610 }
 "Crysis Remastered":             {tier: GOLD, type: FPS,  steamId: 1715130 }
-"CULTIC":                        {tier: PLAT, type: FPS,  steamId: 1684930 }
+"Cultic":                        {tier: PLAT, type: FPS,  steamId: 1684930 }
 "Cyberpunk 2077":                {tier: GOLD, type: FPS,  steamId: 1091500 }
 "Days Gone":                     {tier: PLAT, type: TP,   steamId: 1259420 }
 "Delta Force":                   {tier: NO,   type: FPS,  steamId: 2507950 }
@@ -33,6 +33,7 @@
 "Doom Eternal":                  {tier: GOLD, type: FPS,  steamId: 782330  }
 "Doom: The Dark Ages":           {tier: GOLD, type: FPS,  steamId: 3017860 }
 "Dying Light 2: Stay Human":     {tier: NO,   type: FPS,  steamId: 534380  }
+"Dying Light":                   {tier: GOLD, type: FPS,  steamId: 239140  }
 "Elden Ring":                    {tier: PLAT, type: TP,   steamId: 1245620 }
 "Enshrouded":                    {tier: NO,   type: TP,   steamId: 1203620 }
 "Enter The Gungeon":             {tier: NO,   type: TWIN, steamId: 311690  }
@@ -52,7 +53,7 @@
 "Horizon Forbidden West":        {tier: NO,   type: TP,   steamId: 2420110 }
 "Horizon Zero Dawn":             {tier: NO,   type: TP,   steamId: 1151640 }
 "Hunt: Showdown":                {tier: GOLD, type: FPS,  steamId: 594650  }
-"HYPER DEMON":                   {tier: NO ,  type: FPS,  steamId: 1743850 }
+"Hyper Demon":                   {tier: NO ,  type: FPS,  steamId: 1743850 }
 "I Am Your Beast":               {tier: PLAT, type: FPS,  steamId: 1876590 }
 "Insurgency: Sandstorm":         {tier: GOLD, type: FPS,  steamId: 581320  }
 "Ion Fury":                      {tier: GOLD, type: FPS,  steamId: 562860  }
@@ -71,7 +72,7 @@
 "Portal 2":                      {tier: GOLD, type: FPS,  steamId: 620     }
 "Portal":                        {tier: GOLD, type: FPS,  steamId: 400     }
 "PowerWash Simulator":           {tier: GOLD, type: FPS,  steamId: 1290000 }
-"PRAGMATA":                      {tier: NO,   type: TP,   steamId: 3357650, altCover: e32e168b25ed68a0cf6264c220c07e96c2abfb56 }
+"Pragmata":                      {tier: NO,   type: TP,   steamId: 3357650, altCover: e32e168b25ed68a0cf6264c220c07e96c2abfb56 }
 "Prodeus":                       {tier: NO,   type: FPS,  steamId: 964800  }
 "PUBG: Battlegrounds":           {tier: NO,   type: TP,   steamId: 578080  }
 "Quake II (2023)":               {tier: GOLD, type: FPS,  steamId: 2320    }
@@ -86,9 +87,9 @@
 "Shadow Warrior 2":              {tier: GOLD, type: FPS,  steamId: 324800  }
 "Shadow Warrior 3":              {tier: GOLD, type: FPS,  steamId: 1036890 }
 "STALKER 2: Heart of Chornobyl": {tier: GOLD, type: FPS,  steamId: 1643320 }
-"Star Wars Outlaws":             {tier: GOLD, type: TP,   steamId: 2842040, altCover: header }
 "Stray":                         {tier: GOLD, type: TP,   steamId: 1332010 }
 "Superhot: Mind Control Delete": {tier: GOLD, type: FPS,  steamId: 322500  }
+"Teardown":                      {tier: GOLD, type: FPS,  steamId: 1167630 }
 "THE FINALS":                    {tier: GOLD, type: FPS,  steamId: 2073850 }
 "The First Descendant":          {tier: GOLD, type: TP,   steamId: 2074920 }
 "The Witcher 3":                 {tier: GOLD, type: TP,   steamId: 292030  }
@@ -96,25 +97,26 @@
 "Warframe":                      {tier: GOLD, type: TP,   steamId: 230410  }
 "Witchfire":                     {tier: GOLD, type: FPS,  steamId: 3156770, altCover: 20eb65d67b33ae31b48459ed226014231d3e4fe5 }
 
-"Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430, notes: 'Resupply works inconsistently when switching between MKB and gamepad' }
-"Dying Light":                   {tier: SILV, type: FPS,  steamId: 239140  }
+# Games with additional notes.
 "Fortnite":                      {tier: PLAT, type: TP,   steamId: null, altCover: /fortnite, notes: 'User can force MKB UI, but not gamepad UI' }
-"Ghost Recon Breakpoint":        {tier: PLAT, type: TP,   steamId: 2231380, notes: 'User can force MKB UI, but not gamepad UI' }
+"Ghost Recon Breakpoint":        {tier: PLAT, type: TP,   steamId: 2231380,                   notes: 'User can force MKB UI, but not gamepad UI' }
+"Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430, notes: 'Resupply works inconsistently when switching between MKB and gamepad' }
 "Grand Theft Auto V":            {tier: BRON, type: TP,   steamId: 271590, notes: 'Needs mods to unpack and edit control XML files' }
-"No Man's Sky":                  {tier: SILV, type: FPS,  steamId: 275850, notes: 'Gamepad+MouseLook works as long as no keyboard nor mouse-buttons are used' }
+"No Man's Sky":                  {tier: SILV, type: FPS,  steamId: 275850, notes: 'Gamepad with mouse-look works, but keyboard or mouse-buttons break mixed input' }
 "Returnal":                      {tier: BRON, type: TP,   steamId: 1649240, notes: 'Sound glitch that can be fixed by modifying game files' }
+"Star Wars Outlaws":             {tier: BRON, type: TP,   steamId: 2842040, altCover: header, notes: 'UI flickering has a small impact on performance' }
 "Stellar Blade":                 {tier: SILV, type: TP,   steamId: 3489700, altCover: header, notes: 'Mouse and thumbstick sensitivities must be adjusted to be equal' }
-"Teardown":                      {tier: SILV, type: FPS,  steamId: 1167630 }
 "The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830, notes: 'Mixed input works with DirectInput, but not with XInput'  }
 
+# Games pending to be evaluated.
 # "Resident Evil 7":               {tier: _, type: FPS,  steamId: 418370  }
 # "White Knuckle":                 {tier: _, type: FPS,  steamId: 3195790, altCover: header }
 # "The Pathless":                  {tier: _, type: TP,   steamId: 1492680 }
-# "Back 4 Blood":                  {tier: -, type: TP,   steamId: 924970  }
-# "Resident Evil 3 (2020)":        {tier: _, type: FPS,  steamId: 952060  }
+# "Back 4 Blood":                  {tier: -, type: FPS,  steamId: 924970  }
+# "Resident Evil 3 (2020)":        {tier: _, type: TP,   steamId: 952060  }
 # "Rage 2":                        {tier: _, type: FPS,  steamId: 548570  }
 # "Resident Evil Village":         {tier: _, type: FPS,  steamId: 1196590 }
 # "MS Flight Simulator":           {tier: _, type: COCK, steamId: 1250410 }
 # "DCS World":                     {tier: _, type: COCK, steamId: 223750  }
 
-# "":              {tier: , type: FPS,  steamId:  }
+# "":              {tier: _, type: ,  steamId:  }

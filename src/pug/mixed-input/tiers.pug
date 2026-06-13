@@ -1,0 +1,82 @@
+extends ../_template.pug
+
+block title
+  block subtitle
+    | Mixed Input DB tiers
+    |
+
+block page
+  h1 Mixed Input DB tiers
+
+  div.boxes.wiki
+    div
+      div.box.index
+        a(href='db').back ← Go back to list
+        include ./_sidebar.pug
+
+    div.box.entry
+      block content
+        div.tier
+          div.badge
+            img(src=`/static/img/badge_platinum.png`)
+          div.desc
+            h2 Platinum
+            ul
+              li Simultaneous input is supported.
+              li Input mode switching (if automatic) has no impact on CPU/GPU performance.
+              li No #[em UI flickering] occurs, achieved either by:
+                ul
+                  li Allowing the user to choose which input device prompts are displayed (not just which flavor of gamepad icons).
+                  li Allowing to remove unused keybinds, eliminating any ambiguity about which prompt should be displayed.
+
+        div.tier
+          div.badge
+            img(src=`/static/img/badge_gold.png`)
+          div.desc
+            h2 Gold
+            ul
+              li Simultaneous input is supported.
+              li There is #[em UI flickering], but it has no impact on CPU/GPU performance.
+              li No other issues exist that prevent the user from having a satisfactory mixed-input experience.
+
+        div.tier
+          div.badge
+            img(src=`/static/img/badge_silver.png`)
+          div.desc
+            h2 Silver
+            ul
+              li Simultaneous input is supported.
+              li There is #[em UI flickering], but it has no impact on CPU/GPU performance.
+              li Achieving a satisfactory experience requires:
+              ul
+                li Specific in-game settings (often obscure or not obvious).
+                li A custom input mapping that requires deep understanding of the game.
+                li Other tweaks that can be performed in-game.
+
+        div.tier
+          div.badge
+            img(src=`/static/img/badge_bronze.png`)
+          div.desc
+            h2 Bronze
+            ul
+              li Simultaneous input is supported.
+              li There is #[em UI flickering], and it might have minimal impact on CPU/GPU performance.
+              li Achieving a satisfactory experience requires:
+              ul
+                li Using mods to fix bugs or control hidden settings.
+                li Manually editing game files.
+                li Other advanced tweaks that CANNOT be performed in-game.
+
+        div.tier
+          div.badge
+            img(src=`/static/img/badge_no_support.png`)
+          div.desc
+            h2 No support
+            ul
+              li Simultaneous input is NOT supported, due to any of the following:
+              ul
+                li The game only supports a single input mode at a time.
+                li The game introduces a delay when switching between input modes.
+                li #[em UI flickering] has significant impact on CPU/GPU performance.
+                li Other game-breaking issues with no known fix.
+

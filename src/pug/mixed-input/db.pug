@@ -65,14 +65,7 @@ block page
             option(value='TWIN')= CategoryNames['TWIN']
             option(value='PLAT')= CategoryNames['PLAT']
 
-        div.desc
-          p #[em Mixed Input DB] is community-driven database dedicated to test and #[+a('tiers') rate] how videogames handle simultaneous input. So any combination of mouse, keyboard, and gamepad, used in parallel.
-          p Games with good mixed input support are more accessible, and more fun to play with gyro controllers.
-          //- p This subproject is hosted and maintained by Input Labs and its community.
-          p To submit new entries, request games, or propose changes, please ping us on #[+ax(org.discord) Discord #games] channel.
-          p
-            span Games in database: #{Object.keys(MIDB).length} #[br]
-            span.dim: i *Data could be outdated or incorrect.
+        include ./_sidebar.pug
 
     div.box.entry
       block content
@@ -119,7 +112,7 @@ block page
               img.badge(src=`/static/img/badge_${badgeUrl}.png`)
             img.cover(src=imgUrl(game) loading='lazy')
             div
-              h3.title
+              h2.title
                 a(href=permalink)= name
               div.info
                 if game.steamId
