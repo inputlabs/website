@@ -22,7 +22,6 @@
 "Crysis Remastered":             {tier: GOLD, type: FPS,  steamId: 1715130 }
 "Cultic":                        {tier: PLAT, type: FPS,  steamId: 1684930 }
 "Cyberpunk 2077":                {tier: GOLD, type: FPS,  steamId: 1091500 }
-"Days Gone":                     {tier: PLAT, type: TP,   steamId: 1259420 }
 "Delta Force":                   {tier: NO,   type: FPS,  steamId: 2507950 }
 "Destiny 2":                     {tier: NO,   type: FPS,  steamId: 1085660 }
 "Deus Ex: Mankind Divided":      {tier: GOLD, type: FPS,  steamId: 337000  }
@@ -45,6 +44,7 @@
 "Far Cry 6":                     {tier: GOLD, type: FPS,  steamId: 2369390 }
 "Far Far West":                  {tier: GOLD, type: FPS,  steamId: 3124540, altCover: 2d55092d45b1784dcc7cb0ba6ad3f919e62eb5d0 }
 "Forgive Me Father":             {tier: GOLD, type: FPS,  steamId: 1590910 }
+"Furi":                          {tier: NO,   type: TWIN, steamId: 423230  }
 "Ghost of Tsushima":             {tier: NO,   type: TP,   steamId: 2215430 }
 "Ghostrunner":                   {tier: GOLD, type: FPS,  steamId: 1139900 }
 "Gunfire Reborn":                {tier: NO,   type: FPS,  steamId: 1217060 }
@@ -54,20 +54,21 @@
 "Horizon Zero Dawn":             {tier: NO,   type: TP,   steamId: 1151640 }
 "Hunt: Showdown":                {tier: GOLD, type: FPS,  steamId: 594650  }
 "Hyper Demon":                   {tier: NO ,  type: FPS,  steamId: 1743850 }
-"I Am Your Beast":               {tier: PLAT, type: FPS,  steamId: 1876590 }
 "Insurgency: Sandstorm":         {tier: GOLD, type: FPS,  steamId: 581320  }
 "Ion Fury":                      {tier: GOLD, type: FPS,  steamId: 562860  }
-"Kingdom Come: Deliverance 2":   {tier: GOLD, type: FPS,  steamId: 1771300 }
-"Kingdom Come: Deliverance":     {tier: GOLD, type: FPS,  steamId: 379430  }
+"Journey To The Savage Planet":  {tier: GOLD, type: FPS,  steamId: 973810  }
+"Jump Space":                    {tier: NO,   type: FPS,  steamId: 1757300, altCover: f401ae1af25f31fdfed24f56cf98ea4a32d79997 }
+"Kingdom Come: Deliverance":     {tier: PLAT, type: FPS,  steamId: 379430  }
 "Left 4 Dead 2":                 {tier: GOLD, type: FPS,  steamId: 550     }
 "Marvel Rivals":                 {tier: NO,   type: TP,   steamId: 2767030 }
+"Metro Exodus":                  {tier: NO,   type: FPS,  steamId: 412020  }
 "Minecraft (Bedrock edition)":   {tier: GOLD, type: FPS,  steamId: null, altCover: /minecraft }
 "Mirror's Edge":                 {tier: GOLD, type: FPS,  steamId: 17410   }
 "Necromunda: Hired Gun":         {tier: GOLD, type: FPS,  steamId: 1222370 }
 "Neon White":                    {tier: GOLD, type: FPS,  steamId: 1533420 }
 "Noita":                         {tier: NO,   type: PLAT, steamId: 881100  }
 "Once Human":                    {tier: NO ,  type: TP,   steamId: 2139460 }
-"Outer Wilds":                   {tier: GOLD, type: FPS,  steamId: 753640  }
+"Outer Wilds":                   {tier: NO,   type: FPS,  steamId: 753640  }
 "Overload":                      {tier: GOLD, type: COCK, steamId: 448850  }
 "Portal 2":                      {tier: GOLD, type: FPS,  steamId: 620     }
 "Portal":                        {tier: GOLD, type: FPS,  steamId: 400     }
@@ -76,12 +77,14 @@
 "Prodeus":                       {tier: NO,   type: FPS,  steamId: 964800  }
 "PUBG: Battlegrounds":           {tier: NO,   type: TP,   steamId: 578080  }
 "Quake II (2023)":               {tier: GOLD, type: FPS,  steamId: 2320    }
+"Rage 2":                        {tier: NO,   type: FPS,  steamId: 548570  }
 "Rainbow Six Siege":             {tier: NO,   type: FPS,  steamId: 359550  }
 "Red Dead Redemption 2":         {tier: GOLD, type: TP,   steamId: 1174180 }
 "REMNANT II":                    {tier: GOLD, type: TP,   steamId: 1282100 }
 "Resident Evil 2 (2019)":        {tier: GOLD, type: TP,   steamId: 883710  }
 "Resident Evil 4 (2023)":        {tier: GOLD, type: TP,   steamId: 2050650 }
 "Risk of Rain 2":                {tier: GOLD, type: TP,   steamId: 632360  }
+"RoboCop: Rogue City":           {tier: GOLD, type: FPS,  steamId: 1681430 }
 "Roboquest":                     {tier: NO,   type: FPS,  steamId: 692890  }
 "Selaco":                        {tier: PLAT, type: FPS,  steamId: 1592280 }
 "Shadow Warrior 2":              {tier: GOLD, type: FPS,  steamId: 324800  }
@@ -92,31 +95,27 @@
 "Teardown":                      {tier: GOLD, type: FPS,  steamId: 1167630 }
 "The Finals":                    {tier: GOLD, type: FPS,  steamId: 2073850 }
 "The First Descendant":          {tier: GOLD, type: TP,   steamId: 2074920 }
+"The Pathless":                  {tier: NO,   type: TP,   steamId: 1492680 }
 "The Witcher 3":                 {tier: GOLD, type: TP,   steamId: 292030  }
 "Titanfall 2":                   {tier: GOLD, type: FPS,  steamId: 1237970 }
 "Warframe":                      {tier: GOLD, type: TP,   steamId: 230410  }
+"Wayfinder":                     {tier: GOLD, type: TP,   steamId: 1171690 }
+"White Knuckle":                 {tier: NO,   type: FPS,  steamId: 3195790, altCover: header }
 "Witchfire":                     {tier: GOLD, type: FPS,  steamId: 3156770, altCover: 20eb65d67b33ae31b48459ed226014231d3e4fe5 }
 
 # Games with additional notes.
-"Fortnite":                      {tier: PLAT, type: TP,   steamId: null, altCover: /fortnite, notes: 'User can force MKB UI, but not gamepad UI' }
-"Ghost Recon Breakpoint":        {tier: PLAT, type: TP,   steamId: 2231380,                   notes: 'User can force MKB UI, but not gamepad UI' }
-"Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430, notes: 'Resupply works inconsistently when switching between MKB and gamepad' }
-"Grand Theft Auto V":            {tier: BRON, type: TP,   steamId: 271590, notes: 'Needs mods to unpack and edit control XML files' }
-"No Man's Sky":                  {tier: SILV, type: FPS,  steamId: 275850, notes: 'Gamepad with mouse-look works, but keyboard or mouse-buttons break mixed input' }
+"Fortnite":                      {tier: PLAT, type: TP,   steamId: null,    notes: 'User can force MKB UI, but not gamepad UI', altCover: /fortnite }
+"Ghost Recon Breakpoint":        {tier: PLAT, type: TP,   steamId: 2231380, notes: 'User can force MKB UI, but not gamepad UI' }
+"I Am Your Beast":               {tier: PLAT, type: FPS,  steamId: 1876590, notes: 'Mixed input must be enabled in settings' }
+"Kingdom Come: Deliverance 2":   {tier: SILV, type: FPS,  steamId: 1771300, notes: 'Inconsistent behavior between modes: Quick potions' }
+"Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430,  notes: 'Inconsistent behavior between modes: Resupply' }
+"Days Gone":                     {tier: SILV, type: TP,   steamId: 1259420, notes: 'Inconsistent behavior between modes: Look sensitivities' }
+"Stellar Blade":                 {tier: SILV, type: TP,   steamId: 3489700, notes: 'Inconsistent behavior between modes: Look sensitivities', altCover: header }
+"No Man's Sky":                  {tier: SILV, type: FPS,  steamId: 275850,  notes: 'Gamepad with mouse-look works, but keyboard or mouse-buttons break mixed input' }
+"Grand Theft Auto V":            {tier: BRON, type: TP,   steamId: 271590,  notes: 'Needs mods to unpack and edit control XML files' }
 "Returnal":                      {tier: BRON, type: TP,   steamId: 1649240, notes: 'Sound glitch that can be fixed by modifying game files' }
-"Star Wars Outlaws":             {tier: BRON, type: TP,   steamId: 2842040, altCover: header, notes: 'UI flickering has a small impact on performance' }
-"Stellar Blade":                 {tier: SILV, type: TP,   steamId: 3489700, altCover: header, notes: 'Mouse and thumbstick sensitivities must be adjusted to be equal' }
-"The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830, notes: 'Mixed input works with DirectInput, but not with XInput'  }
+"Star Wars Outlaws":             {tier: BRON, type: TP,   steamId: 2842040, notes: 'UI flickering has a small impact on performance', altCover: header }
+"The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830,  notes: 'Mixed input works with DirectInput, but not with XInput'  }
+"Dusk":                          {tier: NO, type: FPS, steamId: 519860, notes: 'Almost works, but input is interrupted each few seconds' }
 
-# Games pending to be evaluated.
-# "Resident Evil 7":               {tier: _, type: FPS,  steamId: 418370  }
-# "White Knuckle":                 {tier: _, type: FPS,  steamId: 3195790, altCover: header }
-# "The Pathless":                  {tier: _, type: TP,   steamId: 1492680 }
-# "Back 4 Blood":                  {tier: -, type: FPS,  steamId: 924970  }
-# "Resident Evil 3 (2020)":        {tier: _, type: TP,   steamId: 952060  }
-# "Rage 2":                        {tier: _, type: FPS,  steamId: 548570  }
-# "Resident Evil Village":         {tier: _, type: FPS,  steamId: 1196590 }
-# "MS Flight Simulator":           {tier: _, type: COCK, steamId: 1250410 }
-# "DCS World":                     {tier: _, type: COCK, steamId: 223750  }
-
-# "":              {tier: _, type: ,  steamId:  }
+# "":              {tier: _, type: , steamId:  }
