@@ -81,7 +81,7 @@
 "Rainbow Six Siege":             {tier: NO,   type: FPS,  steamId: 359550  }
 "Red Dead Redemption 2":         {tier: GOLD, type: TP,   steamId: 1174180 }
 "REMNANT II":                    {tier: GOLD, type: TP,   steamId: 1282100 }
-"Resident Evil 2 (2019)":        {tier: GOLD, type: TP,   steamId: 883710  }
+"Resident Evil 2 (2019)":        {tier: NO,   type: TP,   steamId: 883710  }
 "Resident Evil 4 (2023)":        {tier: GOLD, type: TP,   steamId: 2050650 }
 "Risk of Rain 2":                {tier: GOLD, type: TP,   steamId: 632360  }
 "RoboCop: Rogue City":           {tier: GOLD, type: FPS,  steamId: 1681430 }
@@ -89,7 +89,7 @@
 "Selaco":                        {tier: PLAT, type: FPS,  steamId: 1592280 }
 "Shadow Warrior 2":              {tier: GOLD, type: FPS,  steamId: 324800  }
 "Shadow Warrior 3":              {tier: GOLD, type: FPS,  steamId: 1036890 }
-"STALKER 2: Heart of Chornobyl": {tier: GOLD, type: FPS,  steamId: 1643320 }
+"Stalker 2: Heart of Chornobyl": {tier: GOLD, type: FPS,  steamId: 1643320 }
 "Stray":                         {tier: GOLD, type: TP,   steamId: 1332010 }
 "Superhot: Mind Control Delete": {tier: GOLD, type: FPS,  steamId: 322500  }
 "Teardown":                      {tier: GOLD, type: FPS,  steamId: 1167630 }
@@ -107,15 +107,15 @@
 "Fortnite":                      {tier: PLAT, type: TP,   steamId: null,    notes: 'User can force MKB UI, but not gamepad UI', altCover: /fortnite }
 "Ghost Recon Breakpoint":        {tier: PLAT, type: TP,   steamId: 2231380, notes: 'User can force MKB UI, but not gamepad UI' }
 "I Am Your Beast":               {tier: PLAT, type: FPS,  steamId: 1876590, notes: 'Mixed input must be enabled in settings' }
-"Kingdom Come: Deliverance 2":   {tier: SILV, type: FPS,  steamId: 1771300, notes: 'Inconsistent behavior between modes: Quick potions' }
-"Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430,  notes: 'Inconsistent behavior between modes: Resupply' }
-"Days Gone":                     {tier: SILV, type: TP,   steamId: 1259420, notes: 'Inconsistent behavior between modes: Look sensitivities' }
-"Stellar Blade":                 {tier: SILV, type: TP,   steamId: 3489700, notes: 'Inconsistent behavior between modes: Look sensitivities', altCover: header }
+"Kingdom Come: Deliverance 2":   {tier: SILV, type: FPS,  steamId: 1771300, notes: 'Inconsistent behavior between modes (Quick potions)' }
+"Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430,  notes: 'Inconsistent behavior between modes (Resupply)' }
+"Days Gone":                     {tier: SILV, type: TP,   steamId: 1259420, notes: 'Inconsistent behavior between modes (Look sensitivities)' }
+"Stellar Blade":                 {tier: SILV, type: TP,   steamId: 3489700, notes: 'Inconsistent behavior between modes (Look sensitivities)', altCover: header }
 "No Man's Sky":                  {tier: SILV, type: FPS,  steamId: 275850,  notes: 'Gamepad with mouse-look works, but keyboard or mouse-buttons break mixed input' }
 "Grand Theft Auto V":            {tier: BRON, type: TP,   steamId: 271590,  notes: 'Needs mods to unpack and edit control XML files' }
 "Returnal":                      {tier: BRON, type: TP,   steamId: 1649240, notes: 'Sound glitch that can be fixed by modifying game files' }
 "Star Wars Outlaws":             {tier: BRON, type: TP,   steamId: 2842040, notes: 'UI flickering has a small impact on performance', altCover: header }
 "The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830,  notes: 'Mixed input works with DirectInput, but not with XInput'  }
-"Dusk":                          {tier: NO, type: FPS, steamId: 519860, notes: 'Almost works, but input is interrupted each few seconds' }
+"Dusk":                          {tier: NO,   type: FPS,  steamId: 519860,  notes: 'Almost works, but input is interrupted each few seconds' }
 
 # "":              {tier: _, type: , steamId:  }
