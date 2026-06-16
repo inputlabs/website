@@ -60,7 +60,7 @@ class MIDB {
     } else {
       url.searchParams.delete('game')
     }
-    window.history.pushState({}, '', url)
+    window.history.replaceState({}, '', url)
   }
 
   getQueryString() {
