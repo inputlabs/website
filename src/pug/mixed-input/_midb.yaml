@@ -60,13 +60,12 @@
 "Jump Space":                    {tier: NO,   type: FPS,  steamId: 1757300, altCover: f401ae1af25f31fdfed24f56cf98ea4a32d79997 }
 "Kingdom Come: Deliverance":     {tier: PLAT, type: FPS,  steamId: 379430  }
 "Left 4 Dead 2":                 {tier: GOLD, type: FPS,  steamId: 550     }
-"Marvel Rivals":                 {tier: NO,   type: TP,   steamId: 2767030 }
 "Metro Exodus":                  {tier: NO,   type: FPS,  steamId: 412020  }
 "Minecraft (Bedrock edition)":   {tier: GOLD, type: FPS,  steamId: null, altCover: /minecraft }
 "Mirror's Edge":                 {tier: GOLD, type: FPS,  steamId: 17410   }
 "Necromunda: Hired Gun":         {tier: GOLD, type: FPS,  steamId: 1222370 }
 "Neon White":                    {tier: GOLD, type: FPS,  steamId: 1533420 }
-"Noita":                         {tier: NO,   type: PLAT, steamId: 881100  }
+"Noita":                         {tier: NO,   type: TWIN, steamId: 881100  }
 "Once Human":                    {tier: NO ,  type: TP,   steamId: 2139460 }
 "Outer Wilds":                   {tier: NO,   type: FPS,  steamId: 753640  }
 "Overload":                      {tier: GOLD, type: COCK, steamId: 448850  }
@@ -104,8 +103,9 @@
 "Witchfire":                     {tier: GOLD, type: FPS,  steamId: 3156770, altCover: 20eb65d67b33ae31b48459ed226014231d3e4fe5 }
 
 # Games with additional notes.
-"Fortnite":                      {tier: PLAT, type: TP,   steamId: null,    notes: 'User can force MKB UI, but not gamepad UI', altCover: /fortnite }
-"Ghost Recon Breakpoint":        {tier: PLAT, type: TP,   steamId: 2231380, notes: 'User can force MKB UI, but not gamepad UI' }
+"Fortnite":                      {tier: PLAT_, type: TP,   steamId: null,    notes: 'User can force MKB UI, but not gamepad UI', altCover: /fortnite }
+"Ghost Recon Breakpoint":        {tier: PLAT_, type: TP,   steamId: 2231380, notes: 'User can force MKB UI, but not gamepad UI' }
+"Marvel Rivals":                 {tier: PLAT_, type: TP,   steamId: 2767030, notes: 'User can force MKB UI, but not gamepad UI' }
 "I Am Your Beast":               {tier: PLAT, type: FPS,  steamId: 1876590, notes: 'Mixed input must be enabled in settings' }
 "Kingdom Come: Deliverance 2":   {tier: SILV, type: FPS,  steamId: 1771300, notes: 'Inconsistent behavior between modes (Quick potions)' }
 "Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430,  notes: 'Inconsistent behavior between modes (Resupply)' }
@@ -113,8 +113,9 @@
 "Stellar Blade":                 {tier: SILV, type: TP,   steamId: 3489700, notes: 'Inconsistent behavior between modes (Look sensitivities)', altCover: header }
 "No Man's Sky":                  {tier: SILV, type: FPS,  steamId: 275850,  notes: 'Gamepad with mouse-look works, but keyboard or mouse-buttons break mixed input' }
 "Grand Theft Auto V":            {tier: BRON, type: TP,   steamId: 271590,  notes: 'Needs mods to unpack and edit control XML files' }
-"Returnal":                      {tier: BRON, type: TP,   steamId: 1649240, notes: 'Sound glitch that can be fixed by modifying game files' }
+"Returnal":                      {tier: BRON, type: TP,   steamId: 1649240, notes: 'Inconsistent behavior between modes (Alt-fire toggle). Sound glitch that can be fixed by modifying game files.' }
 "Star Wars Outlaws":             {tier: BRON, type: TP,   steamId: 2842040, notes: 'UI flickering has a small impact on performance', altCover: header }
+"Nobody Wants to Die":           {tier: BRON, type: FPS,  steamId: 1939970, notes: 'UI flickering has a small impact on performance'}
 "The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830,  notes: 'Mixed input works with DirectInput, but not with XInput'  }
 "Dusk":                          {tier: NO,   type: FPS,  steamId: 519860,  notes: 'Almost works, but input is interrupted each few seconds' }
 
