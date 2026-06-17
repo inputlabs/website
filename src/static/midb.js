@@ -34,7 +34,7 @@ class MIDB {
     elements.forEach(element => {
       const match = (
         (name === '' || element.id.includes(name)) &&
-        (tier === '' || element.dataset.tier == tier) &&
+        (tier === '' || element.dataset.tier.replace('_', '') == tier) &&
         (category === '' || element.dataset.category == category)
       )
       const reachedLimit = count > this.filterState.limit

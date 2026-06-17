@@ -11,6 +11,7 @@ block page
   -
     const TierNames = {
       PLAT: 'Platinum',
+      PLAT_: 'Platinum↓',
       GOLD: 'Gold',
       SILV: 'Silver',
       BRON: 'Bronze',
@@ -22,15 +23,16 @@ block page
       TP: 'Third Person',
       COCK: 'Cockpit',
       TWIN: 'Twin Sticks',
-      PLAT: 'Platformer',
+      PL2D: 'Platformer',
     }
     const TierSort = {
       PLAT: 1,
-      GOLD: 2,
-      SILV: 3,
-      BRON: 4,
-      NO: 5,
-      _: 6,
+      PLAT_: 2,
+      GOLD: 3,
+      SILV: 4,
+      BRON: 5,
+      NO: 6,
+      _: 7,
     }
 
   div.boxes.wiki
@@ -63,7 +65,7 @@ block page
             option(value='TP'  )= CategoryNames['TP'  ]
             option(value='COCK')= CategoryNames['COCK']
             option(value='TWIN')= CategoryNames['TWIN']
-            option(value='PLAT')= CategoryNames['PLAT']
+            //- option(value='PLAT')= CategoryNames['PLAT']
 
         include ./_sidebar.pug
 
@@ -90,7 +92,6 @@ block page
             if (id && game.altCover) return `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${id}/${game.altCover}/header.jpg`
           }
 
-
           const limit = 1000
           let count = 0
 
@@ -105,7 +106,7 @@ block page
               .replaceAll('(', '')
               .replaceAll(')', '')
               .toLowerCase()
-            const badgeUrl = TierNames[game.tier].toLowerCase().replace(' ', '_')
+            const badgeUrl = TierNames[game.tier].toLowerCase().replace(' ', '_').replace('↓', '_')
             const categoryName = CategoryNames[game.type]
             const permalink = PATH + '?game=' + nameId
 
