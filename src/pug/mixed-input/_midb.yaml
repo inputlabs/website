@@ -134,5 +134,8 @@
 "Nobody Wants to Die":           {tier: BRON, type: FPS,  steamId: 1939970, notes: 'UI flickering has a small impact on performance'}
 "The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830,  notes: 'Mixed input works with DirectInput, but not with XInput'  }
 "Dusk":                          {tier: NO,   type: FPS,  steamId: 519860,  notes: 'Almost works, but input is interrupted each few seconds' }
+"Haydee":                        {tier: SILV, type: TP,   steamId: 530890,  notes: 'Inventory hotbar completely changes position and layout. Can force constant right stick with steam input and set in-game stick sensitivity to 0 for constant gamepad layout.'  }
+"Haydee 2":                      {tier: BRON, type: TP,   steamId: 1444650, notes: 'Incessant logging on input change. Stick look and mouse look mutually exclusive. Workaround from first game does not function here.' }
+"Haydee 3":                      {tier: BRON, type: TP,   steamId: 3508770, notes: 'Stick look and mouse look mutually exclusive. Otherwise flawless, not even glyph flickering.' }
 
 # "":              {tier: _, type: , steamId:  }
