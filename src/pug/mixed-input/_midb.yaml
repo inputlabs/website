@@ -37,6 +37,13 @@
 "Doom: The Dark Ages":           {tier: GOLD, type: FPS,  steamId: 3017860 }
 "Dying Light 2: Stay Human":     {tier: NO,   type: FPS,  steamId: 534380  }
 "Dying Light":                   {tier: GOLD, type: FPS,  steamId: 239140  }
+"Earth Defense Force 4.1":       {tier: NO,   type: TP,   steamId: 410320  }
+"Earth Defense Force 5":         {tier: NO,   type: TP,   steamId: 1007040 }
+"Earth Defense Force 6":         {tier: NO,   type: TP,   steamId: 2291060 }
+"EDF: Insect Armageddon":        {tier: NO,   type: TP,   steamId: 23530   }
+"EDF: Iron Rain":                {tier: NO,   type: TP,   steamId: 1039890 }
+"EDF: World Brothers":           {tier: NO,   type: TP,   steamId: 1497950 }
+"EDF: World Brothers 2":         {tier: NO,   type: TP,   steamId: 2370170 }
 "Elden Ring Nightreign":         {tier: PLAT, type: TP,   steamId: 2622380, altCover: header}
 "Elden Ring":                    {tier: PLAT, type: TP,   steamId: 1245620 }
 "Enshrouded":                    {tier: NO,   type: TP,   steamId: 1203620 }
