@@ -1,5 +1,6 @@
 "Apex Legends":                  {tier: NO,   type: FPS,  steamId: 1172470 }
 "ARC Raiders":                   {tier: NO,   type: TP,   steamId: 1808500 }
+"Armored Core VI":               {tier: PLAT, type: TP,   steamId: 1888160}
 "Assassin's Creed Origins":      {tier: NO,   type: TP,   steamId: 582160  }
 "Ball x Pit":                    {tier: NO,   type: TWIN, steamId: 2062430, altCover: /ball_x_pit }
 "Battlebit: Remastered":         {tier: GOLD, type: FPS,  steamId: 671860  }
@@ -9,6 +10,7 @@
 "Battlefield 6":                 {tier: GOLD, type: FPS,  steamId: 2807960, altCover: c12d12ce3c7d217398d3fcad77427bfc9d57c570 }
 "Battlefield V":                 {tier: GOLD, type: FPS,  steamId: 1238810 }
 "Black Mesa":                    {tier: GOLD, type: FPS,  steamId: 362890  }
+"Borderlands 2":                 {tier: GOLD, type: FPS,  steamId: 49520}
 "Borderlands 3":                 {tier: GOLD, type: FPS,  steamId: 397540  }
 "Bullets Per Minute":            {tier: GOLD, type: FPS,  steamId: 1286350 }
 "Call of Duty: Black Ops 6":     {tier: GOLD, type: FPS,  steamId: 2933620 }
@@ -22,6 +24,8 @@
 "Crysis Remastered":             {tier: GOLD, type: FPS,  steamId: 1715130 }
 "Cultic":                        {tier: PLAT, type: FPS,  steamId: 1684930 }
 "Cyberpunk 2077":                {tier: GOLD, type: FPS,  steamId: 1091500 }
+"Dead Space (2023)":             {tier: NO,   type: TP,   steamId: 1693980}
+"Death Stranding":               {tier: GOLD, type: TP,   steamId: 1190460}
 "Delta Force":                   {tier: NO,   type: FPS,  steamId: 2507950 }
 "Destiny 2":                     {tier: NO,   type: FPS,  steamId: 1085660 }
 "Deus Ex: Mankind Divided":      {tier: GOLD, type: FPS,  steamId: 337000  }
@@ -33,6 +37,7 @@
 "Doom: The Dark Ages":           {tier: GOLD, type: FPS,  steamId: 3017860 }
 "Dying Light 2: Stay Human":     {tier: NO,   type: FPS,  steamId: 534380  }
 "Dying Light":                   {tier: GOLD, type: FPS,  steamId: 239140  }
+"Elden Ring Nightreign":         {tier: PLAT, type: TP,   steamId: 2622380, altCover: header}
 "Elden Ring":                    {tier: PLAT, type: TP,   steamId: 1245620 }
 "Enshrouded":                    {tier: NO,   type: TP,   steamId: 1203620 }
 "Enter The Gungeon":             {tier: NO,   type: TWIN, steamId: 311690  }
@@ -69,6 +74,7 @@
 "Once Human":                    {tier: NO ,  type: TP,   steamId: 2139460 }
 "Outer Wilds":                   {tier: NO,   type: FPS,  steamId: 753640  }
 "Overload":                      {tier: GOLD, type: COCK, steamId: 448850  }
+"Overwatch":                     {tier: PLAT, type: FPS,  steamId: 2357570}
 "Portal 2":                      {tier: GOLD, type: FPS,  steamId: 620     }
 "Portal":                        {tier: GOLD, type: FPS,  steamId: 400     }
 "PowerWash Simulator":           {tier: GOLD, type: FPS,  steamId: 1290000 }
@@ -85,6 +91,7 @@
 "Risk of Rain 2":                {tier: GOLD, type: TP,   steamId: 632360  }
 "RoboCop: Rogue City":           {tier: GOLD, type: FPS,  steamId: 1681430 }
 "Roboquest":                     {tier: NO,   type: FPS,  steamId: 692890  }
+"Sekiro: Shadows Die Twice":     {tier: PLAT, type: TP,   steamId: 814380}
 "Selaco":                        {tier: PLAT, type: FPS,  steamId: 1592280 }
 "Shadow Warrior 2":              {tier: GOLD, type: FPS,  steamId: 324800  }
 "Shadow Warrior 3":              {tier: GOLD, type: FPS,  steamId: 1036890 }
@@ -96,16 +103,18 @@
 "The First Descendant":          {tier: GOLD, type: TP,   steamId: 2074920 }
 "The Pathless":                  {tier: NO,   type: TP,   steamId: 1492680 }
 "The Witcher 3":                 {tier: GOLD, type: TP,   steamId: 292030  }
+"Throne and Liberty":            {tier: NO,   type: TP,   steamId: 2429640}
 "Titanfall 2":                   {tier: GOLD, type: FPS,  steamId: 1237970 }
 "Warframe":                      {tier: GOLD, type: TP,   steamId: 230410  }
 "Wayfinder":                     {tier: GOLD, type: TP,   steamId: 1171690 }
+"Where Winds Meet":              {tier: NO,   type: TP,   steamId: 3564740, altCover: 6d94b048393d5358690a04a7db99f2c9739c703c}
 "White Knuckle":                 {tier: NO,   type: FPS,  steamId: 3195790, altCover: header }
 "Witchfire":                     {tier: GOLD, type: FPS,  steamId: 3156770, altCover: 20eb65d67b33ae31b48459ed226014231d3e4fe5 }
 
 # Games with additional notes.
-"Fortnite":                      {tier: PLAT_, type: TP,   steamId: null,    notes: 'User can force MKB UI, but not gamepad UI', altCover: /fortnite }
-"Ghost Recon Breakpoint":        {tier: PLAT_, type: TP,   steamId: 2231380, notes: 'User can force MKB UI, but not gamepad UI' }
-"Marvel Rivals":                 {tier: PLAT_, type: TP,   steamId: 2767030, notes: 'User can force MKB UI, but not gamepad UI' }
+"Fortnite":                      {tier: PLAT_, type: TP,  steamId: null,    notes: 'User can force MKB UI, but not gamepad UI', altCover: /fortnite }
+"Ghost Recon Breakpoint":        {tier: PLAT_, type: TP,  steamId: 2231380, notes: 'User can force MKB UI, but not gamepad UI' }
+"Marvel Rivals":                 {tier: PLAT_, type: TP,  steamId: 2767030, notes: 'User can force MKB UI, but not gamepad UI' }
 "I Am Your Beast":               {tier: PLAT, type: FPS,  steamId: 1876590, notes: 'Mixed input must be enabled in settings' }
 "Kingdom Come: Deliverance 2":   {tier: SILV, type: FPS,  steamId: 1771300, notes: 'Inconsistent behavior between modes (Quick potions)' }
 "Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430,  notes: 'Inconsistent behavior between modes (Resupply)' }
