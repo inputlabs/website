@@ -66,7 +66,6 @@
 "Kingdom Come: Deliverance":     {tier: PLAT, type: FPS,  steamId: 379430  }
 "Left 4 Dead 2":                 {tier: GOLD, type: FPS,  steamId: 550     }
 "Metro Exodus":                  {tier: NO,   type: FPS,  steamId: 412020  }
-"Minecraft (Bedrock edition)":   {tier: GOLD, type: FPS,  steamId: null, altCover: /minecraft }
 "Mirror's Edge":                 {tier: GOLD, type: FPS,  steamId: 17410   }
 "Necromunda: Hired Gun":         {tier: GOLD, type: FPS,  steamId: 1222370 }
 "Neon White":                    {tier: GOLD, type: FPS,  steamId: 1533420 }
@@ -115,6 +114,7 @@
 "Fortnite":                      {tier: PLAT_, type: TP,  steamId: null,    notes: 'User can force MKB UI, but not gamepad UI', altCover: /fortnite }
 "Ghost Recon Breakpoint":        {tier: PLAT_, type: TP,  steamId: 2231380, notes: 'User can force MKB UI, but not gamepad UI' }
 "Marvel Rivals":                 {tier: PLAT_, type: TP,  steamId: 2767030, notes: 'User can force MKB UI, but not gamepad UI' }
+"Minecraft (Bedrock edition)":   {tier: PLAT_, type: FPS, steamId: null,    notes: 'User can force gamepad UI, but not MKB UI', altCover: /minecraft }
 "I Am Your Beast":               {tier: PLAT, type: FPS,  steamId: 1876590, notes: 'Mixed input must be enabled in settings' }
 "Kingdom Come: Deliverance 2":   {tier: SILV, type: FPS,  steamId: 1771300, notes: 'Inconsistent behavior between modes (Quick potions)' }
 "Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430,  notes: 'Inconsistent behavior between modes (Resupply)' }
@@ -128,4 +128,5 @@
 "The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830,  notes: 'Mixed input works with DirectInput, but not with XInput'  }
 "Dusk":                          {tier: NO,   type: FPS,  steamId: 519860,  notes: 'Almost works, but input is interrupted each few seconds' }
 
+# Template.
 # "":              {tier: _, type: , steamId:  }
