@@ -24,8 +24,9 @@
 "Crysis Remastered":             {tier: GOLD, type: FPS,  steamId: 1715130 }
 "Cultic":                        {tier: PLAT, type: FPS,  steamId: 1684930 }
 "Cyberpunk 2077":                {tier: GOLD, type: FPS,  steamId: 1091500 }
-"Dead Space (2023)":             {tier: NO,   type: TP,   steamId: 1693980}
-"Death Stranding":               {tier: GOLD, type: TP,   steamId: 1190460}
+"DCS World":                     {tier: PLAT, type: COCK, steamId: 223750  }
+"Dead Space (2023)":             {tier: NO,   type: TP,   steamId: 1693980 }
+"Death Stranding":               {tier: GOLD, type: TP,   steamId: 1190460 }
 "Delta Force":                   {tier: NO,   type: FPS,  steamId: 2507950 }
 "Destiny 2":                     {tier: NO,   type: FPS,  steamId: 1085660 }
 "Deus Ex: Mankind Divided":      {tier: GOLD, type: FPS,  steamId: 337000  }
@@ -62,7 +63,6 @@
 "Insurgency: Sandstorm":         {tier: GOLD, type: FPS,  steamId: 581320  }
 "Ion Fury":                      {tier: GOLD, type: FPS,  steamId: 562860  }
 "Journey To The Savage Planet":  {tier: GOLD, type: FPS,  steamId: 973810  }
-"Jump Space":                    {tier: NO,   type: FPS,  steamId: 1757300, altCover: f401ae1af25f31fdfed24f56cf98ea4a32d79997 }
 "Kingdom Come: Deliverance":     {tier: PLAT, type: FPS,  steamId: 379430  }
 "Left 4 Dead 2":                 {tier: GOLD, type: FPS,  steamId: 550     }
 "Metro Exodus":                  {tier: NO,   type: FPS,  steamId: 412020  }
@@ -70,10 +70,11 @@
 "Necromunda: Hired Gun":         {tier: GOLD, type: FPS,  steamId: 1222370 }
 "Neon White":                    {tier: GOLD, type: FPS,  steamId: 1533420 }
 "Noita":                         {tier: NO,   type: TWIN, steamId: 881100  }
+"Nuclear Option":                {tier: PLAT, type: COCK, steamId: 2168680 }
 "Once Human":                    {tier: NO ,  type: TP,   steamId: 2139460 }
 "Outer Wilds":                   {tier: NO,   type: FPS,  steamId: 753640  }
 "Overload":                      {tier: GOLD, type: COCK, steamId: 448850  }
-"Overwatch":                     {tier: PLAT, type: FPS,  steamId: 2357570}
+"Overwatch":                     {tier: PLAT, type: FPS,  steamId: 2357570 }
 "Portal 2":                      {tier: GOLD, type: FPS,  steamId: 620     }
 "Portal":                        {tier: GOLD, type: FPS,  steamId: 400     }
 "PowerWash Simulator":           {tier: GOLD, type: FPS,  steamId: 1290000 }
@@ -81,16 +82,15 @@
 "Prodeus":                       {tier: NO,   type: FPS,  steamId: 964800  }
 "PUBG: Battlegrounds":           {tier: NO,   type: TP,   steamId: 578080  }
 "Quake II (2023)":               {tier: GOLD, type: FPS,  steamId: 2320    }
-"Rage 2":                        {tier: NO,   type: FPS,  steamId: 548570  }
 "Rainbow Six Siege":             {tier: NO,   type: FPS,  steamId: 359550  }
 "Red Dead Redemption 2":         {tier: GOLD, type: TP,   steamId: 1174180 }
-"REMNANT II":                    {tier: GOLD, type: TP,   steamId: 1282100 }
+"Remnant II":                    {tier: GOLD, type: TP,   steamId: 1282100 }
 "Resident Evil 2 (2019)":        {tier: NO,   type: TP,   steamId: 883710  }
 "Resident Evil 4 (2023)":        {tier: GOLD, type: TP,   steamId: 2050650 }
 "Risk of Rain 2":                {tier: GOLD, type: TP,   steamId: 632360  }
 "RoboCop: Rogue City":           {tier: GOLD, type: FPS,  steamId: 1681430 }
 "Roboquest":                     {tier: NO,   type: FPS,  steamId: 692890  }
-"Sekiro: Shadows Die Twice":     {tier: PLAT, type: TP,   steamId: 814380}
+"Sekiro: Shadows Die Twice":     {tier: PLAT, type: TP,   steamId: 814380  }
 "Selaco":                        {tier: PLAT, type: FPS,  steamId: 1592280 }
 "Shadow Warrior 2":              {tier: GOLD, type: FPS,  steamId: 324800  }
 "Shadow Warrior 3":              {tier: GOLD, type: FPS,  steamId: 1036890 }
@@ -102,7 +102,7 @@
 "The First Descendant":          {tier: GOLD, type: TP,   steamId: 2074920 }
 "The Pathless":                  {tier: NO,   type: TP,   steamId: 1492680 }
 "The Witcher 3":                 {tier: GOLD, type: TP,   steamId: 292030  }
-"Throne and Liberty":            {tier: NO,   type: TP,   steamId: 2429640}
+"Throne and Liberty":            {tier: NO,   type: TP,   steamId: 2429640 }
 "Titanfall 2":                   {tier: GOLD, type: FPS,  steamId: 1237970 }
 "Warframe":                      {tier: GOLD, type: TP,   steamId: 230410  }
 "Wayfinder":                     {tier: GOLD, type: TP,   steamId: 1171690 }
@@ -121,11 +121,17 @@
 "Days Gone":                     {tier: SILV, type: TP,   steamId: 1259420, notes: 'Inconsistent behavior between modes (Look sensitivities)' }
 "Stellar Blade":                 {tier: SILV, type: TP,   steamId: 3489700, notes: 'Inconsistent behavior between modes (Look sensitivities)', altCover: header }
 "No Man's Sky":                  {tier: SILV, type: FPS,  steamId: 275850,  notes: 'Gamepad with mouse-look works, but keyboard or mouse-buttons break mixed input' }
+"Ace Combat 7":                  {tier: BRON, type: COCK, steamId: 502500 , notes: 'Freelook mouse is not raw input' }
+"MS Flight Simulator 2020":      {tier: BRON, type: COCK, steamId: 1250410, notes: 'Freelook mouse is not raw input' }
+"MS Flight Simulator 2024":      {tier: BRON, type: COCK, steamId: 2537590, notes: 'Freelook mouse is not raw input', altCover: header }
+"Project Wingman":               {tier: BRON, type: COCK, steamId: 895870 , notes: 'Freelook mouse is not raw input' }
 "Grand Theft Auto V":            {tier: BRON, type: TP,   steamId: 271590,  notes: 'Needs mods to unpack and edit control XML files' }
 "Returnal":                      {tier: BRON, type: TP,   steamId: 1649240, notes: 'Inconsistent behavior between modes (Alt-fire toggle). Sound glitch that can be fixed by modifying game files.' }
 "Star Wars Outlaws":             {tier: BRON, type: TP,   steamId: 2842040, notes: 'UI flickering has a small impact on performance', altCover: header }
-"Nobody Wants to Die":           {tier: BRON, type: FPS,  steamId: 1939970, notes: 'UI flickering has a small impact on performance'}
+"Nobody Wants to Die":           {tier: BRON, type: FPS,  steamId: 1939970, notes: 'UI flickering has a small impact on performance' }
 "The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830,  notes: 'Mixed input works with DirectInput, but not with XInput'  }
+"Jump Space":                    {tier: NO,   type: FPS,  steamId: 1757300, notes: 'UI flickering has a major impact on performance', altCover: f401ae1af25f31fdfed24f56cf98ea4a32d79997 }
+"Rage 2":                        {tier: NO,   type: FPS,  steamId: 548570,  notes: 'UI flickering has a major impact on performance' }
 "Dusk":                          {tier: NO,   type: FPS,  steamId: 519860,  notes: 'Almost works, but input is interrupted each few seconds' }
 
 # Template.
