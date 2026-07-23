@@ -38,6 +38,14 @@
 "Doom: The Dark Ages":           {tier: GOLD, type: FPS,  steamId: 3017860 }
 "Dying Light 2: Stay Human":     {tier: NO,   type: FPS,  steamId: 534380  }
 "Dying Light":                   {tier: GOLD, type: FPS,  steamId: 239140  }
+"Echo Point Nova":               {tier: GOLD, type: FPS,  steamId: 1836730 }
+"Earth Defense Force 4.1":       {tier: NO,   type: TP,   steamId: 410320  }
+"Earth Defense Force 5":         {tier: NO,   type: TP,   steamId: 1007040 }
+"Earth Defense Force 6":         {tier: NO,   type: TP,   steamId: 2291060 }
+"Earth Defense Force: Insect Armageddon": {tier: NO,   type: TP,   steamId: 23530   }
+"Earth Defense Force: Iron Rain":         {tier: NO,   type: TP,   steamId: 1039890 }
+"Earth Defense Force: World Brothers":    {tier: NO,   type: TP,   steamId: 1497950 }
+"Earth Defense Force: World Brothers 2":  {tier: NO,   type: TP,   steamId: 2370170 }
 "Elden Ring Nightreign":         {tier: PLAT, type: TP,   steamId: 2622380, altCover: header}
 "Elden Ring":                    {tier: PLAT, type: TP,   steamId: 1245620 }
 "Enshrouded":                    {tier: NO,   type: TP,   steamId: 1203620 }
@@ -65,6 +73,7 @@
 "Journey To The Savage Planet":  {tier: GOLD, type: FPS,  steamId: 973810  }
 "Kingdom Come: Deliverance":     {tier: PLAT, type: FPS,  steamId: 379430  }
 "Left 4 Dead 2":                 {tier: GOLD, type: FPS,  steamId: 550     }
+"Little Kitty, Big City":        {tier: GOLD, type: TP,   steamId: 1177980 }
 "Metro Exodus":                  {tier: NO,   type: FPS,  steamId: 412020  }
 "Mirror's Edge":                 {tier: GOLD, type: FPS,  steamId: 17410   }
 "Necromunda: Hired Gun":         {tier: GOLD, type: FPS,  steamId: 1222370 }
@@ -92,6 +101,8 @@
 "Roboquest":                     {tier: NO,   type: FPS,  steamId: 692890  }
 "Sekiro: Shadows Die Twice":     {tier: PLAT, type: TP,   steamId: 814380  }
 "Selaco":                        {tier: PLAT, type: FPS,  steamId: 1592280 }
+"Severed Steel":                 {tier: NO,   type: FPS,  steamId: 1227690 }
+"Silent Hill 2":                 {tier: GOLD, type: TP,   steamId: 2124490 }
 "Shadow Warrior 2":              {tier: GOLD, type: FPS,  steamId: 324800  }
 "Shadow Warrior 3":              {tier: GOLD, type: FPS,  steamId: 1036890 }
 "Stalker 2: Heart of Chornobyl": {tier: GOLD, type: FPS,  steamId: 1643320 }
@@ -104,11 +115,13 @@
 "The Witcher 3":                 {tier: GOLD, type: TP,   steamId: 292030  }
 "Throne and Liberty":            {tier: NO,   type: TP,   steamId: 2429640 }
 "Titanfall 2":                   {tier: GOLD, type: FPS,  steamId: 1237970 }
+"VRChat":                        {tier: GOLD, type: FPS,  steamId: 438100  }
 "Warframe":                      {tier: GOLD, type: TP,   steamId: 230410  }
 "Wayfinder":                     {tier: GOLD, type: TP,   steamId: 1171690 }
 "Where Winds Meet":              {tier: NO,   type: TP,   steamId: 3564740, altCover: 6d94b048393d5358690a04a7db99f2c9739c703c}
 "White Knuckle":                 {tier: NO,   type: FPS,  steamId: 3195790, altCover: header }
 "Witchfire":                     {tier: GOLD, type: FPS,  steamId: 3156770, altCover: 20eb65d67b33ae31b48459ed226014231d3e4fe5 }
+"World War Z":                   {tier: NO,   type: TPS,  steamId: 699130 }
 
 # Games with additional notes.
 "Fortnite":                      {tier: PLAT_, type: TP,  steamId: null,    notes: 'User can force MKB UI, but not gamepad UI', altCover: /fortnite }
@@ -119,6 +132,7 @@
 "Kingdom Come: Deliverance 2":   {tier: SILV, type: FPS,  steamId: 1771300, notes: 'Inconsistent behavior between modes (Quick potions)' }
 "Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430,  notes: 'Inconsistent behavior between modes (Resupply)' }
 "Days Gone":                     {tier: SILV, type: TP,   steamId: 1259420, notes: 'Inconsistent behavior between modes (Look sensitivities)' }
+"Doom (1993)":                   {tier: PLAT_,type: FPS,  steamId: 2280,    notes: 'MKB UI appears only if navigating menu with WASD.' }
 "Stellar Blade":                 {tier: SILV, type: TP,   steamId: 3489700, notes: 'Inconsistent behavior between modes (Look sensitivities)', altCover: header }
 "No Man's Sky":                  {tier: SILV, type: FPS,  steamId: 275850,  notes: 'Gamepad with mouse-look works, but keyboard or mouse-buttons break mixed input' }
 "Ace Combat 7":                  {tier: BRON, type: COCK, steamId: 502500 , notes: 'Freelook mouse is not raw input' }
@@ -133,6 +147,13 @@
 "Jump Space":                    {tier: NO,   type: FPS,  steamId: 1757300, notes: 'UI flickering has a major impact on performance', altCover: f401ae1af25f31fdfed24f56cf98ea4a32d79997 }
 "Rage 2":                        {tier: NO,   type: FPS,  steamId: 548570,  notes: 'UI flickering has a major impact on performance' }
 "Dusk":                          {tier: NO,   type: FPS,  steamId: 519860,  notes: 'Almost works, but input is interrupted each few seconds' }
+"Haydee":                        {tier: SILV, type: TP,   steamId: 530890,  notes: 'Inventory hotbar completely changes position and layout. Can force constant right stick with steam input and set in-game stick sensitivity to 0 for constant gamepad layout.'  }
+"Haydee 2":                      {tier: BRON, type: TP,   steamId: 1444650, notes: 'Incessant logging on input change. Stick look and mouse look mutually exclusive. Workaround from first game does not function here.' }
+"Haydee 3":                      {tier: BRON, type: TP,   steamId: 3508770, notes: 'Stick look and mouse look mutually exclusive. Otherwise flawless, not even glyph flickering.' }
+"Warhammer 40,000: Space Marine 2": {tier: BRON, type: TP,   steamId: 2183900, notes: 'Gets picky if there are multiple controllers. QTEs only respond to the current glyph state (which flickers).' }
+"Dark Sector":                   {tier: SILV, type: TPS,  steamId: 29900, notes: 'Game works fine but menus misbehave.' }
+"Palworld":                      {tier: SILV, type: TPS,  steamId: 1623730, notes: 'Game works fine but menus misbehave.' }
+"Cube World":                    {tier: PLAT_, type: TPS,  steamId: 1128000, notes: 'Gamepad UI unless user moves with WASD' }
 
 # Template.
 # "":              {tier: _, type: , steamId:  }
