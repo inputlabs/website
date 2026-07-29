@@ -28,12 +28,17 @@
     ctrl_app: 'https://ctrl.inputlabs.io',
   }
 
+  const findLatestBlogPost = () => {
+    const index = FS.readFileSync('src/pug/blog/_blog.pug', 'utf8')
+    return index.match(/wikilink\('(.+?)'\)/)[1]  // Top wikilink post.
+  }
+
   const redirect = {
     db:            '/mixed-input/db',
     contribute:    '/contribute/open_source',
     devices:       '/alpakka',
     alpakkaManual: '/alpakka/manual/ctrl_app',
-    blog:          '/blog/alpakka_2_crowdfunding_fail',
+    blog:          '/blog/' + findLatestBlogPost(),
   }
 
   const loadMathJax = [
@@ -96,9 +101,9 @@ mixin figure(id, caption, src, cls, style)
   div.figure(class=cls)
     img(src=src style=style)
     if id
-      div.caption(style=style) Figure #{id}: #{caption}
+      div.caption(style=style) Figure #{id}: !{caption}
     else
-      div.caption(style=style) #{caption}
+      div.caption(style=style) !{caption}
     div.caption
       block
 

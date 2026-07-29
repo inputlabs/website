@@ -11,7 +11,16 @@ app.locals.basedir = app.get('views');
 app.get(/\/.*$/, (req, res) => {
   const pugpath = req.path.slice(1) || 'index'
   const ENV = 'dev'
-  res.render(pugpath, {require, ENV, PATH: req.path})
+  const locals = {require, ENV, PATH: req.path}
+  const renderFunc = (err, html) => {
+    if (err) {
+      console.error(err.message)
+      console.error(err.stack)
+      return res.status(500).send(`<pre>${err.message} ${err.stack}</pre>`)
+    }
+    res.send(html)
+  }
+  res.render(pugpath, locals, renderFunc)
 })
 
 app.listen(PORT, () => {
