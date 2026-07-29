@@ -582,6 +582,9 @@ main .boxes.center {
   display: inline-block;
   margin-right: 20px;
 }
+.wiki .figure.nobottommargin {
+  margin-bottom: 0;
+}
 .wiki .math {
   width: 420px;
 }

@@ -1,0 +1,109 @@
+extends _blog.pug
+
+block append subtitle
+  | Progress report #31
+
+block content
+  h2 Progress report #31
+  +news_header('29 July 2026', 'alpakka_2_crowdfunding_fail', '')
+
+  h3 Shipping to the United States of America again
+
+  p On July 30th 2025, the U.S. administration announced the end of the #[em de-minimis exemption], therefore making orders of less than $800 subject to tariffs and import taxes. As it turned out, this change caused all #[em european postal services to stop shipping] anything to the United States "temporarily".
+
+  p As we were hoping that this would last only a few days, or perhaps weeks, we contacted affected customers, explaining the situation and offering refunds. Weeks turned into months, and none of the postal services available in Finland resumed their services.
+
+  p By the end of 2025 some european postal services (Sweden and Spain) were able to ship to the U.S. again, so we tried to use these countries as a proxy #[em Finland->Sweden->US], or #[em Finland->Spain->US].
+
+  p We were able to ship a controller to a real customer via #[em Correos] (Spanish postal service), but with an additional 15% tariff that we (Input Labs) had to pre-pay, and also with the obligation of providing customers' social security number (SSN) 🤯. We decided that the complex logistics and SSN disclosure #[em were unreasonable requirements], and abandoned this approach.
+
+  p In June 2026 we signed a contract with #[em DHL] (Deutsche Post), which enables us to ship to the U.S. again. Unfortunately the cost of shipping with DHL is significantly higher than the postal service we use for the rest of the world, and comes with additional requirements:
+  ul
+    li The service is "Delivered At Place" (DAP), #[em requiring the customer to pay] U.S. tariffs and service fees, before final delivery.
+    li Customs and Border Protection (CBP) requires DHL to collect the recipient's #[em Employer Identification Number] (EIN). However, it seems that deliveries still go through even if not provided.
+
+  p So far we have been able to successfully ship about a dozen orders to our U.S. customers. Based on their experience, the total to be paid by the customer for a complete Alpakka kit is #[em $46] in shipping costs + #[em ~$30] in tariffs and additional fees.
+
+  p While we understand these prices are insane, there are no other alternatives until international trade goes back to normal.
+
+  //---------------------------------------------------------------------------
+  hr
+  h3 Firmware and Ctrl app 1.2.0
+  p Codenamed #[em The Thumbstick update], includes a lot of new features related to thumbstick input, and a few more extras. Also we made this fancy video:
+
+  br
+  +axc('https://www.youtube.com/watch?v=mpyJ-rRGbj4')
+    img.wm(src='/static/blog/fw-120-video.jpg')
+
+  h4 Thumbstick features
+  ul
+    li New thumbstick rotation mode (including #[em Flickstick] support)
+    li #[em Push auto-toggle] (emulate console-like sprint push behavior).
+    li Vertical sensitivity ratio.
+    li Configurable inner/outer bind threshold.
+    li #[em Acceleration] curves (with app curve previews).
+
+  h4 Extra features and quality of life
+  ul
+    li #[em Gyro per-axis sensitivity] (so it allows for custom vertical sens).
+    li Reworked app update notification.
+    li More consistent window resize, better support for small screens (e.g. Steam Deck).
+    li Keybind dialog #[em quick-open] (double-click) and quick close.
+
+  - let fwRelease = 'https://github.com/inputlabs/alpakka_firmware/releases/tag/1.2.0'
+  - let appRelease = 'https://github.com/inputlabs/ctrl-app/releases/tag/1.2.0'
+  p Check full release notes for the #[+ax(fwRelease) Firmware 1.2.0] and #[+ax(appRelease) Ctrl app 1.2.0].
+
+  //---------------------------------------------------------------------------
+  hr
+  h3 Kapybara functional prototype in the works
+  p We are making another push for the #[em Kapybara DIY controller], with the expectation of having a fully #[em functional prototype] by the end of the push (hopefully by the end of summer).
+  p This involves a parallel development of the #[em Printed Circuit Board] and #[em 3D-printed case], selecting and testing electronic components, designing the mechanical integration of buttons and triggers, how the external case clamps into itself, bolts and nuts placement, and many other tricky details.
+
+  +figure(
+    '',
+    'Kapybara with real triggers, internal spaces,<br/>and case-locking mechanism',
+    '/static/blog/kapybara-r31-a.jpg',
+    'medium inline nobottommargin',
+  )
+  +figure(
+    '',
+    'Kapybara assembly in Blender<br/>(work in progress)',
+    '/static/blog/kapybara-r31-b.jpg',
+    'medium inline nobottommargin',
+  )
+  +figure(
+    '',
+    'Kapybara PCB<br/>(work in progress)',
+    '/static/blog/kapybara-r31-c.jpg',
+    'medium inline nobottommargin',
+  )
+  +figure(
+    '',
+    '2x 950 mAh batteries<br/>14430 form factor (smaller than AA)',
+    '/static/blog/kapybara-r31-d.jpg',
+    'medium inline nobottommargin',
+  )
+
+  //---------------------------------------------------------------------------
+  hr
+  h3 Mixed Input DB
+  p We repurposed the game database on our website as a database for #[em mixed input] compatibility, simply called #[+a('/mixed-input/db') Mixed Input DB]. The goal is to have a solution similar to #[em ProtonDB] or #[em WineHQ], since this aspect of input is poorly documented on #[em PCGamingWiki].
+  p Initially launching with #[em 107] entries, it reached #[em 156] games only a few weeks later, thanks to #[em community contributions]. We hope that the simplicity of the format encourages the gyro community to submit even more games.
+
+  +figure(
+    '',
+    'Mixed Input DB example search',
+    '/static/blog/mixed-input-db.png',
+    'medium inline nobottommargin',
+  )
+  +figure(
+    '',
+    'Tier explanations',
+    '/static/blog/mixed-input-db-tiers.png',
+    'medium inline nobottommargin',
+  )
+
+  //---------------------------------------------------------------------------
+  hr
+  p Thanks for the support! 🤍 <br>- Michael and Marcos
