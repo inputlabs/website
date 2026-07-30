@@ -6,9 +6,13 @@ block title
     |
 
 mixin news_header(date, prev, next)
+  -
+    const dateUTC = new Date(`${date}T00:00:00Z`)
+    const format =  {day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'}
+    const dateEN = dateUTC.toLocaleDateString('en-GB', format)
   hr
   p
-    i #{date}
+    i #{dateEN}
     if prev
       span &nbsp; #[+a(prev) <- Previous]
     if next
@@ -25,8 +29,8 @@ block page
 
         h3 Latest news
         div
+          +wikilink('gamesir_collab') GameSir collaboration
           +wikilink('report_31') Progress report 31
-          //- +wikilink('gamesir_collab') GameSir collaboration
           +wikilink('alpakka_2_crowdfunding_fail') Alpakka 2 crowdfunding fail
           +wikilink('future_developments') Future developments
           +wikilink('report_30') Progress report 30

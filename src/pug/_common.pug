@@ -97,15 +97,23 @@ mixin dl(href)
   a(href=href download)&attributes(attributes)
     block
 
-mixin figure(id, caption, src, cls, style)
+mixin figure(id, caption, img, cls, style)
   div.figure(class=cls)
-    img(src=src style=style)
+    img(src=img style=style)
     if id
       div.caption(style=style) Figure #{id}: !{caption}
     else
       div.caption(style=style) !{caption}
     div.caption
       block
+
+mixin figureLink(link, img, caption, cls, width='auto', height='auto')
+  div(style='display:inline-block; padding-right:20px; padding-top:20px')
+    div(style='display:flex; justify-content: center')
+      a.nobg(href=link target='_blank')
+        img(src=img style='height:290px !important')
+    a.nobg(href=link target='_blank' style='padding:0')
+      div.caption(style='width:initial') !{caption}
 
 mixin boximglink(img, url, text, blank, blend)
   - target = blank ? '_blank' : ''
