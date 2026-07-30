@@ -7,58 +7,43 @@ block content
   h2 All blog news
   hr
 
-  h3 2026
-  ul
-    li: +a('gamesir_collab') GameSir collaboration
-    li: +a('report_31') Progress report 31
-    li: +a('alpakka_2_crowdfunding_fail') Alpakka 2 crowdfunding fail
+  -
+    const fs = require('fs')
+    const path = require('path')
+    const blogDir = path.join(process.cwd(), 'src/pug/blog')
+    const files = fs.readdirSync(blogDir)
 
-  h3 2025
-  ul
-    li: +a('future_developments') Future developments
-    li: +a('report_30') Progress report 30
-    li: +a('report_29') Progress report 29
-    li: +a('kapybara_development') Kapybara development
-    li: +a('report_28') Progress report 28
+    const posts = []
+    for (const f of files) {
+      if (!f.endsWith('.pug') || f.startsWith('_') || f === 'all_posts.pug') continue
+      const filePath = path.join(blogDir, f)
+      const content = fs.readFileSync(filePath, 'utf8')
 
-  h3 2024
-  ul
-    li: +a('report_27') Progress report 27
-    li: +a('recap_year_2') Year 2 recap
-    li: +a('alpakka_v1') Alpakka 1.0 announcement
-    li: +a('report_26') Progress report 26
-    li: +a('report_25') Progress report 25
-    li: +a('report_24') Progress report 24
-    li: +a('report_23') Progress report 23
-    li: +a('report_22') Progress report 22
-    li: +a('report_21') Progress report 21
-    li: +a('report_20') Progress report 20
-    li: +a('patents') Patents, a necessary evil
+      const matchDate = content.match(/\+news_header\s*\(\s*['"](\d{4}-\d{2}-\d{2})['"]/)
+      if (!matchDate) continue
 
-  h3 2023
-  ul
-    li: +a('report_19') Progress report 19
-    li: +a('recap_year_1') Year 1 recap
-    li: +a('report_18') Progress report 18
-    li: +a('report_17') Progress report 17
-    li: +a('report_16') Progress report 16
-    li: +a('report_15') Progress report 15
-    li: +a('report_14') Progress report 14
-    li: +a('half_anniversary') Half anniversary
-    li: +a('report_13') Progress report 13
-    li: +a('report_12') Progress report 12
-    li: +a('report_11') Progress report 11
-    li: +a('report_10') Progress report 10
-    li: +a('report_9') Progress report 9
-    li: +a('shop_opening') Shop opening
-    li: +a('report_8') Progress report 8
-    li: +a('report_7') Progress report 7
-    li: +a('report_6') Progress report 6
+      const date = matchDate[1]
+      const name = path.basename(f, '.pug')
 
-  h3 2022
-  ul
-    li: +a('report_5') Progress report 5
-    li: +a('report_4') Progress report 4
-    li: +a('report_3') Progress report 3
-    li: +a('report_2') Progress report 2
-    li: +a('report_1') Progress report 1
+      let title = content.match(/block append subtitle\s*\n\s*\|\s*(.+)/)
+      title = title[1].trim().replace('#', '')
+      title = title.replace('Year one', 'Year 1')
+      title = title.replace('Year two', 'Year 2')
+      posts.push({ name, date, title, year: date.substring(0, 4) })
+    }
+
+    posts.sort((a, b) => b.date.localeCompare(a.date))
+
+    // Group by year.
+    const byYear = {}
+    for (const p of posts) {
+      if (!byYear[p.year]) byYear[p.year] = []
+      byYear[p.year].push(p)
+    }
+    const years = Object.keys(byYear).sort((a, b) => b.localeCompare(a))
+
+  each year in years
+    h3= year
+    ul
+      each p in byYear[year]
+        li: +a(p.name)= p.title
