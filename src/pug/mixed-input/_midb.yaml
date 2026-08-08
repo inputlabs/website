@@ -1,7 +1,9 @@
 "Apex Legends":                  {tier: NO,   type: FPS,  steamId: 1172470 }
 "ARC Raiders":                   {tier: NO,   type: TP,   steamId: 1808500 }
-"Armored Core VI":               {tier: PLAT, type: TP,   steamId: 1888160}
+"Armored Core VI":               {tier: PLAT, type: TP,   steamId: 1888160 }
+"Armored Head":                  {tier: NO,   type: FPS,  steamId: 805590  }
 "Assassin's Creed Origins":      {tier: NO,   type: TP,   steamId: 582160  }
+"Back 4 Blood":                  {tier: GOLD, type: FPS,  steamId: 924970  }
 "Ball x Pit":                    {tier: NO,   type: TWIN, steamId: 2062430, altCover: /ball_x_pit }
 "Battlebit: Remastered":         {tier: GOLD, type: FPS,  steamId: 671860  }
 "Battlefield 1":                 {tier: GOLD, type: FPS,  steamId: 1238840 }
@@ -10,7 +12,7 @@
 "Battlefield 6":                 {tier: GOLD, type: FPS,  steamId: 2807960, altCover: c12d12ce3c7d217398d3fcad77427bfc9d57c570 }
 "Battlefield V":                 {tier: GOLD, type: FPS,  steamId: 1238810 }
 "Black Mesa":                    {tier: GOLD, type: FPS,  steamId: 362890  }
-"Borderlands 2":                 {tier: GOLD, type: FPS,  steamId: 49520}
+"Borderlands 2":                 {tier: GOLD, type: FPS,  steamId: 49520   }
 "Borderlands 3":                 {tier: GOLD, type: FPS,  steamId: 397540  }
 "Bullets Per Minute":            {tier: GOLD, type: FPS,  steamId: 1286350 }
 "Call of Duty: Black Ops 6":     {tier: GOLD, type: FPS,  steamId: 2933620 }
@@ -88,6 +90,7 @@
 "Portal":                        {tier: GOLD, type: FPS,  steamId: 400     }
 "PowerWash Simulator":           {tier: GOLD, type: FPS,  steamId: 1290000 }
 "Pragmata":                      {tier: NO,   type: TP,   steamId: 3357650, altCover: e32e168b25ed68a0cf6264c220c07e96c2abfb56 }
+"Prey (2017)":                   {tier: GOLD, type: FPS,  steamId: 480490  }
 "Prodeus":                       {tier: NO,   type: FPS,  steamId: 964800  }
 "PUBG: Battlegrounds":           {tier: NO,   type: TP,   steamId: 578080  }
 "Quake II (2023)":               {tier: GOLD, type: FPS,  steamId: 2320    }
@@ -105,6 +108,7 @@
 "Shadow Warrior 3":              {tier: GOLD, type: FPS,  steamId: 1036890 }
 "Silent Hill 2":                 {tier: GOLD, type: TP,   steamId: 2124490 }
 "Stalker 2: Heart of Chornobyl": {tier: GOLD, type: FPS,  steamId: 1643320 }
+"Star Wars: Battlefront II":     {tier: GOLD, type: TP,   steamId: 6060    }
 "Stray":                         {tier: GOLD, type: TP,   steamId: 1332010 }
 "Superhot: Mind Control Delete": {tier: GOLD, type: FPS,  steamId: 322500  }
 "Teardown":                      {tier: GOLD, type: FPS,  steamId: 1167630 }
@@ -114,6 +118,7 @@
 "The Witcher 3":                 {tier: GOLD, type: TP,   steamId: 292030  }
 "Throne and Liberty":            {tier: NO,   type: TP,   steamId: 2429640 }
 "Titanfall 2":                   {tier: GOLD, type: FPS,  steamId: 1237970 }
+"Void Bastards":                 {tier: NO,   type: FPS,  steamId: 857980  }
 "VRChat":                        {tier: GOLD, type: FPS,  steamId: 438100  }
 "Warframe":                      {tier: GOLD, type: TP,   steamId: 230410  }
 "Warhammer 40K: Boltgun 2":      {tier: GOLD, type: FPS,  steamId: 3115160, altCover: 5f9bb697da7c17abcfec3205446d896a4cd561bb}
@@ -121,31 +126,34 @@
 "Where Winds Meet":              {tier: NO,   type: TP,   steamId: 3564740, altCover: 6d94b048393d5358690a04a7db99f2c9739c703c}
 "White Knuckle":                 {tier: NO,   type: FPS,  steamId: 3195790, altCover: header }
 "Witchfire":                     {tier: GOLD, type: FPS,  steamId: 3156770, altCover: 20eb65d67b33ae31b48459ed226014231d3e4fe5 }
-"World War Z":                   {tier: NO,   type: TP,  steamId: 699130 }
+"World War Z":                   {tier: NO,   type: TP,   steamId: 699130  }
+"Ziggurat 2":                    {tier: GOLD, type: FPS,  steamId: 1159560 }
 
 # Games with common notes.
 "Fortnite":                      {tier: PLAT_,type: TP,   steamId: null,    notes: 'User can force MKB UI, but not gamepad UI', altCover: /fortnite }
 "Ghost Recon Breakpoint":        {tier: PLAT_,type: TP,   steamId: 2231380, notes: 'User can force MKB UI, but not gamepad UI' }
 "Marvel Rivals":                 {tier: PLAT_,type: TP,   steamId: 2767030, notes: 'User can force MKB UI, but not gamepad UI' }
-"Minecraft (Bedrock edition)":   {tier: PLAT_,type: FPS,  steamId: null,    notes: 'User can force gamepad UI, but not MKB UI', altCover: /minecraft }
-"Cube World":                    {tier: PLAT_,type: TP,  steamId: 1128000, notes: 'User can force gamepad UI, but not MKB UI' }
+"Cube World":                    {tier: PLAT_,type: TP,   steamId: 1128000, notes: 'User can force gamepad UI, but not MKB UI' }
+"Minecraft (Bedrock edition)":   {tier: SILV, type: FPS,  steamId: null,    notes: 'Inconsistent behavior between modes (Look sensitivities)', altCover: /minecraft }
 "Kingdom Come: Deliverance 2":   {tier: SILV, type: FPS,  steamId: 1771300, notes: 'Inconsistent behavior between modes (Quick potions)' }
-"Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430,  notes: 'Inconsistent behavior between modes (Resupply)' }
+"Deep Rock Galactic":            {tier: SILV, type: FPS,  steamId: 548430,  notes: 'Inconsistent behavior between modes (Resupply, Shout/Laser)' }
 "Days Gone":                     {tier: SILV, type: TP,   steamId: 1259420, notes: 'Inconsistent behavior between modes (Look sensitivities)' }
 "Stellar Blade":                 {tier: SILV, type: TP,   steamId: 3489700, notes: 'Inconsistent behavior between modes (Look sensitivities)', altCover: header }
 "Returnal":                      {tier: BRON, type: TP,   steamId: 1649240, notes: 'Inconsistent behavior between modes (Alt-fire toggle). Sound glitch that can be fixed by modifying game files.' }
-"Ace Combat 7":                  {tier: BRON, type: COCK, steamId: 502500 , notes: 'Freelook mouse is not raw input' }
-"MS Flight Simulator 2020":      {tier: BRON, type: COCK, steamId: 1250410, notes: 'Freelook mouse is not raw input' }
-"MS Flight Simulator 2024":      {tier: BRON, type: COCK, steamId: 2537590, notes: 'Freelook mouse is not raw input', altCover: header }
-"Project Wingman":               {tier: BRON, type: COCK, steamId: 895870 , notes: 'Freelook mouse is not raw input' }
+"Tomb Raider I-III Remastered":  {tier: BRON, type: TP,   steamId: 2478970, notes: 'Mouse look is not raw input' }
+"Ace Combat 7":                  {tier: BRON, type: COCK, steamId: 502500 , notes: 'Mouse look is not raw input' }
+"MS Flight Simulator 2020":      {tier: BRON, type: COCK, steamId: 1250410, notes: 'Mouse look is not raw input' }
+"MS Flight Simulator 2024":      {tier: BRON, type: COCK, steamId: 2537590, notes: 'Mouse look is not raw input', altCover: header }
+"Project Wingman":               {tier: BRON, type: COCK, steamId: 895870 , notes: 'Mouse look is not raw input' }
 "Star Wars Outlaws":             {tier: BRON, type: TP,   steamId: 2842040, notes: 'UI flickering has a small impact on performance', altCover: header }
 "Nobody Wants to Die":           {tier: BRON, type: FPS,  steamId: 1939970, notes: 'UI flickering has a small impact on performance' }
 "Jump Space":                    {tier: NO,   type: FPS,  steamId: 1757300, notes: 'UI flickering has a major impact on performance', altCover: f401ae1af25f31fdfed24f56cf98ea4a32d79997 }
 "Rage 2":                        {tier: NO,   type: FPS,  steamId: 548570,  notes: 'UI flickering has a major impact on performance' }
-"Dark Sector":                   {tier: SILV, type: TP,  steamId: 29900,   notes: 'Game works fine but menus misbehave.' }
-"Palworld":                      {tier: SILV, type: TP,  steamId: 1623730, notes: 'Game works fine but menus misbehave.' }
+"Dark Sector":                   {tier: SILV, type: TP,   steamId: 29900,   notes: 'Game works fine but menus misbehave.' }
+"Palworld":                      {tier: SILV, type: TP,   steamId: 1623730, notes: 'Game works fine but menus misbehave.' }
 
 # Games with unique notes.
+"Amid Evil":                     {tier: PLAT_,type: FPS,  steamId: 673130,  notes: 'No gamepad UI at all' }
 "Doom (1993)":                   {tier: PLAT_,type: FPS,  steamId: 2280,    notes: 'MKB UI appears only if navigating menu with WASD.' }
 "Dusk":                          {tier: NO,   type: FPS,  steamId: 519860,  notes: 'Almost works, but input is interrupted each few seconds' }
 "Final fantasy XIV Online":      {tier: PLAT, type: TP,   steamId: 39210,   notes: 'Can display both gamepad UI and MKB UI at once' }
@@ -158,6 +166,8 @@
 "Rainbow Six Siege":             {tier: NO,   type: FPS,  steamId: 359550,  notes: 'There are workarounds for character movement, but drone movement completely blocks mixed input' }
 "The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830,  notes: 'Mixed input works with DirectInput, but not with XInput'  }
 "Warhammer 40K: Space Marine 2": {tier: BRON, type: TP,   steamId: 2183900, notes: 'Gets picky if there are multiple controllers. QTEs only respond to the current glyph state (which flickers).' }
+"Warhammer: Vermintide 2":       {tier: NO,   type: FPS,  steamId: 552500,  notes: 'Hold actions interrupted when alternating input' }
+"Zigurrat":                      {tier: BRON, type: FPS,  steamId: 308420,  notes: 'Requires DirectInput or SteamInput' }
 
 # Template.
 # "":              {tier: _, type: , steamId:  }
