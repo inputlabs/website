@@ -108,7 +108,7 @@
 "Shadow Warrior 3":              {tier: GOLD, type: FPS,  steamId: 1036890 }
 "Silent Hill 2":                 {tier: GOLD, type: TP,   steamId: 2124490 }
 "Stalker 2: Heart of Chornobyl": {tier: GOLD, type: FPS,  steamId: 1643320 }
-"Star Wars: Battlefront II":     {tier: GOLD, type: TP,   steamId: 6060    }
+"Star Wars Battlefront II":      {tier: GOLD, type: TP,   steamId: 6060    }
 "Stray":                         {tier: GOLD, type: TP,   steamId: 1332010 }
 "Superhot: Mind Control Delete": {tier: GOLD, type: FPS,  steamId: 322500  }
 "Teardown":                      {tier: GOLD, type: FPS,  steamId: 1167630 }
