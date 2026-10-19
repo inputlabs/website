@@ -345,6 +345,18 @@ main .boxes.center {
 .box.image.dark {
   background-color: hsla(0, 0%, 0%, 0.7);
 }
+.box.image.black {
+  background-color: hsla(0, 0%, 0%, 1);
+}
+.box.image.centered {
+  display: flex;
+  justify-content: center;
+}
+.box.image.centered > * {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 .box.translucent {
   opacity: 0.95;
 }
@@ -416,6 +428,7 @@ main .boxes.center {
 .warning > div {
   margin-left: 7px !important;
   margin-right: 7px !important;
+  margin-bottom: 20px !important;
   width: 100% !important;
   padding: 10px !important;
   background-color: black;

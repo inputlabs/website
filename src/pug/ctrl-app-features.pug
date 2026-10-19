@@ -1,0 +1,181 @@
+extends ./_template.pug
+
+block append title
+  | Ctrl app features
+
+block page
+  include _selector.pug
+
+  div.boxes.wiki
+    div.box.entry(style="margin-left:auto; margin-right:auto")
+
+      h3 Ctrl app compared to Steam Input
+      p: i (This is not a comprehensive list of all Steam Input features)
+
+
+      - notPlanned = 'Not planned at the moment'
+      - var getGHid = (url) => url.split('/').pop()
+
+      mixin _planned(url, text)
+        span.dim: i &nbsp;- #{text} #[+ax(url) ##{getGHid(url)}]
+
+      mixin planned(url)
+        +_planned(url, 'Not implemented yet')
+
+      mixin notPlannedWithLink(url)
+        +_planned(url, 'Not planned at the moment')
+
+      h4 Overview
+      table.manual.hdiv.col2
+        tr
+          th Ctrl app
+          th Steam Input
+        tr
+          td For any launcher, and any game
+          td Only for Steam games (or added to Steam)
+        tr
+          td 12 profiles stored in the controller
+          td 1 profile per game (executable tracking)
+        tr
+          td Profile load / save to file
+          td Profile load / save to cloud
+        tr
+          td Hardware XInput device (app optional)
+          td Virtual XInput device (running in the OS background)
+        tr
+          td Home shortcuts (home profile)
+          td Steam button shortcuts / guide button chords layout
+        tr
+          td
+            span.dim Profile layers
+            +planned('https://github.com/inputlabs/alpakka_firmware/issues/70')
+          td Profile action sets and layers
+        tr
+          td Works in login screen, admin windows, and UEFI/BIOS
+          td.dim No
+
+      h4 Buttons
+      table.manual.hdiv.col2
+        tr
+          th Ctrl app
+          th Steam Input
+        tr
+          td Normal / Long / Double press
+          td Normal / Long / Double press
+        tr
+          td
+            span.dim Toggle / Repeat / Cycle
+            +planned('https://github.com/inputlabs/alpakka_firmware/issues/225')
+          td Toggle / Repeat / Cycle
+        tr
+          td Immediate / trigger both
+          td Interruptable
+        tr
+          td Up to 4 actions per button
+          td Multiple commands per button
+        tr
+          td Button to axis (absolute)
+          td Button axis command
+        tr
+          td
+            span.dim Button to axis (relative)
+            +planned('https://github.com/inputlabs/alpakka_firmware/issues/118')
+          td Move by amount
+        tr
+          td
+            span.dim Chords
+            +planned('https://github.com/inputlabs/alpakka_firmware/issues/70')
+          td Chords
+        tr
+          td Quick-chat macros
+          td.dim No
+
+      h4 Gyro
+      table.manual.hdiv.col2
+        tr
+          th Ctrl app
+          th Steam Input
+        tr
+          td Gyro to mouse
+          td Gyro to mouse
+        tr
+          td Gyro to buttons
+          td Gyro to directional pad
+        tr
+          td Gyro to thumbstick (absolute / tilt)
+          td Gyro to joystick (absolute / tilt)
+        tr
+          td
+            span.dim Gyro to thumbstick (relative)
+            +notPlannedWithLink('https://github.com/inputlabs/alpakka_firmware/issues/77')
+          td Gyro to joystick camera
+        tr
+          td Gyro mode #[em touch on] / #[em touch off]
+          td Gyro hold to #[em enable] / #[em suppress] gyro
+        tr
+          td Gyro activation (touch sensor / any button)
+          td Gyro activation button
+        tr
+          td
+            span.dim Gyro acceleration / tightening
+            +planned('https://github.com/inputlabs/alpakka_firmware/issues/107')
+          td Gyro acceleration / precision
+        tr
+          td
+            span.dim Gyro momentum
+            +planned('https://github.com/inputlabs/alpakka_firmware/issues/102')
+          td Gyro momentum
+        tr
+          td
+            span.dim DPI multiplier on button
+            +planned('https://github.com/inputlabs/alpakka_firmware/issues/104')
+          td Trigger press mouse dampening
+        tr
+          td Gyro axis: X / Y / Z (Local space)
+          td 3DOF to 2D modes: Yaw / Pitch / Roll
+        tr
+          td
+            span.dim Gyro axis: X / Y / Z (World space)
+            +planned('https://github.com/inputlabs/alpakka_firmware/issues/79')
+          td 3DOF to 2D modes: World space
+
+      h4 Thumbstick
+      table.manual.hdiv.col2
+        tr
+          th Ctrl app
+          th Steam Input
+        tr
+          td Thumbstick deadzone / anti-deadzone
+          td Joystick deadzone / anti-deadzone
+        tr
+          td Thumbstick inner and outer rings (both)
+          td Joystick outer ring (with invert option)
+        tr
+          td Thumbstick push auto-toggle
+          td.dim No
+        tr
+          td Thumbstick overlap
+          td Joystick overlap region
+        tr
+          td Thumbstick to buttons
+          td Joystick to directional pad
+        tr
+          td Thumbstick to mouse
+          td Joystick mouse
+        tr
+          td
+            span.dim Thumbstick WASD 16-direction emulation
+            +planned('https://github.com/inputlabs/alpakka_firmware/issues/127')
+          td Joystick directional pad analog emulation
+        tr
+          td Thumbstick Rotation mode (mouse output)
+          td Flick stick
+        tr
+          td Thumbstick Rotation mode (any axis output)
+          td.dim No
+        tr
+          td Daisy-wheel keyboard
+          td.dim Daisy-wheel keyboard (deprecated)
+        tr
+          td Glyph-stick keyboard
+          td.dim No

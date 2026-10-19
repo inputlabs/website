@@ -3,7 +3,7 @@
 
 
 if SECTION == 'alpakka'
-  h1.primary Alpakka 1
+  h1.primary Alpakka
   h1.secondary
     a.sub(class=active(PAGE=='alpakka') href='/alpakka') Overview
     a.sub(class=active(SECTION_2=='manual') href=redirect.alpakkaManual) Manual
@@ -24,3 +24,10 @@ if SECTION == 'kapybara'
 
 if SECTION == 'marmota'
   h1 Marmota
+
+if SECTION.startsWith('ctrl-app')
+  h1.primary Ctrl app
+  h1.secondary
+    a.sub(class=active(PAGE=='ctrl-app') href='/ctrl-app') Overview
+    a.sub(class=active(PAGE=='ctrl-app-features') href='/ctrl-app-features') Features
+    a.sub(href='https://ctrl.inputlabs.io' target='_blank') App ↗
