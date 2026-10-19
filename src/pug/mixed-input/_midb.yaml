@@ -12,6 +12,7 @@
 "Battlefield 6":                 {tier: GOLD, type: FPS,  steamId: 2807960, altCover: c12d12ce3c7d217398d3fcad77427bfc9d57c570 }
 "Battlefield V":                 {tier: GOLD, type: FPS,  steamId: 1238810 }
 "Black Mesa":                    {tier: GOLD, type: FPS,  steamId: 362890  }
+"Blue Prince":                   {tier: GOLD, type: FPS,  steamId: 1569580 }
 "Borderlands 2":                 {tier: GOLD, type: FPS,  steamId: 49520   }
 "Borderlands 3":                 {tier: GOLD, type: FPS,  steamId: 397540  }
 "Bullets Per Minute":            {tier: GOLD, type: FPS,  steamId: 1286350 }
@@ -61,10 +62,12 @@
 "Far Far West":                  {tier: GOLD, type: FPS,  steamId: 3124540, altCover: 2d55092d45b1784dcc7cb0ba6ad3f919e62eb5d0 }
 "Forgive Me Father":             {tier: GOLD, type: FPS,  steamId: 1590910 }
 "Furi":                          {tier: NO,   type: TWIN, steamId: 423230  }
+"Gears of War; E-Day":           {tier: GOLD, type: TP,   steamId: 3010850 }
 "Ghost of Tsushima":             {tier: NO,   type: TP,   steamId: 2215430 }
 "Ghostrunner":                   {tier: GOLD, type: FPS,  steamId: 1139900 }
 "Gunfire Reborn":                {tier: NO,   type: FPS,  steamId: 1217060 }
 "Half-Life 2":                   {tier: GOLD, type: FPS,  steamId: 220     }
+"Halo: Campaign Evolved":        {tier: NO,   type: FPS,  steamId: 2806050, altCover: 30d8542d35d7919b34e5f5dbe955d04c3f99e6da }
 "Helldivers 2":                  {tier: GOLD, type: TP,   steamId: 553850  }
 "Horizon Forbidden West":        {tier: NO,   type: TP,   steamId: 2420110 }
 "Horizon Zero Dawn":             {tier: NO,   type: TP,   steamId: 1151640 }
@@ -76,6 +79,7 @@
 "Kingdom Come: Deliverance":     {tier: PLAT, type: FPS,  steamId: 379430  }
 "Left 4 Dead 2":                 {tier: GOLD, type: FPS,  steamId: 550     }
 "Little Kitty, Big City":        {tier: GOLD, type: TP,   steamId: 1177980 }
+"Metal Eden":                    {tier: NO  , type: FPS , steamId: 990380 }
 "Metro Exodus":                  {tier: NO,   type: FPS,  steamId: 412020  }
 "Mirror's Edge":                 {tier: GOLD, type: FPS,  steamId: 17410   }
 "Necromunda: Hired Gun":         {tier: GOLD, type: FPS,  steamId: 1222370 }
@@ -93,14 +97,17 @@
 "Prey (2017)":                   {tier: GOLD, type: FPS,  steamId: 480490  }
 "Prodeus":                       {tier: NO,   type: FPS,  steamId: 964800  }
 "PUBG: Battlegrounds":           {tier: NO,   type: TP,   steamId: 578080  }
+"Quake (2021)":                  {tier: GOLD, type: FPS , steamId: 2310 }
 "Quake II (2023)":               {tier: GOLD, type: FPS,  steamId: 2320    }
 "Red Dead Redemption 2":         {tier: GOLD, type: TP,   steamId: 1174180 }
 "Remnant II":                    {tier: GOLD, type: TP,   steamId: 1282100 }
 "Resident Evil 2 (2019)":        {tier: NO,   type: TP,   steamId: 883710  }
 "Resident Evil 4 (2023)":        {tier: GOLD, type: TP,   steamId: 2050650 }
+"Resonance: A Plague Tale Legacy": {tier: GOLD,type: TP,  steamId: 2713000, altCover: fd497979801c646561040243e1aa64a73d11f13a }
 "Risk of Rain 2":                {tier: GOLD, type: TP,   steamId: 632360  }
 "RoboCop: Rogue City":           {tier: GOLD, type: FPS,  steamId: 1681430 }
 "Roboquest":                     {tier: NO,   type: FPS,  steamId: 692890  }
+"RuneScape: Dragonwilds":        {tier: GOLD, type: TP,   steamId: 1374490, altCover: 3e27915a647dbf05e17f2ff98d33c9a0765da539 }
 "Sekiro: Shadows Die Twice":     {tier: PLAT, type: TP,   steamId: 814380  }
 "Selaco":                        {tier: PLAT, type: FPS,  steamId: 1592280 }
 "Severed Steel":                 {tier: NO,   type: FPS,  steamId: 1227690 }
@@ -115,10 +122,15 @@
 "The Finals":                    {tier: GOLD, type: FPS,  steamId: 2073850 }
 "The First Descendant":          {tier: GOLD, type: TP,   steamId: 2074920 }
 "The Pathless":                  {tier: NO,   type: TP,   steamId: 1492680 }
-"The Witcher 3":                 {tier: GOLD, type: TP,   steamId: 292030  }
+"The Witcher 3 (2022)":          {tier: GOLD, type: TP,   steamId: 292030 }
+"The Witcher 3 (2026)":          {tier: NO  , type: TP,   steamId: 292030 }
 "Throne and Liberty":            {tier: NO,   type: TP,   steamId: 2429640 }
 "Titanfall 2":                   {tier: GOLD, type: FPS,  steamId: 1237970 }
+"UZDoom":                        {tier: PLAT, type: FPS , altCover: /uzdoom }
+"Valheim":                       {tier: NO,   type: TP,   steamId: 892970 }
+"Valor Mortis":                  {tier: GOLD, type: FPS,  steamId: 2828710, altCover: e729c7f909db5c52ea780923d9b258517162866a }
 "Void Bastards":                 {tier: NO,   type: FPS,  steamId: 857980  }
+"Void Breaker":                  {tier: GOLD, type: FPS , steamId: 2615540, altCover: /void_breaker }
 "VRChat":                        {tier: GOLD, type: FPS,  steamId: 438100  }
 "Warframe":                      {tier: GOLD, type: TP,   steamId: 230410  }
 "Warhammer 40K: Boltgun 2":      {tier: GOLD, type: FPS,  steamId: 3115160, altCover: 5f9bb697da7c17abcfec3205446d896a4cd561bb}
@@ -153,6 +165,7 @@
 "Palworld":                      {tier: SILV, type: TP,   steamId: 1623730, notes: 'Game works fine but menus misbehave.' }
 
 # Games with unique notes.
+"Avowed":                        {tier: BRON, type: FPS,  steamId: 2457220, notes: 'The whole UI flickers position and/or layout'}
 "Amid Evil":                     {tier: PLAT_,type: FPS,  steamId: 673130,  notes: 'No gamepad UI at all' }
 "Doom (1993)":                   {tier: PLAT_,type: FPS,  steamId: 2280,    notes: 'MKB UI appears only if navigating menu with WASD.' }
 "Dusk":                          {tier: NO,   type: FPS,  steamId: 519860,  notes: 'Almost works, but input is interrupted each few seconds' }
@@ -164,7 +177,7 @@
 "I Am Your Beast":               {tier: PLAT, type: FPS,  steamId: 1876590, notes: 'Mixed input must be enabled in settings' }
 "No Man's Sky":                  {tier: SILV, type: FPS,  steamId: 275850,  notes: 'Gamepad with mouse-look works, but keyboard or mouse-buttons break mixed input' }
 "Rainbow Six Siege":             {tier: NO,   type: FPS,  steamId: 359550,  notes: 'There are workarounds for character movement, but drone movement completely blocks mixed input' }
-"The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830,  notes: 'Mixed input works with DirectInput, but not with XInput'  }
+"The Elder Scrolls V: Skyrim":   {tier: BRON, type: FPS,  steamId: 489830,  notes: 'Mixed input works with DirectInput, but not with XInput' }
 "Warhammer 40K: Space Marine 2": {tier: BRON, type: TP,   steamId: 2183900, notes: 'Gets picky if there are multiple controllers. QTEs only respond to the current glyph state (which flickers).' }
 "Warhammer: Vermintide 2":       {tier: NO,   type: FPS,  steamId: 552500,  notes: 'Hold actions interrupted when alternating input' }
 "Zigurrat":                      {tier: BRON, type: FPS,  steamId: 308420,  notes: 'Requires DirectInput or SteamInput' }
